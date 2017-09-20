@@ -1,0 +1,40 @@
+{
+  "name": "dota2_custom_game",
+  "version": "0.0.0",
+  "description": "A really great Dota 2 game mode.",
+  "main": "index.js",
+  "scripts": {
+    "test": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape \"./scripts/test/*test.js\" | tap-summary --no-progress",
+    "test-verbose": "semistandard --global $ --global GameUI --global GameEvents --global Players && tape \"./scripts/test/*test.js\"",
+    "semistandard": "semistandard",
+    "tape": "tape",
+    "tap-summary": "tap-summary"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OpenAngelArena/custom_game_boilerplate.git"
+  },
+  "keywords": [
+    "dota2"
+  ],
+  "author": "Chris Vickery <chrisinajar@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OpenAngelArena/custom_game_boilerplate/issues"
+  },
+  "homepage": "https://github.com/OpenAngelArena/custom_game_boilerplate#readme",
+  "devDependencies": {
+    "after": "^0.8.2",
+    "async-each": "^1.0.1",
+    "parse-kv": "^0.2.0",
+    "semistandard": "^9.2.1",
+    "spok": "^0.8.1",
+    "tap-summary": "^3.0.2",
+    "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "ap": "^0.2.0",
+    "request": "^2.81.0",
+    "transifex": "^1.4.6"
+  }
+}

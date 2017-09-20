@@ -1,0 +1,14 @@
+.InfoContainer
+{
+  horizontal-align: left;
+  vertical-align: top;
+  flow-children: down;
+  margin-left: 2px;
+}
+
+.InfoLabel
+{
+  color: rgba(205,36,36,.80);
+  font-family: monospace;
+  font-weight: bold;
+}
