@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenAngelArena/custom_game_boilerplate.git"
+    "url": "git+https://github.com/chrisinajar/frostivus2017.git"
   },
   "keywords": [
     "dota2"
@@ -20,9 +20,9 @@
   "author": "Chris Vickery <chrisinajar@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenAngelArena/custom_game_boilerplate/issues"
+    "url": "https://github.com/chrisinajar/frostivus2017/issues"
   },
-  "homepage": "https://github.com/OpenAngelArena/custom_game_boilerplate#readme",
+  "homepage": "https://github.com/chrisinajar/frostivus2017#readme",
   "devDependencies": {
     "after": "^0.8.2",
     "async-each": "^1.0.1",

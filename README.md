@@ -1,5 +1,5 @@
-# Dota 2 Custom Game Boilerplate
-This is based on https://github.com/OpenAngelArena/oaa
+# Frostivus 2017
+MNI/OAA crew's submission to the 2017 frostrivus competition
 
 # License
 MIT
