@@ -1,0 +1,5 @@
+"DOTA_Tooltip_ability_creep_stagger"                  "Staggering Blows"
+"DOTA_Tooltip_ability_creep_stagger_Description"          "Hits inflict a powerful but very short slow."
+"DOTA_Tooltip_ability_creep_stagger_Lore"             ""
+"DOTA_Tooltip_ability_creep_stagger_bonus_movespeed"      "%MOVE SLOW:"
+"DOTA_Tooltip_ability_creep_stagger_duration"     "DURATION:" 
