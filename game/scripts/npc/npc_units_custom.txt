@@ -1,3 +1,7 @@
+#base "units/npc_dota_swarmer_1.txt"
+#base "units/npc_dota_swarmer_2.txt"
+#base "units/npc_dota_swarmer_3.txt"
+
 "DOTAUnits"
 {
 

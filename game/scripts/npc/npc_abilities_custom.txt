@@ -1,2 +1,7 @@
-"DOTAAbilities" {
+#base "abilities/creep_rush.txt"
+#base "abilities/creep_stagger.txt"
+
+"DOTAAbilities" 
+{
+  
 }
