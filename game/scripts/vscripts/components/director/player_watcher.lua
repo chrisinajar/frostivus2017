@@ -1,5 +1,6 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
+
 PlayerWatcher = PlayerWatcher or class({})
 
 MARKER_INTERVAL = 0.5
