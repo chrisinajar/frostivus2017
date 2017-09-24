@@ -8,9 +8,9 @@
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
-    "Model"                                               "models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"  // Model.
+    "Model"                                               "none.vmdl"  // Model.
     "SoundSet"                                            ""          // Name of sound set.
-    "ModelScale"                                          "0.1"
+    "ModelScale"                                          "0"
     "Level"                                               "30"
     "IsAncient"                                           "1"
     "ConsideredHero"                                      "1"
@@ -48,8 +48,8 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_FLY"      // Type of locomotion - ground, air
-    "MovementSpeed"                                       "420"    // Speed
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "1000"    // Speed
     "MovementTurnRate"                                    "0.8"    // Turning rate.
 
     // Status

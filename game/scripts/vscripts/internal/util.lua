@@ -342,3 +342,6 @@ function MoveCameraToEntity(playerID, entity)
     end)
   end
 end
+
+function noop()
+end

@@ -3,6 +3,9 @@ LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_
 modifier_marker_creep = class(ModifierBaseClass)
 
 function modifier_marker_creep:DeclareFunctions ()
+  return {
+    MODIFIER_PROPERTY_MOVESPEED_MAX
+  }
 end
 
 function modifier_marker_creep:CheckState()
@@ -12,9 +15,10 @@ function modifier_marker_creep:CheckState()
     [MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_MAGIC_IMMUNE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_INVISIBLE] = true,
-    [MODIFIER_STATE_FLYING] = true,
-    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
+    [MODIFIER_STATE_NO_UNIT_COLLISION] = true
   }
+end
+
+function modifier_marker_creep:GetModifierMoveSpeed_Max()
+  return 2000
 end
