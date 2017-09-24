@@ -148,21 +148,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
-  InitModule(PointsManager)
-  InitModule(Gold)
-  InitModule(BlinkBlock)
   InitModule(ZoneControl)
-  InitModule(AbilityLevels)
-  InitModule(HeroProgression)
-  InitModule(SellBlackList)
-  InitModule(Glyph)
-  InitModule(BubbleOrbFilter)
-  InitModule(ReactiveFilter)
-  InitModule(NGP)
-  InitModule(Doors)
-  InitModule(HeroKillGold)
-  InitModule(EntityStatProvider)
-  InitModule(ProtectionAura)
   InitModule(Music)
 
   CheckCheatMode()
@@ -177,16 +163,7 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(CreepPower)
-  InitModule(CreepCamps)
-  InitModule(CreepItemDrop)
-  InitModule(CaveHandler)
-  InitModule(Duels)
-  InitModule(BossSpawner)
-  InitModule(BottleCounter)
-  InitModule(DuelRunes)
-  InitModule(FinalDuel)
-  InitModule(PlayerConnection)
+  InitModule(HordeDirector)
 
 end
 
@@ -211,9 +188,7 @@ function GameMode:InitGameMode()
   DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
 
   InitModule(FilterManager)
-  InitModule(GameLengthVotes)
   InitModule(Courier)
-  InitModule(HeroSelection)
   InitModule(ChatCommand)
   InitModule(DevCheats)
 
