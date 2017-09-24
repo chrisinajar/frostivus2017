@@ -1,7 +1,9 @@
 //=====================================================================================
 //  CREEPS
 //=====================================================================================
-
+"npc_dota_horde_basic"                                          "Basic"
+"npc_dota_horde_knight"                                         "Knight"
+"npc_dota_horde_shredder"                                       "Shredder"
 "npc_dota_horde_swarmer_1"                                      "Swarmer"
 "npc_dota_horde_swarmer_2"                                      "Fast Swarmer"
 "npc_dota_horde_swarmer_3"                                      "Rabid Swarmer"

@@ -1,6 +1,12 @@
 #base "units/npc_dota_swarmer_1.txt"
 #base "units/npc_dota_swarmer_2.txt"
 #base "units/npc_dota_swarmer_3.txt"
+#base "units/npc_dota_horde_basic.txt"
+#base "units/npc_dota_horde_knight.txt"
+#base "units/npc_dota_horde_shredder.txt"
+#base "units/npc_dota_horde_swarmer_1.txt"
+#base "units/npc_dota_horde_swarmer_2.txt"
+#base "units/npc_dota_horde_swarmer_3.txt"
 
 "DOTAUnits"
 {

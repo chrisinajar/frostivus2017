@@ -3,7 +3,7 @@
   //=================================================================================
   // Neutral: Rabid Swarmer
   //=================================================================================
-  "npc_dota_swarmer_3"
+  "npc_dota_horde_swarmer_3"
   {                   
     // General
     //----------------------------------------------------------------
@@ -11,7 +11,7 @@
     "BaseClass"         "npc_dota_creep_neutral"
     "SoundSet"          "n_creep_Melee"
     "Level"           "1"
-    "ModelScale"          ".7"
+    "ModelScale"          ".9"
     "IsNeutralUnitType"     "1"
 
     // Abilities
@@ -28,8 +28,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "20"    // Damage range min.
-    "AttackDamageMax"     "25"    // Damage range max.  
+    "AttackDamageMin"     "80"    // Damage range min.
+    "AttackDamageMax"     "100"    // Damage range max.  
     "AttackRate"        "1.35"    // Speed of attack.
     "AttackAnimationPoint"    "0.38"    // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
@@ -39,7 +39,7 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"        "40"
+    "RingRadius"        "20"
     "HealthBarOffset"     "130"
 
     // Bounty

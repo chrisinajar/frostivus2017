@@ -1,3 +1,6 @@
+#base "abilities/creep_damage_block.txt"
+#base "abilities/creep_fervor.txt"
+#base "abilities/creep_fury_swipes.txt"
 #base "abilities/creep_rush.txt"
 #base "abilities/creep_stagger.txt"
 

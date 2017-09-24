@@ -3,7 +3,7 @@
   //=================================================================================
   // Neutral: Swarmer
   //=================================================================================
-  "npc_dota_swarmer_1"
+  "npc_dota_horde_swarmer_1"
   {                   
     // General
     //----------------------------------------------------------------
@@ -11,7 +11,7 @@
     "BaseClass"         "npc_dota_creep_neutral"
     "SoundSet"          "n_creep_Melee"
     "Level"           "1"
-    "ModelScale"          ".7"
+    "ModelScale"          ".5"
     "IsNeutralUnitType"     "1"
 
     // Abilities
@@ -39,7 +39,7 @@
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"        "40"
+    "RingRadius"        "20"
     "HealthBarOffset"     "130"
 
     // Bounty
