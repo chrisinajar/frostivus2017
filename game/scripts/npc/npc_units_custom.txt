@@ -1,3 +1,5 @@
+#base "units/npc_dota_creep_marker.txt"
+
 "DOTAUnits"
 {
 
