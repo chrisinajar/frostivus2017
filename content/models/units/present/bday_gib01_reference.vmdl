@@ -46,7 +46,34 @@
 	{
 		m_pObject = null
 	}
-	m_pHitBoxSetLists = [  ]
+	m_pHitBoxSetLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_HitBoxSets = 
+				[
+					{
+						m_name = "default"
+						m_HitBoxes = 
+						[
+							{
+								m_name = "polymsh"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "polymsh"
+								m_vMinBounds = [ -10.308853, -8.640292, -8.136477 ]
+								m_vMaxBounds = [ 11.672378, 10.620761, 8.136482 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
+	]
 	m_pAttachmentLists = [  ]
 	m_pAnimGroup = 
 	{
