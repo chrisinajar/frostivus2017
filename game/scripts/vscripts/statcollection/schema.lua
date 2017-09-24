@@ -3,7 +3,7 @@ customSchema = class({})
 function customSchema:init()
 
     -- Check the schema_examples folder for different implementations
-  
+
     -- Listen for changes in the current state
     ListenToGameEvent('game_rules_state_change', function(keys)
         local state = GameRules:State_Get()
@@ -46,15 +46,6 @@ function BuildGameArray()
   local game = {
     gl = math.floor(GAME_TIME_ELAPSED), -- Game length, from the horn sound, in seconds
     wt = GAME_WINNER_TEAM, -- Winning team
-
-    -- Score stats
-    sl = PointsManager:GetLimit(), -- Score limit
-    st1 = PointsManager:GetPoints(DOTA_TEAM_GOODGUYS), -- score team 1
-    st2 = PointsManager:GetPoints(DOTA_TEAM_BADGUYS), -- score team 2
-
-    -- Cave Stats
-    cct1 = CaveHandler:GetCleares(DOTA_TEAM_GOODGUYS),
-    cct2 = CaveHandler:GetCleares(DOTA_TEAM_BADGUYS),
   }
 
   return game
@@ -82,10 +73,7 @@ function BuildPlayersArray()
                     nt = GetNetworth(hero), --Sum of hero gold and item worth
 
                     -- Item List
-                    il = GetItemList(hero),
-
-                    -- Bottel Count
-                    bc = BottleCounter:GetBottles(playerID)
+                    il = GetItemList(hero)
                 })
             end
         end
