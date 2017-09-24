@@ -1,0 +1,9 @@
+"DOTA_Tooltip_ability_creep_damage_block"                  "Damage Block"
+"DOTA_Tooltip_ability_creep_damage_block_Description"            "Blocks damage from every attack."
+"DOTA_Tooltip_ability_creep_damage_block_Lore"               "The thick hide takes a lot of force out of every blow."
+//"DOTA_Tooltip_ability_creep_damage_block_Note0"              "Only damage from player owned sources is counted towards buff removal."
+//"DOTA_Tooltip_ability_creep_damage_block_Note1"              "The counter will reset if no player owned damage is taken for 6 seconds."
+//"DOTA_Tooltip_ability_creep_damage_block_Note2"              "Kraken Shell removes most buffs, even if they are generally not purgable."
+"DOTA_Tooltip_ability_creep_damage_block_damage_reduction"         "DAMAGE BLOCK:"
+//"DOTA_Tooltip_ability_creep_damage_block_damage_cleanse"         "DAMAGE THRESHOLD:"
+//"DOTA_Tooltip_ability_creep_damage_block_damage_reset_interval"      "THRESHOLD TIMER:

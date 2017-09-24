@@ -4,14 +4,14 @@
   // Neutral: Knight
   //=================================================================================
   "npc_dota_horde_knight"
-  {                   
+  {                                       
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_c/n_creep_satyr_c.vmdl" // Model.
     "BaseClass"                 "npc_dota_creep_neutral"
     "SoundSet"                  "n_creep_Melee"
-    "Level"                     "1"
-    "ModelScale"                "0.9"
+    "Level"                     "4"
+    "ModelScale"                ".8"
     "IsNeutralUnitType"         "1"
 
     // Abilities
@@ -29,24 +29,24 @@
     //----------------------------------------------------------------
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"     "30"    // Damage range min.
-    "AttackDamageMax"     "40"    // Damage range max.
-    "AttackRate"        "1.5"   // Speed of attack.
-    "AttackAnimationPoint"    "0.4"   // Normalized time in animation cycle to attack.
+    "AttackDamageMax"     "40"    // Damage range max.  
+    "AttackRate"        "1.35"    // Speed of attack.
+    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
     "AttackRange"       "100"   // Range within a target can be attacked.
     "ProjectileModel"     ""      // Particle system model for projectile.
-    "ProjectileSpeed"     "0"     // Speed of projectile.   
+    "ProjectileSpeed"     "0"     // Speed of projectile.      
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"        "35"
-    "HealthBarOffset"     "175"
+    "RingRadius"        "50"
+    "HealthBarOffset"     "190"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"          "33"    // Experience earn.
-    "BountyGoldMin"       "17"    // Gold earned min.
-    "BountyGoldMax"       "20"    // Gold earned max.
+    "BountyXP"          "50"    // Experience earn.
+    "BountyGoldMin"       "22"    // Gold earned min.
+    "BountyGoldMax"       "26"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
