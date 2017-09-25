@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
-Debug.EnabledModules['director:player_watcher'] = false
+Debug.EnabledModules['director:player_watcher'] = true
 
 PlayerWatcher = PlayerWatcher or class({})
 
@@ -20,6 +20,9 @@ function PlayerWatcher:Init(playerID)
   self.killedNearbyUnits = 0
   self.stressLevel = 0
   self.peakStress = 0
+  self.nextJob = nil
+  self.marker = CreateUnitByName("npc_dota_creep_marker", self.hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  self.marker:AddNewModifier(self.marker, nil, 'modifier_marker_creep', {})
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
 
@@ -98,11 +101,16 @@ end
 
 function PlayerWatcher:EntityKilledNearby(unit, distance)
   self.killedUnits = self.killedUnits + 1
-  self.killedNearbyUnits = self.killedNearbyUnits + 1
+  local isNeaby = distance < 500
+  if isNeaby then
+    self.killedNearbyUnits = self.killedNearbyUnits + 1
+  end
 
   Timers:CreateTimer(10, function()
     self.killedUnits = self.killedUnits - 1
-    self.killedNearbyUnits = self.killedNearbyUnits - 1
+    if isNeaby then
+      self.killedNearbyUnits = self.killedNearbyUnits - 1
+    end
   end)
 end
 
@@ -137,6 +145,35 @@ function PlayerWatcher:ScheduleUnitSpawn(unitName, callback)
 end
 
 function PlayerWatcher:FindSpawnPoint (callback)
+  self.nextJob = {
+    callback = callback,
+    next = self.nextJob
+  }
+  self:StartJobQueue()
+end
+
+function PlayerWatcher:StartJobQueue()
+  if not self.nextJob or self.isRunning then
+    return
+  end
+  self.isRunning = true
+
+  local function runJob (job)
+    self:RunMarker(function (location)
+      job.callback(location)
+      self.nextJob = self.nextJob.next
+      if self.nextJob then
+        runJob(self.nextJob)
+      else
+        self.isRunning = false
+      end
+    end)
+  end
+
+  runJob(self.nextJob)
+end
+
+function PlayerWatcher:RunMarker (callback)
   local minRange = self.hero:GetCurrentVisionRange() + 200 -- just outside max vision
 
   DebugPrint('Range is ' .. minRange)
@@ -145,34 +182,32 @@ function PlayerWatcher:FindSpawnPoint (callback)
   local spawnLocation = self.hero:GetAbsOrigin()
   spawnLocation.z = self.hero:GetAbsOrigin().z
 
-  local marker = self:CreateSpawnMarker(spawnLocation)
+  self.marker:SetAbsOrigin(spawnLocation)
   local firstRun = true
   local lastPosition = nil
 
   local function checkMarkerVisibility()
-    local position = marker:GetAbsOrigin()
+    local position = self.marker:GetAbsOrigin()
     if position == lastPosition then
       DebugPrint('Failed to find a spawn point in this direction, failing out and retrying')
-      marker:Destroy()
       self:FindSpawnPoint(callback)
       return nil
     end
     if not firstRun then
       lastPosition = position
-      if not self.hero:CanEntityBeSeenByMyTeam(marker) then
-        local location = marker:GetAbsOrigin()
+      if not self.hero:CanEntityBeSeenByMyTeam(self.marker) then
+        local location = self.marker:GetAbsOrigin()
         if location == nil then
           return MARKER_INTERVAL
         end
-        marker:Destroy()
         callback(location)
         return nil
       end
     end
     ExecuteOrderFromTable({
-      UnitIndex = marker:entindex(),
+      UnitIndex = self.marker:entindex(),
       OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-      Position = marker:GetAbsOrigin() + (direction * minRange), --Optional.  Only used when targeting the ground
+      Position = self.marker:GetAbsOrigin() + (direction * minRange), --Optional.  Only used when targeting the ground
       Queue = 0 --Optional.  Used for queueing up abilities
     })
     minRange = math.max(minRange / 2, 300)
@@ -181,11 +216,4 @@ function PlayerWatcher:FindSpawnPoint (callback)
   end
 
   Timers:CreateTimer(0, checkMarkerVisibility)
-end
-
-function PlayerWatcher:CreateSpawnMarker(spawnLocation)
-  local unit = CreateUnitByName("npc_dota_creep_marker", spawnLocation, true, nil, nil, DOTA_TEAM_NEUTRALS)
-
-  unit:AddNewModifier(unit, nil, 'modifier_marker_creep', {})
-  return unit
 end
