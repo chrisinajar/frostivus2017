@@ -22,9 +22,9 @@ function HordeDirector:EnterNextPhase()
 
   if self.currentPhase == PHASE_BUILD_UP then
     HordeDirector:StartBuildUp()
-  else if self.currentPhase == PHASE_PEAK then
+  elseif self.currentPhase == PHASE_PEAK then
     HordeDirector:StartPeak()
-  else if self.currentPhase == PHASE_REST then
+  elseif self.currentPhase == PHASE_REST then
     HordeDirector:StartRest()
   end
 end
