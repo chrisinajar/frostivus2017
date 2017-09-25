@@ -1,9 +1,11 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
--- Debug.EnabledModules['director:player_watcher'] = false
+Debug.EnabledModules['director:player_watcher'] = false
 
 PlayerWatcher = PlayerWatcher or class({})
+
+PeakStressEvent = Event()
 
 local MARKER_INTERVAL = 0.5
 local THINK_INTERVAL = 2
@@ -16,6 +18,8 @@ function PlayerWatcher:Init(playerID)
   self.currentSpawnInterval = 5
   self.killedUnits = 0
   self.killedNearbyUnits = 0
+  self.stressLevel = 0
+  self.peakStress = 0
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
 
@@ -35,9 +39,25 @@ function PlayerWatcher:Init(playerID)
   end)
 end
 
+function PlayerWatcher:IsPeakStress()
+  return self.peakStress > 0
+end
+
 function PlayerWatcher:Think()
   local stressLevel = self:GetStressLevel()
   CustomNetTables:SetTableValue("info", "stressLevel", { value = stressLevel })
+
+  if stressLevel == 1 then
+    self.peakStress = 10
+
+    if self.stressLevel < 1 then
+      PeakStressEvent.broadcast(self)
+    end
+  else
+    self.peakStress = math.max(0, self.peakStress - 1)
+  end
+
+  self.stressLevel = stressLevel
 
   return THINK_INTERVAL
 end
@@ -53,12 +73,12 @@ function PlayerWatcher:GetStressLevel()
   self.lastHP = (hpPercent + self.lastHP*2) / 3
   local hpDiff = (lastHP - self.lastHP) / THINK_INTERVAL
 
-  local hpScale = math.min(1, hpDiff * 8)
+  local hpScale = math.min(1, hpDiff * 10)
   hpScale = math.max(0, hpDiff)
 
   DebugPrint('hp diff is ' .. hpScale)
 
-  hpScale = hpScale + ((1 - hpPercent) / 3)
+  hpScale = hpScale + ((1 - hpPercent) / 2)
 
   DebugPrint('add in percentage ' .. hpScale)
   local nearbyUnits = FindUnitsInRadius(self.hero:GetTeam(), self.hero:GetAbsOrigin(), nil, 400,
@@ -70,7 +90,7 @@ function PlayerWatcher:GetStressLevel()
   )
   DebugPrint('kills... ' .. self.killedUnits .. ', ' .. self.killedNearbyUnits .. ', nearby ' .. #nearbyUnits)
 
-  local stressLevel = hpScale * (#nearbyUnits / (self.killedUnits + 1)) + (((self.killedUnits / 20) + (self.killedNearbyUnits / 10)) * (1-hpPercent))
+  local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/2
   stressLevel = math.min(1, stressLevel)
 
   return stressLevel
@@ -91,7 +111,12 @@ function PlayerWatcher:SpawnUnit()
     local hordeWatcher = HordeWatcher()
     hordeWatcher:Init(unit, self.hero)
   end)
-  self.currentSpawnInterval = math.max(1, self.currentSpawnInterval * 0.95)
+  if self.stressLevel > 0.8 then
+    self.currentSpawnInterval = self.currentSpawnInterval * 1.1
+  elseif self.stressLevel < 0.2 then
+    self.currentSpawnInterval = self.currentSpawnInterval * 0.95
+  end
+  self.currentSpawnInterval = math.max(1, self.currentSpawnInterval)
   return RandomFloat(self.currentSpawnInterval * 0.5, self.currentSpawnInterval * 1.5)
 end
 

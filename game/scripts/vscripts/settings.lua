@@ -1,5 +1,12 @@
 -- In this file you can set up all the properties and settings for your game mode.
 
+------------------------------------------------
+-- Frostivus specific stuff
+MIN_WAVE_TIME = 120
+MAX_WAVE_TIME = 240
+
+------------------------------------------------
+
 PREGAME_TIME = 10
 
 ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned

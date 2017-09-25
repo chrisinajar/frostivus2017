@@ -7,11 +7,39 @@ PHASE_WRAP = 4
 
 function HordeDirector:Init()
   DebugPrint('Init hero director')
+
+  self.watchers = {}
+  self.currentPhase = 0
+
   PlayerResource:GetAllTeamPlayerIDs():each(function (playerID)
     DebugPrint('Initializing player watcher for player ' .. playerID)
     local watcher = PlayerWatcher()
     watcher:Init(playerID)
+    table.insert(self.watchers, watcher)
   end)
+
+  PeakStressEvent.listen(partial(HordeDirector.OnPeakStress, self))
+
+  -- start horde director
+  self:EnterNextPhase()
+end
+
+function HordeDirector:OnPeakStress (watcher)
+  DebugPrint('A player just entered peak stress!')
+  if self:AllPlayersInPeakStress() then
+    if self.currentPhase == PHASE_BUILD_UP then
+      self:EnterNextPhase()
+    end
+  end
+end
+
+function HordeDirector:AllPlayersInPeakStress ()
+  for _,watcher in ipairs(self.watchers) do
+    if not watcher:IsPeakStress() then
+      return false
+    end
+  end
+  return true
 end
 
 function HordeDirector:EnterNextPhase()
@@ -21,19 +49,22 @@ function HordeDirector:EnterNextPhase()
   end
 
   if self.currentPhase == PHASE_BUILD_UP then
-    HordeDirector:StartBuildUp()
+    self:StartBuildUp()
   elseif self.currentPhase == PHASE_PEAK then
-    HordeDirector:StartPeak()
+    self:StartPeak()
   elseif self.currentPhase == PHASE_REST then
-    HordeDirector:StartRest()
+    self:StartRest()
   end
 end
 
 function HordeDirector:StartBuildUp()
+  DebugPrint('Entering start up phase')
 end
 
 function HordeDirector:StartPeak()
+  DebugPrint('Entering peak phase')
 end
 
 function HordeDirector:StartRest()
+  DebugPrint('Entering rest phase')
 end
