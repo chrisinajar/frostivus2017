@@ -1,0 +1,5 @@
+"DOTAAbilities" 
+{
+    "BaseClass"            ""
+    "MaxLevel"             "1"
+}

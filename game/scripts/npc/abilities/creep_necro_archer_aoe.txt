@@ -1,0 +1,37 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Necro Archer AoE
+  //=================================================================================================================
+  "creep_necro_archer_aoe"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                    "15204"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"             "necronomicon_archer_aoe"
+    "AbilityType"           "DOTA_ABILITY_TYPE_BASIC"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"        "900"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "ms_bonus"      "15"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "as_bonus"      "50"
+      }
+    }
+  }
+}
