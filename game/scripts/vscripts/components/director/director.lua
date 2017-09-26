@@ -21,6 +21,7 @@ function HordeDirector:Init()
   PeakStressEvent.listen(partial(HordeDirector.OnPeakStress, self))
 
   -- start horde director
+  HordeSpawner:Init()
   self:EnterNextPhase()
 end
 

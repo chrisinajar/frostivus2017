@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
-Debug.EnabledModules['director:player_watcher'] = true
+Debug.EnabledModules['director:player_watcher'] = false
 
 PlayerWatcher = PlayerWatcher or class({})
 
