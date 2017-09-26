@@ -1,10 +1,13 @@
 #base "abilities/creep_damage_block.txt"
+#base "abilities/creep_desolate.txt"
 #base "abilities/creep_fervor.txt"
 #base "abilities/creep_fury_swipes.txt"
+#base "abilities/creep_heartstopper.txt"
+#base "abilities/creep_necro_archer_aoe.txt"
 #base "abilities/creep_rush.txt"
 #base "abilities/creep_stagger.txt"
 
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   
 }
