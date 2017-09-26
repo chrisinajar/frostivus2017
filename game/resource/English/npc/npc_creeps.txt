@@ -1,3 +1,19 @@
 //=====================================================================================
 //  CREEPS
 //=====================================================================================
+"npc_dota_horde_basic"                                          "Basic"
+"npc_dota_horde_basic_damage_block"                             "Basic Damage Block"
+"npc_dota_horde_basic_desolate"                                 "Basic Desolate"
+"npc_dota_horde_basic_fervor"                                   "Basic Fervor"
+"npc_dota_horde_basic_fury_swipes"                              "Basic Fury Swipes"
+"npc_dota_horde_basic_heartstopper"                             "Basic Heartstopper"
+"npc_dota_horde_basic_necro_archer_aoe"                         "Basic Necro Archer Aoe"
+"npc_dota_horde_basic_rush"                                     "Basic Rush"
+"npc_dota_horde_basic_stagger"                                  "Basic Stagger"
+
+
+"npc_dota_horde_knight"                                         "Knight"
+"npc_dota_horde_shredder"                                       "Shredder"
+"npc_dota_horde_swarmer_1"                                      "Swarmer"
+"npc_dota_horde_swarmer_2"                                      "Fast Swarmer"
+"npc_dota_horde_swarmer_3"                                      "Rabid Swarmer"

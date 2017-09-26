@@ -1,0 +1,36 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Heartstopper
+  //=================================================================================================================
+  "creep_heartstopper"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                      "15159"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"               "necrolyte_heartstopper_aura"
+    "AbilityBehavior"         "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"                "1"
+    
+        
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "400"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "aura_radius"         "400"   // If you change this, also change the AbilityCastRange above
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "aura_damage"         "5" 
+      }   
+    }
+  }
+}
