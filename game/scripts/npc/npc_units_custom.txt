@@ -1,6 +1,3 @@
-#base "units/npc_dota_swarmer_1.txt"
-#base "units/npc_dota_swarmer_2.txt"
-#base "units/npc_dota_swarmer_3.txt"
 #base "units/npc_dota_horde_basic.txt"
 #base "units/npc_dota_horde_basic_damage_block.txt"
 #base "units/npc_dota_horde_basic_desolate.txt"
@@ -15,6 +12,10 @@
 #base "units/npc_dota_horde_swarmer_1.txt"
 #base "units/npc_dota_horde_swarmer_2.txt"
 #base "units/npc_dota_horde_swarmer_3.txt"
+
+#base "units/npc_dota_special_hunter.txt"
+#base "units/npc_dota_special_shaman.txt"
+#base "units/npc_dota_special_tank.txt"
 
 "DOTAUnits"
 {

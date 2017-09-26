@@ -1,0 +1,74 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Greater Bash
+  //=================================================================================================================
+  "creep_greater_bash"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15355"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "spirit_breaker_greater_bash"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
+    "AbilitySound"              "Hero_Spirit_Breaker.GreaterBash"
+    "MaxLevel"                  "1"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "0"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityModifierSupportBonus" "40"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "chance_pct"          "100"
+        "LinkedSpecialBonus"  "special_bonus_unique_spirit_breaker_1"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "damage"              "100"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "duration"            "0.6"
+      }
+      "04"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "knockback_duration"  "0.6"
+      }
+      "05"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "knockback_distance"  "400"
+      }
+      "06"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "knockback_height"    "50"
+      }
+      "07"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "bonus_movespeed_pct" "0"
+      }
+      "08"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "movespeed_duration"  "0"
+      }
+    }
+  }
+}
