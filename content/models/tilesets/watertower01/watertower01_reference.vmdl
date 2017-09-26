@@ -46,7 +46,34 @@
 	{
 		m_pObject = null
 	}
-	m_pHitBoxSetLists = [  ]
+	m_pHitBoxSetLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_HitBoxSets = 
+				[
+					{
+						m_name = "default"
+						m_HitBoxes = 
+						[
+							{
+								m_name = "static_prop"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "static_prop"
+								m_vMinBounds = [ -104.701347, -126.270638, -0.000031 ]
+								m_vMaxBounds = [ 104.701347, 103.672523, 397.871796 ]
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
+	]
 	m_pAttachmentLists = [  ]
 	m_pAnimGroup = 
 	{
@@ -79,7 +106,16 @@
 	m_sOffsetHitboxSets = [  ]
 	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
 	m_scriptFiles = [  ]
-	m_pMaterialRemapList = null
+	m_pMaterialRemapList = 
+	{
+		m_vMaterialRemapList = 
+		[
+			{
+				m_sSearchMaterial = "watertower01.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/watertower01/watertower01.vmat"
+			},
+		]
+	}
 	m_flFbxScale = 1.0
 	m_flQCScale = 1.0
 	m_vOrigin = [ 0.0, 0.0, 0.0 ]

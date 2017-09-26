@@ -79,7 +79,16 @@
 	m_sOffsetHitboxSets = [  ]
 	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
 	m_scriptFiles = [  ]
-	m_pMaterialRemapList = null
+	m_pMaterialRemapList = 
+	{
+		m_vMaterialRemapList = 
+		[
+			{
+				m_sSearchMaterial = "hill_cluster.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/row_hill_cluster/hill_cluster.vmat"
+			},
+		]
+	}
 	m_flFbxScale = 1.0
 	m_flQCScale = 1.0
 	m_vOrigin = [ 0.0, 0.0, 0.0 ]
