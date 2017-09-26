@@ -4,7 +4,7 @@
   // Neutral: Knight
   //=================================================================================
   "npc_dota_horde_knight"
-  {                                       
+  {
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_c/n_creep_satyr_c.vmdl" // Model.

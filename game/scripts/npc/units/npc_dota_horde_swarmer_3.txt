@@ -4,7 +4,7 @@
   // Neutral: Rabid Swarmer
   //=================================================================================
   "npc_dota_horde_swarmer_3"
-  {                   
+  {
     // General
     //----------------------------------------------------------------
     "Model"           "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"  // Model.

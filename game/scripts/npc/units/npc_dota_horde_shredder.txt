@@ -4,7 +4,7 @@
   // Neutral: Shredder
   //=================================================================================
   "npc_dota_horde_shredder"
-  {                                      
+  {
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl"   // Model.
