@@ -7,11 +7,11 @@
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"              "15281"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"            "broodmother_incapacitating_bite"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "ID"                        "15281"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "broodmother_incapacitating_bite"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "MaxLevel"             "1"
+    "MaxLevel"                  "1"
       
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -19,18 +19,18 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "miss_chance"     "0"
+        "var_type"              "FIELD_INTEGER"
+        "miss_chance"           "0"
       }
       "02"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_movespeed"   "-80"
+        "var_type"              "FIELD_INTEGER"
+        "bonus_movespeed"       "-80"
       }
       "03"
       {
-        "var_type"        "FIELD_FLOAT"
-        "duration"      "0.2"
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "0.2"
       }
     }
   }

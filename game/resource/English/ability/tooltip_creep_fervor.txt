@@ -1,5 +1,5 @@
-"DOTA_Tooltip_ability_creep_fervor"               "Fervor"
+"DOTA_Tooltip_ability_creep_fervor"                     "Fervor"
 "DOTA_Tooltip_ability_creep_fervor_Description"         "Consecutive blows against the same target grant attack more and more attack speed."
-"DOTA_Tooltip_ability_creep_fervor_Lore"            "If at first you don't succeed, strike, strike again."
+"DOTA_Tooltip_ability_creep_fervor_Lore"                "If at first you don't succeed, strike, strike again."
 "DOTA_Tooltip_ability_creep_fervor_max_stacks"          "MAX STACKS:"
 "DOTA_Tooltip_ability_creep_fervor_attack_speed"        "ATTACK SPEED PER STACK:"
