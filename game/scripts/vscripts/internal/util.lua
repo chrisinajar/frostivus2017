@@ -88,7 +88,7 @@ function DebugPrint(...)
 
   local output = {...}
 
-  local prefix, msg = string.match(output[1], "^%[([^%]]*?)%]%s*(.*)")
+  local prefix, msg = string.match(tostring(output[1]), "^%[([^%]]*?)%]%s*(.*)")
 
   if prefix ~= nil then
     print(prefix)

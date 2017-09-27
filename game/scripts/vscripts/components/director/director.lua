@@ -5,23 +5,40 @@ PHASE_PEAK = 2
 PHASE_REST = 3
 PHASE_WRAP = 4
 
+local DesiredStressEvent = Event()
+local WaveEvent = Event()
+
 function HordeDirector:Init()
   DebugPrint('Init hero director')
 
   self.watchers = {}
   self.currentPhase = 0
+  self.wave = 1
+  self.timeInWave = 0
+
+  Timers:CreateTimer(1, function()
+    self.timeInWave = self.timeInWave + 1
+    return 1
+  end)
 
   PlayerResource:GetAllTeamPlayerIDs():each(function (playerID)
     DebugPrint('Initializing player watcher for player ' .. playerID)
     local watcher = PlayerWatcher()
     watcher:Init(playerID)
     table.insert(self.watchers, watcher)
+
+    DesiredStressEvent.listen(function (ds)
+      watcher.desiredStress = ds
+    end)
+    WaveEvent.listen(function (wave)
+      watcher.wave = wave
+    end)
   end)
 
   PeakStressEvent.listen(partial(HordeDirector.OnPeakStress, self))
 
   -- start horde director
-  HordeSpawner:Init()
+  HordeSpawner:Init(self)
   self:EnterNextPhase()
 end
 
@@ -60,12 +77,35 @@ end
 
 function HordeDirector:StartBuildUp()
   DebugPrint('Entering start up phase')
+  local desiredStress = 0
+  Timers:CreateTimer(1, function()
+    desiredStress = math.min(1, desiredStress + 0.01)
+    DesiredStressEvent.broadcast(desiredStress)
+
+    return 1
+  end)
 end
 
 function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
+  DesiredStressEvent.broadcast(1)
+  Timers:CreateTimer(10, function()
+    -- end peak on a timer
+    self:EnterNextPhase()
+  end)
 end
 
 function HordeDirector:StartRest()
+  DesiredStressEvent.broadcast(0)
   DebugPrint('Entering rest phase')
+  if self.timeInWave > MIN_WAVE_TIME then
+    DebugPrint('Starting next wave!')
+    self.timeInWave = 0
+    self.wave = self.wave + 1
+    WaveEvent.broadcast(self.wave)
+  end
+
+  Timers:CreateTimer(20, function()
+    self:EnterNextPhase()
+  end)
 end

@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
-Debug.EnabledModules['director:player_watcher'] = false
+Debug.EnabledModules['director:player_watcher'] = true
 
 PlayerWatcher = PlayerWatcher or class({})
 
@@ -23,10 +23,13 @@ function PlayerWatcher:Init(playerID)
   self.nextJob = nil
   self.marker = CreateUnitByName("npc_dota_creep_marker", self.hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
   self.marker:AddNewModifier(self.marker, nil, 'modifier_marker_creep', {})
+  self.desiredIntensity = 10
+  self.desiredStress = 0.2
+  self.hordeAlive = 0
+  self.wave = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
 
-  Timers:CreateTimer(1, partial(self.SpawnUnit, self))
   Timers:CreateTimer(1, partial(self.Think, self))
 
   GameEvents:OnEntityKilled(function (keys)
@@ -62,6 +65,22 @@ function PlayerWatcher:Think()
 
   self.stressLevel = stressLevel
 
+  if self.hero:IsAlive() then
+    if stressLevel > self.desiredStress and self.desiredIntensity > 0 then
+      self.desiredIntensity = self.desiredIntensity - 1
+    end
+    if stressLevel < self.desiredStress and self.desiredIntensity < 100 then
+      self.desiredIntensity = self.desiredIntensity + 1
+    end
+  end
+
+  if self.stressLevel < self.desiredStress and not self.spawningHorde then
+    DebugPrint('There arent enough horde attacking this player, lets spawn a group... ' .. self.desiredStress)
+    local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
+    DebugPrintTable(horde)
+    self:SpawnHorde(horde)
+  end
+
   return THINK_INTERVAL
 end
 
@@ -79,11 +98,11 @@ function PlayerWatcher:GetStressLevel()
   local hpScale = math.min(1, hpDiff * 10)
   hpScale = math.max(0, hpDiff)
 
-  DebugPrint('hp diff is ' .. hpScale)
+  -- DebugPrint('hp diff is ' .. hpScale)
 
   hpScale = hpScale + ((1 - hpPercent) / 2)
 
-  DebugPrint('add in percentage ' .. hpScale)
+  -- DebugPrint('add in percentage ' .. hpScale)
   local nearbyUnits = FindUnitsInRadius(self.hero:GetTeam(), self.hero:GetAbsOrigin(), nil, 400,
     DOTA_UNIT_TARGET_TEAM_ENEMY, -- teamFilter
     DOTA_UNIT_TARGET_BASIC, -- int typeFilter
@@ -91,9 +110,9 @@ function PlayerWatcher:GetStressLevel()
     FIND_ANY_ORDER, -- int order,
     true -- bool canGrowCache
   )
-  DebugPrint('kills... ' .. self.killedUnits .. ', ' .. self.killedNearbyUnits .. ', nearby ' .. #nearbyUnits)
+  -- DebugPrint('kills... ' .. self.killedUnits .. ', ' .. self.killedNearbyUnits .. ', nearby ' .. #nearbyUnits)
 
-  local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/2
+  local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/5
   stressLevel = math.min(1, stressLevel)
 
   return stressLevel
@@ -114,33 +133,68 @@ function PlayerWatcher:EntityKilledNearby(unit, distance)
   end)
 end
 
-function PlayerWatcher:SpawnUnit()
-  self:ScheduleUnitSpawn('npc_dota_creep_badguys_melee_diretide', function (unit)
-    local hordeWatcher = HordeWatcher()
-    hordeWatcher:Init(unit, self.hero)
+function PlayerWatcher:SpawnUnit(unitName)
+  self:ScheduleUnitSpawn(unitName, function (unit)
+    -- rejoice?
   end)
-  if self.stressLevel > 0.8 then
-    self.currentSpawnInterval = self.currentSpawnInterval * 1.1
-  elseif self.stressLevel < 0.2 then
-    self.currentSpawnInterval = self.currentSpawnInterval * 0.95
+end
+
+function PlayerWatcher:SpawnHorde(unitTable)
+  if self.spawningHorde then
+    DebugPrint('Not spawning horde')
   end
-  self.currentSpawnInterval = math.max(1, self.currentSpawnInterval)
-  return RandomFloat(self.currentSpawnInterval * 0.5, self.currentSpawnInterval * 1.5)
+  self.spawningHorde = true
+
+  local function finished(units)
+    DebugPrint('Just finished spawning the horde')
+    Timers:CreateTimer(10, function()
+      self.spawningHorde = false
+    end)
+  end
+
+  if not SPAWN_AS_HORDE then
+    local done = after(#unitTable, finished)
+    for _,unit in ipairs(unitTable) do
+      self:ScheduleUnitSpawn(unit, done)
+    end
+  else
+    self:ScheduleHordeSpawn(unitTable, finished)
+  end
 end
 
 function PlayerWatcher:ScheduleUnitSpawn(unitName, callback)
   self:FindSpawnPoint(function (location)
     DebugPrint('Spawning a creep at ...' .. tostring(location))
-    local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-    Timers:CreateTimer(1, function ()
-      ExecuteOrderFromTable({
-        UnitIndex = unit:entindex(),
-        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-        Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-        Queue = 0 --Optional.  Used for queueing up abilities
-      })
-      callback(unit)
+    self:SpawnUnitAt(unitName, location, callback)
+  end)
+end
+function PlayerWatcher:ScheduleHordeSpawn(unitList, callback)
+  self:FindSpawnPoint(function (location)
+    DebugPrint('Spawning a horde at ...' .. tostring(location))
+    local done = after(#unitList, callback)
+    for _,unitName in ipairs(unitList) do
+      self:SpawnUnitAt(unitName, location, done)
+    end
+  end)
+end
+
+function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
+  local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  Timers:CreateTimer(1, function ()
+    local hordeWatcher = HordeWatcher()
+    hordeWatcher:Init(unit, self.hero)
+    self.hordeAlive = self.hordeAlive + 1
+    unit:OnDeath(function ()
+      self.hordeAlive = self.hordeAlive - 1
     end)
+
+    ExecuteOrderFromTable({
+      UnitIndex = unit:entindex(),
+      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+    callback(unit)
   end)
 end
 
