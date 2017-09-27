@@ -91,6 +91,10 @@
 				m_sSearchMaterial = "gov_upscale.vmat"
 				m_sReplaceMaterial = "materials/models/tilesets/row_upscale/gov_upscale.vmat"
 			},
+			{
+				m_sSearchMaterial = "antenna.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/antenna/antenna.vmat"
+			},
 		]
 	}
 	m_flFbxScale = 1.0
