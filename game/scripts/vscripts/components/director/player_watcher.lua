@@ -7,8 +7,9 @@ PlayerWatcher = PlayerWatcher or class({})
 
 PeakStressEvent = Event()
 
-local MARKER_INTERVAL = 0.5
+local MARKER_INTERVAL = 0.1
 local THINK_INTERVAL = 2
+local SPAWN_AS_HORDE = true
 
 function PlayerWatcher:Init(playerID)
   DebugPrint('Init player watcher for ' .. playerID)
@@ -66,16 +67,16 @@ function PlayerWatcher:Think()
   self.stressLevel = stressLevel
 
   if self.hero:IsAlive() then
-    if stressLevel > self.desiredStress and self.desiredIntensity > 0 then
+    if self.stressLevel > self.desiredStress and self.desiredIntensity > 0 then
       self.desiredIntensity = self.desiredIntensity - 1
     end
-    if stressLevel < self.desiredStress and self.desiredIntensity < 100 then
+    if self.stressLevel < self.desiredStress and self.desiredIntensity < 100 then
       self.desiredIntensity = self.desiredIntensity + 1
     end
   end
 
   if self.stressLevel < self.desiredStress and not self.spawningHorde then
-    DebugPrint('There arent enough horde attacking this player, lets spawn a group... ' .. self.desiredStress)
+    DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
     local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
     DebugPrintTable(horde)
     self:SpawnHorde(horde)
@@ -114,6 +115,8 @@ function PlayerWatcher:GetStressLevel()
 
   local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/5
   stressLevel = math.min(1, stressLevel)
+
+  stressLevel = math.ceil(((stressLevel + (self.stressLevel * 3)) / 4) * 100) / 100
 
   return stressLevel
 end
@@ -244,7 +247,7 @@ function PlayerWatcher:RunMarker (callback)
     local position = self.marker:GetAbsOrigin()
     if position == lastPosition then
       DebugPrint('Failed to find a spawn point in this direction, failing out and retrying')
-      self:FindSpawnPoint(callback)
+      self:RunMarker(callback)
       return nil
     end
     if not firstRun then

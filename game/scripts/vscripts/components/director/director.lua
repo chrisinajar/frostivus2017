@@ -79,6 +79,9 @@ function HordeDirector:StartBuildUp()
   DebugPrint('Entering start up phase')
   local desiredStress = 0
   Timers:CreateTimer(1, function()
+    if self.currentPhase ~= PHASE_BUILD_UP then
+      return
+    end
     desiredStress = math.min(1, desiredStress + 0.01)
     DesiredStressEvent.broadcast(desiredStress)
 
@@ -88,7 +91,7 @@ end
 
 function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
-  DesiredStressEvent.broadcast(1)
+  DesiredStressEvent.broadcast(1.1) -- force impossible stress at peak
   Timers:CreateTimer(10, function()
     -- end peak on a timer
     self:EnterNextPhase()
@@ -96,7 +99,7 @@ function HordeDirector:StartPeak()
 end
 
 function HordeDirector:StartRest()
-  DesiredStressEvent.broadcast(0)
+  DesiredStressEvent.broadcast(-1)
   DebugPrint('Entering rest phase')
   if self.timeInWave > MIN_WAVE_TIME then
     DebugPrint('Starting next wave!')

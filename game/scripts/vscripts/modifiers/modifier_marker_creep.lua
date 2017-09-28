@@ -20,5 +20,5 @@ function modifier_marker_creep:CheckState()
 end
 
 function modifier_marker_creep:GetModifierMoveSpeed_Max()
-  return 2000
+  return 10000
 end
