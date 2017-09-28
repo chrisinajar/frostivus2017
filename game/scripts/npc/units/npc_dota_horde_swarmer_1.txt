@@ -8,11 +8,11 @@
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_kobold/kobold_c/n_creep_kobold_c.vmdl"  // Model.
-    "BaseClass"                 "npc_dota_creep_neutral"
+    "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                ".5"
-    "IsNeutralUnitType"         "1"
+    
 
     // Abilities
     //----------------------------------------------------------------

@@ -8,11 +8,11 @@
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl" // Model.
-    "BaseClass"                 "npc_dota_creep_neutral"
+    "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
     "Level"                     "2"
     "ModelScale"                ".9"
-    "IsNeutralUnitType"         "1"
+    
 
     // Abilities
     //----------------------------------------------------------------

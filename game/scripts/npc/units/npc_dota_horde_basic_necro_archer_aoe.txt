@@ -8,11 +8,11 @@
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
-    "BaseClass"                 "npc_dota_creep_neutral"
+    "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                ".7"
-    "IsNeutralUnitType"         "1"
+    
 
     // Abilities
     //----------------------------------------------------------------
