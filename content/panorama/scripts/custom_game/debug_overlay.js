@@ -17,9 +17,6 @@ function RequestDebugOverlayUpdate () {
 
 function UpdateDebugOverlay (keys) {
   // $.Msg('Updating Overlay');
-  var OverlayRoot = $.GetContextPanel().FindChildTraverse('DebugOverlayRoot');
-  // $.Msg(keys.value);
-
   UpdateGroup(null, keys.value);
   TraverseOverlayAndUpdate(keys.value);
 }
@@ -28,7 +25,7 @@ function TraverseOverlayAndUpdate (group) {
   // $.Msg(group.Children['1'])
   // $.Msg(group)
   for (var i = 1; i <= group.ChildCount; i++) {
-    var item = group.Children[String(i)]
+    var item = group.Children[String(i)];
     // $.Msg(item);
     if (item.type === 'group') {
       UpdateGroup(group, item);
@@ -47,7 +44,7 @@ function UpdateGroup (parent, group) {
     var groupID = 'DebugOverlay:' + group.Name;
     var parentID = 'DebugOverlay:' + parent.Name;
     var parentPanel = $.GetContextPanel().FindChildTraverse(parentID);
-    var child = parentPanel.FindChildTraverse(groupID)
+    var child = parentPanel.FindChildTraverse(groupID);
 
     // $.Msg(child);
     // $.Msg(parentPanel);
@@ -56,7 +53,7 @@ function UpdateGroup (parent, group) {
       // $.Msg('Creating new group ' + group.Name + ' in Overlay');
       var button = $.CreatePanel('Button', parentPanel, groupID + ':InfoButton');
       button.SetHasClass('DebugOverlayButton', true);
-      button.onactivate = 'ToggleGroup("' + groupID + '")' // NOTE: onactivate does not work so no collapsing of groups for now
+      button.onactivate = 'ToggleGroup("' + groupID + '")'; // NOTE: onactivate does not work so no collapsing of groups for now
       var label = $.CreatePanel('Label', button, groupID + ':InfoLabel');
       label.SetHasClass('DebugOverlayEntry', true);
       child = $.CreatePanel('Panel', parentPanel, groupID);
@@ -82,21 +79,9 @@ function UpdateEntry (parent, entry) {
   if (child === null) { // NOTE: for some reason this is always true
     // $.Msg('Creating new entry in Overlay');
     child = $.CreatePanel('Label', parentPanel, entryID);
-    child.SetHasClass('DebugOverlayEntry', true)
+    child.SetHasClass('DebugOverlayEntry', true);
   }
   //$.Msg('Updating entry in Overlay');
   child.text = entry.DisplayName + ': ' + entry.Value;
   child.style.color = entry.Color;
-}
-
-function ToggleDebugOverlay () { /* exported ToggleDebugOverlay */
-  // $.Msg('Toggle Debug Overlay');
-  var Overlay = $.GetContextPanel().FindChild('DebugOverlay');
-  Overlay.visible = !Overlay.visible;
-  if (Overlay.visible) RequestDebugOverlayUpdate();
-}
-
-function ToggleGroup (id) { /* exported ToggleGroup */
-  var group = $.GetContextPanel().FindChildTraverse(id);
-  group.visible = !group.visible;
 }

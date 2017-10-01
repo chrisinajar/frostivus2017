@@ -6,6 +6,17 @@
     <include src="file://{resources}/scripts/custom_game/debug_overlay.js" />
   </scripts>
   <script>
+    function ToggleDebugOverlay () {
+      // $.Msg('Toggle Debug Overlay');
+      var Overlay = $.GetContextPanel().FindChild('DebugOverlay');
+      Overlay.visible = !Overlay.visible;
+      if (Overlay.visible) RequestDebugOverlayUpdate();
+    }
+
+    function ToggleGroup (id) {
+      var group = $.GetContextPanel().FindChildTraverse(id);
+      group.visible = !group.visible;
+    }
     ToggleDebugOverlay();
   </script>
   <Panel class="DebugOverlayContainer">
