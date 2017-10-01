@@ -1,0 +1,20 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/debug_overlay.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/debug_overlay.js" />
+  </scripts>
+  <script>
+    ToggleDebugOverlay();
+  </script>
+  <Panel class="DebugOverlayContainer">
+    <Panel class="DebugOverlayDisplay" id="DebugOverlay"  hittest="true" hittestchildren="true">
+      <Label class="DebugOverlayInfo" text="Debug Overlay:" />
+      <Panel class="DebugOverlayGroup" id="DebugOverlay:root"/>
+    </Panel>
+    <Panel class="DebugOverlayToggle">
+      <Button class="DebugOverlayToggleButton" onactivate="ToggleDebugOverlay()" />
+    </Panel>
+  </Panel>
+</root>

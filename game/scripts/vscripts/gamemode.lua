@@ -115,6 +115,9 @@ function GameMode:OnAllPlayersLoaded()
   if GameLengthVotes ~= nil then
     GameLengthVotes:SetGameLength()
   end
+
+  InitModule(DebugOverlay) -- Init this as soon as possible
+
 end
 
 --[[
@@ -150,6 +153,7 @@ function GameMode:OnPreGame()
   -- initialize modules
   InitModule(ZoneControl)
   InitModule(Music)
+  InitModule(DebugInfos)
 
   CheckCheatMode()
 end
