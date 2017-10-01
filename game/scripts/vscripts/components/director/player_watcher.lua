@@ -182,22 +182,31 @@ function PlayerWatcher:ScheduleHordeSpawn(unitList, callback)
 end
 
 function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
-  local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-  Timers:CreateTimer(1, function ()
+  DebugPrint('Spawning unit ' .. unitName)
+  CreateUnitByNameAsync(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS, function (unit)
+    local entIndex = unit:entindex()
+    DebugPrint('unit has entid ' .. entIndex)
     local hordeWatcher = HordeWatcher()
     hordeWatcher:Init(unit, self.hero)
     self.hordeAlive = self.hordeAlive + 1
     unit:OnDeath(function ()
+      DebugPrint('Horde unit died! ' .. unit:entindex())
       self.hordeAlive = self.hordeAlive - 1
     end)
-
-    ExecuteOrderFromTable({
-      UnitIndex = unit:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
-    callback(unit)
+    Timers:CreateTimer(1, function ()
+      if unit:IsNull() then
+        DebugPrint('This unit was created them instantly disappeared? ' .. entIndex)
+        self:SpawnUnitAt(unitName, location, callback)
+      else
+        ExecuteOrderFromTable({
+          UnitIndex = unit:entindex(),
+          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+          Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+          Queue = 0 --Optional.  Used for queueing up abilities
+        })
+        callback(unit)
+      end
+    end)
   end)
 end
 
