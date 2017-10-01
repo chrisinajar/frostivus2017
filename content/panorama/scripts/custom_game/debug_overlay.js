@@ -81,7 +81,7 @@ function UpdateEntry (parent, entry) {
     child = $.CreatePanel('Label', parentPanel, entryID);
     child.SetHasClass('DebugOverlayEntry', true);
   }
-  //$.Msg('Updating entry in Overlay');
+  // $.Msg('Updating entry in Overlay');
   child.text = entry.DisplayName + ': ' + entry.Value;
   child.style.color = entry.Color;
 }
