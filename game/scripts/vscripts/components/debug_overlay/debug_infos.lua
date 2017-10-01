@@ -36,5 +36,16 @@ function DebugInfos:Init()
       DisplayName = "Selected Hero",
       Value = PlayerResource:GetSelectedHeroName(playerID)
     })
+    DebugOverlay:AddEntry(groupName, {
+      Name = groupName .. "Level",
+      DisplayName = "Level"
+    })
+    Timers:CreateTimer(0, function()
+      DebugOverlay:Update(groupName .. "Level", {
+        Value = PlayerResource:GetLevel(playerID),
+        forceUpdate = true
+      })
+      return 5
+    end)
   end
 end
