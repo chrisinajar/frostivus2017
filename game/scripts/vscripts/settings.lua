@@ -2,8 +2,8 @@
 
 ------------------------------------------------
 -- Frostivus specific stuff
-MIN_WAVE_TIME = 120
-MAX_WAVE_TIME = 240
+MIN_WAVE_TIME = 180
+MAX_WAVE_TIME = 300
 
 ------------------------------------------------
 

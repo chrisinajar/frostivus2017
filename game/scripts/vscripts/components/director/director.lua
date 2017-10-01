@@ -85,6 +85,10 @@ function HordeDirector:StartBuildUp()
     desiredStress = math.min(1, desiredStress + 0.01)
     DesiredStressEvent.broadcast(desiredStress)
 
+    if self.timeInWave > MAX_WAVE_TIME then
+      self:StartNextWave()
+    end
+
     return 1
   end)
 end
@@ -102,13 +106,17 @@ function HordeDirector:StartRest()
   DesiredStressEvent.broadcast(-1)
   DebugPrint('Entering rest phase')
   if self.timeInWave > MIN_WAVE_TIME then
-    DebugPrint('Starting next wave!')
-    self.timeInWave = 0
-    self.wave = self.wave + 1
-    WaveEvent.broadcast(self.wave)
+    self:StartNextWave()
   end
 
   Timers:CreateTimer(20, function()
     self:EnterNextPhase()
   end)
+end
+
+function HordeDirector:StartNextWave()
+  DebugPrint('Starting next wave!')
+  self.timeInWave = 0
+  self.wave = self.wave + 1
+  WaveEvent.broadcast(self.wave)
 end
