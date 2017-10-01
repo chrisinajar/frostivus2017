@@ -52,15 +52,15 @@ function DebugOverlay:TraverseOverlay(name, group)
   return nil
 end
 
-function DebugOverlay:AddGeneric(parentGroupName, setting, fn)
+function DebugOverlay:AddGeneric(parentGroupName, settings, fn)
   assert(parentGroupName, "parentGroupName was not specified")
   local parentGroup = self:TraverseOverlay(parentGroupName)
   assert(parentGroup, "parentGroup doesn't exist")
   assert(parentGroup.type == "group", "Cannot add an entry to an entry")
 
-  setting.Color = setting.Color or parentGroup.Color
+  settings.Color = settings.Color or parentGroup.Color
   parentGroup.ChildCount = parentGroup.ChildCount + 1
-  parentGroup.Children[parentGroup.ChildCount] = fn(setting)
+  parentGroup.Children[parentGroup.ChildCount] = fn(self:MakeEmptyGeneric(settings))
 end
 
 --[[
@@ -71,8 +71,7 @@ settings.Color (optional): fallback color for all entries and groups of the new 
 ]]
 function DebugOverlay:AddGroup(parentGroupName, settings)
   --print("Adding group " .. settings.Name .. " to parent group " .. parentGroupName)
-  self:AddGeneric(parentGroupName, settings, function(settings)
-    local generic = self:MakeEmptyGeneric(settings)
+  self:AddGeneric(parentGroupName, settings, function(generic)
     generic.type = "group"
     generic.Children = {}
     generic.ChildCount = 0
@@ -89,8 +88,7 @@ settings.Value (optional): initial value for the new entry
 ]]
 function DebugOverlay:AddEntry(parentGroupName, settings)
   --print("Adding entry " .. settings.Name .. " to parent group " .. parentGroupName)
-  self:AddGeneric(parentGroupName, settings, function(settings)
-    local generic = self:MakeEmptyGeneric(settings)
+  self:AddGeneric(parentGroupName, settings, function(generic)
     generic.type = "entry"
     generic.Value = settings.Value or "???"
     return generic
