@@ -193,20 +193,13 @@ function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
       DebugPrint('Horde unit died! ' .. unit:entindex())
       self.hordeAlive = self.hordeAlive - 1
     end)
-    Timers:CreateTimer(1, function ()
-      if unit:IsNull() then
-        DebugPrint('This unit was created them instantly disappeared? ' .. entIndex)
-        self:SpawnUnitAt(unitName, location, callback)
-      else
-        ExecuteOrderFromTable({
-          UnitIndex = unit:entindex(),
-          OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-          Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-          Queue = 0 --Optional.  Used for queueing up abilities
-        })
-        callback(unit)
-      end
-    end)
+    ExecuteOrderFromTable({
+      UnitIndex = entIndex,
+      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+      Position = self.hero:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+    callback(unit)
   end)
 end
 
