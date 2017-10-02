@@ -30,8 +30,8 @@ function error(...)
     type = "error",
     data = data -- pass traceback to panorma
   })
-  for k,v in pairs(data) do
-    _print(k, tostring(v))
+  for _,v in pairs(data) do
+    _print(tostring(v))
   end
   _error(unpack({...}))
 end
