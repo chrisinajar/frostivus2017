@@ -285,13 +285,13 @@ function PlayerWatcher:RunMarker (callback)
         return nil
       end
     end
-    minRange = math.max(minRange / 2, 300)
     ExecuteOrderFromTable({
       UnitIndex = self.marker:entindex(),
       OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
       Position = self.marker:GetAbsOrigin() + (direction * minRange), --Optional.  Only used when targeting the ground
       Queue = 0 --Optional.  Used for queueing up abilities
     })
+    minRange = math.max(minRange / 2, 300)
     firstRun = false
     return MARKER_INTERVAL
   end
