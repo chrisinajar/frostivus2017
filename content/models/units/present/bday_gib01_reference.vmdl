@@ -62,8 +62,8 @@
 								m_sSurfaceProperty = ""
 								m_nGroupId = 0
 								m_sBoneName = "polymsh"
-								m_vMinBounds = [ -8.268805, -8.640292, -8.136477 ]
-								m_vMaxBounds = [ 9.362497, 10.620761, 8.136482 ]
+								m_vMinBounds = [ -10.308853, -8.640292, -8.136477 ]
+								m_vMaxBounds = [ 11.672378, 10.620761, 8.136482 ]
 								m_bTranslationOnly = false
 								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},

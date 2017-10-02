@@ -44,21 +44,16 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 250.0
-			m_flRadiusMin = 250.0
+			m_flRadiusMax = 133.0
+			m_flRadiusMin = 133.0
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 205, 157, 109, 255 ]
-			m_ColorMin = [ 203, 152, 101, 255 ]
-		},
-		{
-			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMin = 80
-			m_nAlphaMax = 80
+			m_ColorMax = [ 135, 70, 0, 255 ]
+			m_ColorMin = [ 142, 74, 0, 255 ]
 		},
 	]
 	m_Emitters = 
