@@ -14,6 +14,7 @@ local SPAWN_AS_HORDE = true
 function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
   self.playerID = playerID
+  self.debugGroupName = 'Player' .. playerID
   self.hero = hero
   self.lastHP = 1
   self.currentSpawnInterval = 5
@@ -65,6 +66,11 @@ function PlayerWatcher:Think()
   end
 
   self.stressLevel = stressLevel
+
+  DebugOverlay:Update(self.debugGroupName .. "Stress", {
+    Value = self.stressLevel,
+    forceUpdate = true
+  })
 
   if self.hero:IsAlive() then
     if self.stressLevel > self.desiredStress and self.desiredIntensity > 0 then
@@ -263,13 +269,13 @@ function PlayerWatcher:RunMarker (callback)
         return nil
       end
     end
+    minRange = math.max(minRange / 2, 300)
     ExecuteOrderFromTable({
       UnitIndex = self.marker:entindex(),
       OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
       Position = self.marker:GetAbsOrigin() + (direction * minRange), --Optional.  Only used when targeting the ground
       Queue = 0 --Optional.  Used for queueing up abilities
     })
-    minRange = math.max(minRange / 2, 300)
     firstRun = false
     return MARKER_INTERVAL
   end

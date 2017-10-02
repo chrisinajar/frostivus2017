@@ -15,31 +15,24 @@ function DebugInfos:Init()
     DisplayName = "Players",
     Color = "#FFFF00"
   })
-  for playerID=0,4 do
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
     local groupName = "Player" .. playerID
+    local function addPlayerValue (name, value)
+      DebugOverlay:AddEntry(groupName, {
+        Name = groupName .. name,
+        DisplayName = name,
+        Value = value
+      })
+    end
     DebugOverlay:AddGroup("PlayerList", {
       Name = groupName,
       DisplayName = "Player " .. playerID
     })
-    DebugOverlay:AddEntry(groupName, {
-      Name = groupName .. "Name",
-      DisplayName = "Name",
-      Value = PlayerResource:GetPlayerName(playerID)
-    })
-    DebugOverlay:AddEntry(groupName, {
-      Name = groupName .. "SteamID",
-      DisplayName = "SteamID",
-      Value = PlayerResource:GetSteamID(playerID)
-    })
-    DebugOverlay:AddEntry(groupName, {
-      Name = groupName .. "Hero",
-      DisplayName = "Selected Hero",
-      Value = PlayerResource:GetSelectedHeroName(playerID)
-    })
-    DebugOverlay:AddEntry(groupName, {
-      Name = groupName .. "Level",
-      DisplayName = "Level"
-    })
+    addPlayerValue("Name", PlayerResource:GetPlayerName(playerID))
+    addPlayerValue("SteamID", PlayerResource:GetSteamID(playerID))
+    addPlayerValue("Hero", PlayerResource:GetSelectedHeroName(playerID))
+    addPlayerValue("Level", 0)
+    addPlayerValue("Stress", 0)
     Timers:CreateTimer(0, function()
       DebugOverlay:Update(groupName .. "Level", {
         Value = PlayerResource:GetLevel(playerID),
@@ -47,5 +40,5 @@ function DebugInfos:Init()
       })
       return 5
     end)
-  end
+  end)
 end

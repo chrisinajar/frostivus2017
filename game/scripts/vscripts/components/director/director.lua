@@ -5,11 +5,32 @@ PHASE_PEAK = 2
 PHASE_REST = 3
 PHASE_WRAP = 4
 
+local PHASE_NAMES = {
+  [PHASE_BUILD_UP] = "BUILD_UP",
+  [PHASE_PEAK] = "PEAK",
+  [PHASE_REST] = "REST",
+  [PHASE_WRAP] = "INVALID"
+}
+
 local DesiredStressEvent = Event()
 local WaveEvent = Event()
+local PhaseChangeEvent = Event()
 
 function HordeDirector:Init()
   DebugPrint('Init hero director')
+
+  DebugOverlay:AddEntry("root", {
+    Name = "DirectorPhase",
+    DisplayName = "Phase",
+    Value = "N/A"
+  })
+
+  PhaseChangeEvent.listen(function (phase)
+    DebugOverlay:Update("DirectorPhase", {
+      Value = PHASE_NAMES[phase],
+      forceUpdate = true
+    })
+  end)
 
   self.watchers = {}
   self.currentPhase = 0
@@ -92,6 +113,8 @@ function HordeDirector:EnterNextPhase()
   elseif self.currentPhase == PHASE_REST then
     self:StartRest()
   end
+
+  PhaseChangeEvent.broadcast(self.currentPhase)
 end
 
 function HordeDirector:StartBuildUp()
