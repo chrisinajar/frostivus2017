@@ -11,9 +11,12 @@
 "npc_dota_horde_basic_rush"                                     "Basic Rush"
 "npc_dota_horde_basic_stagger"                                  "Basic Stagger"
 
-
 "npc_dota_horde_knight"                                         "Knight"
 "npc_dota_horde_shredder"                                       "Shredder"
 "npc_dota_horde_swarmer_1"                                      "Swarmer"
 "npc_dota_horde_swarmer_2"                                      "Fast Swarmer"
 "npc_dota_horde_swarmer_3"                                      "Rabid Swarmer"
+
+"npc_dota_special_hunter"                                       "Hunter"
+"npc_dota_special_shaman"                                       "Shaman"
+"npc_dota_special_tank"                                         "Tank"

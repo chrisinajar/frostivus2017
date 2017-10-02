@@ -18,6 +18,10 @@
 #base "units/npc_dota_horde_swarmer_2.txt"
 #base "units/npc_dota_horde_swarmer_3.txt"
 
+#base "units/npc_dota_special_hunter.txt"
+#base "units/npc_dota_special_shaman.txt"
+#base "units/npc_dota_special_tank.txt"
+
 "DOTAUnits"
 {
 

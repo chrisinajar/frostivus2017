@@ -1,61 +1,61 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: Knight
+  // Neutral: Shaman
   //=================================================================================
-  "npc_dota_horde_knight"
+  "npc_dota_special_shaman"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_c/n_creep_satyr_c.vmdl" // Model.
+    "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
-    "Level"                     "4"
-    "ModelScale"                ".8"
+    "SoundSet"                  "n_creep_Ranged"
+    "Level"                     "2"
+    "ModelScale"                ".9"
     
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "creep_damage_block"      // Ability 1
+    "Ability1"                  "creep_shackles"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"             "0"     // Physical protection.
+    "ArmorPhysical"            "0"     // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "30"    // Damage range min.
-    "AttackDamageMax"           "40"    // Damage range max.  
-    "AttackRate"                "1.35"    // Speed of attack.
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+    "AttackDamageMin"           "20"     // Damage range min.
+    "AttackDamageMax"           "30"    // Damage range max.
+    "AttackRate"                "1.7"   // Speed of attack.
     "AttackAnimationPoint"      "0.3"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
-    "AttackRange"               "100"   // Range within a target can be attacked.
-    "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.      
+    "AttackAcquisitionRange"    "300"   // Range within a target can be acquired.
+    "AttackRange"               "300"   // Range within a target can be attacked.
+    "ProjectileModel"           "particles/neutral_fx/satyr_trickster_projectile.vpcf" // Particle system model for projectile.
+    "ProjectileSpeed"           "1500"    // Speed of projectile.   
 
     // Bounds
     //----------------------------------------------------------------
     "RingRadius"                "50"
-    "HealthBarOffset"           "190"
+    "HealthBarOffset"           "175"
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                  "50"    // Experience earn.
-    "BountyGoldMin"             "22"    // Gold earned min.
-    "BountyGoldMax"             "26"    // Gold earned max.
+    "BountyXP"                  "33"    // Experience earn.
+    "BountyGoldMin"             "17"    // Gold earned min.
+    "BountyGoldMax"             "20"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"             "300"   // Speed.
+    "MovementSpeed"             "250"   // Speed.
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "400"   // Base health.
+    "StatusHealth"              "200"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
@@ -67,7 +67,7 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name.
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"

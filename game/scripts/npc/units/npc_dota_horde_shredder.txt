@@ -8,11 +8,11 @@
     // General
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_worg_large/n_creep_worg_large.vmdl"   // Model.
-    "BaseClass"                 "npc_dota_creep_neutral"
+    "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "4"
     "ModelScale"                ".90"
-    "IsNeutralUnitType"         "1"
+    
 
     // Abilities
     //----------------------------------------------------------------
@@ -68,8 +68,8 @@
     // Team
     //----------------------------------------------------------------
     "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name.
-    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
-    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
   }
 }
