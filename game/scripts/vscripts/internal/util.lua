@@ -88,9 +88,11 @@ function DebugPrint(...)
 
   local output = {...}
 
-  local prefix, msg = string.match(output[1], "%[([^%]]*)%]%s*(.*)")
+  local prefix, msg = string.match(tostring(output[1]), "^%[([^%]]*?)%]%s*(.*)")
 
   if prefix ~= nil then
+    print(prefix)
+    print(output[1])
     output[1] = msg
   end
 
@@ -339,4 +341,7 @@ function MoveCameraToEntity(playerID, entity)
       PlayerResource:SetCameraTarget(playerID, nil)
     end)
   end
+end
+
+function noop()
 end

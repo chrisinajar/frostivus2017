@@ -74,6 +74,7 @@
     <!-- <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/selection.xml" /> -->
     <!-- <CustomUIElement type="GameSetup"           layoutfile="file://{resources}/layout/custom_game/game_length_choice.xml" /> -->
 
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/debug_overlay.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/barebones_notifications.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/statcollection.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/music.xml" />

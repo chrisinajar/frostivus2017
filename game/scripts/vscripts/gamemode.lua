@@ -115,6 +115,9 @@ function GameMode:OnAllPlayersLoaded()
   if GameLengthVotes ~= nil then
     GameLengthVotes:SetGameLength()
   end
+
+  InitModule(DebugOverlay) -- Init this as soon as possible
+
 end
 
 --[[
@@ -143,13 +146,16 @@ end
 
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
-  --PlayerResource:RandomHeroForPlayersWithoutHero()
+  PlayerResource:RandomHeroForPlayersWithoutHero()
+  InitModule(StorylineManager)
+
 end
 
 function GameMode:OnPreGame()
   -- initialize modules
   InitModule(ZoneControl)
   InitModule(Music)
+  InitModule(DebugInfos)
 
   CheckCheatMode()
 end
@@ -163,7 +169,6 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(HordeDirector)
 
 end
 

@@ -7,9 +7,15 @@
     $.GetContextPanel().FindChildTraverse('InfoMap').text = 'Map: ' + Game.GetMapInfo().map_display_name + ' ';
     $.GetContextPanel().FindChildTraverse('InfoDateTime').text = 'Gametime: ' + CustomNetTables.GetTableValue('info', 'datetime').value; + ' ';
     $.GetContextPanel().FindChildTraverse('InfoMode').text = CustomNetTables.GetTableValue('info', 'mode').value + ' ';
+
+    CustomNetTables.SubscribeNetTableListener('info', function () {
+      $.GetContextPanel().FindChildTraverse('stressLevel').text = 'Stress: ' + CustomNetTables.GetTableValue('info', 'stressLevel').value + ' ';
+    });
+
   </script>
   <Panel class="InfoContainer">
     <Label class="InfoLabel" id="InfoVersion"/>
+    <Label class="InfoLabel" id="stressLevel"/>
     <Label class="InfoLabel" id="InfoMap"/>
     <Label class="InfoLabel" id="InfoDateTime"/>
     <Label class="InfoLabel" id="InfoMode"/>

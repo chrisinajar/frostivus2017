@@ -1,3 +1,8 @@
+#base "units/npc_dota_creep_marker.txt"
+
+#base "units/npc_dota_swarmer_1.txt"
+#base "units/npc_dota_swarmer_2.txt"
+#base "units/npc_dota_swarmer_3.txt"
 #base "units/npc_dota_horde_basic.txt"
 #base "units/npc_dota_horde_basic_damage_block.txt"
 #base "units/npc_dota_horde_basic_desolate.txt"

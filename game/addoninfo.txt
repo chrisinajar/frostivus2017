@@ -1,9 +1,9 @@
 "AddonInfo"
 {
 	"TeamCount" 	"1"
-	"maps"	"dota"
+	"maps"	"frostivus"
 	"IsPlayable"	"1"
-	"dota"
+	"frostivus"
 	{
 		"MaxPlayers"	"5"
 	}
