@@ -1,0 +1,37 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Damage Block
+  //=================================================================================================================
+  "creep_damage_block"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15119"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "tidehunter_kraken_shell"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilitySound"              "Hero_Tidehunter.KrakenShell"
+    "MaxLevel"                  "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "damage_reduction"              "40"
+      }
+      "02"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "damage_cleanse"                "1000"
+      }
+      "03"
+      {
+        "var_type"                      "FIELD_FLOAT"
+        "damage_reset_interval"         "1"
+      }
+    }
+  }
+}

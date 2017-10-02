@@ -5,12 +5,20 @@ max_line_length = 200
 allow_defined_top = true
 
 globals = { -- these globals can be set and accessed.
+-- modules
 -- "GameMode",
 "Gold",
 "Debug",
+"GameRules",
+"GameLengthVotes",
+"DevCheats",
+
+-- functions
+"FindHeroesInRadius",
+
+-- variables
 "GAME_TIME_ELAPSED",
 "GAME_WINNER_TEAM",
-"GameRules",
 "SKIP_TEAM_SETUP",
 "INITIAL_DUEL_DELAY",
 "DUEL_START_WARN_TIME",
@@ -28,7 +36,6 @@ globals = { -- these globals can be set and accessed.
 "DUEL_INTERVAL",
 "BOTTLE_DESPAWN_TIME",
 "GAME_ABANDON_TIME",
-"FindHeroesInRadius",
 "CAVE_TYPE_STATS_HEALTH",
 "CAVE_TYPE_STATS_MANA",
 "CAVE_TYPE_STATS_DAMAGE",
@@ -46,8 +53,9 @@ globals = { -- these globals can be set and accessed.
 }
 
 read_globals = { -- these globals can only be accessed.
--- luafun
 "statCollection",
+
+-- luafun
 "wrap",
 "iter",
 "each",

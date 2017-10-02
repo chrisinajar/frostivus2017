@@ -11,6 +11,7 @@ function CreateGameEvent (name) --luacheck: ignore CreateGameEvent
 end
 
 -- The overall game state has changed
+local OnAllPlayersLoadedEvent = CreateGameEvent('OnAllPlayersLoaded')
 function GameMode:_OnGameRulesStateChange(keys)
   if GameMode._reentrantCheck then
     return
@@ -28,6 +29,7 @@ function GameMode:_OnGameRulesStateChange(keys)
   elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     GameMode:PostLoadPrecache()
     GameMode:OnAllPlayersLoaded()
+    OnAllPlayersLoadedEvent({})
 
     if USE_CUSTOM_TEAM_COLORS_FOR_PLAYERS then
       for i=0,19 do
@@ -37,6 +39,8 @@ function GameMode:_OnGameRulesStateChange(keys)
         end
       end
     end
+
+
   elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
     GameMode:OnGameInProgress()
   end
@@ -95,15 +99,15 @@ function GameMode:_OnEntityKilled( keys )
       GameRules:GetGameModeEntity():SetTopBarTeamValue ( DOTA_TEAM_GOODGUYS, GetTeamHeroKills(DOTA_TEAM_GOODGUYS) )
     end
 
-    if not Duels.currentDuel and killedUnit:GetRespawnsDisabled() then
-      killedUnit:SetRespawnsDisabled(false)
-      if not killedUnit:IsReincarnating() then
-        killedUnit:SetTimeUntilRespawn(5)
-      end
-    end
+    -- if not Duels.currentDuel and killedUnit:GetRespawnsDisabled() then
+    --   killedUnit:SetRespawnsDisabled(false)
+    --   if not killedUnit:IsReincarnating() then
+    --     killedUnit:SetTimeUntilRespawn(5)
+    --   end
+    -- end
 
     if killerTeam ~= DOTA_TEAM_BADGUYS and killerTeam ~= DOTA_TEAM_GOODGUYS and not killedUnit:IsReincarnating() then
-      killedUnit:SetTimeUntilRespawn(10)
+      -- killedUnit:SetTimeUntilRespawn(10)
     else
       keys.killer = killerEntity
       keys.killed = killedUnit

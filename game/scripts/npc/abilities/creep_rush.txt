@@ -1,0 +1,52 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Rush
+  //=================================================================================================================
+  "creep_rush"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15068"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "phantom_lancer_phantom_edge"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilitySound"              "Hero_PhantomLancer.PhantomEdge"
+    "MaxLevel"                  "1"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"           "10"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "min_distance"          "150"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "max_distance"          "400"
+        "LinkedSpecialBonus"    "special_bonus_unique_phantom_lancer"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_speed"           "800"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_agility"         "0"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "agility_duration"      "0"
+      }
+    }
+  }
+}

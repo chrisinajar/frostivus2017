@@ -1,0 +1,6 @@
+"DOTA_Tooltip_ability_creep_rush"                       "Rush"
+"DOTA_Tooltip_ability_creep_rush_Description"           "Grants a massive movement speed bonus when targeting an enemy for an attack."
+"DOTA_Tooltip_ability_creep_rush_Lore"                  ""
+"DOTA_Tooltip_ability_creep_rush_min_distance"          "MIN RUSH DISTANCE:"
+"DOTA_Tooltip_ability_creep_rush_max_distance"          "MAX RUSH DISTANCE:"
+"DOTA_Tooltip_ability_creep_rush_Note1"                 "Rush movement speed is 800."
