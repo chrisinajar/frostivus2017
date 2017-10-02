@@ -21,10 +21,17 @@ function HordeDirector:Init()
     return 1
   end)
 
-  PlayerResource:GetAllTeamPlayerIDs():each(function (playerID)
-    DebugPrint('Initializing player watcher for player ' .. playerID)
+  local configuredHeroes = {}
+
+  local function setupHeroWatcher (hero)
+    local playerID = hero:GetPlayerID()
+    if configuredHeroes[playerID] then
+      DebugPrint('Tried to configure hero watcher twice for player ' .. playerID)
+    end
+
+    configuredHeroes[playerID] = true
     local watcher = PlayerWatcher()
-    watcher:Init(playerID)
+    watcher:Init(hero, playerID)
     table.insert(self.watchers, watcher)
 
     DesiredStressEvent.listen(function (ds)
@@ -33,6 +40,18 @@ function HordeDirector:Init()
     WaveEvent.listen(function (wave)
       watcher.wave = wave
     end)
+  end
+
+  PlayerResource:GetAllTeamPlayerIDs():each(function (playerID)
+    DebugPrint('Initializing player watcher for player ' .. playerID)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+    if hero then
+      setupHeroWatcher(hero)
+    end
+  end)
+
+  GameEvents:OnHeroInGame(function(npc)
+    setupHeroWatcher(npc)
   end)
 
   PeakStressEvent.listen(partial(HordeDirector.OnPeakStress, self))
