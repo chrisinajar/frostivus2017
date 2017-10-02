@@ -4,7 +4,8 @@ modifier_marker_creep = class(ModifierBaseClass)
 
 function modifier_marker_creep:DeclareFunctions ()
   return {
-    MODIFIER_PROPERTY_MOVESPEED_MAX
+    MODIFIER_PROPERTY_MOVESPEED_MAX,
+    MODIFIER_PROPERTY_VISUAL_Z_DELTA
   }
 end
 
@@ -21,4 +22,8 @@ end
 
 function modifier_marker_creep:GetModifierMoveSpeed_Max()
   return 10000
+end
+
+function modifier_marker_creep:GetVisualZDelta()
+  return -1000
 end

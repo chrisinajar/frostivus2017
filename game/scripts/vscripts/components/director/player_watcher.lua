@@ -14,6 +14,7 @@ local SPAWN_AS_HORDE = true
 function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
   self.playerID = playerID
+  self.debugGroupName = 'Player' .. playerID
   self.hero = hero
   self.lastHP = 1
   self.currentSpawnInterval = 5
@@ -30,6 +31,17 @@ function PlayerWatcher:Init(hero, playerID)
   self.wave = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
+
+  local function addPlayerValue (name, value)
+    DebugOverlay:AddEntry(self.debugGroupName, {
+      Name = self.debugGroupName .. name,
+      DisplayName = name,
+      Value = value
+    })
+  end
+  addPlayerValue("Stress", 0)
+  addPlayerValue("Intensity", 0)
+
 
   Timers:CreateTimer(1, partial(self.Think, self))
 
@@ -66,6 +78,11 @@ function PlayerWatcher:Think()
 
   self.stressLevel = stressLevel
 
+  DebugOverlay:Update(self.debugGroupName .. "Stress", {
+    Value = self.stressLevel,
+    forceUpdate = true
+  })
+
   if self.hero:IsAlive() then
     if self.stressLevel > self.desiredStress and self.desiredIntensity > 0 then
       self.desiredIntensity = self.desiredIntensity - 1
@@ -74,6 +91,11 @@ function PlayerWatcher:Think()
       self.desiredIntensity = self.desiredIntensity + 1
     end
   end
+
+  DebugOverlay:Update(self.debugGroupName .. "Intensity", {
+    Value = self.desiredIntensity,
+    forceUpdate = true
+  })
 
   if self.stressLevel < self.desiredStress and not self.spawningHorde then
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
