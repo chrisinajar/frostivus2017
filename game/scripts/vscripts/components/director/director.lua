@@ -24,10 +24,32 @@ function HordeDirector:Init()
     DisplayName = "Phase",
     Value = "N/A"
   })
+  DebugOverlay:AddEntry("root", {
+    Name = "DirectorDesiredStress",
+    DisplayName = "Goal Stress",
+    Value = "N/A"
+  })
+  DebugOverlay:AddEntry("root", {
+    Name = "DirectorWave",
+    DisplayName = "Wave",
+    Value = 1
+  })
 
   PhaseChangeEvent.listen(function (phase)
     DebugOverlay:Update("DirectorPhase", {
       Value = PHASE_NAMES[phase],
+      forceUpdate = true
+    })
+  end)
+  DesiredStressEvent.listen(function (stress)
+    DebugOverlay:Update("DirectorDesiredStress", {
+      Value = stress,
+      forceUpdate = true
+    })
+  end)
+  WaveEvent.listen(function (wave)
+    DebugOverlay:Update("DirectorWave", {
+      Value = wave,
       forceUpdate = true
     })
   end)

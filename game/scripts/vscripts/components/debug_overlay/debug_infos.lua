@@ -32,7 +32,6 @@ function DebugInfos:Init()
     addPlayerValue("SteamID", PlayerResource:GetSteamID(playerID))
     addPlayerValue("Hero", PlayerResource:GetSelectedHeroName(playerID))
     addPlayerValue("Level", 0)
-    addPlayerValue("Stress", 0)
     Timers:CreateTimer(0, function()
       DebugOverlay:Update(groupName .. "Level", {
         Value = PlayerResource:GetLevel(playerID),
