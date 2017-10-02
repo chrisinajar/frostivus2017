@@ -33,6 +33,15 @@ function Event ()
 
     return unlisten
   end
+  local function once (fn)
+    local unlisten = nil
+    local function listenOnce(...)
+      unlisten()
+      fn(unpack({...}))
+    end
+    unlisten = listen(fn)
+    return unlisten
+  end
 
   local function broadcast ( ... )
     if api.debug then
@@ -66,6 +75,7 @@ function Event ()
 
   api.broadcast = broadcast
   api.listen = listen
+  api.once = once
 
   return api
 end

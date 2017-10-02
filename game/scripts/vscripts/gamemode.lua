@@ -144,6 +144,8 @@ end
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
   PlayerResource:RandomHeroForPlayersWithoutHero()
+  InitModule(StorylineManager)
+
 end
 
 function GameMode:OnPreGame()
@@ -163,7 +165,6 @@ function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
 
   -- initialize modules
-  InitModule(HordeDirector)
 
 end
 

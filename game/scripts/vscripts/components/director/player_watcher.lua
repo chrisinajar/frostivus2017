@@ -11,10 +11,10 @@ local MARKER_INTERVAL = 0.1
 local THINK_INTERVAL = 2
 local SPAWN_AS_HORDE = true
 
-function PlayerWatcher:Init(playerID)
+function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
   self.playerID = playerID
-  self.hero = PlayerResource:GetSelectedHeroEntity(playerID)
+  self.hero = hero
   self.lastHP = 1
   self.currentSpawnInterval = 5
   self.killedUnits = 0

@@ -18,7 +18,7 @@ require('internal/eventwrapper')
 require('internal/util')
 require('gamemode')
 -- DotaStats
-require("statcollection/init")
+-- require("statcollection/init")
 
 function Precache( context )
 --[[
