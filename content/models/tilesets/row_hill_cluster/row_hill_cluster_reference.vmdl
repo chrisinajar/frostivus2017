@@ -87,6 +87,10 @@
 				m_sSearchMaterial = "hill_cluster.vmat"
 				m_sReplaceMaterial = "materials/models/tilesets/row_hill_cluster/hill_cluster.vmat"
 			},
+			{
+				m_sSearchMaterial = "antenna.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/antenna/antenna.vmat"
+			},
 		]
 	}
 	m_flFbxScale = 1.0
