@@ -2,9 +2,10 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 4
-	m_flConstantRadius = 15.0
-	m_flConstantLifespan = 0.1
+	m_nMaxParticles = 16
+	m_flConstantRadius = 25.0
+	m_ConstantColor = [ 223, 132, 51, 255 ]
+	m_flNoDrawTimeToGoToSleep = 2.0
 	m_bShouldSort = false
 	m_Renderers = 
 	[
@@ -12,7 +13,7 @@
 			_class = "C_OP_RenderSprites"
 			VisibilityInputs = 
 			{
-				m_flCameraBias = 10.0
+				m_flCameraBias = 75.0
 			}
 			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
 			m_bAdditive = true
@@ -29,67 +30,77 @@
 			_class = "C_OP_FadeInSimple"
 		},
 		{
-			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 0.5
-			m_flEndScale = 6.0
+			_class = "C_OP_OscillateScalar"
+			m_nField = 3
+			m_flEndTime_max = 99999997952.0
+			m_flEndTime_min = 99999997952.0
+			m_FrequencyMin = 0.01
+			m_RateMax = 100.0
+			m_RateMin = 50.0
 		},
 		{
 			_class = "C_OP_SpinUpdate"
 		},
 		{
-			_class = "C_OP_InterpolateRadius"
-			m_flEndScale = 0.0
-			m_flStartScale = 6.0
+			_class = "C_OP_ClampScalar"
+			m_flOutputMax = 15.0
+			m_flOutputMin = 1.0
 		},
 		{
-			_class = "C_OP_PositionLock"
-			m_bLockRot = true
+			_class = "C_OP_OscillateScalar"
+			m_flEndTime_max = 9999999.0
+			m_flEndTime_min = 9999999.0
+			m_FrequencyMax = 0.5
+			m_FrequencyMin = 0.25
+			m_RateMax = 5.0
+			m_RateMin = 5.0
+			m_nField = 16
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.05
+			m_Gravity = [ 0.0, 0.0, 75.0 ]
+			m_bDisableOperator = true
 		},
 	]
 	m_Initializers = 
 	[
 		{
 			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 1.0
 			m_fLifetimeMax = 2.0
-			m_fLifetimeMin = 1.5
-		},
-		{
-			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 154, 0, 193, 255 ]
-			m_ColorMin = [ 93, 255, 0, 255 ]
-		},
-		{
-			_class = "C_INIT_RandomRotation"
-		},
-		{
-			_class = "C_INIT_RandomRotationSpeed"
-			m_flDegreesMin = 60.0
-			m_flDegreesMax = 180.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 5.0
-			m_flRadiusMax = 10.0
+			m_flRadiusMin = 20.0
+			m_flRadiusMax = 40.0
 		},
 		{
-			_class = "C_INIT_CreateWithinSphere"
-			m_fRadiusMax = 45.0
-			m_fRadiusMin = 15.0
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 157, 255, 66, 255 ]
+			m_ColorMax = [ 255, 0, 165, 255 ]
+		},
+		{
+			_class = "C_INIT_RandomRotationSpeed"
 		},
 		{
 			_class = "C_INIT_PositionOffset"
 			m_bLocalCoords = true
-			m_OffsetMax = [ 0.0, 0.0, 50.0 ]
-			m_OffsetMin = [ 0.0, 0.0, -50.0 ]
+			m_OffsetMin = [ 0.0, 0.0, -60.0 ]
+			m_OffsetMax = [ 0.0, 0.0, 60.0 ]
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+			m_fRadiusMin = 45.0
+			m_fSpeedMax = 50.0
+			m_fRadiusMax = 60.0
 		},
 	]
 	m_Emitters = 
 	[
 		{
-			_class = "C_OP_NoiseEmitter"
-			m_flOutputMax = 3.0
-			m_flOutputMin = 1.0
-			m_flNoiseScale = 1.0
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 7.0
 		},
 	]
 	m_controlPointConfigurations = 
