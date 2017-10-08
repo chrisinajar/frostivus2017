@@ -91,6 +91,10 @@
 				m_sSearchMaterial = "residential.vmat"
 				m_sReplaceMaterial = "materials/models/tilesets/row_res/residential.vmat"
 			},
+			{
+				m_sSearchMaterial = "antenna.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/antenna/antenna.vmat"
+			},
 		]
 	}
 	m_flFbxScale = 1.0
