@@ -112,7 +112,7 @@
 		[
 			{
 				m_sSearchMaterial = "normandy_village_houses.vmat"
-				m_sReplaceMaterial = "materials/models/tilesets/normandy_farmhouses/normandy_village_houses.vmat"
+				m_sReplaceMaterial = "materials/models/tilesets/normandy_farmhouses/normandy_village_houses_blu.vmat"
 			},
 		]
 	}
@@ -127,7 +127,7 @@
 	m_nMaxClothVertsPerMesh = 2048
 	m_bBuildClothBoneHierarchy = false
 	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
+	m_bMakeUniqueVMeshes = true
 	m_bMakeImplicitBindPoseSequence = false
 	m_bAdjustSkeletonFromBoneFlags = false
 	m_bHiddenAssetFlag = false
