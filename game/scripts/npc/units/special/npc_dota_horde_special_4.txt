@@ -1,9 +1,9 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: Ghost
+  // HORDE SPECIAL 4: TANK
   //=================================================================================
-  "npc_dota_horde_basic"
+  "npc_dota_horde_special_4"
   {
     // General
     //----------------------------------------------------------------
@@ -12,7 +12,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                ".7"
-    
+
 
     // Abilities
     //----------------------------------------------------------------
@@ -35,7 +35,7 @@
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
     "AttackRange"               "100"   // Range within a target can be attacked.
     "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.   
+    "ProjectileSpeed"           "0"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -59,7 +59,7 @@
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
-  
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"        "800"   // Range of vision during day light.
