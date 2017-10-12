@@ -3,11 +3,11 @@
   //=================================================================================
   // SANTA
   //=================================================================================
-  "npc_dota_horde_basic"
+  "npc_dota_santa"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/creeps/roshan/roshan.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
