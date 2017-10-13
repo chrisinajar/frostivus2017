@@ -32,6 +32,8 @@
 //#base "units/deprecated/npc_dota_special_shaman.txt"
 //#base "units/deprecated/npc_dota_special_tank.txt"
 
+#base "units/basic/npc_dota_horde_testdummy.txt"
+
 "DOTAUnits"
 {
 

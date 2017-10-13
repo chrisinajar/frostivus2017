@@ -65,6 +65,8 @@ function Precache( context )
   --PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
   PrecacheUnitByNameSync("npc_dota_creep_marker", context)
 
+  -- ATAN: for simplicity of testing abilities
+  PrecacheUnitByNameSync("npc_dota_horde_testdummy", context)
 end
 
 -- Create the game mode when we activate

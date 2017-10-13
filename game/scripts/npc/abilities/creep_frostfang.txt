@@ -1,0 +1,37 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Frostfang ( Covfefe )
+  //=================================================================================================================
+  "creep_frostfang"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15500"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/creep_frostfang"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"        "ancient_apparition_ice_blast"
+    "MaxLevel"                  "1"
+      
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "duration"              "4.0"
+      }
+    }
+	
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_ancient_apparition/ancient_apparition_ice_blast_debuff.vpcf"
+      "particle"                                          "particles/status_fx/status_effect_iceblast.vpcf"
+    }
+  }
+}

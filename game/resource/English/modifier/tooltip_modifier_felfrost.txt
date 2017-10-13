@@ -1,0 +1,2 @@
+"DOTA_Tooltip_modifier_felfrost"                           "Felfrost"
+"DOTA_Tooltip_modifier_felfrost_Description"               "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%. Focused by the horde."
