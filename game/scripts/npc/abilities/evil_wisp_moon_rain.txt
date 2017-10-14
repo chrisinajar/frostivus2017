@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_rain"
     "AbilityTextureName"        "luna_eclipse"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"

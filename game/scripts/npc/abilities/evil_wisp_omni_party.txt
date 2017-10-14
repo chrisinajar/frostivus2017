@@ -8,6 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
     "AbilityTextureName"        "wisp_relocate"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 

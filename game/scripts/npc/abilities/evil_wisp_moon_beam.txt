@@ -3,11 +3,12 @@
   //=================================================================================================================
   // Ability: Creep Shackles
   //=================================================================================================================
-  "evil_wisp_moon_rain"
+  "evil_wisp_moon_beam"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
     "AbilityTextureName"        "luna_eclipse"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"

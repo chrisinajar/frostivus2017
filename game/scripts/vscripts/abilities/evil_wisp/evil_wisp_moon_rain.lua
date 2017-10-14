@@ -1,0 +1,1 @@
+evil_wisp_moon_rain = class({})

@@ -1,0 +1,1 @@
+evil_wisp_omni_party = class({})
