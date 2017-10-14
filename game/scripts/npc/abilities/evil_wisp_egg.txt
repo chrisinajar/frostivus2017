@@ -10,9 +10,7 @@
     "BaseClass"                 "ability_lua"
 	"ScriptFile"                "abilities/evil_wisp/evil_wisp_egg"
     "AbilityTextureName"        "phoenix_supernova"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
@@ -32,6 +30,13 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
+	
+	"precache"
+	{
+		"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+		"model"						"models/heroes/phoenix/phoenix_egg.vmdl"
+		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+	}
     
     // Special
     //-------------------------------------------------------------------------------------------------------------

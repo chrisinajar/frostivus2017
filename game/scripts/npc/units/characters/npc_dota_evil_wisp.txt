@@ -7,7 +7,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/wisp/wisp.vmdl" // Model.
+    "Model"                     "models/heroes/wisp/wisp_additive.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
@@ -19,7 +19,7 @@
     "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
     "Ability2"                  "evil_wisp_omni_party"      // Ability 2
     "Ability3"                  "evil_wisp_moon_rain"      // Ability 3
-    "Ability4"                  "evil_wisp_frozen_assault"      // Ability 4
+    "Ability4"                  "evil_wisp_egg"      // Ability 4
 
     // Armor
     //----------------------------------------------------------------

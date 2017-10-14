@@ -9,10 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
 	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
-    "AbilityTextureName"        "luna_eclipse"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityTextureName"        "luna_lucent_beam"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
@@ -21,17 +19,21 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "600"
+    "AbilityCastRange"        "5000"
     "AbilityCastPoint"        "0"
-    
-    // Time   
-    //-------------------------------------------------------------------------------------------------------------
-    "AbilityChannelTime"      "10"
-    "AbilityCooldown"         "18"
+
+    "AbilityCooldown"         "5"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
+	
+	"precache"
+	{
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf"
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+	}
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +47,17 @@
       "02"
       {
         "var_type"            "FIELD_INTEGER"
-        "damage"              "500"
+        "beam_damage"         "500"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "beam_delay"          "2"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_radius"         "350"
       }
     }
   }
