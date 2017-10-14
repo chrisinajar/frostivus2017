@@ -1,0 +1,61 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_egg"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "ability_lua"
+    "AbilityTextureName"        "phoenix_supernova"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"           "1"
+    "MaxLevel"                  "4" //4 PHASES
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "600"
+    "AbilityCastPoint"        "0"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"      "10"
+    "AbilityCooldown"         "18"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"         "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "egg_hits"            "20"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "egg_duration"        "10"
+      }
+      "03"
+      {
+        "var_type"                 "FIELD_FLOAT"
+        "egg_self_stun_duration"   "10.0"
+      }
+	  "03"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "egg_enemy_stun_duration"   "2"
+      }
+    }
+  }
+}

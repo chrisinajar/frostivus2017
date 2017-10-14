@@ -16,10 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  ""      // Ability 1
-    "Ability2"                  ""      // Ability 2
-    "Ability3"                  ""      // Ability 3
-    "Ability4"                  ""      // Ability 4
+    "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
+    "Ability2"                  "evil_wisp_omni_party"      // Ability 2
+    "Ability3"                  "evil_wisp_moon_rain"      // Ability 3
+    "Ability4"                  "evil_wisp_frozen_assault"      // Ability 4
 
     // Armor
     //----------------------------------------------------------------
