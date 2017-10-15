@@ -21,7 +21,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"        "600"
+    "AbilityCastRange"        "1200"
     "AbilityCastPoint"        "0"
     
     // Time   
@@ -32,6 +32,14 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
+	
+	
+	"precache"
+	{
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf"
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+	}
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -47,10 +55,40 @@
         "var_type"            "FIELD_FLOAT"
         "duration"            "10"
       }
-      "03"
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_damage"         "500"
+      }
+	  "01"
       {
         "var_type"            "FIELD_FLOAT"
-        "phase_1_hit_delay"   "3.0"
+        "beam_delay"          "3"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_radius"         "200"
+      }
+	  "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_1_tick_time"           "0.25"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_2_tick_time"           "0.5"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_3_tick_time"           "0.5"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_4_tick_time"           "1"
       }
 	  "03"
       {
@@ -59,18 +97,13 @@
       }
 	  "03"
       {
+        "var_type"              "FIELD_INTEGER"
+        "phase_2_distance"   	"2000"
+      }
+	  "03"
+      {
         "var_type"            "FIELD_FLOAT"
         "phase_3_ang_vel"     "15"
-      }
-	  "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "phase_4_tick_time"   "0.3"
-      }
-	  "03"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "phase_4_max_splits"  "5"
       }
     }
   }
