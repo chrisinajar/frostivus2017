@@ -1,0 +1,16 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Santa Sled Santa Armour
+  //=================================================================================================================
+  "santa_sled_santa_armour"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15119"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "Scriptfile"                "abilities/santa_sled_santa_armour.lua"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                  "1"
+  }
+}

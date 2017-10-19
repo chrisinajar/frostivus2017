@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Santas Sled Capture Point
+  //=================================================================================================================
+  "santa_sled_capturepoint"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15119"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "Scriptfile"                "abilities/santa_sled_capturepoint.lua"
+    "MaxLevel"                  "1"
+
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "capture_range"                 "500"
+      }
+      "02"
+      {
+        "var_type"                      "FIELD_INTEGER"
+        "movement_buff_per_unit"        "100"
+      }
+    }
+  }
+}
