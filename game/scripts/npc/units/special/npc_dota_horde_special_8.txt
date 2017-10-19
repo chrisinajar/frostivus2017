@@ -1,18 +1,18 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // Neutral: Ghost
+  // HORDE SPECIAL 8: AURA DUDE
   //=================================================================================
-  "npc_dota_horde_basic"
+  "npc_dota_horde_special_8"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/creeps/neutral_creeps/n_creep_dragonspawn_a/n_creep_dragonspawn_a.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                ".7"
-    
+    "ModelScale"                "2"
+
 
     // Abilities
     //----------------------------------------------------------------
@@ -35,7 +35,7 @@
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
     "AttackRange"               "100"   // Range within a target can be attacked.
     "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.   
+    "ProjectileSpeed"           "0"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -59,7 +59,7 @@
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
-  
+
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"        "800"   // Range of vision during day light.
