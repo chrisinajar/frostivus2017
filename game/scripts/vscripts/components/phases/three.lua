@@ -35,13 +35,17 @@ function PhaseThree:Start(callback)
 
   self.distanceMoved = 0
   self.distanceToMove = self:CalculateMoveDistance()
-  -- PHASE_3_CAPTURE_RANGE
 
   Timers:CreateTimer(function()
-    if not self:CheckSledPosition() then
+    if self:IsRideDone() then
       FinishedEvent.broadcast({}) -- we're done
       self:CleanUp()
       return
+    elseif IsInTrigger(self.Cart.handle, self:GetCurrentWaypointTrigger()) then
+      self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
+      return 0
+    else
+      self:MoveCart(self:GetCurrentWaypointTrigger():GetAbsOrigin())
     end
     return 2
   end)
@@ -58,9 +62,27 @@ end
 function PhaseThree:SpawnCart()
   local handle = CreateUnitByName("npc_dota_santa_sled")
   return {
-    handle,
-    --buff,
-    --debuff
+    Handle = handle,
+    Projectile = ProjectileManager:CreateLinearProjectile({
+      Ability = handle:FindAbilityByName("santa_sled_capturepoint"),
+      EffectName = nil, -- no effect
+      vSpawnOrigin = handle:GetAbsOrigin(),
+      fDistance = 100000000000, -- to infinty and beyond
+      fStartRadius = 64, --not sure what this means
+      fEndRadius = 64, -- neither
+      Source = handle,
+      bHasFrontalCone = false,
+      bReplaceExisting = false, -- how does it know what the exsiting one is? is it bound to the ability?
+      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+      iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+      fExpireTime = GameRules:GetGameTime() + 3600, -- expires after an hour
+      bDeleteOnHit = false,
+      vVelocity = 0, -- move only when told
+      bProvidesVision = false,
+      --iVisionRadius = 1000, -- obsolete
+      --iVisionTeamNumber = handle:GetTeamNumber() -- obsolete
+    }),
   }
 end
 
@@ -85,13 +107,8 @@ function PhaseThree:CalculateMoveDistance()
 end
 
 -- Return false when sled ride is done
-function PhaseThree:CheckSledPosition()
-  if IsInTrigger(self.Cart.handle, self:GetCurrentWaypointTrigger()) then
-    self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
-    if not self:GetCurrentWaypointTrigger() then return false end
-    self:MoveCart(self:GetCurrentWaypointTrigger():GetAbsOrigin())
-  end
-  return true
+function PhaseThree:IsRideDone()
+  return self:GetCurrentWaypointTrigger() ~= nil
 end
 
 function PhaseThree:GetCurrentWaypointTrigger()
@@ -99,15 +116,20 @@ function PhaseThree:GetCurrentWaypointTrigger()
 return
 
 function PhaseThree:MoveCart(targetPosition)
-  ExecuteOrderFromTable({
+  --[[ExecuteOrderFromTable({
     UnitIndex = self.Cart.handle:entindex(),
     OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
     Position = targetPosition, --Optional.  Only used when targeting the ground
-  })
+  })]]
+  local direction = ProjectileManager:GetLinearProjectileLocation(self.Cart.Projectile) + targetPosition
+  local speed = 500 -- static for now; aura should handle unit counting
+  --speed = (number of friendlies - number of enemies) * unitcountmultiplier
+  ProjectileManager:UpdateLinearProjectileDirection(self.Cart.Projectile, direction, speed)
 end
 
 function PhaseThree:CleanUp()
-  self.Cart.handle:Kill()
+  self.Cart.Handle:ForceKill(false)
+  ProjectileManager:DestroyLinearProjectile(self.Cart.Projectile)
 end
 
 function PhaseThree:ThrowPresent(targetPosition)
