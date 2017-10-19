@@ -22,6 +22,8 @@
 #base "units/npc_dota_special_shaman.txt"
 #base "units/npc_dota_special_tank.txt"
 
+#base "units/npc_dota_santa_sled.txt"
+
 "DOTAUnits"
 {
 

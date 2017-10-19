@@ -11,7 +11,10 @@
 #base "abilities/creep_shackles.txt"
 #base "abilities/creep_stagger.txt"
 
+#base "abilities/santa_sled_capturepoint.txt"
+#base "abilities/santa_sled_santa_armour.txt"
+
 "DOTAAbilities"
 {
-  
+
 }
