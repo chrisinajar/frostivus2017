@@ -11,6 +11,11 @@
 #base "abilities/creep_shackles.txt"
 #base "abilities/creep_stagger.txt"
 
+#base "abilities/evil_wisp_moon_beam.txt"
+#base "abilities/evil_wisp_moon_rain.txt"
+#base "abilities/evil_wisp_egg.txt"
+#base "abilities/evil_wisp_omni_party.txt"
+
 "DOTAAbilities"
 {
   

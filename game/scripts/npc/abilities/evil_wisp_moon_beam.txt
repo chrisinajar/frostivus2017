@@ -1,0 +1,64 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_moon_beam"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
+    "AbilityTextureName"        "luna_lucent_beam"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"           "1"
+    "MaxLevel"                  "4" //4 PHASES
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "5000"
+    "AbilityCastPoint"        "0"
+
+    "AbilityCooldown"         "5"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"         "0"
+	
+	"precache"
+	{
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf"
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+	}
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "target_count"        "1 2 3 5"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_damage"         "500"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "beam_delay"          "2"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_radius"         "350"
+      }
+    }
+  }
+}

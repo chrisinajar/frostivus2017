@@ -1,0 +1,25 @@
+"DOTAUnits"
+{
+//=================================================================================
+// Invisible creep marker for figuring out vision
+//=================================================================================
+  "npc_dota_dummy"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_base_additive" // Class of entity of link to.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_NONE"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "0"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_NEUTRALS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+}

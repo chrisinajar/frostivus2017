@@ -64,6 +64,9 @@ function Precache( context )
   --PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
   --PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
   PrecacheUnitByNameSync("npc_dota_creep_marker", context)
+  
+  -- Generic, commonly used particle effects
+  PrecacheResource("particle",  "particles/generic_gameplay/generic_stunned.vpcf", context)
 
 end
 

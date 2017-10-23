@@ -1,0 +1,3 @@
+"DOTA_Tooltip_ability_evil_wisp_moon_beam"                 "Dimensional Beam"
+"DOTA_Tooltip_ability_evil_wisp_moon_beam_Description"     "Summons a beam to a location that damages everyone it hits."
+"DOTA_Tooltip_ability_evil_wisp_moon_beam_Lore"            ""

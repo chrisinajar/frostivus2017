@@ -1,0 +1,58 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_omni_party"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
+    "AbilityTextureName"        "wisp_relocate"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"           "1"
+    "MaxLevel"                  "4" //4 PHASES
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"      "10"
+    "AbilityCooldown"         "0"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"         "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "safe_radius"         "400 380 360 340"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "explosion_delay"     "5 4.66 4.33 4"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "safe_count"          "12 10 8 6"
+      }
+	  "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "blast_damage"        "1000"
+      }
+    }
+  }
+}

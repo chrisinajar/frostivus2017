@@ -1,0 +1,110 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_moon_rain"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "ability_lua"
+	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_rain"
+    "AbilityTextureName"        "luna_eclipse"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
+    "FightRecapLevel"           "1"
+    "MaxLevel"                  "4" //4 PHASES
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1200"
+    "AbilityCastPoint"        "0"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityChannelTime"      "10"
+    "AbilityCooldown"         "18"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"         "0"
+	
+	
+	"precache"
+	{
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf"
+		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
+		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+	}
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_damage"         "500"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "duration"            "10"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_damage"         "500"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "beam_delay"          "3"
+      }
+	  "01"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "beam_radius"         "200"
+      }
+	  "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_1_tick_time"           "0.25"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_2_tick_time"           "0.5"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_3_tick_time"           "0.5"
+      }
+	   "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_4_tick_time"           "1"
+      }
+	  "03"
+      {
+        "var_type"            "FIELD_INTEGER"
+        "phase_2_gap_width"   "200"
+      }
+	  "03"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "phase_2_distance"   	"2000"
+      }
+	  "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "phase_3_ang_vel"     "15"
+      }
+    }
+  }
+}
