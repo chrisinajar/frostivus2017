@@ -1,0 +1,53 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Siren Song
+  //=================================================================================================================
+  "creep_siren_song"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15503"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/creep_siren_song"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"        "naga_siren_song_of_the_siren"
+    "MaxLevel"                  "1"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.8"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "18"
+      
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "duration"             	"15.0"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "radius"             	"455"
+      }
+    }
+	
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+      "particle"                                          "particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_siren/naga_siren_song_aura.vpcf"
+      "particle"                                          "particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf"
+      "particle"                                          "particles/units/heroes/hero_siren/naga_siren_siren_song_end.vpcf"
+      "particle"                                          "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf"
+      "soundfile"                                          "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+    }
+  }
+}

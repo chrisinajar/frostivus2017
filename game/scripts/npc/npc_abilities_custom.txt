@@ -10,6 +10,10 @@
 #base "abilities/creep_rush.txt"
 #base "abilities/creep_shackles.txt"
 #base "abilities/creep_stagger.txt"
+#base "abilities/creep_frostfang.txt"
+#base "abilities/creep_cold_combustion.txt"
+#base "abilities/creep_snow_cloak.txt"
+#base "abilities/creep_siren_song.txt"
 
 #base "abilities/evil_wisp_moon_beam.txt"
 #base "abilities/evil_wisp_moon_rain.txt"

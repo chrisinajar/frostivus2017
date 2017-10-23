@@ -1,0 +1,28 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Snow Cloak
+  //=================================================================================================================
+  "creep_snow_cloak"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15502"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/creep_snow_cloak"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityTextureName"        "riki_permanent_invisibility"
+    "MaxLevel"                  "1"
+      
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "fade_time"             "3.0"
+      }
+    }
+  }
+}

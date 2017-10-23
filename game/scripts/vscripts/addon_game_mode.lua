@@ -68,6 +68,8 @@ function Precache( context )
   -- Generic, commonly used particle effects
   PrecacheResource("particle",  "particles/generic_gameplay/generic_stunned.vpcf", context)
 
+  -- ATAN: for simplicity of testing abilities
+  PrecacheUnitByNameSync("npc_dota_horde_testdummy", context)
 end
 
 -- Create the game mode when we activate

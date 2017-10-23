@@ -1,0 +1,11 @@
+"DOTA_Tooltip_ability_creep_siren_song"                            "Siren Song"
+"DOTA_Tooltip_ability_creep_siren_song_Description"                "Sings an entrancing lullaby that dazes all nearby enemies into inaction. Ends prematurely if silenced or disabled."
+"DOTA_Tooltip_ability_creep_siren_song_Lore"                       "It's a cheap knock-off number, what's so special about it?"
+"DOTA_Tooltip_ability_creep_siren_song_duration"                   "MAX DURATION:"
+"DOTA_Tooltip_ability_creep_siren_song_radius"                     "RADIUS:" 
+
+"DOTA_Tooltip_modifier_creep_siren_song"                           "Siren Song"
+"DOTA_Tooltip_modifier_creep_siren_song_Description"               "Sing it from the heart, sing it 'til you're nuts, sing it out for the ones that'll hate your guts."
+
+"DOTA_Tooltip_modifier_creep_siren_song_debuff"                    "Siren Song"
+"DOTA_Tooltip_modifier_creep_siren_song_debuff_Description"        "Stunned while the song persists."

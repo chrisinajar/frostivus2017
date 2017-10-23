@@ -1,0 +1,7 @@
+"DOTA_Tooltip_ability_creep_frostfang"                            "Frostfang"
+"DOTA_Tooltip_ability_creep_frostfang_Description"                "Attacks curse their targets with a deep cold, preventing their health from being restored."
+"DOTA_Tooltip_ability_creep_frostfang_Lore"                       "Even a fraction of ancient power can turn the smallest wounds fatal."
+"DOTA_Tooltip_ability_creep_frostfang_duration"                   "DURATION:" 
+
+"DOTA_Tooltip_modifier_creep_frostfang_debuff"                    "Frostbitten"
+"DOTA_Tooltip_modifier_creep_frostfang_debuff_Description"        "Cannot heal or regenerate health."

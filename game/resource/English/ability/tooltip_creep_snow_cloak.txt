@@ -1,0 +1,4 @@
+"DOTA_Tooltip_ability_creep_snow_cloak"                            "Snow Cloak"
+"DOTA_Tooltip_ability_creep_snow_cloak_Description"                "Fades from sight, becoming invisible. Attacking or taking damage will temporarily disable Snow Cloak."
+"DOTA_Tooltip_ability_creep_snow_cloak_Lore"                       "Reflective pelts make for a terrifyingly adept camouflage, one broken only by blood."
+"DOTA_Tooltip_ability_creep_snow_cloak_fade_time"                  "FADE TIME:"
