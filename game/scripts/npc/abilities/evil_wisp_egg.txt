@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -11,7 +11,7 @@
 	"ScriptFile"                "abilities/evil_wisp/evil_wisp_egg"
     "AbilityTextureName"        "phoenix_supernova"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"           "1"
@@ -21,23 +21,23 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastRange"        "600"
     "AbilityCastPoint"        "0"
-    
-    // Time   
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"      "10"
     "AbilityCooldown"         "18"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
+
 	"precache"
 	{
 		"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
 		"model"						"models/heroes/phoenix/phoenix_egg.vmdl"
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 	}
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"            "FIELD_INTEGER"
-        "egg_hits"            "20"
+        "egg_hits"            "50"
       }
       "02"
       {
@@ -60,7 +60,7 @@
 	  "03"
       {
         "var_type"                  "FIELD_FLOAT"
-        "egg_enemy_stun_duration"   "2"
+        "egg_enemy_stun_duration"   "5"
       }
     }
   }
