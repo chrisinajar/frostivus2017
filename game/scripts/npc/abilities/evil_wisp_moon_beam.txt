@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -11,7 +11,7 @@
 	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
     "AbilityTextureName"        "luna_lucent_beam"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES_STRONG"
     "FightRecapLevel"           "1"
@@ -22,19 +22,19 @@
     "AbilityCastRange"        "5000"
     "AbilityCastPoint"        "0"
 
-    "AbilityCooldown"         "5"
-    
+    "AbilityCooldown"         "2"
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
+
 	"precache"
 	{
 		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf"
 		"particle"				"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
 		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 	}
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -52,12 +52,12 @@
 	  "01"
       {
         "var_type"            "FIELD_FLOAT"
-        "beam_delay"          "2"
+        "beam_delay"          "1"
       }
 	  "01"
       {
         "var_type"            "FIELD_INTEGER"
-        "beam_radius"         "350"
+        "beam_radius"         "150"
       }
     }
   }
