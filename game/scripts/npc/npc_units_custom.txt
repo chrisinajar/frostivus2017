@@ -1,5 +1,7 @@
 #base "units/npc_dota_creep_marker.txt"
+#base "units/npc_dota_act_1_helper.txt"
 #base "units/npc_dota_dummy.txt"
+
 
 #base "units/basic/npc_dota_horde_basic.txt"
 

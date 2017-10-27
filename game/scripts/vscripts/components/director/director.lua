@@ -184,3 +184,18 @@ function HordeDirector:StartNextWave()
   self.wave = self.wave + 1
   WaveEvent.broadcast(self.wave)
 end
+
+function HordeDirector:Pause()
+  self.disabled = true
+end
+function HordeDirector:Resume()
+  self.disabled = false
+end
+
+function HordeDirector:IsDisabled()
+  return self.disabled
+end
+
+function HordeDirector:ShouldSpawn(playerWatcher)
+  return not self:IsDisabled()
+end

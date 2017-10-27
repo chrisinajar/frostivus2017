@@ -20,7 +20,9 @@
 #base "abilities/evil_wisp_egg.txt"
 #base "abilities/evil_wisp_omni_party.txt"
 
+#base "abilities/act1_helper_repair.txt"
+
 "DOTAAbilities"
 {
-  
+
 }

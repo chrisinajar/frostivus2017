@@ -99,6 +99,7 @@ function ZoneControl:CreateStateFromHandle (handle, options)
   state.removePlayer = partial(ZoneControl['RemovePlayer'], state)
 
   state.setMode = partial(ZoneControl['SetMode'], state)
+  state.teleportHero = partial(ZoneControl['MoveHeroIntoZone'], state)
 
   -- handlers
   local startTouchEvent = Event()
@@ -150,6 +151,7 @@ function ZoneControl.EnableZone (state)
     return
   end
   state.handle:Enable()
+  state.disabled = false
 
   ZoneControl:EnforceRules(state)
 end
@@ -159,6 +161,7 @@ function ZoneControl.DisableZone (state)
     return
   end
   state.handle:Disable()
+  state.disabled = true
 end
 
 function ZoneControl:SetMode (state, mode)
@@ -192,6 +195,15 @@ function ZoneControl.RemovePlayer (state, playerId, shouldEnforceRules)
   end
 end
 
+function ZoneControl.MoveHeroIntoZone (state, entity)
+  local initialOrigin = entity:GetAbsOrigin()
+  local origin = state.handle:GetAbsOrigin()
+
+  if origin ~= initialOrigin then
+    FindClearSpaceForUnit(entity, origin, true)
+  end
+end
+
 -- rules enforcement
 
 
@@ -217,6 +229,9 @@ ZONE_CONTROL_INCLUSIVE = 3
 
 ]]
 function ZoneControl:EnforceRules (state)
+  if state.disabled then
+    return
+  end
   -- this method is meant to be called with a single zone since it's the actual rules enforcement
   ZoneControl:AssertIsSingleState(state)
 
@@ -309,28 +324,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
       end
     end
   elseif shouldBeLockedIn then
-    if not isTouching then
-      DebugPrint('Player is not touching, but should be!')
-      local x = origin.x
-      local y = origin.y
-      local topWall = state.origin.y + state.bounds.Maxs.y - state.padding
-      local rightWall = state.origin.x + state.bounds.Maxs.x - state.padding
-      local bottomWall = state.origin.y + state.bounds.Mins.y + state.padding
-      local leftWall = state.origin.x + state.bounds.Mins.x + state.padding
-
-      if x > rightWall then
-        x = rightWall
-      elseif x < leftWall then
-        x = leftWall
-      end
-      if y > topWall then
-        y = topWall
-      elseif y < bottomWall then
-        y = bottomWall
-      end
-
-      origin = Vector(x, y, origin.z)
-    end
+    origin = self:FindLocationForHero(state, entity)
   end
 
   if origin ~= initialOrigin then
@@ -339,6 +333,35 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
 end
 
 -- utility methods
+function ZoneControl:FindLocationForHero (state, hero)
+  local isTouching = state.handle:IsTouching(entity)
+  local origin = hero:GetAbsOrigin()
+
+  if not isTouching then
+    DebugPrint('Player is not touching, but should be!')
+    local x = origin.x
+    local y = origin.y
+    local topWall = state.origin.y + state.bounds.Maxs.y - state.padding
+    local rightWall = state.origin.x + state.bounds.Maxs.x - state.padding
+    local bottomWall = state.origin.y + state.bounds.Mins.y + state.padding
+    local leftWall = state.origin.x + state.bounds.Mins.x + state.padding
+
+    if x > rightWall then
+      x = rightWall
+    elseif x < leftWall then
+      x = leftWall
+    end
+    if y > topWall then
+      y = topWall
+    elseif y < bottomWall then
+      y = bottomWall
+    end
+
+    origin = Vector(x, y, origin.z)
+  end
+
+  return origin
+end
 
 function ZoneControl:AssertIsState (state)
   assert(state.isZoneControlState, "is a zone control object")

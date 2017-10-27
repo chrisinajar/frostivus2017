@@ -9,7 +9,7 @@ PeakStressEvent = Event()
 
 local MARKER_INTERVAL = 0.1
 local THINK_INTERVAL = 2
-local SPAWN_AS_HORDE = true
+local SPAWN_AS_HORDE = false
 
 function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
@@ -24,6 +24,7 @@ function PlayerWatcher:Init(hero, playerID)
   self.peakStress = 0
   self.nextJob = nil
   self.marker = CreateUnitByName("npc_dota_creep_marker", self.hero:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+  self.marker:AddNoDraw()
   self.marker:AddNewModifier(self.marker, nil, 'modifier_marker_creep', {})
   self.desiredIntensity = 10
   self.desiredStress = 0.2
@@ -97,7 +98,7 @@ function PlayerWatcher:Think()
     forceUpdate = true
   })
 
-  if self.stressLevel < self.desiredStress and not self.spawningHorde then
+  if self.stressLevel < self.desiredStress and not self.spawningHorde and HordeDirector:ShouldSpawn(self) then
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
     local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
     DebugPrintTable(horde)
