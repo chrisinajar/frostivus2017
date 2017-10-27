@@ -9,5 +9,6 @@ end
 if IsServer() then
   function act1_helper_repair:OnChannelFinish()
     DebugPrint('Repair interval!')
+    PhaseOne:RepairInterval(self:GetCaster())
   end
 end

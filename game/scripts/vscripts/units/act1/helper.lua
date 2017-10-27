@@ -24,10 +24,10 @@ function Helper:Init(entity)
 end
 
 function Helper:Think()
-  if not self.entity:IsAlive() or self.entity:IsNull() then
+  if self.entity:IsNull() or not self.entity:IsAlive() then
     return
   end
-  if self.entity:IsIdle() then
+  if self.entity:IsIdle() and not self.entity:IsChanneling() then
     self:RepairSleigh()
     return 2
   end
@@ -36,11 +36,28 @@ function Helper:Think()
 end
 
 function Helper:RepairSleigh()
+  if not self.hasWalked or (self.entity:GetAbsOrigin() - self.santa):Length() > 500 then
+    self.hasWalked = true
+    local direction = RandomVector(1):Normalized()
+
+    self.repairSpot = self.santa + (direction * 300)
+
+    ExecuteOrderFromTable({
+      UnitIndex = self.entity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+      Position = self.repairSpot + (direction * 20), --Optional.  Only used when targeting the ground
+      Queue = 0 --Optional.  Used for queueing up abilities
+    })
+    return
+  end
   ExecuteOrderFromTable({
     UnitIndex = self.entity:entindex(),
     AbilityIndex = self.repair:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    Position = self.santa, --Optional.  Only used when targeting the ground
+    Position = self.repairSpot,
     Queue = 0 --Optional.  Used for queueing up abilities
   })
+  self.hasWalked = false
+
 end
+

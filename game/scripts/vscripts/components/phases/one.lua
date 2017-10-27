@@ -24,6 +24,7 @@ function PhaseOne:Start(callback)
     callback()
   end)
   self.running = true
+  self.repairRemaining = 20
   -- phase one starts the director
   HordeDirector:Init()
 
@@ -51,6 +52,15 @@ function PhaseOne:Start(callback)
   end)
 end
 
+function PhaseOne:RepairInterval()
+  if self.repairRemaining == 1 then
+    FinishedEvent.broadcast({})
+  end
+
+  self.repairRemaining = self.repairRemaining - 1
+
+end
+
 function PhaseOne:SpawnHelper()
   if not self.running then
     return
@@ -59,7 +69,9 @@ function PhaseOne:SpawnHelper()
   local helper = CreateUnitByName("npc_dota_act_1_helper", self.spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
 
   FinishedEvent.once(function()
-    helper:Destroy()
+    if not helper:IsNull() then
+      helper:Destroy()
+    end
   end)
 
   return 30
