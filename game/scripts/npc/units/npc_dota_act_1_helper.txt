@@ -1,0 +1,37 @@
+"DOTAUnits"
+{
+//=================================================================================
+// Invisible creep marker for figuring out vision
+//=================================================================================
+  "npc_dota_act_1_helper"
+  {
+    // General
+    //
+    "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+    "Model"                     "models/creeps/neutral_creeps/n_creep_satyr_a/n_creep_satyr_a.vmdl" // Model.
+    "vscripts"                                            "units/act1/helper.lua"
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                  "act1_helper_repair"      // Ability 1
+
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
+    "MovementSpeed"                                       "250"    // Speed
+    "MovementTurnRate"                                    "0.8"    // Turning rate.
+
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"            "0"     // Physical protection.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                                            "DOTA_TEAM_GOODGUYS"      // Team name.
+    "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+}

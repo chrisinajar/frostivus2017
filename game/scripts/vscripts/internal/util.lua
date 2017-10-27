@@ -6,7 +6,7 @@ Debug = Debug or {
     ['internal:*'] = true,
     ['gamemode:*'] = true
   },
-  EnableAll = false
+  EnableAll = true
 }
 
 function split(s, delimiter)

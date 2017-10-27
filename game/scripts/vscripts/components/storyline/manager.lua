@@ -23,11 +23,11 @@ local STORY_STATES = {
   --   phase = PhaseThree,
   --   name = "payload"
   -- },
-  -- {
-  --   comic = ComicData.act4,
-  --   phase = BossFight,
-  --   name = "boss fight"
-  -- },
+  {
+    comic = ComicData.act4,
+    phase = BossFight,
+    name = "boss fight"
+  },
   {
     comic = ComicData.victory,
     phase = VictoryPhase,
@@ -44,6 +44,12 @@ function StorylineManager:Init()
     DebugPrint('Starting storyline')
     self:Next()
   end)
+
+  DebugOverlay:AddEntry("root", {
+    Name = "StorylinePhase",
+    DisplayName = "Act",
+    Value = "N/A"
+  })
 end
 
 function StorylineManager:ShowComic(comicData, callback)
@@ -62,15 +68,39 @@ function StorylineManager:Next()
   self.currentState = self.currentState + 1
   local state = STORY_STATES[self.currentState]
 
+  DebugPrint("Starting storyline act: " .. state.name)
+
+  DebugOverlay:Update("StorylinePhase", {
+    Value = state.name,
+    forceUpdate = true
+  })
+
   local function startPhase (data)
+    HordeDirector:Resume()
     state.phase:Start(function()
-      self:Next()
+      Timers:CreateTimer(1, function()
+        self:Next()
+      end)
     end)
   end
 
-  if state.comic then
-    self:ShowComic(state.comic, startPhase)
+  local function showComicAndStart ()
+    if state.comic then
+      HordeDirector:Pause()
+      self:ShowComic(state.comic, startPhase)
+    else
+      Timers:CreateTimer(1, function()
+        startPhase({})
+      end)
+    end
+  end
+
+  if state.phase.Prepare then
+    Timers:CreateTimer(1, function()
+      state.phase:Prepare()
+      showComicAndStart()
+    end)
   else
-    startPhase({})
+    showComicAndStart()
   end
 end
