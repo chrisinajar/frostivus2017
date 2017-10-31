@@ -235,7 +235,7 @@ end
   Date: 09.08.2015.
   Hides all dem hats
 ]]
-function HideWearables( unit )
+function HideWearables(unit)
   unit.hiddenWearables = {} -- Keep every wearable handle in a table to show them later
     local model = unit:FirstMoveChild()
     while model ~= nil do
@@ -247,8 +247,7 @@ function HideWearables( unit )
     end
 end
 
-function ShowWearables( unit )
-
+function ShowWearables(unit)
   for i,v in pairs(unit.hiddenWearables) do
     v:RemoveEffects(EF_NODRAW)
   end
@@ -273,6 +272,9 @@ function GetShortTeamName (teamID)
 end
 
 function IsInTrigger(entity, trigger)
+  assert(entity, "entity is nil")
+  assert(trigger, "trigger is nil")
+
   local triggerOrigin = trigger:GetAbsOrigin()
   local bounds = trigger:GetBounds()
 
