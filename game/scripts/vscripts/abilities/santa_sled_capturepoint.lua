@@ -1,63 +1,78 @@
-LinkLuaModifier("santa_sled_capturepoint_range", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("santa_sled_capturepoint_isinrange", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("santa_sled_capturepoint_capturing", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("santa_sled_capturepoint_capturing_buff", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
-LinkLuaModifier("santa_sled_capturepoint_capturing_debuff", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
+LinkLuaModifier("modifier_santa_sled_capturepoint", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
+LinkLuaModifier("modifier_santa_sled_capturepoint_aura", "abilities/santa_sled_capturepoint.lua", LUA_MODIFIER_MOTION_NONE) --- PERTH VIPPITY PARTIENCE
 
 santa_sled_capturepoint = class(AbilityBaseClass) -- Modifier
 
---------------------------------------------------------------------------------
--- Show Particle and apply .._isinrange to units in range
-
-santa_sled_capturepoint_range = class(ModifierBaseClass) -- Aura
-
-function santa_sled_capturepoint_range:IsAura()
-  return true
+function santa_sled_capturepoint:GetIntrinsicModifierName()
+  return "modifier_santa_sled_capturepoint"
 end
 
-function santa_sled_capturepoint_range:IsHidden()
-  return true
-end
 
-function santa_sled_capturepoint_range:GetModifierAura()
-  return "santa_sled_capturepoint_isinrange"
-end
+modifier_santa_sled_capturepoint = class(ModifierBaseClass)
 
-function santa_sled_capturepoint_range:GetAuraRadius()
-  return self:GetAbility():GetSpecialValueFor("capture_range")
-end
-
-function santa_sled_capturepoint_range:GetAuraSearchFlags()
-  return self:GetAbility():GetAbilityTargetFlags()
-end
-
-function santa_sled_capturepoint_range:GetAuraSearchTeam()
-  return self:GetAbility():GetAbilityTargetTeam()
-end
-
-function santa_sled_capturepoint_range:GetAuraSearchType()
-  return self:GetAbility():GetAbilityTargetType()
-end
-
-function santa_sled_capturepoint_range:GetAuraEntityReject(entity)
+function modifier_santa_sled_capturepoint:IsHidden()
   return false
 end
 
-function santa_sled_capturepoint_range:GetEffectName()
+function modifier_santa_sled_capturepoint:OnCreated(keys)
+  local caster = self:GetCaster()
+  caster.Speed = caster.BaseSpeed
+  self:SetStackCount(0)
+
+  if IsServer() then
+    self:StartIntervalThink(1)
+  end
+end
+
+function modifier_santa_sled_capturepoint:OnIntervalThink()
+  local caster = self:GetCaster()
+  local speedPerUnit = self:GetAbility():GetSpecialValueFor("movement_buff_per_unit")
+  local units = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    caster:GetAbsOrigin(),
+    nil,
+    self:GetAuraRadius(),
+    self:GetAuraSearchTeam(),
+    self:GetAuraSearchType(),
+    self:GetAuraSearchFlags(),
+    FIND_ANY_ORDER,
+    false)
+
+  caster.StackCount = #units
+  caster.Speed = caster.BaseSpeed + caster.StackCount * speedPerUnit
+  self:SetStackCount(caster.StackCount)
+end
+
+function modifier_santa_sled_capturepoint:IsAura()
   return true
 end
 
-function santa_sled_capturepoint_range:GetEffectAttachType()
-  return true
+function modifier_santa_sled_capturepoint:GetModifierAura()
+  return "modifier_santa_sled_capturepoint_aura"
 end
 
-santa_sled_capturepoint_isinrange = class(ModifierBaseClass) -- Displaying Modifier
+function modifier_santa_sled_capturepoint:GetAuraRadius()
+  return self:GetAbility():GetSpecialValueFor("capture_range")
+end
 
---------------------------------------------------------------------------------
--- Show Buff and Debuff with charges to every hero displaying the number of units capturing
+function modifier_santa_sled_capturepoint:GetAuraSearchTeam()
+  return DOTA_UNIT_TARGET_TEAM_BOTH
+end
 
-santa_sled_capturepoint_capturing = class(ModifierBaseClass) -- Aura, Infinite Range
+function modifier_santa_sled_capturepoint:GetAuraSearchType()
+  return DOTA_UNIT_TARGET_HERO
+end
 
-santa_sled_capturepoint_capturing_buff = class(ModifierBaseClass) -- Displaying Modifier
+function modifier_santa_sled_capturepoint:GetAuraSearchFlags()
+  return DOTA_UNIT_TARGET_FLAG_NONE
+end
 
-santa_sled_capturepoint_capturing_debuff = class(ModifierBaseClass) -- Displaying Modifier
+modifier_santa_sled_capturepoint_aura = class(ModifierBaseClass)
+
+function modifier_santa_sled_capturepoint_aura:OnCreated(keys)
+  print(self:GetParent():GetName() .. " is capturing")
+end
+
+function modifier_santa_sled_capturepoint_aura:OnRefresh(keys)
+  self:SetStackCount(self:GetCaster().StackCount)
+end

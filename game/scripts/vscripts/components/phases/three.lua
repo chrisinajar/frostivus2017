@@ -13,12 +13,15 @@ Standard payload rules, the more heroes that are near the cart the faster it goe
 PhaseThree = PhaseThree or {}
 
 local FinishedEvent = Event()
+Debug.EnabledModules['phases:three'] = true
 
 function PhaseThree:Start(callback)
   FinishedEvent.once(callback)
+  DebugPrint("Starting Phase 3: Payload")
+  DebugPrint("Initializing Phase 3")
 
   self.Waypoints = {
-    Triggers = self:MakeWaypointTriggerList({
+    Trigger = self:MakeWaypointTriggerList({
       "trigger_act_3_path_0",
       "trigger_act_3_path_1",
       "trigger_act_3_path_2",
@@ -28,108 +31,139 @@ function PhaseThree:Start(callback)
       "trigger_act_3_path_6",
       "trigger_act_3_path_7"
     }),
-    currentIndex = nil
+    currentIndex = 1
   }
 
+  self.SpawnPosition = Entities:FindByName(nil, "trigger_act_3_santa"):GetAbsOrigin()
+
   self.Cart = self:SpawnCart()
+  self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
 
   self.distanceMoved = 0
   self.distanceToMove = self:CalculateMoveDistance()
 
-  Timers:CreateTimer(function()
-    if self:IsRideDone() then
-      FinishedEvent.broadcast({}) -- we're done
-      self:CleanUp()
-      return
-    elseif IsInTrigger(self.Cart.handle, self:GetCurrentWaypointTrigger()) then
-      self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
-      return 0
-    else
-      self:MoveCart(self:GetCurrentWaypointTrigger():GetAbsOrigin())
+
+  DebugPrint("Finished Initializing Phase 3")
+  DebugPrint("Creating DebugOverlay for Phase 3")
+
+  self:AddDebugOverlayEntry("distanceMoved", "distance sled moved", self.distanceMoved)
+  self:AddDebugOverlayEntry("distanceLeft", "distance sled has left", self.distanceToMove - self.distanceMoved)
+  self:AddDebugOverlayEntry("distanceToMove", "distance sled needs to move", self.distanceToMove)
+  self:AddDebugOverlayEntry("currentTrigger", "current targeted trigger", self:GetCurrentWaypointTrigger():GetName())
+  self:AddDebugOverlayEntry("projectileVelocity", "projectile velocity", Vector(0))
+  self:AddDebugOverlayEntry("projectilePosition", "projectile position", Vector(0))
+  self:AddDebugOverlayEntry("cartSpeed", "cart movement speed", 0)
+  self:AddDebugOverlayEntry("unitsCapturing", "units capturing", 0)
+
+  DebugPrint("Finished Creating DebugOverlay for Phase 3")
+  DebugPrint("Starting Timers for Phase 3")
+
+  self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
+  self.MainTimer = Timers:CreateTimer(function()
+    self:UpdateDebugOverlayEntry("distanceMoved", self.distanceMoved)
+    self:UpdateDebugOverlayEntry("distanceLeft", self.distanceToMove - self.distanceMoved)
+    self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
+    self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed))
+    self:UpdateDebugOverlayEntry("unitsCapturing", self.Cart.Handle.StackCount)
+    if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed) + 100) then
+      self:IncrementWaypointTriggerIndex()
+      if self:IsRideDone() then
+        DebugPrint("Ride is done, finishing up Phase 3")
+        FinishedEvent.broadcast({}) -- we're done
+        self:CleanUp()
+        return
+      else
+        DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
+        self:UpdateDebugOverlayEntry("currentTrigger", self:GetCurrentWaypointTrigger():GetName())
+        self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
+        return 0.5
+      end
     end
     return 2
   end)
 end
 
+function PhaseThree:AddDebugOverlayEntry(name, display, value)
+  DebugOverlay:AddEntry("Phase_payload", {
+    Name = "Phase_payload" .. name,
+    DisplayName = display,
+    Value = value
+  })
+end
+
+function PhaseThree:UpdateDebugOverlayEntry(name, value)
+  DebugOverlay:Update("Phase_payload" .. name, { Value = value })
+end
+
 function PhaseThree:MakeWaypointTriggerList(TriggerNames)
+  DebugPrint("Making Waypoint TriggerList")
   local TriggerList = {}
   for i,waypointName in ipairs(TriggerNames) do
     TriggerList[i] = Entities:FindByName(nil, waypointName)
+    assert(TriggerList[i], "Couldn't find a Trigger with Name '" .. waypointName .. "'")
   end
   return TriggerList
 end
 
 function PhaseThree:SpawnCart()
-  local handle = CreateUnitByName("npc_dota_santa_sled")
+  local handle = CreateUnitByName("npc_dota_santa_sled", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
+  local projectileTarget = CreateUnitByName("npc_dota_creep_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
+  handle.ProjectileTarget = projectileTarget
+  handle.ProjectileSpawnLocation = self.SpawnPosition
+  handle.BaseSpeed = 100
+
+  assert(projectileTarget)
+  assert(handle)
+
   return {
+    ProjectileTarget = projectileTarget,
     Handle = handle,
-    Projectile = ProjectileManager:CreateLinearProjectile({
-      Ability = handle:FindAbilityByName("santa_sled_capturepoint"),
-      EffectName = nil, -- no effect
-      vSpawnOrigin = handle:GetAbsOrigin(),
-      fDistance = 100000000000, -- to infinty and beyond
-      fStartRadius = 64, --not sure what this means
-      fEndRadius = 64, -- neither
-      Source = handle,
-      bHasFrontalCone = false,
-      bReplaceExisting = false, -- how does it know what the exsiting one is? is it bound to the ability?
-      iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-      iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-      iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-      fExpireTime = GameRules:GetGameTime() + 3600, -- expires after an hour
-      bDeleteOnHit = false,
-      vVelocity = 0, -- move only when told
-      bProvidesVision = false,
-      --iVisionRadius = 1000, -- obsolete
-      --iVisionTeamNumber = handle:GetTeamNumber() -- obsolete
-    }),
+    Model = nil -- sled model
   }
 end
 
 function PhaseThree:CalculateMoveDistance()
   local distanceToMove = 0
   local distance = 0
-  local lastWaypointPosition = nil
+  local lastWaypointPosition = self.SpawnPosition
   local currentWaypointPosition = nil
 
-  for k,Waypoint in pairs(self.Waypoints.Triggers) do
-    if not lastWaypointPosition then
-      lastWaypointPosition = Waypoint:GetAbsOrigin()
-    else
-      currentWaypointPosition = Waypoint:GetAbsOrigin()
-      distance = (lastWaypointPosition + currentWaypointPosition):Length2D()
-      distanceToMove = distanceToMove + distance
-      lastWaypointPosition = currentWaypointPosition
+  for i,Waypoint in ipairs(self.Waypoints.Trigger) do
+    if i >= self.Waypoints.currentIndex then
+      if not lastWaypointPosition then
+        lastWaypointPosition = Waypoint:GetAbsOrigin()
+      else
+        currentWaypointPosition = Waypoint:GetAbsOrigin()
+        distance = (lastWaypointPosition + currentWaypointPosition):Length2D()
+        distanceToMove = distanceToMove + distance
+        lastWaypointPosition = currentWaypointPosition
+      end
     end
   end
 
   return distanceToMove
 end
 
--- Return false when sled ride is done
 function PhaseThree:IsRideDone()
-  return self:GetCurrentWaypointTrigger() ~= nil
+  return self:GetCurrentWaypointTrigger() == nil
 end
 
 function PhaseThree:GetCurrentWaypointTrigger()
-  self.Waypoints.Triggers[self.Waypoints.currentIndex]
-return
+  return self.Waypoints.Trigger[self.Waypoints.currentIndex]
+end
 
-function PhaseThree:MoveCart(targetPosition)
-  --[[ExecuteOrderFromTable({
-    UnitIndex = self.Cart.handle:entindex(),
-    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = targetPosition, --Optional.  Only used when targeting the ground
-  })]]
-  local direction = ProjectileManager:GetLinearProjectileLocation(self.Cart.Projectile) + targetPosition
-  local speed = 500 -- static for now; aura should handle unit counting
-  --speed = (number of friendlies - number of enemies) * unitcountmultiplier
-  ProjectileManager:UpdateLinearProjectileDirection(self.Cart.Projectile, direction, speed)
+function PhaseThree:IncrementWaypointTriggerIndex()
+  self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
+end
+
+function PhaseThree:SetCartTarget(targetPosition)
+  DebugPrint("Updating Carts TargetPosition to " .. targetPosition.x .. ", " .. targetPosition.y)
+  self.Cart.ProjectileTarget:SetAbsOrigin(targetPosition)
 end
 
 function PhaseThree:CleanUp()
   self.Cart.Handle:ForceKill(false)
-  ProjectileManager:DestroyLinearProjectile(self.Cart.Projectile)
+  Timers:RemoveTimer("Phase3MainTimer")
 end
 
 function PhaseThree:ThrowPresent(targetPosition)
