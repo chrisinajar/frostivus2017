@@ -9,6 +9,10 @@
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
 
+    // Abilities
+    //
+    "Ability1"                                            "not_of_this_world"
+
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"                                "DOTA_UNIT_CAP_MOVE_GROUND"      // Type of locomotion - ground, air
