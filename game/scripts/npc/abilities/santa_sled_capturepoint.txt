@@ -15,8 +15,7 @@
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
