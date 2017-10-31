@@ -8,21 +8,21 @@ function VictoryPhase:Start()
 end
 
 local STORY_STATES = {
-  {
-    comic = ComicData.act1,
-    phase = PhaseOne,
-    name = "repair"
-  },
+  -- {
+  --   comic = ComicData.act1,
+  --   phase = PhaseOne,
+  --   name = "repair"
+  -- },
   -- {
   --   comic = ComicData.act2,
   --   phase = PhaseTwo,
   --   name = "forest"
   -- },
-  -- {
-  --   comic = ComicData.act3,
-  --   phase = PhaseThree,
-  --   name = "payload"
-  -- },
+  {
+    comic = ComicData.act3,
+    phase = PhaseThree,
+    name = "payload"
+  },
   {
     comic = ComicData.act4,
     phase = BossFight,
@@ -45,11 +45,21 @@ function StorylineManager:Init()
     self:Next()
   end)
 
-  DebugOverlay:AddEntry("root", {
-    Name = "StorylinePhase",
-    DisplayName = "Act",
-    Value = "N/A"
+  DebugOverlay:AddGroup("root", {
+    Name = "StorylinePhases",
+    DisplayName = "Storyline Phases",
   })
+  DebugOverlay:AddEntry("StorylinePhases", {
+    Name = "currentPhase",
+    DisplayName = "current Phase",
+    Value = "phases not initialized"
+  })
+  for i,v in pairs(STORY_STATES) do
+    DebugOverlay:AddGroup("StorylinePhases", {
+      Name = "Phase_" .. v.name,
+      DisplayName = "Phase " .. tostring(i) .. " " .. v.name,
+    })
+  end
 end
 
 function StorylineManager:ShowComic(comicData, callback)
@@ -67,6 +77,7 @@ end
 function StorylineManager:Next()
   self.currentState = self.currentState + 1
   local state = STORY_STATES[self.currentState]
+  DebugOverlay:Update("currentPhase", {
 
   DebugPrint("Starting storyline act: " .. state.name)
 
