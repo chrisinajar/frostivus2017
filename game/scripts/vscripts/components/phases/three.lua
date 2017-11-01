@@ -107,7 +107,7 @@ end
 
 function PhaseThree:SpawnCart()
   local handle = CreateUnitByName("npc_dota_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
-  local projectileTarget = CreateUnitByName("npc_dota_creep_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
+  local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   handle.ProjectileTarget = projectileTarget
   handle.ProjectileSpawnLocation = self.SpawnPosition
   handle.BaseSpeed = 100

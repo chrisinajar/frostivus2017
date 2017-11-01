@@ -17,14 +17,18 @@ function modifier_not_of_this_world:CheckState()
   }
 end
 
-function modifier_out_of_duel:IsHidden()
+function modifier_not_of_this_world:OnCreated()
+  self:GetParent():AddNoDraw()
+end
+
+function modifier_not_of_this_world:IsHidden()
   return false
 end
 
-function modifier_out_of_duel:IsPurgeable()
+function modifier_not_of_this_world:IsPurgeable()
   return false
 end
 
-function modifier_out_of_duel:IsPurgeException()
+function modifier_not_of_this_world:IsPurgeException()
   return false
 end

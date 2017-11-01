@@ -43,7 +43,7 @@ function santa_sled_move:OnProjectileThink_ExtraData(vLocation, keys)
   -- Make sure the Projectile doesn't hit it's Target
   local speed = caster.Speed or caster.BaseSpeed
   if distance <= 200 then
-    print("Reducing Movement Speed")
+    --print("Reducing Movement Speed")
     speed = speed * (distance / 250)
   end
   if speed < caster.BaseSpeed then speed = caster.BaseSpeed end
