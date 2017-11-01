@@ -98,7 +98,7 @@ end
 function DebugOverlay:Update(genericName, settings)
   assert(genericName, "Name was not specified")
   local generic = self:TraverseOverlay(genericName)
-  assert(generic, "generic doesn't exist")
+  assert(generic, "The entry or group '" .. genericName .. "' doesn't exist")
 
   generic.DisplayName = settings.DisplayName or generic.DisplayName
   generic.Color = settings.Color or generic.Color

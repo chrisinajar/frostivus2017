@@ -37,6 +37,8 @@
 
 #base "units/basic/npc_dota_horde_testdummy.txt"
 
+#base "units/npc_dota_santa_sled.txt"
+
 "DOTAUnits"
 {
 

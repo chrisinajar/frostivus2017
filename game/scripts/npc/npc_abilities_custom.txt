@@ -22,6 +22,18 @@
 
 #base "abilities/act1_helper_repair.txt"
 
+#base "abilities/santa_sled_capturepoint.txt"
+#base "abilities/santa_sled_santa_armour.txt"
+#base "abilities/santa_sled_move.txt"
+
+#base "abilities/not_of_this_world.txt"
+
+#base "abilities/santa_sled_capturepoint.txt"
+#base "abilities/santa_sled_santa_armour.txt"
+#base "abilities/santa_sled_move.txt"
+
+#base "abilities/not_of_this_world.txt"
+
 "DOTAAbilities"
 {
 
