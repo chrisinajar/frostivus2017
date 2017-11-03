@@ -14,6 +14,14 @@ function modifier_santa_sled_capturepoint:IsHidden()
   return false
 end
 
+function modifier_santa_sled_capturepoint:GetEffectName()
+  return "particle/indicators/big_green_circle.vpcf"
+end
+
+function modifier_santa_sled_capturepoint:GetEffectAttachType()
+  return PATTACH_ABSORIGIN_FOLLOW
+end
+
 function modifier_santa_sled_capturepoint:OnCreated(keys)
   local caster = self:GetCaster()
   caster.Speed = caster.BaseSpeed
