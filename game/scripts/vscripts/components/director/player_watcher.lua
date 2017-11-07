@@ -10,6 +10,7 @@ PeakStressEvent = Event()
 local MARKER_INTERVAL = 0.1
 local THINK_INTERVAL = 2
 local SPAWN_AS_HORDE = false
+local ITEM_VALUE_INCREMENT = 1/60
 
 function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
@@ -30,6 +31,7 @@ function PlayerWatcher:Init(hero, playerID)
   self.desiredStress = 0.2
   self.hordeAlive = 0
   self.wave = 1
+  self.itemDropValue = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
 
@@ -56,6 +58,11 @@ function PlayerWatcher:Init(hero, playerID)
     if distance < 1000 then
       self:EntityKilledNearby(killedUnit, distance)
     end
+    local hero = EntIndexToHScript( keys.entindex_attacker )
+    if hero:GetPlayerID() == self.hero:GetPlayerID() then
+      self.itemDropValue = self.itemDropValue + 0.1
+    end
+    CreepItemDrop:DropItem(killedUnit, self.itemDropValue)
   end)
 end
 
@@ -66,6 +73,8 @@ end
 function PlayerWatcher:Think()
   local stressLevel = self:GetStressLevel()
   CustomNetTables:SetTableValue("info", "stressLevel", { value = stressLevel })
+
+  self.itemDropValue = ITEM_VALUE_INCREMENT * THINK_INTERVAL
 
   if stressLevel == 1 then
     self.peakStress = 10
@@ -98,7 +107,7 @@ function PlayerWatcher:Think()
     forceUpdate = true
   })
 
-  if self.stressLevel < self.desiredStress and not self.spawningHorde and HordeDirector:ShouldSpawn(self) then
+  if self.hero:IsAlive() and self.stressLevel < self.desiredStress and not self.spawningHorde and HordeDirector:ShouldSpawn(self) then
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
     local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
     DebugPrintTable(horde)
@@ -162,6 +171,7 @@ end
 function PlayerWatcher:SpawnUnit(unitName)
   self:ScheduleUnitSpawn(unitName, function (unit)
     -- rejoice?
+    unit.Is_ItemDropEnabled = true
   end)
 end
 
@@ -190,13 +200,11 @@ end
 
 function PlayerWatcher:ScheduleUnitSpawn(unitName, callback)
   self:FindSpawnPoint(function (location)
-    DebugPrint('Spawning a creep at ...' .. tostring(location))
     self:SpawnUnitAt(unitName, location, callback)
   end)
 end
 function PlayerWatcher:ScheduleHordeSpawn(unitList, callback)
   self:FindSpawnPoint(function (location)
-    DebugPrint('Spawning a horde at ...' .. tostring(location))
     local done = after(#unitList, callback)
     for _,unitName in ipairs(unitList) do
       self:SpawnUnitAt(unitName, location, done)
@@ -204,16 +212,19 @@ function PlayerWatcher:ScheduleHordeSpawn(unitList, callback)
   end)
 end
 
+function PlayerWatcher:GetPlayerValue()
+  return self.itemDropValue
+end
+
 function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
-  DebugPrint('Spawning unit ' .. unitName)
   CreateUnitByNameAsync(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS, function (unit)
     local entIndex = unit:entindex()
-    DebugPrint('unit has entid ' .. entIndex)
     local hordeWatcher = HordeWatcher()
     hordeWatcher:Init(unit, self.hero)
     self.hordeAlive = self.hordeAlive + 1
     unit:OnDeath(function ()
       DebugPrint('Horde unit died! ' .. unit:entindex())
+      CreepItemDrop:DropItem(unit, self:GetPlayerValue())
       self.hordeAlive = self.hordeAlive - 1
     end)
     ExecuteOrderFromTable({

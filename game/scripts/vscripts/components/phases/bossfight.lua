@@ -12,7 +12,6 @@ function BossFight:Prepare()
   end
   each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
 
-
   local spawnPoint = Entities:FindAllByName("trigger_act_4_santa")
   if #spawnPoint < 1 then
     error("Failed to find player spawn point for boss fight")
@@ -24,6 +23,7 @@ function BossFight:Prepare()
       error("Could not find her for player " .. playerId)
     end
     FindClearSpaceForUnit(hero, spawnPoint, true)
+    hero:SetRespawnPosition(spawnPoint)
   end
 
   self.zone = ZoneControl:CreateZone("trigger_act_4_zone", {

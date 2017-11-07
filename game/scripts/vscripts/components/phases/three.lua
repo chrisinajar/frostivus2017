@@ -15,10 +15,32 @@ PhaseThree = PhaseThree or {}
 local FinishedEvent = Event()
 Debug.EnabledModules['phases:three'] = true
 
+function PhaseThree:Prepare(callback)
+  local allPlayers = {}
+  local function addToList (list, id)
+    list[id] = true
+  end
+  each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
+  local spawnPoint = Entities:FindAllByName("trigger_act_3_path_0")
+  if #spawnPoint < 1 then
+    error("Failed to find player spawn point for act 3")
+  end
+  spawnPoint = spawnPoint[1]:GetAbsOrigin()
+  for playerId,_ in pairs(allPlayers) do
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      error("Could not find hero for player " .. playerId)
+    end
+    FindClearSpaceForUnit(hero, spawnPoint, true)
+    hero:SetRespawnPosition(spawnPoint)
+  end
+end
+
 function PhaseThree:Start(callback)
   FinishedEvent.once(callback)
   DebugPrint("Starting Phase 3: Payload")
-  DebugPrint("Initializing Phase 3")
+  -- phase three uses the director
+  HordeDirector:Resume()
 
   self.Waypoints = {
     Trigger = self:MakeWaypointTriggerList({
@@ -61,6 +83,9 @@ function PhaseThree:Start(callback)
   DebugPrint("Starting Timers for Phase 3")
 
   self.DebugOverlayUpdateTimer = Timers:CreateTimer(function()
+    if self.Cart.Handle:IsNull() then
+      return
+    end
     self.pathLenghtLeft = self:CalculateMoveDistance(self.Cart.Handle:GetAbsOrigin())
     self.distanceMoved = self.totalPathLength - self.pathLenghtLeft
     self:UpdateProgressbar(self.distanceMoved / self.totalPathLength)

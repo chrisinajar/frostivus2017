@@ -25,8 +25,8 @@ function PhaseOne:Start(callback)
   end)
   self.running = true
   self.repairRemaining = 20
-  -- phase one starts the director
-  HordeDirector:Init()
+  -- phase one uses the director
+  HordeDirector:Resume()
 
   -- do stuff?
   -- call FinishedEvent.broadcast({}) when we're done

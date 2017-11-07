@@ -144,11 +144,14 @@ function GameMode:OnHeroInGame(hero)
   hero:AddAbility("example_ability")]]
 end
 
+function GameMode:OnAllHeroesInGame()
+  InitModule(HordeDirector)
+  InitModule(StorylineManager)
+end
+
 function GameMode:OnStrategyTime()
   -- Force random hero for players that have not picked
   PlayerResource:RandomHeroForPlayersWithoutHero()
-  InitModule(StorylineManager)
-
 end
 
 function GameMode:OnPreGame()

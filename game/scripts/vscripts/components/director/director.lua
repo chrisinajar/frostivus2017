@@ -17,6 +17,13 @@ local WaveEvent = Event()
 local PhaseChangeEvent = Event()
 
 function HordeDirector:Init()
+  if self.__has_init then
+    return
+  end
+  self.__has_init = true
+
+  self.disabled = true
+
   DebugPrint('Init hero director')
 
   DebugOverlay:AddEntry("root", {
@@ -83,6 +90,7 @@ function HordeDirector:Init()
     WaveEvent.listen(function (wave)
       watcher.wave = wave
     end)
+    watcher.wave = self.wave
   end
 
   PlayerResource:GetAllTeamPlayerIDs():each(function (playerID)
