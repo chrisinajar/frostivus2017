@@ -1,0 +1,5 @@
+"DOTA_Tooltip_ability_holdout_omnislash"									"Secret Blade"
+"DOTA_Tooltip_ability_holdout_omnislash_Description"						"<font color='#70EA72'>Juggernaut sends forth an image of himself, collecting targets it impacts with.  Upon reaching its destination, Juggernaut dashes forward to the image, attacking all units the image connected with with bonus damage.</font>"
+"DOTA_Tooltip_ability_holdout_omnislash_image_radius"						"RADIUS:"
+"DOTA_Tooltip_ability_holdout_omnislash_range"								"RANGE:"
+"DOTA_Tooltip_ability_holdout_omnislash_bonus_damage"						"BONUS DAMAGE:"

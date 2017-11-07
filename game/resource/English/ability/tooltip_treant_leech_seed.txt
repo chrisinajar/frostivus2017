@@ -1,0 +1,7 @@
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017"							"Leech Seed"
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_Description"				"<font color='#70EA72'>When the cooldown is ready, Leech Seed causes Treant's next attack to</font> plant a life-sapping seed in an enemy unit, draining its health, while simultaneously slowing it. The seed heals friendly units around it.  Pulses 6 times."
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_Lore"					"Rooftrellen nurtures the beings under his stewardship, sustained by the lifeforce of trespassers into his sacred ground."
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_leech_damage"			"DAMAGE PER PULSE:"
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_movement_slow"			"%MOVEMENT SLOW:"
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_radius"					"RADIUS:"
+"DOTA_Tooltip_ability_treant_leech_seed_nb2017_duration"				"DURATION:"

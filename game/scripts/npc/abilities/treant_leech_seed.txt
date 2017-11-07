@@ -1,0 +1,53 @@
+"DOTAAbilities" 
+{
+	//=================================================================================================================
+	// Treant Protector: Leech Seed NB2017
+	//=================================================================================================================
+	"treant_leech_seed_nb2017"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"treant_leech_seed"
+		"ScriptFile"					"abilities/treant_leech_seed_nb2017"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"10.0 9.0 8.0 7.0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage_interval"				"0.75"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"leech_damage"					"15 30 45 60"
+			}		
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"movement_slow"					"-28"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"500"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"4.5"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"projectile_speed"				"400"
+			}
+		}
+	}
+}
