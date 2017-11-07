@@ -1,13 +1,17 @@
 "DOTAUnits"
 {
 //=================================================================================
-// Invisible creep marker for figuring out vision
+// Invisible creep marker to mark a projectile target
 //=================================================================================
-  "npc_dota_creep_marker"
+  "npc_dota_target_marker"
   {
     // General
     //
     "BaseClass"                                           "npc_dota_creature" // Class of entity of link to.
+
+    // Abilities
+    //
+    "Ability1"                                            "not_of_this_world"
 
     // Movement
     //----------------------------------------------------------------

@@ -77,11 +77,10 @@ end
 function StorylineManager:Next()
   self.currentState = self.currentState + 1
   local state = STORY_STATES[self.currentState]
-  DebugOverlay:Update("currentPhase", {
 
   DebugPrint("Starting storyline act: " .. state.name)
 
-  DebugOverlay:Update("StorylinePhase", {
+  DebugOverlay:Update("currentPhase", {
     Value = state.name,
     forceUpdate = true
   })

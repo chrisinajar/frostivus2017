@@ -34,7 +34,6 @@ function Precache( context )
   DebugPrint("[BAREBONES] Performing pre-load precache")
 
   -- Ambient Sounds
-  PrecacheResource("soundfile", "soundevents/ambient/doors.vsndevts", context)
   PrecacheResource("soundfile", "soundevents/music/music.vsndevts", context)
 
   -- Particles can be precached individually or by folder
@@ -64,9 +63,10 @@ function Precache( context )
   --PrecacheUnitByNameSync("npc_dota_hero_ancient_apparition", context)
   --PrecacheUnitByNameSync("npc_dota_hero_enigma", context)
   PrecacheUnitByNameSync("npc_dota_creep_marker", context)
-  
-  -- Generic, commonly used particle effects
-  PrecacheResource("particle",  "particles/generic_gameplay/generic_stunned.vpcf", context)
+  PrecacheUnitByNameSync("npc_dota_target_marker", context)
+
+  PrecacheResource("particle",  "particles/indicators/big_green_circle.vpcf", context)
+  PrecacheResource("particle",  "particles/indicators/big_red_circle.vpcf", context)
 
   -- ATAN: for simplicity of testing abilities
   PrecacheUnitByNameSync("npc_dota_horde_testdummy", context)

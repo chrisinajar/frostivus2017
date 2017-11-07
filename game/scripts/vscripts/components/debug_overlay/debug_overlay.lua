@@ -108,6 +108,10 @@ function DebugOverlay:Update(genericName, settings)
   end
 
   if settings.forceUpdate then
-    CustomGameEventManager:Send_ServerToAllClients("debug_overlay_update", { value = self.Overlay })
+    self:UpdateDisplay()
   end
+end
+
+function DebugOverlay:UpdateDisplay()
+  CustomGameEventManager:Send_ServerToAllClients("debug_overlay_update", { value = self.Overlay })
 end

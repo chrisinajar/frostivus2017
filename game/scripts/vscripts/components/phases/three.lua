@@ -39,16 +39,18 @@ function PhaseThree:Start(callback)
   self.Cart = self:SpawnCart()
   self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
 
-  self.distanceMoved = 0
-  self.distanceToMove = self:CalculateMoveDistance()
+  self.totalPathLength = self:CalculateMoveDistance(nil)
+  assert(self.totalPathLength > 1, "totalPathLength must be larger than 1")
+  self.pathLenghtLeft = self.totalPathLength
+  self.distanceMoved = 0 --self.totalPathLength - self.pathLenghtLeft
 
 
   DebugPrint("Finished Initializing Phase 3")
   DebugPrint("Creating DebugOverlay for Phase 3")
 
-  self:AddDebugOverlayEntry("distanceMoved", "distance sled moved", self.distanceMoved)
-  self:AddDebugOverlayEntry("distanceLeft", "distance sled has left", self.distanceToMove - self.distanceMoved)
-  self:AddDebugOverlayEntry("distanceToMove", "distance sled needs to move", self.distanceToMove)
+  self:AddDebugOverlayEntry("totalPathLength", "total path lenght", self.totalPathLength)
+  self:AddDebugOverlayEntry("distanceMoved", "distance sled moved", self.totalPathLength - self.pathLenghtLeft)
+  self:AddDebugOverlayEntry("pathLenghtLeft", "distance left to move", self.pathLenghtLeft)
   self:AddDebugOverlayEntry("currentTrigger", "current targeted trigger", self:GetCurrentWaypointTrigger():GetName())
   self:AddDebugOverlayEntry("projectileVelocity", "projectile velocity", Vector(0))
   self:AddDebugOverlayEntry("projectilePosition", "projectile position", Vector(0))
@@ -58,13 +60,21 @@ function PhaseThree:Start(callback)
   DebugPrint("Finished Creating DebugOverlay for Phase 3")
   DebugPrint("Starting Timers for Phase 3")
 
-  self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
-  self.MainTimer = Timers:CreateTimer(function()
-    self:UpdateDebugOverlayEntry("distanceMoved", self.distanceMoved)
-    self:UpdateDebugOverlayEntry("distanceLeft", self.distanceToMove - self.distanceMoved)
+  self.DebugOverlayUpdateTimer = Timers:CreateTimer(function()
+    self.pathLenghtLeft = self:CalculateMoveDistance(self.Cart.Handle:GetAbsOrigin())
+    self.distanceMoved = self.totalPathLength - self.pathLenghtLeft
+    self:UpdateProgressbar(self.distanceMoved / self.totalPathLength)
+    self:UpdateDebugOverlayEntry("distanceMoved", self.totalPathLength - self.pathLenghtLeft)
+    self:UpdateDebugOverlayEntry("pathLenghtLeft", self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
     self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed))
     self:UpdateDebugOverlayEntry("unitsCapturing", self.Cart.Handle.StackCount)
+    DebugOverlay:UpdateDisplay()
+    return .2
+  end)
+
+  self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
+  self.MainTimer = Timers:CreateTimer(function()
     if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
@@ -106,26 +116,24 @@ function PhaseThree:MakeWaypointTriggerList(TriggerNames)
 end
 
 function PhaseThree:SpawnCart()
-  local handle = CreateUnitByName("npc_dota_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
-  local projectileTarget = CreateUnitByName("npc_dota_creep_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
-  handle.ProjectileTarget = projectileTarget
-  handle.ProjectileSpawnLocation = self.SpawnPosition
-  handle.BaseSpeed = 100
-
-  assert(projectileTarget)
-  assert(handle)
+  local santa = CreateUnitByName("npc_dota_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
+  assert(santa, "Failed to spawn santa")
+  local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
+  assert(projectileTarget, "Failed to spawn ProjectileTarget")
+  santa.ProjectileTarget = projectileTarget
+  santa.ProjectileSpawnLocation = self.SpawnPosition
+  santa.BaseSpeed = 100
 
   return {
     ProjectileTarget = projectileTarget,
-    Handle = handle,
-    Model = nil -- sled model
+    Handle = santa,
   }
 end
 
-function PhaseThree:CalculateMoveDistance()
+function PhaseThree:CalculateMoveDistance(startPosition)
   local distanceToMove = 0
   local distance = 0
-  local lastWaypointPosition = self.SpawnPosition
+  local lastWaypointPosition = startPosition or self.SpawnPosition
   local currentWaypointPosition = nil
 
   for i,Waypoint in ipairs(self.Waypoints.Trigger) do
@@ -169,8 +177,8 @@ end
 function PhaseThree:ThrowPresent(targetPosition)
 end
 
-function PhaseThree:MakeProgressBar(text, maxValue, startValue)
+function PhaseThree:MakeProgressBar(text)
 end
 
-function PhaseThree:UpdateProgressbar(value, isRelative)
+function PhaseThree:UpdateProgressbar(percentage)
 end

@@ -11,7 +11,7 @@ function santa_sled_move:CreateProjectile(vSourceLoc)
     Target = caster.ProjectileTarget,
     Source = caster,
     Ability = self,
-    EffectName = "particles/econ/items/mirana/mirana_crescent_arrow/mirana_spell_crescent_arrow.vpcf",
+    EffectName = "",
     iMoveSpeed = caster.BaseSpeed,
     vSourceLoc = vSourceLoc,                          -- Optional (HOW)
     bDrawsOnMinimap = false,                          -- Optional
@@ -27,23 +27,38 @@ function santa_sled_move:CreateProjectile(vSourceLoc)
 end
 
 function santa_sled_move:OnProjectileThink_ExtraData(vLocation, keys)
+  -- TODO: Make turns smoother
+  --print(keys)
   for k,v in pairs(keys) do
     print(k, tostring(v))
   end
+
   local caster = self:GetCaster()
-  local distance = (caster.ProjectileTarget:GetAbsOrigin() - vLocation):Length2D()
+  local targetPosition = caster.ProjectileTarget:GetAbsOrigin()
+  local distance = (targetPosition - vLocation):Length2D()
   --print(vLocation)
   caster.ProjectilePosition = vLocation
 
   -- Update Position
   caster:SetOrigin(GetGroundPosition(vLocation, caster))
 
-  -- TODO: Fix Santa's ForwardVector
+  -- Fix Santa's ForwardVector
+  local forwardVector = caster:GetForwardVector()
+  local targetDirection = (targetPosition - vLocation):Normalized()
+  --local smoothed = Vector(0)
+  --smoothed.x = (targetDirection.x - forwardVector.x) / 100
+  --smoothed.y = (targetDirection.y - forwardVector.y) / 100
+  --smoothed.z = (targetDirection.z - forwardVector.z) / 100
+  --print("old", forwardVector)
+  --print("target", targetDirection)
+  --print("diff", targetDirection - forwardVector)
+  --print("smoothed", smoothed)
+  caster:SetForwardVector(targetDirection)
 
   -- Make sure the Projectile doesn't hit it's Target
   local speed = caster.Speed or caster.BaseSpeed
   if distance <= 200 then
-    print("Reducing Movement Speed")
+    --print("Reducing Movement Speed")
     speed = speed * (distance / 250)
   end
   if speed < caster.BaseSpeed then speed = caster.BaseSpeed end

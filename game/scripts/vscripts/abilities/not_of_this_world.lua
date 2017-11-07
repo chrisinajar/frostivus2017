@@ -13,18 +13,25 @@ function modifier_not_of_this_world:CheckState()
     [MODIFIER_STATE_INVISIBLE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
     [MODIFIER_STATE_UNSELECTABLE] = true,
-    [MODIFIER_STATE_NOT_ON_MINIMAP] = true
+    [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+    [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+    [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
   }
 end
 
-function modifier_out_of_duel:IsHidden()
+function modifier_not_of_this_world:OnCreated()
+  -- BUG: AddNoDraw() doesn't exist
+  --self:GetCaster():AddNoDraw()
+end
+
+function modifier_not_of_this_world:IsHidden()
   return false
 end
 
-function modifier_out_of_duel:IsPurgeable()
+function modifier_not_of_this_world:IsPurgeable()
   return false
 end
 
-function modifier_out_of_duel:IsPurgeException()
+function modifier_not_of_this_world:IsPurgeException()
   return false
 end
