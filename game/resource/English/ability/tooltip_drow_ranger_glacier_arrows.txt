@@ -1,0 +1,8 @@
+"DOTA_Tooltip_ability_holdout_glacier_arrows"									"Frost Arrows"
+"DOTA_Tooltip_ability_holdout_glacier_arrows_Description"						"Adds a freezing effect to Drow's attacks, slowing enemy movement.  <font color='#70EA72'>Units are knocked back by the initial strike.</font>\n\nFrost Arrows is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."
+"DOTA_Tooltip_ability_holdout_glacier_arrows_Lore"								"Ice-encased arrows pierce the silence, chilling their victims to the core."
+"DOTA_Tooltip_ability_holdout_glacier_arrows_Note0"								"The slow duration is refreshed on successive casts."
+"DOTA_Tooltip_ability_holdout_glacier_arrows_frost_arrows_movement_speed"		"%MOVE SPEED:"
+"DOTA_Tooltip_ability_holdout_glacier_arrows_duration"							"<font color='#70EA72'>KNOCKBACK DURATION:</font>"
+"DOTA_Tooltip_ability_holdout_glacier_arrows_slow_duration"						"SLOW DURATION:"
+"DOTA_Tooltip_ability_holdout_glacier_arrows_knockback_distance"				"<font color='#70EA72'>KNOCKBACK DISTANCE:</font>"

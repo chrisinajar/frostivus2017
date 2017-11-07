@@ -1,0 +1,5 @@
+"DOTA_Tooltip_ability_holdout_multishot"										"Quelling Shot"
+"DOTA_Tooltip_ability_holdout_multishot_Description"							"<font color='#70EA72'>Drow's arrow splits in front of her in a cone shape, dealing less damage but cleaving multiple targets.  Each arrow can only hit a target once.  If Frost Arrows is activated, Quelling Shot's arrows will be converted to Frost Arrows, increasing the mana cost per arrow.</font>\n\nQuelling Shot is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."
+"DOTA_Tooltip_ability_holdout_multishot_arrow_range"							"RANGE:"
+"DOTA_Tooltip_ability_holdout_multishot_arrow_count"							"ARROW COUNT:"
+"DOTA_Tooltip_ability_holdout_multishot_damage_reduction_pct"					"%DAMAGE REDUCTION:"

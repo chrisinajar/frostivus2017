@@ -1,0 +1,7 @@
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout"					"Deflection"
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_Lore"				"Manipulating her psionic veil, Lanaya bends nature's law to her will."
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_Description"		"Templar Assassin creates a defensive shield around herself that absorbs damage and provides a bonus to her damage."
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_Note0"			"Damage as HP Removal bypasses Deflection."
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_damage_absorb"	"%DAMAGE ABSORB:"
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_bonus_damage"		"%BONUS DAMAGE:"
+"DOTA_Tooltip_ability_templar_assassin_refraction_holdout_duration"			"DURATION:"

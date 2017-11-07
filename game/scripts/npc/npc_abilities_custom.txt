@@ -34,6 +34,22 @@
 
 #base "abilities/not_of_this_world.txt"
 
+#base "abilities/axe_battle_rage.txt"
+#base "abilities/axe_culling_blade.txt"
+#base "abilities/drow_ranger_glacier_arrows.txt"
+#base "abilities/drow_ranger_multishot.txt"
+#base "abilities/juggernaut_blade_fury.txt"
+#base "abilities/juggernaut_omnislash.txt"
+#base "abilities/legion_commander_gladiators_unite.txt"
+#base "abilities/sven_gods_strength.txt"
+#base "abilities/templar_assassin_refraction.txt"
+#base "abilities/tiny_trample.txt"
+#base "abilities/treant_great_protector.txt"
+#base "abilities/treant_leech_seed.txt"
+#base "abilities/treant_overgrowth.txt"
+#base "abilities/zuus_static_field.txt"
+#base "abilities/zuus_thundergods_wrath.txt"
+
 "DOTAAbilities"
 {
 

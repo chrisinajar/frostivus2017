@@ -1,0 +1,8 @@
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon"										"Static Field"
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_Description"							"Zeus shocks all nearby enemy units whenever he casts a spell, causing damage proportional to their current health."
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_Lore"									"The air crackles with static when the Thundergod walks the world."
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_Note0"									"The damage from Static Field is dealt before the damage from the used spell."
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_Note1"									"Using items doesn't trigger Static Field."
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_Note2"									"Does not require unit visibility to take effect."
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_damage_health_pct"						"%HEALTH REDUCTION:"
+"DOTA_Tooltip_ability_zuus_static_field_dark_moon_radius"									"RANGE:"

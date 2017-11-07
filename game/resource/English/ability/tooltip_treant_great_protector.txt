@@ -1,0 +1,6 @@
+"DOTA_Tooltip_ability_treant_great_protector"							"Great Protector"
+"DOTA_Tooltip_ability_treant_great_protector_Description"				"Treant plants his roots and grows in size, gaining large amounts of bonus strength while losing movement speed."
+"DOTA_Tooltip_ability_treant_great_protector_Lore"						""
+"DOTA_Tooltip_ability_treant_great_protector_bonus_strength"			"BONUS STRENGTH:"
+"DOTA_Tooltip_ability_treant_great_protector_move_speed"				"MOVE SPEED:"
+"DOTA_Tooltip_ability_treant_great_protector_duration"					"DURATION:"

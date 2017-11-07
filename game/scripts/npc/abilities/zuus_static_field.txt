@@ -1,0 +1,40 @@
+"DOTAAbilities" 
+{
+	//=================================================================================================================
+	// Zuus: Static Field
+	//=================================================================================================================
+	"zuus_static_field_dark_moon"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"zuus_static_field"
+		"ScriptFile"					"abilities/zuus_static_field_dark_moon"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"	
+
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_health_pct"			"4 6 8 10"
+				"LinkedSpecialBonus"		"special_bonus_unique_zeus"
+			}
+		}
+	}
+}

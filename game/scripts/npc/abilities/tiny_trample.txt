@@ -1,0 +1,76 @@
+"DOTAAbilities" 
+{
+	//=================================================================================================================
+	// Tiny: Trample
+	//=================================================================================================================
+	"tiny_trample"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"tiny_craggy_exterior"
+		"ScriptFile"					"abilities/tiny_trample"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 40 50 60"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.2"	// hits everything on the map
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"4.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"0.75 1.0 1.25 1.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"150"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_movespeed_pct"		"20 30 40 50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow_movement_speed"		"100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor"			"-75 -50 -25 0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_factor_tooltip"	"25 50 75 100"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"base_damage"				"0"
+			}
+		}
+	}
+}

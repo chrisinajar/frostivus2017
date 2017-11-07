@@ -1,0 +1,5 @@
+"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017"									"Thundergod's Salvation"
+"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_Description"						"<font color='#70EA72'>Zeus calls down an immobile Cloud for each allied hero for protection.  Each Cloud attacks nearby enemies using Zeus' current level of Lightning Bolt.</font>"
+"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_Lore"								"The Lord of Heaven smites all who oppose him, near or far."
+"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_cloud_duration"						"CLOUD DURATION:"
+"DOTA_Tooltip_ability_zeus_thundergods_wrath_nb2017_cloud_bolt_interval"				"CLOUD STRIKE INTERVAL:"
