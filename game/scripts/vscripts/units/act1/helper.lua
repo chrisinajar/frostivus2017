@@ -8,7 +8,7 @@ end
 
 function Helper:Init(entity)
   -- thisEntity
-  local santa = Entities:FindAllByName("trigger_act_1_sleigh")
+  local santa = Entities:FindAllByName("trigger_act_1_santa")
   if #santa < 1 then
     error("Failed to find act one helper target to repair")
   end

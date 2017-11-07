@@ -142,6 +142,7 @@ end
 
 function PhaseThree:SpawnCart()
   local santa = CreateUnitByName("npc_dota_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
+  santa:AddAbility("santa_sled_capturepoint")
   assert(santa, "Failed to spawn santa")
   local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   assert(projectileTarget, "Failed to spawn ProjectileTarget")

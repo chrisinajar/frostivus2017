@@ -38,15 +38,20 @@ function PhaseOne:Start(callback)
 
   self.spawnPoint = spawnPoint[1]:GetAbsOrigin()
 
-  local sleigh = Entities:FindAllByName("trigger_act_1_sleigh")
+  local sleigh = Entities:FindAllByName("trigger_act_1_santa")
   if #sleigh < 1 then
-    error("Failed to find act one helper spawn point")
+    error("Failed to find act one sleigh repair spot")
   end
 
   self.sleigh = sleigh[1]:GetAbsOrigin()
 
   self.santa = CreateUnitByName("npc_dota_santa", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
-
+  FinishedEvent.once(function()
+    if self.santa and not self.santa:IsNull() then
+      self.santa:Destroy()
+    end
+    self.santa = nil
+  end)
   Timers:CreateTimer(0, function()
     return self:SpawnHelper()
   end)

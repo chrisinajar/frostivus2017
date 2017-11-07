@@ -16,7 +16,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "santa_sled_capturepoint"  // Ability 1
+    "Ability1"                  ""  // Ability 1
     "Ability2"                  "santa_sled_santa_armour"  // Ability 2
     "Ability3"                  "santa_sled_move"          // Ability 3
     "Ability4"                  ""      // Ability 4
