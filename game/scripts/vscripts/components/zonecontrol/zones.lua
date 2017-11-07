@@ -42,6 +42,7 @@ end
 function ZoneControl:CreateZone (name, options)
   local handles = Entities:FindAllByName(name)
   options = options or {}
+  options.name = name
 
   DebugPrint('Creating new zone ' .. name)
 
@@ -57,6 +58,7 @@ end
 
 function ZoneControl:CreateEmptyState (options)
   return {
+    name = options.name,
     isZoneControlState = true,
     mode = options.mode,
     players = options.players,
@@ -282,7 +284,7 @@ function ZoneControl:EnforceRulesOnEntity (state, playerId, entity)
   if shouldBeLockedOut then
     -- the player should be locked out, but there's an entity touching us!
     if isTouching then
-      DebugPrint('Player is touching, but should be locked out')
+      DebugPrint('Player is touching, but should be locked out ' .. state.name)
       --[[
       we want to find the spot outside of the zone that the entity should be placed
       potential for FindPlaceWhatever to infinite loop rounding a player back into a zone?
@@ -338,7 +340,7 @@ function ZoneControl:FindLocationForHero (state, hero)
   local origin = hero:GetAbsOrigin()
 
   if not isTouching then
-    DebugPrint('Player is not touching, but should be!')
+    DebugPrint('Player is not touching, but should be! ' .. state.name)
     local x = origin.x
     local y = origin.y
     local topWall = state.origin.y + state.bounds.Maxs.y - state.padding

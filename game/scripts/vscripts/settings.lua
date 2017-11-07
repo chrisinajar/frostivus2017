@@ -5,6 +5,8 @@
 MIN_WAVE_TIME = 180
 MAX_WAVE_TIME = 300
 
+ITEM_DESPAWN_TIME = 120
+
 ------------------------------------------------
 
 PREGAME_TIME = 10

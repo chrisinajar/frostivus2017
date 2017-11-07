@@ -39,11 +39,6 @@ function StorylineManager:Init()
   DebugPrint('Initializing storyline manager')
   self.currentState = 0
   -- do things to make sure the players don't see their heroes until after the comic
-  GameEvents:OnPreGame(function()
-    -- start story!
-    DebugPrint('Starting storyline')
-    self:Next()
-  end)
 
   DebugOverlay:AddGroup("root", {
     Name = "StorylinePhases",
@@ -60,6 +55,9 @@ function StorylineManager:Init()
       DisplayName = "Phase " .. tostring(i) .. " " .. v.name,
     })
   end
+
+  DebugPrint('Starting storyline')
+  self:Next()
 end
 
 function StorylineManager:ShowComic(comicData, callback)
@@ -95,14 +93,8 @@ function StorylineManager:Next()
   end
 
   local function showComicAndStart ()
-    if state.comic then
-      HordeDirector:Pause()
-      self:ShowComic(state.comic, startPhase)
-    else
-      Timers:CreateTimer(1, function()
-        startPhase({})
-      end)
-    end
+    HordeDirector:Pause()
+    self:ShowComic(state.comic, startPhase)
   end
 
   if state.phase.Prepare then

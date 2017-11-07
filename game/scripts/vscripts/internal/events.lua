@@ -51,6 +51,7 @@ function GameMode:_OnGameRulesStateChange(keys)
 end
 
 local OnHeroInGameEvent = CreateGameEvent('OnHeroInGame')
+local OnAllHeroesInGameEvent = CreateGameEvent('OnAllHeroesInGame')
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:_OnNPCSpawned(keys)
   if GameMode._reentrantCheck then
@@ -63,6 +64,30 @@ function GameMode:_OnNPCSpawned(keys)
     npc.bFirstSpawned = true
     OnHeroInGameEvent(npc)
     GameMode:OnHeroInGame(npc)
+
+    if not GameMode._haveAllHeroesSpawned then
+      local allPlayers = {}
+      local function addToList (list, id)
+        list[id] = true
+      end
+      GameMode._haveAllHeroesSpawned = true
+
+      for _,playerId in ipairs(totable(PlayerResource:GetAllTeamPlayerIDs())) do
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+        if npc:GetPlayerID() == playerId then
+          hero = npc
+        end
+        if not hero then
+          GameMode._haveAllHeroesSpawned = false
+        end
+      end
+      if GameMode._haveAllHeroesSpawned then
+        Timers:CreateTimer(1, function()
+          GameMode:OnAllHeroesInGame()
+          OnAllHeroesInGameEvent({})
+        end)
+      end
+    end
   end
 
   GameMode._reentrantCheck = true

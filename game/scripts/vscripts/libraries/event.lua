@@ -62,6 +62,7 @@ function Event ()
         end)
         if err then
           print(err)
+          print(tostring(debug.traceback()))
           table.insert(errors, err)
         end
       end
