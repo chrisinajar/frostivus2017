@@ -33,29 +33,111 @@ local RARITY_ENUM = 4
 --  *RARITY -> item will not drop.
 --it is possible to define the same item twice, for maximum flexibility
 ItemPowerTable = {
-  --NAME                      FROM    TO      RARITY
-  { "item_tango_single",      0,      3,        1},
-  { "item_tango",             2,      10,       1},
-  { "item_clarity",           2,      20,      10},
-  { "item_flask",             2,      20,      10},
-  { "item_enchanted_mango",   3,      20,      10},
-  { "item_stout_shield",      2,      5,       1},
-  { "item_gauntlets",         2,      5,       1},
-  { "item_slippers",          2,      5,       1},
-  { "item_mantle",            2,      5,       1},
-  { "item_ring_of_basilius",  4,      8,       10},
-  { "item_boots",             3,      4,       1},
-  { "item_boots",             3,      8,       10},
-  { "item_wraith_band",       4,      10,      1},
-  { "item_bracer",            4,      10,      1},
-  { "item_null_talisman",     4,      10,      1},
-  { "item_ring_of_aquila",    4,      10,      1},
-  { "item_arcane_boots",      8,      20,      10},
-  { "item_tranquil_boots",    8,      20,      10},
-  { "item_phase_boots",       8,      20,      10},
-  { "item_helm_of_iron_will", 8,      15,      1},
-  { "item_armlet",            10,     20,      1},
-  { "item_radiance",          1,     -1,       1},
+  --NAME                        FROM    TO      RARITY
+  --CONSUMABLES
+  { "item_tango_single",         0,      3,       1},
+  { "item_tango",                2,     10,       1},
+  { "item_clarity",              2,     10,       5},
+  { "item_flask",                2,     10,      10},
+  { "item_enchanted_mango",      0,     10,      10},
+  { "item_tango",               11,     20,       5},
+  { "item_clarity",             11,     20,      10},
+  { "item_flask",               11,     20,      15},
+  { "item_enchanted_mango",     11,     20,      15},
+  --SUPER EARLY
+  { "item_stout_shield",         0,      3,       7},
+  { "item_gauntlets",            0,      3,       2},
+  { "item_slippers",             0,      3,       2},
+  { "item_mantle",               0,      3,       2},
+  --EARLY
+  { "item_magic_wand",           2,      8,       3},
+  { "item_ring_of_basilius",     2,      8,       3}, --avoid multiples
+  { "item_boots",                2,      4,       1},
+  { "item_boots",                5,      8,      10}, --each player only needs one
+  { "item_wraith_band",          2,      8,       1},
+  { "item_bracer",               2,      8,       1},
+  { "item_null_talisman",        2,      8,       1},
+  { "item_cloak",                2,      8,       1},
+  { "item_headdress",            2,      8,       1},
+  { "item_chainmail",            2,      8,       1},
+  { "item_blades_of_attack",     2,      8,       1},
+  { "item_belt_of_streangth",    2,      8,       1},
+  { "item_boots_of_elves",       2,      8,       1},
+  { "item_robe",                 2,      8,       1},
+  { "item_gloves",               2,      8,       1},
+  --ADV EARLY
+  { "item_buckler",              5       8,       3}, --avoid multiples
+  { "item_void_stone",           5       8,       1},
+  { "item_ring_of_health",       5       8,       1},
+  { "item_vitality_booster",     5       8,       1},
+  { "item_energy_booster",       5       8,       1},
+  { "item_point_booster",        5       8,       1},
+  { "item_soul_ring",            5       8,       1},
+  { "item_vitality_booster",     5       8,       1},
+  { "item_ring_of_aquila",       5,      8,       3}, --avoid multiples
+  { "item_helm_of_iron_will",    5,     10,       5}, --just because it's really good
+  --SMALL
+  { "item_medallion_of_courage", 9,     16,       1},
+  { "item_ghost",                9,     16,       7}, --prevent ghost spam
+  { "item_force_staff",          9,     16,       1},
+  { "item_aether_lens",          9,     16,       3}, --probably pretty good
+  { "item_lesser_crit",          9,     16,       1},
+  { "item_sange",                9,     16,       1},
+  { "item_yasha",                9,     16,       1},
+  { "item_trident",              9,     16,       3}, --no idea how good this is
+  { "item_ancient_janggo"        9,     16,       5}, --avoid multiples
+  { "item_dragon_lance",         9,     16,       3}, --probably pretty good
+  { "item_platemail",            9,     16,       1},
+  { "item_lifesteal",            9,     16,       1},
+  { "item_blade_mail",           9,     16,       3},
+  { "item_mask_of_madness",      9,     16,       3},
+  { "item_ultimate_orb",         9,     16,       2}, --attempt at preventing ez skadi
+  { "item_arcane_boots",         9,     16,       8}, --people have boots
+  { "item_tranquil_boots",       9,     16,       8}, --people have boots
+  { "item_phase_boots",          9,     16,       8}, --people have boots
+  { "item_power_treads",         9,     16,       8}, --people have boots
+  --ADV SMALL
+  { "item_vanguard",            12,     16,       5}, --just because it's really good
+  { "item_armlet",              12,     16,       3}, --probably pretty good
+  { "item_veil_of_discord",     12,     16,       3}, --probably pretty good
+  { "item_mekansm",             12,     16,       3}, --avoid multiples
+  { "item_vladmir",             12,     16,       3}, --avoid multiples
+  --MEDIUM
+  { "item_solar_crest",         17,     24,       1},
+  { "item_desolator",           17,     24,       1},
+  { "item_basher",              17,     24,       1},
+  { "item_hurricane_pike",      17,     24,       1},
+  { "item_black_king_bar",      17,     24,       2}, --might actually want to make it rarer or not drop at all
+  { "item_heavens_halbeard",    17,     24,       1},
+  { "item_cyclone",             17,     24,       1}, --do we even want this in?
+  { "item_diffusal_blade",      17,     24,       1},
+  { "item_echo_sabre",          17,     24,       1},
+  { "item_orchid",              17,     24,       1},
+  { "item_hood_of_defiance",    17,     24,       1},
+  --BAUMI'S FAVORITE(MEDIUM)
+  { "item_lotus_orb",           17,     24,       3},
+  --ADV MEDIUM
+  { "item_pipe",                20,     24,       1},
+  { "item_ultimate_scepter",    20,     24,       1}, --avoid multiples, but some people really want this
+  { "item_crimson_guard",       20,     24,       5}, --just because it's really good
+  { "item_maelstrom",           20,     24,       3}, --just because it's really good
+  { "item_sange_and_yasha",     20,     24,       3}, --TBH people already have this
+  --GREAT
+  { "item_heart",               25,     -1,       1},
+  { "item_skadi",               25,     -1,       1},
+  { "item_sheepstick",          25,     -1,       1},
+  { "item_shivas_guard",        25,     -1,       1},
+  { "item_assault",             25,     -1,       1},
+  { "item_greater_crit",        25,     -1,       1},
+  { "item_butterfly",           25,     -1,       1},
+  { "item_bloodthorn",          25,     -1,       1},
+  { "item_manta",               25,     -1,       1},
+  { "item_satanic",             25,     -1,       1},
+  { "item_mjollnir",            25,     -1,       1},
+  { "item_monkey_king_bar",     25,     -1,       1},
+  { "item_octarine_core",       25,     -1,       1},
+  { "item_refresher",           25,     -1,       1},
+  { "item_radiance",            25,     -1,       1},
 }
 
 function CreepItemDrop:CreateDrop (itemName, pos)
