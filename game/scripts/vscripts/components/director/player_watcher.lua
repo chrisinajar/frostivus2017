@@ -59,7 +59,7 @@ function PlayerWatcher:Init(hero, playerID)
       self:EntityKilledNearby(killedUnit, distance)
     end
     local hero = EntIndexToHScript( keys.entindex_attacker )
-    if hero:GetPlayerID() == self.hero:GetPlayerID() then
+    if hero:GetPlayerOwnerID() == self.hero:GetPlayerID() then
       self.itemDropValue = self.itemDropValue + 0.1
     end
     CreepItemDrop:DropItem(killedUnit, self.itemDropValue)
@@ -74,7 +74,7 @@ function PlayerWatcher:Think()
   local stressLevel = self:GetStressLevel()
   CustomNetTables:SetTableValue("info", "stressLevel", { value = stressLevel })
 
-  self.itemDropValue = ITEM_VALUE_INCREMENT * THINK_INTERVAL
+  self.itemDropValue = self.itemDropValue + ITEM_VALUE_INCREMENT * THINK_INTERVAL
 
   if stressLevel == 1 then
     self.peakStress = 10

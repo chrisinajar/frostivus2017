@@ -5,16 +5,13 @@ if CreepItemDrop == nil then
     CreepItemDrop = class({})
 end
 
---item power level defines what items drop at given time
-local ItemPowerLevel = 1.0
-
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
 --local DROP_CHANCE = 0.25
 
 -- The C initial chance parameter for the pseudo-random distribution function
 -- Set for average chance of 5%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
-PRD_C = 0.003801658303553139101756466
+PRD_C = 0.032220914373087674975117359
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -161,7 +158,7 @@ end
 
 function CreepItemDrop:DropItem (killedEntity, itemPowerLevel)
   if killedEntity then
-    DebugPrint('Attempting an item drop!')
+    DebugPrint('Attempting an item drop! ' .. tostring(itemPowerLevel))
     killedEntity.Is_ItemDropEnabled = false
     local itemToDrop = CreepItemDrop:RandomDropItemName(itemPowerLevel)
     if itemToDrop ~= "" and itemToDrop ~= nil then

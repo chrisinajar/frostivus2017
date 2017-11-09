@@ -24,30 +24,35 @@ end
 
 function modifier_santa_sled_capturepoint:OnCreated(keys)
   local caster = self:GetCaster()
-  caster.Speed = caster.BaseSpeed
+  caster.Speed = 0
   self:SetStackCount(0)
 
   if IsServer() then
+    DebugPrint('santa_sled_capturepoint activated')
     self:StartIntervalThink(1)
   end
 end
 
 function modifier_santa_sled_capturepoint:OnIntervalThink()
   local caster = self:GetCaster()
-  local speedPerUnit = self:GetAbility():GetSpecialValueFor("movement_buff_per_unit")
-  local units = FindUnitsInRadius(
-    caster:GetTeamNumber(),
-    caster:GetAbsOrigin(),
-    nil,
-    self:GetAuraRadius(),
-    self:GetAuraSearchTeam(),
-    self:GetAuraSearchType(),
-    self:GetAuraSearchFlags(),
-    FIND_ANY_ORDER,
-    false)
+  local units = FindHeroesInRadius(
+    caster:GetTeamNumber(),   -- team number
+    caster:GetAbsOrigin(),    -- position
+    nil,                      -- cache unit
+    self:GetAuraRadius(),     -- radius
+    self:GetAuraSearchTeam(), -- team filter
+    self:GetAuraSearchType(), -- type filter
+    self:GetAuraSearchFlags(),-- flag filter
+    FIND_ANY_ORDER,           -- order
+    false                     -- can grow cache
+  )
+
 
   caster.StackCount = #units
-  caster.Speed = caster.BaseSpeed + caster.StackCount * speedPerUnit
+  caster.Speed = self:GetAbility():GetLevelSpecialValueFor("movement_buff", math.min(5, caster.StackCount))
+
+  -- DebugPrint('There are currently ' .. tostring(#units) .. ' capturing, the speed is now ' .. caster.Speed)
+
   self:SetStackCount(caster.StackCount)
 end
 
