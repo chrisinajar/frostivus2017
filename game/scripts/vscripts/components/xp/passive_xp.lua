@@ -18,7 +18,7 @@ end
 
 function PassiveXP:EverySecond()
   local allHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), PlayerResource:GetAllTeamPlayerIDs())
-  local xpps = (1/600 * (45 * math.exp(self.minute, 2) + 67 * self.minute + 2450)) / 60
+  local xpps = (1/600 * (45 * math.exp(self.minute, 2) + 67 * self.minute + 2450))
 
   DebugPrint('Giving all heroes ' .. tostring(xpps))
 

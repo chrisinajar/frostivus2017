@@ -58,7 +58,7 @@ ItemPowerTable = {
   { "item_headdress",            2,      8,       1},
   { "item_chainmail",            2,      8,       1},
   { "item_blades_of_attack",     2,      8,       1},
-  { "item_belt_of_streangth",    2,      8,       1},
+  { "item_belt_of_strength",     2,      8,       1},
   { "item_boots_of_elves",       2,      8,       1},
   { "item_robe",                 2,      8,       1},
   { "item_gloves",               2,      8,       1},
@@ -141,7 +141,7 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   local newItem = CreateItem(itemName, nil, nil)
 
   if not newItem then
-    DebugPrint('Failed to find item: ' .. newItem)
+    DebugPrint('Failed to find item: ' .. itemName)
     return
   end
 
