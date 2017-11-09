@@ -12,9 +12,9 @@ local ItemPowerLevel = 1.0
 --local DROP_CHANCE = 0.25
 
 -- The C initial chance parameter for the pseudo-random distribution function
--- Set for average chance of 25%. Functions for calculation and a bunch of pre-calculated values can be found here:
+-- Set for average chance of 5%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
-PRD_C = 0.084744091852316990275274806
+PRD_C = 0.003801658303553139101756466
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -66,14 +66,14 @@ ItemPowerTable = {
   { "item_robe",                 2,      8,       1},
   { "item_gloves",               2,      8,       1},
   --ADV EARLY
-  { "item_buckler",              5       8,       3}, --avoid multiples
-  { "item_void_stone",           5       8,       1},
-  { "item_ring_of_health",       5       8,       1},
-  { "item_vitality_booster",     5       8,       1},
-  { "item_energy_booster",       5       8,       1},
-  { "item_point_booster",        5       8,       1},
-  { "item_soul_ring",            5       8,       1},
-  { "item_vitality_booster",     5       8,       1},
+  { "item_buckler",              5,       8,       3}, --avoid multiples
+  { "item_void_stone",           5,       8,       1},
+  { "item_ring_of_health",       5,       8,       1},
+  { "item_vitality_booster",     5,       8,       1},
+  { "item_energy_booster",       5,       8,       1},
+  { "item_point_booster",        5,       8,       1},
+  { "item_soul_ring",            5,       8,       1},
+  { "item_vitality_booster",     5,       8,       1},
   { "item_ring_of_aquila",       5,      8,       3}, --avoid multiples
   { "item_helm_of_iron_will",    5,     10,       5}, --just because it's really good
   --SMALL
@@ -123,10 +123,11 @@ ItemPowerTable = {
   { "item_maelstrom",           20,     24,       3}, --just because it's really good
   { "item_sange_and_yasha",     20,     24,       3}, --TBH people already have this
   --GREAT
-  { "item_heart",               25,     -1,       1},
+  { "item_heart",               25,     -1,       10}, -- heart and radiance are insane in this type of game
+  { "item_radiance",            25,     -1,       10},
   { "item_skadi",               25,     -1,       1},
   { "item_sheepstick",          25,     -1,       1},
-  { "item_shivas_guard",        25,     -1,       1},
+  { "item_shivas_guard",        25,     -1,       2},
   { "item_assault",             25,     -1,       1},
   { "item_greater_crit",        25,     -1,       1},
   { "item_butterfly",           25,     -1,       1},
@@ -137,7 +138,6 @@ ItemPowerTable = {
   { "item_monkey_king_bar",     25,     -1,       1},
   { "item_octarine_core",       25,     -1,       1},
   { "item_refresher",           25,     -1,       1},
-  { "item_radiance",            25,     -1,       1},
 }
 
 function CreepItemDrop:CreateDrop (itemName, pos)
