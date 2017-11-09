@@ -7,6 +7,9 @@ MAX_WAVE_TIME = 300
 
 ITEM_DESPAWN_TIME = 120
 
+-- act 1
+REPAIR_UNITS_REQUIRED = 100
+
 ------------------------------------------------
 
 PREGAME_TIME = 10

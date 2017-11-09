@@ -24,7 +24,7 @@ function PhaseOne:Start(callback)
     callback()
   end)
   self.running = true
-  self.repairRemaining = 20
+  self.repairRemaining = REPAIR_UNITS_REQUIRED
   -- phase one uses the director
   HordeDirector:Resume()
 
