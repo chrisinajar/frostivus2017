@@ -85,7 +85,7 @@ ItemPowerTable = {
   { "item_sange",                9,     16,       1},
   { "item_yasha",                9,     16,       1},
   { "item_trident",              9,     16,       3}, --no idea how good this is
-  { "item_ancient_janggo"        9,     16,       5}, --avoid multiples
+  { "item_ancient_janggo",       9,     16,       5}, --avoid multiples
   { "item_dragon_lance",         9,     16,       3}, --probably pretty good
   { "item_platemail",            9,     16,       1},
   { "item_lifesteal",            9,     16,       1},
