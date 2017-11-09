@@ -147,6 +147,7 @@ end
 function GameMode:OnAllHeroesInGame()
   InitModule(HordeDirector)
   InitModule(StorylineManager)
+  InitModule(PassiveXP)
 end
 
 function GameMode:OnStrategyTime()

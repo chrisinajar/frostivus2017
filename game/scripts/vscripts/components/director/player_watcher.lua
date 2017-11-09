@@ -60,7 +60,8 @@ function PlayerWatcher:Init(hero, playerID)
     end
     local hero = EntIndexToHScript( keys.entindex_attacker )
     if hero:GetPlayerOwnerID() == self.hero:GetPlayerID() then
-      self.itemDropValue = self.itemDropValue + 0.1
+      -- disable progressing hero drops based on kills for now
+      -- self.itemDropValue = self.itemDropValue + 0.1
     end
     CreepItemDrop:DropItem(killedUnit, self.itemDropValue)
   end)

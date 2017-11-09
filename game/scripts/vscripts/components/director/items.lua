@@ -105,7 +105,7 @@ ItemPowerTable = {
   { "item_basher",              17,     24,       1},
   { "item_hurricane_pike",      17,     24,       1},
   { "item_black_king_bar",      17,     24,       2}, --might actually want to make it rarer or not drop at all
-  { "item_heavens_halbeard",    17,     24,       1},
+  { "item_heavens_halberd",     17,     24,       1},
   { "item_cyclone",             17,     24,       1}, --do we even want this in?
   { "item_diffusal_blade",      17,     24,       1},
   { "item_echo_sabre",          17,     24,       1},
@@ -139,6 +139,11 @@ ItemPowerTable = {
 
 function CreepItemDrop:CreateDrop (itemName, pos)
   local newItem = CreateItem(itemName, nil, nil)
+
+  if not newItem then
+    DebugPrint('Failed to find item: ' .. newItem)
+    return
+  end
 
   newItem:SetPurchaseTime(0)
   newItem.firstPickedUp = false
