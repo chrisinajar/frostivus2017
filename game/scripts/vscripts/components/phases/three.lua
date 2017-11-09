@@ -56,7 +56,7 @@ function PhaseThree:Start(callback)
     currentIndex = 1
   }
 
-  self.SpawnPosition = Entities:FindByName(nil, "trigger_act_3_santa"):GetAbsOrigin()
+  self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
 
   self.Cart = self:SpawnCart()
   self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
@@ -92,15 +92,15 @@ function PhaseThree:Start(callback)
     self:UpdateDebugOverlayEntry("distanceMoved", self.totalPathLength - self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("pathLenghtLeft", self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
-    self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed))
+    self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or 0))
     self:UpdateDebugOverlayEntry("unitsCapturing", self.Cart.Handle.StackCount)
     DebugOverlay:UpdateDisplay()
-    return .2
+    return 1
   end)
 
   self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
   self.MainTimer = Timers:CreateTimer(function()
-    if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or self.Cart.Handle.BaseSpeed) + 100) then
+    if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
         DebugPrint("Ride is done, finishing up Phase 3")
@@ -141,14 +141,12 @@ function PhaseThree:MakeWaypointTriggerList(TriggerNames)
 end
 
 function PhaseThree:SpawnCart()
-  local santa = CreateUnitByName("npc_dota_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
-  santa:AddAbility("santa_sled_capturepoint")
+  local santa = CreateUnitByName("npc_dota_payload_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
   assert(santa, "Failed to spawn santa")
   local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   assert(projectileTarget, "Failed to spawn ProjectileTarget")
   santa.ProjectileTarget = projectileTarget
   santa.ProjectileSpawnLocation = self.SpawnPosition
-  santa.BaseSpeed = 100
 
   return {
     ProjectileTarget = projectileTarget,

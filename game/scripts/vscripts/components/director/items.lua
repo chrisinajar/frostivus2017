@@ -5,16 +5,13 @@ if CreepItemDrop == nil then
     CreepItemDrop = class({})
 end
 
---item power level defines what items drop at given time
-local ItemPowerLevel = 1.0
-
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
 --local DROP_CHANCE = 0.25
 
 -- The C initial chance parameter for the pseudo-random distribution function
 -- Set for average chance of 5%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
-PRD_C = 0.003801658303553139101756466
+PRD_C = 0.032220914373087674975117359
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -61,7 +58,7 @@ ItemPowerTable = {
   { "item_headdress",            2,      8,       1},
   { "item_chainmail",            2,      8,       1},
   { "item_blades_of_attack",     2,      8,       1},
-  { "item_belt_of_streangth",    2,      8,       1},
+  { "item_belt_of_strength",     2,      8,       1},
   { "item_boots_of_elves",       2,      8,       1},
   { "item_robe",                 2,      8,       1},
   { "item_gloves",               2,      8,       1},
@@ -108,7 +105,7 @@ ItemPowerTable = {
   { "item_basher",              17,     24,       1},
   { "item_hurricane_pike",      17,     24,       1},
   { "item_black_king_bar",      17,     24,       2}, --might actually want to make it rarer or not drop at all
-  { "item_heavens_halbeard",    17,     24,       1},
+  { "item_heavens_halberd",     17,     24,       1},
   { "item_cyclone",             17,     24,       1}, --do we even want this in?
   { "item_diffusal_blade",      17,     24,       1},
   { "item_echo_sabre",          17,     24,       1},
@@ -143,6 +140,11 @@ ItemPowerTable = {
 function CreepItemDrop:CreateDrop (itemName, pos)
   local newItem = CreateItem(itemName, nil, nil)
 
+  if not newItem then
+    DebugPrint('Failed to find item: ' .. itemName)
+    return
+  end
+
   newItem:SetPurchaseTime(0)
   newItem.firstPickedUp = false
 
@@ -161,7 +163,7 @@ end
 
 function CreepItemDrop:DropItem (killedEntity, itemPowerLevel)
   if killedEntity then
-    DebugPrint('Attempting an item drop!')
+    DebugPrint('Attempting an item drop! ' .. tostring(itemPowerLevel))
     killedEntity.Is_ItemDropEnabled = false
     local itemToDrop = CreepItemDrop:RandomDropItemName(itemPowerLevel)
     if itemToDrop ~= "" and itemToDrop ~= nil then
