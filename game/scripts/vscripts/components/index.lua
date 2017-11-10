@@ -11,3 +11,5 @@ require('components/phases/index')
 require('components/storyline/index')
 require('components/director/index')
 require('components/xp/index')
+
+require('components/respawn/index')
