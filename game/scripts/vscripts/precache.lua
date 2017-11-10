@@ -1,5 +1,5 @@
 g_ItemPrecache = {
-
+  "item_tombstone", -- Tombstone respawning thingy
 }
 
 g_UnitPrecache = {

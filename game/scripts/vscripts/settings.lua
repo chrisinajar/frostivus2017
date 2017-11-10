@@ -14,7 +14,7 @@ REPAIR_UNITS_REQUIRED = 100
 
 PREGAME_TIME = 10
 
-ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same hero as each other
 

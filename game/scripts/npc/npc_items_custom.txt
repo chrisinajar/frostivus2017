@@ -1,3 +1,5 @@
+#base "items/tombstone.txt"
+
 "DOTAItems"
 {
 
