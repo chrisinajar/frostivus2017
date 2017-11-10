@@ -111,6 +111,7 @@ function PlayerWatcher:Think()
   if self.hero:IsAlive() and self.stressLevel < self.desiredStress and not self.spawningHorde and HordeDirector:ShouldSpawn(self) then
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
     local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
+    DebugPrint('Wave Level ' .. self.wave)
     DebugPrintTable(horde)
     self:SpawnHorde(horde)
   end
