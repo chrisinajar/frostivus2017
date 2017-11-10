@@ -23,6 +23,9 @@ function HordeDirector:Init()
   self.__has_init = true
 
   self.disabled = true
+  self.specialUnitQueue = {}
+  self.specialUnitsAlive = 0
+  self.specialUnitsByType = {}
 
   DebugPrint('Init hero director')
 
@@ -68,6 +71,9 @@ function HordeDirector:Init()
 
   Timers:CreateTimer(1, function()
     self.timeInWave = self.timeInWave + 1
+    if self.specialUnitTimeout > 0 then
+      self.specialUnitTimeout = self.specialUnitTimeout - 1
+    end
     return 1
   end)
 
@@ -191,6 +197,63 @@ function HordeDirector:StartNextWave()
   self.timeInWave = 0
   self.wave = self.wave + 1
   WaveEvent.broadcast(self.wave)
+end
+
+function HordeDirector:ScheduleSpecialUnit(unitName, location)
+  if not self:ShouldSpawnSpecialUnit(unitName) then
+    table.insert(self.specialUnitQueue, { unitName, location })
+    self:ResetSpecialUnitTimer()
+    return
+  end
+  -- it was easy to write, not sure if we need it though
+  -- disable timeout for now
+  -- self:specialUnitTimeout = 5
+  if location then
+    -- this unit is not bound to players
+    -- probably based on a storyline objective
+    local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    if not self.specialUnitsByType[unitName] then
+      self.specialUnitsByType[unitName] = 1
+    else
+      self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
+    end
+    self.specialUnitsAlive = self.specialUnitsAlive + 1
+    unit:OnDeath(function()
+      self.specialUnitsAlive = self.specialUnitsAlive - 1
+      self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
+    end)
+    return
+  end
+end
+
+function  HordeDirector:ShouldSpawnSpecialUnit (unitName)
+  return self.specialUnitsAlive < MAX_SPECIAL_UNITS and self.specialUnitsByType[unitName] < MAX_SPECIAL_UNITS_EACH
+end
+
+function HordeDirector:ResetSpecialUnitTimer()
+  if self:specialUnitTimerIsRunning then
+    return
+  end
+  self:specialUnitTimerIsRunning = true
+  Timers:CreateTimer(1, function()
+    if self.specialUnitTimeout > 0 then
+      return self.specialUnitTimeout
+    end
+    local unitQueue = self.specialUnitQueue
+    self.specialUnitQueue = {}
+    for _,unit in ipairs(unitQueue) do
+      self:ScheduleSpecialUnit(unit[1], unit[2])
+    end
+    if #self.specialUnitQueue > 0 then
+      return #self.specialUnitQueue
+    end
+    -- else we stop the loop
+    self:specialUnitTimerIsRunning = false
+  end)
+end
+
+function HordeDirector:ClearQueue()
+  self.specialUnitQueue = {}
 end
 
 function HordeDirector:Pause()

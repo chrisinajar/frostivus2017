@@ -45,7 +45,6 @@ function PlayerWatcher:Init(hero, playerID)
   addPlayerValue("Stress", 0)
   addPlayerValue("Intensity", 0)
 
-
   Timers:CreateTimer(1, partial(self.Think, self))
 
   GameEvents:OnEntityKilled(function (keys)
