@@ -8,8 +8,8 @@ HORDE_MAX_WAVE = 20
 
 WaveData = {
   {
-    {  "npc_dota_horde_basic"              , 40},
-    {  "npc_dota_horde_special_7"          , 60}
+    {  "npc_dota_horde_basic"              , 90},
+    {  "npc_dota_horde_special_7"          , 10}
   },
   {
     {  "npc_dota_horde_basic"              , 50},
