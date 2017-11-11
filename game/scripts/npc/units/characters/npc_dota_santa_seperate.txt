@@ -1,55 +1,45 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // EVIL WISP
+  // SANTA
   //=================================================================================
-  "npc_dota_evil_wisp"
+  "npc_dota_santa"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/wisp/wisp.vmdl" // Model.
+    "Model"                     "models/creeps/roshan/roshan.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                ".7"
-    "IsAncient" "1"
-
-
+    "ModelScale"                "1.0"
+    "BoundsHullName"            "DOTA_HULL_SIZE_BARRACKS"
+    "vscripts"                  "units/act1/santa_seperate.lua"
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
-    "Ability2"                  "evil_wisp_omni_party"      // Ability 2
-    "Ability3"                  "evil_wisp_moon_rain"      // Ability 3
-    "Ability4"                  "evil_wisp_egg"      // Ability 4
+    "Ability1"                  ""  // Ability 1
+    "Ability2"                  "santa_sled_santa_armour"  // Ability 2
+    "Ability3"                  "santa_sled_move"          // Ability 3
+    "Ability4"                  ""      // Ability 4
 
     // Armor
     //----------------------------------------------------------------
-    "ArmorPhysical"            "25"     // Physical protection.
+    "ArmorPhysical"            "0"     // Physical protection.
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "30"    // Damage range min.
-    "AttackDamageMax"           "40"    // Damage range max.
-    "AttackRate"                "1.5"   // Speed of attack.
-    "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
-    "AttackRange"               "100"   // Range within a target can be attacked.
-    "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.
-
-    "Creature"
-    {
-        "AttachWearables"
-        {
-            "Wearable1" { "ItemDef" "536" }
-        }
-
-    }
+    //"AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    //"AttackDamageMin"           "30"    // Damage range min.
+    //"AttackDamageMax"           "40"    // Damage range max.
+    //"AttackRate"                "1.5"   // Speed of attack.
+    //"AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
+    //"AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+    //"AttackRange"               "200"   // Range within a target can be attacked.
+    //"ProjectileModel"           ""      // Particle system model for projectile.
+    //"ProjectileSpeed"           "0"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
-    "RingRadius"                "35"
+    "RingRadius"                "300"
     "HealthBarOffset"           "175"
 
     // Bounty
@@ -60,13 +50,13 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"             "300"   // Speed.
+    "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed" "0"
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "50000"   // Base health.
-    "StatusHealthRegen"         "25"   // Health regeneration rate.
+    "StatusHealth"              "10000"   // Base health.
+    "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
 
@@ -77,7 +67,7 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+    "TeamName"                  "DOTA_TEAM_FRIENDLY"              // Team name
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
