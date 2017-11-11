@@ -20,7 +20,6 @@
     "Ability2"                  ""     // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
-
     // Armor
     //----------------------------------------------------------------
     "ArmorPhysical"            "0"     // Physical protection.
@@ -55,9 +54,9 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "400"   // Base health.
+    "StatusHealth"              "200"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
-    "StatusMana"                "0"     // Base mana.
+    "StatusMana"                "200"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
 
     // Vision
@@ -71,25 +70,33 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-    "DefaultState"       "Invade"
-    "States"
+    "Creature"
     {
-        "Invade"
+        "DefaultState"       "Invade"
+        "States"
         {
-            "Name"          "Invade"
-            "Aggression"    "100.0"
-            "Avoidance"     "0.0"
+            "Invade"
+            {
+                "Name"          "Invade"
+                "Aggression"    "100.0"
+                "Avoidance"     "0.0"
+            }
+        }
+        "OffensiveAbilities"
+        {
+            "Ability1"                
+            {
+                "Name"                "creep_siren_song"
+                "AOE"                "1"
+                "Radius"             "400"
+                "MinimumTargets"     "1"
+            }              
+        }
+        "AttachWearables"
+        {
+            "Wearable1" { "ItemDef" "4192" }
         }
     }
-    "OffensiveAbilities"
-    {
-        "Ability1"                
-        {
-            "Name"                "creep_siren_song"
-            "AOE"                "1"
-            "Radius"             "400"
-            "MinimumTargets"     "1"
-        }              
-    }
+
   }
 }

@@ -1,0 +1,111 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Self Destruct
+  //=================================================================================================================
+  "creep_self_destruction"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"              "ability_datadriven"
+        "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitDamageType"  "DAMAGE_TYPE_PHYSICAL"
+        "AbilityTextureName"     "alchemist_acid_spray"
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastPoint"  "0.2"
+        "AbilityCastRange"  "100"
+        "OnSpellStart"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "abilities/creep_self_destruction.lua"
+            "Function"    "SelfDestruct"
+          }
+        }
+        "OnOwnerDied"
+        {
+            "CreateThinker"
+            {
+                "ModifierName" "creature_slow_spray_thinker"
+                "Target" "CASTER"
+            }
+        }
+        "Modifiers"
+        {
+            "creature_slow_spray_thinker"
+            {
+                "Aura" "create_slow_spray_movement_reduction_aura"
+                "Aura_Radius" "%radius"
+                "Aura_Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Aura_Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+                "Aura_Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                "Duration" "%duration"
+                "OnCreated"
+                {
+                    "AttachEffect"
+                    {
+                        "EffectName" "particles/units/heroes/hero_alchemist/alchemist_acid_spray.vpcf"
+                        "EffectAttachType" "follow_origin"
+                        "Target" "TARGET"
+                        "ControlPoints"
+                        {
+                            "00" "0 0 0"
+                            "01" "%radius 1 1"
+                        }
+                    }
+                }
+            }
+            "create_acid_spray_movement_reduction_aura"
+            {
+                "IsDebuff" "1"
+                "IsPurgable" "0"
+                "EffectName" "particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"                
+                "ThinkInterval" "%tick_rate"
+                "OnIntervalThink"
+                {
+                    "Damage"
+                    {
+                        "Type"   "DAMAGE_TYPE_PHYSICAL"
+                        "Damage" "%damage"
+                        "Target" "TARGET"
+                    }
+                }
+                "Properties"
+                {
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction_percentage" 
+                }
+            }
+        }
+        // Special    
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                "FIELD_INTEGER"
+                "radius"                "350"
+            }
+            "02"
+            {
+                "var_type"                "FIELD_FLOAT"
+                "duration"                "9.0"
+            }
+            "03"
+            {
+                "var_type"                "FIELD_INTEGER"
+                "damage"                "120"
+            }
+            "04"
+            {
+                "var_type"                "FIELD_INTEGER"
+                "movespeed_reduction_percentage"                "-20"
+            }
+            "05"
+            {
+                "var_type"                "FIELD_FLOAT"
+                "tick_rate"                "3.0"
+            }
+        }
+    }
+}

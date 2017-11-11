@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "45"
+    "AbilityCooldown"       "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -35,6 +35,15 @@
       {
         "var_type"              "FIELD_INTEGER"
         "radius"             	"400"
+      }
+    }
+
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/creep_siren_song.lua"
+        "Function"    "creep_siren_song:OnSpellStart"
       }
     }
 

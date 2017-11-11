@@ -8,12 +8,12 @@ HORDE_MAX_WAVE = 20
 
 WaveData = {
   {
-    {  "npc_dota_horde_basic"              , 50},
-    {  "npc_dota_horde_special_3"          , 90}
+    {  "npc_dota_horde_basic"              , 40},
+    {  "npc_dota_horde_special_7"          , 60}
   },
   {
     {  "npc_dota_horde_basic"              , 50},
-    {  "npc_dota_horde_special_2"          , 50}
+    {  "npc_dota_horde_special_3"          , 50}
   },
   {
     {  "npc_dota_horde_basic"              , 50},
@@ -31,7 +31,7 @@ function HordeSpawner:CreateHorde(wave, intensity)
   local iter = 1
   for j =  1, #WaveData[wave] do 
     local unit = WaveData[wave][j][1]
-    for i = 1 , math.floor(count * WaveData[wave][j][2]/100) do
+    for i = 1 , math.ceil(count * WaveData[wave][j][2]/100) do
       unittable[iter] = unit
       iter = iter+1;
     end

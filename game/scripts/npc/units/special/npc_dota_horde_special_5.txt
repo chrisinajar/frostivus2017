@@ -16,7 +16,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  ""      // Ability 1
+    "Ability1"                  "creep_snow_cloak"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
@@ -42,11 +42,25 @@
     "RingRadius"                "35"
     "HealthBarOffset"           "175"
 
+
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" { "ItemDef" "50" }
+            "Wearable2" { "ItemDef" "51" }
+            "Wearable3" { "ItemDef" "52" }
+            "Wearable4" { "ItemDef" "53" }
+            "Wearable4" { "ItemDef" "54" }
+            "Wearable4" { "ItemDef" "55" }
+        }
+
+    }
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                  "33"    // Experience earn.
-    "BountyGoldMin"             "17"    // Gold earned min.
-    "BountyGoldMax"             "20"    // Gold earned max.
+    "BountyXP"                  "0"    // Experience earn.
+    "BountyGoldMin"             "0"    // Gold earned min.
+    "BountyGoldMax"             "0"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------

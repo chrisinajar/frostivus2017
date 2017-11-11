@@ -16,6 +16,15 @@
       
     // Special
     //-------------------------------------------------------------------------------------------------------------
+    "OnOwnerSpawned"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/creep_snow_cloak.lua"
+        "Function"    "modifier_creep_snow_cloak:OnCreated"
+      }
+    }
+
     "AbilitySpecial"
     {
       "01"
