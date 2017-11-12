@@ -7,7 +7,7 @@
   |2--------7|
   |3--------8|
   |4--------9|
-  Ex. 0 to 7 7 to 4 4 to 8 and so on 
+  Ex. 0 to 7 7 to 4 4 to 8 and so on
   * Show progress bar for number of presents found vs how many need to be found
   * Flying cart gives vision
   * Have horde spawns and creep camps
@@ -32,7 +32,9 @@ function PhaseTwo:Prepare(callback)
   if #spawnPoint < 1 then
     error("Failed to find player spawn point for act 2")
   end
+
   self.heroSpawnPos = spawnPoint[1]:GetAbsOrigin()
+  self.SpawnPosition = self.heroSpawnPos
   for playerId,_ in pairs(allPlayers) do
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
     if not hero then
@@ -40,7 +42,7 @@ function PhaseTwo:Prepare(callback)
     end
     FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
     hero:SetDayTimeVisionRange(600)
-    hero:SetNightTimeVisionRange(600)  
+    hero:SetNightTimeVisionRange(600)
     hero:SetRespawnPosition(self.heroSpawnPos)
   end
 
@@ -57,7 +59,7 @@ function PhaseTwo:Prepare(callback)
         DebugPrint("All presents found, finishing up Phase 2")
         FinishedEvent.broadcast({}) -- we're done
         self:CleanUp()
-      end   
+      end
     end
   end)
 
@@ -65,27 +67,35 @@ end
 
 function PhaseTwo:Start(callback)
   FinishedEvent.once(callback)
+  self.isRunning = true
   DebugPrint("Starting Phase 2: Present Search")
   -- phase Two uses the director
   HordeDirector:Resume()
 
   self.Waypoints = {
-    Trigger = self:MakeWaypointTriggerList({
-      "trigger_act_2_path_0",
-      "trigger_act_2_path_1",
-      "trigger_act_2_path_2",
-      "trigger_act_2_path_3",
-      "trigger_act_2_path_4",
-      "trigger_act_2_path_5",
-      "trigger_act_2_path_6",
-      "trigger_act_2_path_7",
-      "trigger_act_2_path_8",
-      "trigger_act_2_path_9",
-      "trigger_act_2_path_10",
-      "trigger_act_2_path_11"
-
+    Trigger = self:MakeWaypointTriggerMap({
+      "trigger_act_2_santa",
+      "trigger_act_2_path_1_1_1",
+      "trigger_act_2_path_1_1_2",
+      "trigger_act_2_path_1_2_1",
+      "trigger_act_2_path_1_2_2",
+      "trigger_act_2_path_2_1_1",
+      "trigger_act_2_path_2_1_2",
+      "trigger_act_2_path_2_1_3",
+      "trigger_act_2_path_2_2_1",
+      "trigger_act_2_path_2_2_2",
+      "trigger_act_2_path_3_1_1",
+      "trigger_act_2_path_3_1_2",
+      "trigger_act_2_path_3_2_1",
+      "trigger_act_2_path_3_2_2",
+      "trigger_act_2_path_3_2_3",
+      "trigger_act_2_path_4_1_1",
+      "trigger_act_2_path_4_1_2"
     }),
-    currentIndex = 1
+    currentIndexName = "trigger_act_2_santa",
+    currentIndex = 0,
+    currentOption = 1,
+    currentStep = 1,
   }
 
   self.CampLocation = {
@@ -103,11 +113,9 @@ function PhaseTwo:Start(callback)
       "trigger_act_2_camp_10",
       "trigger_act_2_camp_11",
       "trigger_act_2_camp_12",
-      "trigger_act_2_camp_13",
-      "trigger_act_2_camp_14"
+      "trigger_act_2_camp_13"
     }),
     presentIndex = {
-      0,
       0,
       0,
       0,
@@ -125,8 +133,8 @@ function PhaseTwo:Start(callback)
     }
   }
   local spawnPresentsNum = 0
-  while spawnPresentsNum < NUMBER_PRESENTS_REQUIRED do
-    local tospawnIt = math.random(15)
+  while spawnPresentsNum < NUMBER_PRESENTS_SPAWNED do
+    local tospawnIt = math.random(14)
     if self.CampLocation.presentIndex[tospawnIt] == 0 then
       self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin())
       self.CampLocation.presentIndex[tospawnIt] = 1
@@ -140,8 +148,6 @@ function PhaseTwo:Start(callback)
     self:SpawnPresent(self.CampLocation.Trigger[i]:GetAbsOrigin())
   end
   ]]
-  self:SpawnPresent(self.heroSpawnPos)
-  self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
 
   self.Cart = self:SpawnCart()
 
@@ -149,10 +155,12 @@ function PhaseTwo:Start(callback)
 
   DebugPrint("Starting Timers for Phase 2")
 
+  self:IncrementWaypointTriggerIndex()
   self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
   self.MainTimer = Timers:CreateTimer(function()
-
-
+    if not self.isRunning then
+      return
+    end
     if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
@@ -162,7 +170,7 @@ function PhaseTwo:Start(callback)
         return
       else
         DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
-        
+
         self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
         return 0.5
       end
@@ -171,7 +179,7 @@ function PhaseTwo:Start(callback)
   end)
 end
 
-function PhaseTwo:AddDebugOverlayEntry(name, display, value)
+function PhaseTwo:AddDebugOverlayEntry (name, display, value)
   DebugOverlay:AddEntry("Phase_forest", {
     Name = "Phase_forest" .. name,
     DisplayName = display,
@@ -193,6 +201,15 @@ function PhaseTwo:MakeWaypointTriggerList(TriggerNames)
   return TriggerList
 end
 
+function PhaseTwo:MakeWaypointTriggerMap(TriggerNames)
+  DebugPrint("Making Waypoint TriggerMap")
+  local TriggerMap = {}
+  for i,waypointName in ipairs(TriggerNames) do
+    TriggerMap[waypointName] = Entities:FindByName(nil, waypointName)
+    assert(TriggerMap[waypointName], "Couldn't find a Trigger with Name '" .. waypointName .. "'")
+  end
+  return TriggerMap
+end
 
 function PhaseTwo:SpawnPresent(pos)
   local newItem = CreateItem("item_present_for_search", nil, nil)--"item_present_for_search", nil, nil)
@@ -227,15 +244,27 @@ function PhaseTwo:IsRideDone()
 end
 
 function PhaseTwo:GetCurrentWaypointTrigger()
-  return self.Waypoints.Trigger[self.Waypoints.currentIndex]
+  return self.Waypoints.Trigger[self:WaypointName(self.Waypoints.currentIndex, self.Waypoints.currentOption, self.Waypoints.currentStep)]
+end
+
+function PhaseTwo:WaypointName(currentIndex, currentOption, currentStep)
+  return "trigger_act_2_path_" .. tostring(currentIndex) .. "_" .. tostring(currentOption) .. "_" .. tostring(currentStep)
 end
 
 function PhaseTwo:IncrementWaypointTriggerIndex()
-  if (self.Waypoints.currentIndex < 6) then
-    self.Waypoints.currentIndex = 5 + math.random(6)
-  else
-    self.Waypoints.currentIndex = math.random(6)-1
+  local wp = self.Waypoints
+  local nextStep = wp.Trigger[self:WaypointName(wp.currentIndex, wp.currentOption, wp.currentStep + 1)]
+  if nextStep then
+    self.Waypoints.currentStep = self.Waypoints.currentStep + 1
+    return
   end
+  self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
+  local maxOptions = 1
+  while wp.Trigger[self:WaypointName(wp.currentIndex, maxOptions + 1, 1)] do
+    maxOptions = maxOptions + 1
+  end
+  self.Waypoints.currentOption = RandomInt(1, maxOptions)
+  self.Waypoints.currentStep = 1
 end
 
 function PhaseTwo:SetCartTarget(targetPosition)
@@ -264,7 +293,10 @@ function PhaseTwo:CleanUp()
     end
   end
 
-  self.Cart.Handle:ForceKill(false)
+  if not self.Cart.Handle:IsNull() then
+    self.Cart.Handle:Destroy()
+  end
+  self.isRunning = false
   Timers:RemoveTimer("Phase2MainTimer")
 end
 

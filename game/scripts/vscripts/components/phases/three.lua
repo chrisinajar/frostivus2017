@@ -56,12 +56,8 @@ function PhaseThree:Start(callback)
     currentIndex = 1
   }
 
-  local spawnPoint = Entities:FindAllByName("trigger_act_3_santa")
-  if #spawnPoint < 1 then
-    error("Failed to find santa spawn point")
-  end
   self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
-  self.SantaSpawnPosition = spawnPoint[1]:GetAbsOrigin()
+  self.SantaSpawnPosition = self.SpawnPosition
 
   self.Cart = self:SpawnCart()
   self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()

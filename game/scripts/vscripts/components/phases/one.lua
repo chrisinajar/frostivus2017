@@ -23,7 +23,7 @@ function PhaseOne:Prepare()
       end
     end
   end
-  
+
   self.zone = ZoneControl:CreateZone("trigger_act_1_zone", {
     mode = ZONE_CONTROL_EXCLUSIVE_IN,
     players = allPlayers

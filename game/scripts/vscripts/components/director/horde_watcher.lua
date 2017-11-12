@@ -37,9 +37,9 @@ function HordeWatcher:Think()
   end
 
   if self.canBeGC and not self.unit:HasModifier('modifier_is_near_player') then
-    DebugPrint('This unit is lost and pointless...')
+    -- DebugPrint('This unit is lost and pointless...')
     if not self.target:CanEntityBeSeenByMyTeam(self.unit) then
-      DebugPrint('destroying invisible pointless unit')
+      -- DebugPrint('destroying invisible pointless unit')
       self.unit:Destroy()
       return
     end
@@ -49,7 +49,6 @@ end
 
 function HordeWatcher:OnDeath()
   -- do stuff on death?
-  DebugPrint('')
   local unit = self.unit
   Timers:CreateTimer(5, function()
     if not unit:IsNull() then
