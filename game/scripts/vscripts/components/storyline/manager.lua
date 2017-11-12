@@ -14,11 +14,11 @@ local STORY_STATES = {
     name = "repair"
   },
   --
-  {
-   comic = ComicData.act2,
-   phase = PhaseTwo,
-   name = "forest"
-  },
+  -- {
+  --  comic = ComicData.act2,
+  --  phase = PhaseTwo,
+  --  name = "forest"
+  -- },
 
   {
     comic = ComicData.act3,

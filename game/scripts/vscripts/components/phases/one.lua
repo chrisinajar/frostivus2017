@@ -46,6 +46,11 @@ function PhaseOne:Start(callback)
   self.sleigh = sleigh[1]:GetAbsOrigin()
 
   self.santa = CreateUnitByName("npc_dota_santa_separate", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.santa:OnDeath(function ()
+    if self.running then
+      GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+    end
+  end)
 
   FinishedEvent.once(function()
     if self.santa and not self.santa:IsNull() then
