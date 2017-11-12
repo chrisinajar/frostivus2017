@@ -8,17 +8,65 @@ HORDE_MAX_WAVE = 20
 
 WaveData = {
   {
-    {  "npc_dota_horde_basic"              , 90},
-    {  "npc_dota_horde_special_7"          , 10}
+    horde = "npc_dota_horde_basic_1"
   },
   {
-    {  "npc_dota_horde_basic"              , 90},
-    {  "npc_dota_horde_special_3"          , 10}
+    horde = "npc_dota_horde_basic_2"
   },
   {
-    {  "npc_dota_horde_basic"              , 50},
-    {  "npc_dota_horde_special_2"          , 50}
+    horde = "npc_dota_horde_basic_3"
   },
+  {
+    horde = "npc_dota_horde_basic_4"
+  },
+  {
+    horde = "npc_dota_horde_basic_5"
+  },
+  {
+    horde = "npc_dota_horde_basic_6"
+  },
+  {
+    horde = "npc_dota_horde_basic_7"
+  },
+  {
+    horde = "npc_dota_horde_basic_8"
+  },
+  {
+    horde = "npc_dota_horde_basic_9"
+  },
+  {
+    horde = "npc_dota_horde_basic_10"
+  },
+  {
+    horde = "npc_dota_horde_basic_11"
+  },
+  {
+    horde = "npc_dota_horde_basic_12"
+  },
+  {
+    horde = "npc_dota_horde_basic_13"
+  },
+  {
+    horde = "npc_dota_horde_basic_14"
+  },
+  {
+    horde = "npc_dota_horde_basic_15"
+  },
+  {
+    horde = "npc_dota_horde_basic_16"
+  },
+  {
+    horde = "npc_dota_horde_basic_17"
+  },
+  {
+    horde = "npc_dota_horde_basic_18"
+  },
+  {
+    horde = "npc_dota_horde_basic_19"
+  },
+  {
+    horde = "npc_dota_horde_basic_20"
+  }
 }
 
 function HordeSpawner:Init()
@@ -27,14 +75,10 @@ end
 function HordeSpawner:CreateHorde(wave, intensity)
   wave = math.min(wave, #WaveData)
   local count = math.max(HORDE_MIN_WAVE, math.ceil((intensity / 100) * HORDE_MAX_WAVE))
+  local unit = WaveData[wave].horde
   local unittable = {}
-  local iter = 1
-  for j =  1, #WaveData[wave] do 
-    local unit = WaveData[wave][j][1]
-    for i = 1 , math.ceil(count * WaveData[wave][j][2]/100) do
-      unittable[iter] = unit
-      iter = iter+1;
-    end
+  for i = 1,count do
+    unittable[i] = unit
   end
 --[[
   local unit = WaveData[wave].horde

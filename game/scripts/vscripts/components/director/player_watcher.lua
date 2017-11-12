@@ -150,7 +150,11 @@ function PlayerWatcher:GetStressLevel()
   local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/5
   stressLevel = math.min(1, stressLevel)
 
-  stressLevel = math.ceil(((stressLevel + (self.stressLevel * 3)) / 4) * 100) / 100
+  if stressLevel < self.stressLevel then
+    stressLevel = math.floor(((stressLevel + self.stressLevel) / 2) * 100) / 100
+  else
+    stressLevel = math.ceil(((stressLevel + (self.stressLevel * 3)) / 4) * 100) / 100
+  end
 
   return stressLevel
 end

@@ -24,6 +24,9 @@ function PassiveXP:EverySecond()
     if hero:IsNull() or hero:GetLevel() >=25 then
       return
     end
+    if hero:GetLevel() > 25 then
+      return
+    end
     hero:AddExperience(xpps, 0, false, false)
   end)
 end
