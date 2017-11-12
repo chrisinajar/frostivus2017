@@ -6,8 +6,10 @@
 
 #base "units/basic/npc_dota_horde_basic.txt"
 
+#base "units/characters/npc_dota_santa_seperate.txt"
 #base "units/characters/npc_dota_santa.txt"
 #base "units/characters/npc_dota_payload_santa.txt"
+#base "units/characters/npc_dota_search_santa.txt"
 #base "units/characters/npc_dota_evil_wisp.txt"
 
 #base "units/special/npc_dota_horde_special_1.txt"

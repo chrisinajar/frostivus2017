@@ -12,8 +12,8 @@ WaveData = {
     {  "npc_dota_horde_special_7"          , 10}
   },
   {
-    {  "npc_dota_horde_basic"              , 50},
-    {  "npc_dota_horde_special_3"          , 50}
+    {  "npc_dota_horde_basic"              , 90},
+    {  "npc_dota_horde_special_3"          , 10}
   },
   {
     {  "npc_dota_horde_basic"              , 50},

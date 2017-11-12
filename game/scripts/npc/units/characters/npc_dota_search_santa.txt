@@ -3,21 +3,21 @@
   //=================================================================================
   // SANTA
   //=================================================================================
-  "npc_dota_santa_seperate"
+  "npc_dota_search_santa"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/roshan/roshan.vmdl" // Model.
+    "Model"                     "models/units/characters/rosh_in_sleigh.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "1.0"
-    "BoundsHullName"            "DOTA_HULL_SIZE_BARRACKS"
-    "vscripts"                  "units/act1/santa_seperate.lua"
+    "ModelScale"                "0.6"
+
+
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "broken_sleigh"  // Ability 1
-    "Ability2"                  ""  // Ability 2
+    "Ability1"                  ""  // Ability 1
+    "Ability2"                  "not_of_this_world"  // Ability 2
     "Ability3"                  ""          // Ability 3
     "Ability4"                  ""      // Ability 4
 
@@ -27,7 +27,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    //"AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
+    //"AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
     //"AttackDamageMin"           "30"    // Damage range min.
     //"AttackDamageMax"           "40"    // Damage range max.
     //"AttackRate"                "1.5"   // Speed of attack.
@@ -50,8 +50,8 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
-    "MovementSpeed" "0"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_FLY"
+    "MovementSpeed"             "600"   // Speed.
 
     // Status
     //----------------------------------------------------------------
@@ -62,8 +62,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "800"   // Range of vision during day light.
-    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+    "VisionDaytimeRange"        "2000"   // Range of vision during day light.
+    "VisionNighttimeRange"      "2000"   // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------

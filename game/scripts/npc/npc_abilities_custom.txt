@@ -32,6 +32,7 @@
 #base "abilities/santa_sled_capturepoint.txt"
 #base "abilities/santa_sled_santa_armour.txt"
 #base "abilities/santa_sled_move.txt"
+#base "abilities/broken_sleigh.txt"
 
 #base "abilities/not_of_this_world.txt"
 

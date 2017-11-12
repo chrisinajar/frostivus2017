@@ -76,7 +76,7 @@ local OnEntityHurtEvent = CreateGameEvent('OnEntityHurt')
 function GameMode:OnEntityHurt(keys)
   OnEntityHurtEvent(keys)
   --DebugPrint("[BAREBONES] Entity Hurt")
-  ----DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
   if keys.entindex_attacker ~= nil and keys.entindex_killed ~= nil then

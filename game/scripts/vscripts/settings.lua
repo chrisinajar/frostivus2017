@@ -2,13 +2,18 @@
 
 ------------------------------------------------
 -- Frostivus specific stuff
-MIN_WAVE_TIME = 180
-MAX_WAVE_TIME = 300
+MIN_WAVE_TIME = 100
+MAX_WAVE_TIME = 180
+PEAK_TIME = 20
+REST_TIME = 20
 
 ITEM_DESPAWN_TIME = 120
 
 -- act 1
-REPAIR_UNITS_REQUIRED = 100
+REPAIR_UNITS_REQUIRED = 30
+
+-- act 2
+NUMBER_PRESENTS_REQUIRED = 6
 
 ------------------------------------------------
 
