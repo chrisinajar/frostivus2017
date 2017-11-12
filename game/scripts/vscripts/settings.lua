@@ -2,8 +2,8 @@
 
 ------------------------------------------------
 -- Frostivus specific stuff
-MIN_WAVE_TIME = 180
-MAX_WAVE_TIME = 300
+MIN_WAVE_TIME = 90
+MAX_WAVE_TIME = 120
 
 ITEM_DESPAWN_TIME = 120
 
