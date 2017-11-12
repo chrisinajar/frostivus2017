@@ -8,6 +8,7 @@
 
 #base "units/characters/npc_dota_santa_separate.txt"
 #base "units/characters/npc_dota_santa.txt"
+#base "units/characters/npc_dota_sleigh.txt"
 #base "units/characters/npc_dota_payload_santa.txt"
 #base "units/characters/npc_dota_search_santa.txt"
 #base "units/characters/npc_dota_evil_wisp.txt"

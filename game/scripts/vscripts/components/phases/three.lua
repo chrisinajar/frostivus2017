@@ -56,7 +56,12 @@ function PhaseThree:Start(callback)
     currentIndex = 1
   }
 
+  local spawnPoint = Entities:FindAllByName("trigger_act_3_santa")
+  if #spawnPoint < 1 then
+    error("Failed to find santa spawn point")
+  end
   self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
+  self.SantaSpawnPosition = spawnPoint[1]:GetAbsOrigin()
 
   self.Cart = self:SpawnCart()
   self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
@@ -141,7 +146,7 @@ function PhaseThree:MakeWaypointTriggerList(TriggerNames)
 end
 
 function PhaseThree:SpawnCart()
-  local santa = CreateUnitByName("npc_dota_payload_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
+  local santa = CreateUnitByName("npc_dota_payload_santa", self.SantaSpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
   assert(santa, "Failed to spawn santa")
   local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   assert(projectileTarget, "Failed to spawn ProjectileTarget")

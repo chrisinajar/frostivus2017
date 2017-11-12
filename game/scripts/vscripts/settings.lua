@@ -13,7 +13,7 @@ ITEM_DESPAWN_TIME = 60
 REPAIR_UNITS_REQUIRED = 100
 
 -- act 2
-NUMBER_PRESENTS_REQUIRED = 6
+NUMBER_PRESENTS_REQUIRED = 4
 
 ------------------------------------------------
 

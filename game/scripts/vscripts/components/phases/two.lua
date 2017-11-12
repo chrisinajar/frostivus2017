@@ -26,21 +26,41 @@ function PhaseTwo:Prepare(callback)
     list[id] = true
   end
   each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
-  local spawnPoint = Entities:FindAllByName("trigger_act_2_path_0")
+
+  self.playerList = allPlayers
+  local spawnPoint = Entities:FindAllByName("trigger_act_2_santa")
   if #spawnPoint < 1 then
     error("Failed to find player spawn point for act 2")
   end
-  spawnPoint = spawnPoint[1]:GetAbsOrigin()
+  self.heroSpawnPos = spawnPoint[1]:GetAbsOrigin()
   for playerId,_ in pairs(allPlayers) do
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
-    FindClearSpaceForUnit(hero, spawnPoint, true)
+    FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
     hero:SetDayTimeVisionRange(600)
     hero:SetNightTimeVisionRange(600)  
-    hero:SetRespawnPosition(spawnPoint)
+    hero:SetRespawnPosition(self.heroSpawnPos)
   end
+
+  self.PresentsToPickUp = NUMBER_PRESENTS_REQUIRED
+
+  GameEvents:OnItemPickedUp(function (keys)
+    local player = PlayerResource:GetPlayer(keys.PlayerID)
+    local itemname = keys.itemname
+    local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
+    DebugPrint(itemname)
+    if itemname == "item_present_for_search" then
+      self.PresentsToPickUp = self.PresentsToPickUp - 1;
+      if self.PresentsToPickUp <= 0 then
+        DebugPrint("All presents found, finishing up Phase 2")
+        FinishedEvent.broadcast({}) -- we're done
+        self:CleanUp()
+      end   
+    end
+  end)
+
 end
 
 function PhaseTwo:Start(callback)
@@ -71,7 +91,7 @@ function PhaseTwo:Start(callback)
   self.CampLocation = {
     Trigger = self:MakeWaypointTriggerList({
       "trigger_act_2_camp_0",
-      "trigger_act_2_camp_1"--[[,
+      "trigger_act_2_camp_1",
       "trigger_act_2_camp_2",
       "trigger_act_2_camp_3",
       "trigger_act_2_camp_4",
@@ -83,71 +103,66 @@ function PhaseTwo:Start(callback)
       "trigger_act_2_camp_10",
       "trigger_act_2_camp_11",
       "trigger_act_2_camp_12",
-      "trigger_act_2_camp_13"]]
+      "trigger_act_2_camp_13",
+      "trigger_act_2_camp_14"
     }),
-    currentIndex = 1
+    presentIndex = {
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    }
   }
+  local spawnPresentsNum = 0
+  while spawnPresentsNum < NUMBER_PRESENTS_REQUIRED do
+    local tospawnIt = math.random(15)
+    if self.CampLocation.presentIndex[tospawnIt] == 0 then
+      self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin())
+      self.CampLocation.presentIndex[tospawnIt] = 1
+      spawnPresentsNum = spawnPresentsNum + 1
+      DebugPrint('Creating a present')
+    end
+  end
+  --[[
   for i = 1,#self.CampLocation.Trigger do
     DebugPrint('Creating a present')
     self:SpawnPresent(self.CampLocation.Trigger[i]:GetAbsOrigin())
   end
-  self:SpawnPresent(self.Waypoints.Trigger[1]:GetAbsOrigin())
+  ]]
+  self:SpawnPresent(self.heroSpawnPos)
   self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
 
   self.Cart = self:SpawnCart()
-  --self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
---[[
-  self.totalPathLength = self:CalculateMoveDistance(nil)
-  assert(self.totalPathLength > 1, "totalPathLength must be larger than 1")
-  self.pathLenghtLeft = self.totalPathLength
-  self.distanceMoved = 0 --self.totalPathLength - self.pathLenghtLeft
-]]
 
   DebugPrint("Finished Initializing Phase 2")
---[[
-  DebugPrint("Creating DebugOverlay for Phase 2")
 
-  self:AddDebugOverlayEntry("totalPathLength", "total path lenght", self.totalPathLength)
-  self:AddDebugOverlayEntry("distanceMoved", "distance sled moved", self.totalPathLength - self.pathLenghtLeft)
-  self:AddDebugOverlayEntry("pathLenghtLeft", "distance left to move", self.pathLenghtLeft)
-  self:AddDebugOverlayEntry("currentTrigger", "current targeted trigger", self:GetCurrentWaypointTrigger():GetName())
-  self:AddDebugOverlayEntry("projectileVelocity", "projectile velocity", Vector(0))
-  self:AddDebugOverlayEntry("projectilePosition", "projectile position", Vector(0))
-  self:AddDebugOverlayEntry("cartSpeed", "cart movement speed", 0)
-  self:AddDebugOverlayEntry("unitsCapturing", "units capturing", 0)
-
-  DebugPrint("Finished Creating DebugOverlay for Phase 2")
-]]
   DebugPrint("Starting Timers for Phase 2")
---[[
-  self.DebugOverlayUpdateTimer = Timers:CreateTimer(function()
-    if self.Cart.Handle:IsNull() then
-      return
-    end
-    self.pathLenghtLeft = self:CalculateMoveDistance(self.Cart.Handle:GetAbsOrigin())
-    self.distanceMoved = self.totalPathLength - self.pathLenghtLeft
-    self:UpdateProgressbar(self.distanceMoved / self.totalPathLength)
-    self:UpdateDebugOverlayEntry("distanceMoved", self.totalPathLength - self.pathLenghtLeft)
-    self:UpdateDebugOverlayEntry("pathLenghtLeft", self.pathLenghtLeft)
-    self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
-    self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or 0))
-    self:UpdateDebugOverlayEntry("unitsCapturing", self.Cart.Handle.StackCount)
-    DebugOverlay:UpdateDisplay()
-    return 1
-  end)
-]]
+
   self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
   self.MainTimer = Timers:CreateTimer(function()
+
+
     if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
-        DebugPrint("Ride is done, finishing up Phase 2")
+        DebugPrint("All presents found, finishing up Phase 2")
         FinishedEvent.broadcast({}) -- we're done
         self:CleanUp()
         return
       else
         DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
-        --self:UpdateDebugOverlayEntry("currentTrigger", self:GetCurrentWaypointTrigger():GetName())
+        
         self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
         return 0.5
       end
@@ -230,6 +245,25 @@ function PhaseTwo:SetCartTarget(targetPosition)
 end
 
 function PhaseTwo:CleanUp()
+  for playerId,_ in pairs(self.playerList) do
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      error("Could not find hero for player " .. playerId)
+    end
+    hero:SetDayTimeVisionRange(1800)
+    hero:SetNightTimeVisionRange(1000)
+    if hero:HasItemInInventory("item_present_for_search") then
+      for i = 0,5 do
+        local itemHandle = hero:GetItemInSlot(i)
+        if itemHandle ~= nil then
+          if itemHandle:GetName() == "item_present_for_search" then
+            hero:RemoveItem(itemHandle)
+          end
+        end
+      end
+    end
+  end
+
   self.Cart.Handle:ForceKill(false)
   Timers:RemoveTimer("Phase2MainTimer")
 end

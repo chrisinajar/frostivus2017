@@ -10,7 +10,7 @@
 		"ItemKillable"		"0"
 		"ItemSellable"		"0"
 		"ItemPurchasable"	"0"
-		"ItemDroppable"		"1"
+		"ItemDroppable"		"0"
 		"ItemStackable"		"1"
 		"ItemShareability"	"ITEM_FULLY_SHAREABLE_STACKING"
 		"AbilityTextureName" "item_present"
@@ -30,6 +30,10 @@
 	            "Properties"
 	            {
 	                "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"
+	            }
+	            "States"
+	            {
+	            	"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
 	            }
 	        } 
     	}

@@ -9,6 +9,21 @@ function PhaseOne:Prepare()
   end
   each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
 
+
+  for playerId,_ in pairs(allPlayers) do
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      error("Could not find hero for player " .. playerId)
+    else
+      for i = 0,5 do
+        local itemHandle = hero:GetItemInSlot(i)
+        if itemHandle ~= nil then
+          hero:RemoveItem(itemHandle)
+        end
+      end
+    end
+  end
+  
   self.zone = ZoneControl:CreateZone("trigger_act_1_zone", {
     mode = ZONE_CONTROL_EXCLUSIVE_IN,
     players = allPlayers
@@ -42,16 +57,19 @@ function PhaseOne:Start(callback)
   if #sleigh < 1 then
     error("Failed to find act one sleigh repair spot")
   end
+  local rosh_trig = Entities:FindAllByName("trigger_act_1_rosh_pos")
+  if #rosh_trig < 1 then
+    error("Failed to find act one rosh spot")
+  end
 
   self.sleigh = sleigh[1]:GetAbsOrigin()
-
-  self.santa = CreateUnitByName("npc_dota_santa_separate", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
   self.santa:OnDeath(function ()
     if self.running then
       GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
     end
   end)
-
   FinishedEvent.once(function()
     if self.santa and not self.santa:IsNull() then
       self.santa:Destroy()

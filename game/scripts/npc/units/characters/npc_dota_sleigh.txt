@@ -3,21 +3,21 @@
   //=================================================================================
   // SANTA
   //=================================================================================
-  "npc_dota_santa_separate"
+  "npc_dota_sleigh"
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/roshan/roshan.vmdl" // Model.
+    "Model"                     "models/units/characters/sleigh.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "0.8"
+    "ModelScale"                "1.0"
     "BoundsHullName"            "DOTA_HULL_SIZE_BARRACKS"
-    "vscripts"                  "units/act1/santa_seperate.lua"
+
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "broken_sleigh"  // Ability 1
-    "Ability2"                  "not_of_this_world"  // Ability 2
+    "Ability1"                  ""  // Ability 1
+    "Ability2"                  ""  // Ability 2
     "Ability3"                  ""          // Ability 3
     "Ability4"                  ""      // Ability 4
 
@@ -50,8 +50,8 @@
 
     // Movement
     //----------------------------------------------------------------
-    "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
-    "MovementSpeed" "0"
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
+    "MovementSpeed"             "0"   // Speed.
 
     // Status
     //----------------------------------------------------------------
@@ -67,7 +67,7 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_FRIENDLY"              // Team name
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
