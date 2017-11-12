@@ -20,7 +20,7 @@
       "01"
       {
         "var_type"                      "FIELD_INTEGER"
-        "damage_reduction"              "40"
+        "damage_reduction"              "15"
       }
       "02"
       {

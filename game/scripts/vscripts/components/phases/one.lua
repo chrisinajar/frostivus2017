@@ -45,7 +45,8 @@ function PhaseOne:Start(callback)
 
   self.sleigh = sleigh[1]:GetAbsOrigin()
 
-  self.santa = CreateUnitByName("npc_dota_santa", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.santa = CreateUnitByName("npc_dota_santa_separate", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
+
   FinishedEvent.once(function()
     if self.santa and not self.santa:IsNull() then
       self.santa:Destroy()

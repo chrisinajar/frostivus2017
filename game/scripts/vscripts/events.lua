@@ -8,7 +8,7 @@ GameEvents.OnPlayerDisconnect = GameEvents.OnDisconnect -- luacheck: ignore
 function GameMode:OnDisconnect(keys)
   OnDisconnectEvent(keys)
   DebugPrint('[BAREBONES] Player Disconnected ' .. tostring(keys.userid))
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local name = keys.name
   local networkid = keys.networkid
@@ -23,7 +23,7 @@ local OnStrategyTimeEvent = CreateGameEvent('OnStrategyTime')
 function GameMode:OnGameRulesStateChange(keys)
   OnGameRulesStateChangeEvent(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local newState = GameRules:State_Get()
   -- Strategy time started
@@ -54,7 +54,7 @@ end
 function GameMode:OnNPCSpawned(keys)
   OnNPCSpawnedEvent(keys)
   DebugPrint("[BAREBONES] NPC Spawned")
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local npc = EntIndexToHScript(keys.entindex)
   DecorateNPC(npc)
@@ -102,7 +102,7 @@ local OnItemPickedUpEvent = CreateGameEvent('OnItemPickedUp')
 function GameMode:OnItemPickedUp(keys)
   OnItemPickedUpEvent(keys)
   DebugPrint( '[BAREBONES] OnItemPickedUp' )
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local unitEntity = nil
   if keys.UnitEntitIndex then
@@ -123,7 +123,7 @@ local OnPlayerReconnectEvent = CreateGameEvent('OnPlayerReconnect')
 function GameMode:OnPlayerReconnect(keys)
   OnPlayerReconnectEvent(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local playID = keys.PlayerID
   if not playID then
@@ -138,7 +138,7 @@ local OnItemPurchasedEvent = CreateGameEvent('OnItemPurchased')
 function GameMode:OnItemPurchased( keys )
   OnItemPurchasedEvent(keys)
   DebugPrint( '[BAREBONES] OnItemPurchased' )
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
   local plyID = keys.PlayerID
@@ -160,7 +160,7 @@ local OnAbilityUsedEvent = CreateGameEvent('OnAbilityUsed')
 function GameMode:OnAbilityUsed(keys)
   OnAbilityUsedEvent(keys)
   DebugPrint('[BAREBONES] AbilityUsed')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local abilityname = keys.abilityname
@@ -172,7 +172,7 @@ local OnNonPlayerUsedAbilityEvent = CreateGameEvent('OnNonPlayerUsedAbility')
 function GameMode:OnNonPlayerUsedAbility(keys)
   OnNonPlayerUsedAbilityEvent(keys)
   DebugPrint('[BAREBONES] OnNonPlayerUsedAbility')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local abilityname=  keys.abilityname
 end
@@ -183,7 +183,7 @@ local OnPlayerChangedNameEvent = CreateGameEvent('OnPlayerChangedName')
 function GameMode:OnPlayerChangedName(keys)
   OnPlayerChangedNameEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerChangedName')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local newName = keys.newname
   local oldName = keys.oldName
@@ -195,7 +195,7 @@ local OnPlayerLearnedAbilityEvent = CreateGameEvent('OnPlayerLearnedAbility')
 function GameMode:OnPlayerLearnedAbility( keys)
   OnPlayerLearnedAbilityEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerLearnedAbility')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = EntIndexToHScript(keys.player)
   local abilityname = keys.abilityname
@@ -207,7 +207,7 @@ local OnAbilityChannelFinishedEvent = CreateGameEvent('OnAbilityChannelFinished'
 function GameMode:OnAbilityChannelFinished(keys)
   OnAbilityChannelFinishedEvent(keys)
   DebugPrint('[BAREBONES] OnAbilityChannelFinished')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local abilityname = keys.abilityname
   local interrupted = keys.interrupted == 1
@@ -219,7 +219,7 @@ local OnPlayerLevelUpEvent = CreateGameEvent('OnPlayerLevelUp')
 function GameMode:OnPlayerLevelUp(keys)
   OnPlayerLevelUpEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerLevelUp')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 end
 
 -- A player last hit a creep, a tower, or a hero
@@ -228,7 +228,7 @@ local OnLastHitEvent = CreateGameEvent('OnLastHit')
 function GameMode:OnLastHit(keys)
   OnLastHitEvent(keys)
   DebugPrint('[BAREBONES] OnLastHit')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local isFirstBlood = keys.FirstBlood == 1
   local isHeroKill = keys.HeroKill == 1
@@ -243,7 +243,7 @@ local OnTreeCutEvent = CreateGameEvent('OnTreeCut')
 function GameMode:OnTreeCut(keys)
   OnTreeCutEvent(keys)
   DebugPrint('[BAREBONES] OnTreeCut')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local treeX = keys.tree_x
   local treeY = keys.tree_y
@@ -255,7 +255,7 @@ local OnRuneActivatedEvent = CreateGameEvent('OnRuneActivated ')
 function GameMode:OnRuneActivated (keys)
   OnRuneActivatedEvent(keys)
   DebugPrint('[BAREBONES] OnRuneActivated')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local rune = keys.rune
@@ -281,7 +281,7 @@ local OnPlayerTakeTowerDamageEvent = CreateGameEvent('OnPlayerTakeTowerDamage')
 function GameMode:OnPlayerTakeTowerDamage(keys)
   OnPlayerTakeTowerDamageEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerTakeTowerDamage')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local damage = keys.damage
@@ -293,7 +293,7 @@ local OnPlayerPickHeroEvent = CreateGameEvent('OnPlayerPickHero')
 function GameMode:OnPlayerPickHero(keys)
   OnPlayerPickHeroEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerPickHero')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local heroClass = keys.hero
   local heroEntity = EntIndexToHScript(keys.heroindex)
@@ -306,7 +306,7 @@ local OnTeamKillCreditEvent = CreateGameEvent('OnTeamKillCredit')
 function GameMode:OnTeamKillCredit(keys)
   OnTeamKillCreditEvent(keys)
   DebugPrint('[BAREBONES] OnTeamKillCredit')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local killerPlayer = PlayerResource:GetPlayer(keys.killer_userid)
   local victimPlayer = PlayerResource:GetPlayer(keys.victim_userid)
@@ -363,7 +363,7 @@ end
 -- have completely connected
 function GameMode:PlayerConnect(keys)
   DebugPrint('[BAREBONES] PlayerConnect')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 end
 
 -- This function is called once when the player fully connects and becomes "Ready" during Loading
@@ -372,7 +372,7 @@ local OnConnectFullEvent = CreateGameEvent('OnConnectFull')
 function GameMode:OnConnectFull(keys)
   OnConnectFullEvent(keys)
   DebugPrint('[BAREBONES] OnConnectFull')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local entIndex = keys.index+1
   -- The Player entity of the joining user
@@ -388,7 +388,7 @@ local OnIllusionsCreatedEvent = CreateGameEvent('OnIllusionsCreated')
 function GameMode:OnIllusionsCreated(keys)
   OnIllusionsCreatedEvent(keys)
   DebugPrint('[BAREBONES] OnIllusionsCreated')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local originalEntity = EntIndexToHScript(keys.original_entindex)
 end
@@ -399,7 +399,7 @@ local OnItemCombinedEvent = CreateGameEvent('OnItemCombined')
 function GameMode:OnItemCombined(keys)
   OnItemCombinedEvent(keys)
   DebugPrint('[BAREBONES] OnItemCombined')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   -- The playerID of the hero who is buying something
   local plyID = keys.PlayerID
@@ -419,7 +419,7 @@ local OnAbilityCastBeginsEvent = CreateGameEvent('OnAbilityCastBegins')
 function GameMode:OnAbilityCastBegins(keys)
   OnAbilityCastBeginsEvent(keys)
   DebugPrint('[BAREBONES] OnAbilityCastBegins')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local abilityName = keys.abilityname
@@ -431,7 +431,7 @@ local OnTowerKillEvent = CreateGameEvent('OnTowerKill')
 function GameMode:OnTowerKill(keys)
   OnTowerKillEvent(keys)
   DebugPrint('[BAREBONES] OnTowerKill')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local gold = keys.gold
   local killerPlayer = PlayerResource:GetPlayer(keys.killer_userid)
@@ -444,7 +444,7 @@ local OnPlayerSelectedCustomTeamEvent = CreateGameEvent('OnPlayerSelectedCustomT
 function GameMode:OnPlayerSelectedCustomTeam(keys)
   OnPlayerSelectedCustomTeamEvent(keys)
   DebugPrint('[BAREBONES] OnPlayerSelectedCustomTeam')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local player = PlayerResource:GetPlayer(keys.player_id)
   local success = (keys.success == 1)
@@ -457,7 +457,7 @@ local OnNPCGoalReachedEvent = CreateGameEvent('OnNPCGoalReached')
 function GameMode:OnNPCGoalReached(keys)
   OnNPCGoalReachedEvent(keys)
   DebugPrint('[BAREBONES] OnNPCGoalReached')
-  DebugPrintTable(keys)
+  --DebugPrintTable(keys)
 
   local goalEntity = EntIndexToHScript(keys.goal_entindex)
   local nextGoalEntity = EntIndexToHScript(keys.next_goal_entindex)

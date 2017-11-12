@@ -7,11 +7,12 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/wisp/wisp_additive.vmdl" // Model.
+    "Model"                     "models/heroes/wisp/wisp.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                ".7"
+    "IsAncient" "1"
 
 
     // Abilities
@@ -36,6 +37,15 @@
     "AttackRange"               "100"   // Range within a target can be attacked.
     "ProjectileModel"           ""      // Particle system model for projectile.
     "ProjectileSpeed"           "0"     // Speed of projectile.
+
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" { "ItemDef" "536" }
+        }
+
+    }
 
     // Bounds
     //----------------------------------------------------------------
