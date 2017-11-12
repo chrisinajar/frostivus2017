@@ -100,17 +100,17 @@
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"knockback_distance"			"10 15 20 25"
+				"knockback_distance"			"20"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"slow_duration"					"1.0 1.5 2.0 2.5"
+				"slow_duration"					"1.5"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"frost_arrows_movement_speed"	"-11 -15 -18 -20"
+				"frost_arrows_movement_speed"	"-20"
 			}
 		}
 	}

@@ -20,7 +20,7 @@
 
     // Time
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"       "18"
+    "AbilityCooldown"       "150"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -38,6 +38,16 @@
       }
     }
 
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "abilities/creep_siren_song.lua"
+        "Function"    "creep_siren_song:OnSpellStart"
+      }
+    }
+
+
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"
@@ -50,4 +60,5 @@
       "soundfile"                                          "soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
     }
   }
+
 }
