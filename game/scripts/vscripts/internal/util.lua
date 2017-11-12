@@ -3,10 +3,10 @@ with some added functionality useful for debugging. Documentation available in d
 ]]
 Debug = Debug or {
   EnabledModules = {
-    ['internal:*'] = true,
-    ['gamemode:*'] = true
+    ['internal:*'] = false,
+    ['gamemode:*'] = false
   },
-  EnableAll = true
+  EnableAll = false
 }
 
 function split(s, delimiter)
