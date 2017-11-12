@@ -1,5 +1,9 @@
 g_ItemPrecache = {
   "item_tombstone", -- Tombstone respawning thingy
+  "item_stoneskin",
+  "item_siege_mode",
+  "item_pull_staff",
+  "item_lucience",
 }
 
 g_UnitPrecache = {
