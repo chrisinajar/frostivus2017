@@ -1,4 +1,4 @@
-#base "items/tombstone.txt"
+#base "items/item_tombstone.txt"
 
 "DOTAItems"
 {
