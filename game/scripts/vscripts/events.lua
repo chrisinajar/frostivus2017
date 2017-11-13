@@ -354,6 +354,13 @@ function GameMode:OnEntityKilled( keys )
   end
 
   if killedUnit.IsRealHero and killedUnit:IsRealHero() then
+    local allDead = true
+    for _, hero in ipairs(HeroList:GetAllHeroes()) do
+       if hero:IsRealHero() and (hero:IsAlive() or hero:IsReincarnating()) then
+        allDead = false
+        break
+    end
+    if allDead then GameRules:SetGameWinner( DOTA_TEAM_BADGUYS ) end
     OnHeroDiedEvent(killedUnit)
   end
 end
