@@ -2,6 +2,11 @@
 
 ------------------------------------------------
 -- Frostivus specific stuff
+-- director
+MAX_SPECIAL_UNITS = 6
+MAX_SPECIAL_UNITS_EACH = 3
+
+-- horde
 MIN_WAVE_TIME = 90
 MAX_WAVE_TIME = 120
 PEAK_TIME = 20

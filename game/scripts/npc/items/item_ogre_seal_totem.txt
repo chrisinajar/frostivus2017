@@ -1,0 +1,89 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Ogre Seal Totem
+  //=================================================================================================================
+  "item_ogre_seal_totem"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "item_lua"
+    "ScriptFile"          "items/item_ogre_seal_totem"
+    "AbilityTextureName"      "ogre_seal_totem"
+
+    "Model"             "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"            "particles/generic_gameplay/dropped_aegis.vpcf"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+
+    //"DungeonItemDef"        "12068"
+    //"DungeonAction"         "dungeon_in_game_item_12068"
+    //"DungeonCurrencyCost"     "30"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "1000"
+    "AbilityCastPoint"        "0.3"
+    "AbilityCooldown"       "40.0"
+    "AbilityManaCost"               "75"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "0"
+    "ItemPurchasable"       "0"
+    "ItemQuality"         ""
+    "ItemStackable"         "0"
+    "ItemSellable"          "0"
+    "ItemShareability"        "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"         "0"
+    "ItemDisplayOwnership"      "1"
+    "CustomShop"          "1"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "required_level"      "0"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "bonus_strength"      "8"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "bonus_hp"          "200"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "radius"                    "275"
+      }
+      "05"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "damage"                    "250"
+      }
+      "06"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "stun_duration"             "1.0"
+      }
+    }
+
+    "precache"
+    {
+      "particle"                      "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+      "particle"                      "particles/test_particle/ogre_melee_smash.vpcf"
+      "particle"                      "particles/act_2/ogre_seal_warcry.vpcf"
+      "soundfile"                     "soundevents/game_sounds_dungeon_enemies.vsndevts"
+      "soundfile"                     "soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"
+    }
+  }
+}

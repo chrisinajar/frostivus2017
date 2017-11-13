@@ -1,0 +1,83 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Bogdugg's Cudgel 3
+  //=================================================================================================================
+  "item_bogduggs_cudgel_3"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "item_lua"
+    "AbilityTextureName"      "bogduggs_cudgel"
+    "ScriptFile"          "items/item_bogduggs_cudgel"
+
+    "Model"             "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"            "particles/generic_gameplay/dropped_aegis.vpcf"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+    //"DungeonItemDef"        "12045"
+    //"DungeonAction"         "dungeon_in_game_item_12045"
+    //"DungeonCurrencyCost"     "45"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "100"
+    "AbilityCastPoint"        "0.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "0"
+    "ItemPurchasable"       "0"
+    "ItemQuality"         ""
+    "ItemStackable"         "0"
+    "ItemSellable"          "0"
+    "ItemShareability"        "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"         "0"
+    "ItemDisplayOwnership"      "1"
+    "CustomShop"          "1"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "3"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "required_level"    "0"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_strength"      "20"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"        "20"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "base_attack_time_penalty_pct"    "50"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "attack_speed_penalty_pct"      "50"
+      }
+      "06"
+      {
+        "var_type"                "FIELD_INTEGER"
+        "damage_radius"             "250"
+      }
+      "07"
+      {
+        "var_type"                "FIELD_FLOAT"
+        "stun_duration"             "1.0"
+      }
+    }
+  }
+}
