@@ -54,6 +54,7 @@ game/panorama/
 game/particles/
 game/soundevents/
 game/sounds/
+game/models/
 
 *.vpk
 
