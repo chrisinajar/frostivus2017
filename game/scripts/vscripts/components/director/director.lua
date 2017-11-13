@@ -23,6 +23,10 @@ function HordeDirector:Init()
   self.__has_init = true
 
   self.disabled = true
+  self.specialUnitQueue = {}
+  self.specialUnitsAlive = 0
+  self.specialUnitsByType = {}
+  self.specialUnitTimeout = 0
 
   DebugPrint('Init hero director')
 
@@ -68,7 +72,9 @@ function HordeDirector:Init()
 
   Timers:CreateTimer(1, function()
     self.timeInWave = self.timeInWave + 1
-    -- DebugPrint('Time in Wave '..self.timeInWave)
+    if self.specialUnitTimeout > 0 then
+      self.specialUnitTimeout = self.specialUnitTimeout - 1
+    end
     return 1
   end)
 
@@ -113,6 +119,11 @@ function HordeDirector:Init()
   self:EnterNextPhase()
 end
 
+function HordeDirector:SpawnSpecialUnit ()
+  local unit = HordeSpawner:ChooseSpecialUnit()
+  self:ScheduleSpecialUnit(unit)
+end
+
 function HordeDirector:OnPeakStress (watcher)
   DebugPrint('A player just entered peak stress!')
   if self:AllPlayersInPeakStress() then
@@ -155,10 +166,14 @@ function HordeDirector:StartBuildUp()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
     end
+    if RandomInt(1, 100) == 1 then
+      self:SpawnSpecialUnit()
+    end
     desiredStress = math.min(1, desiredStress + 0.01)
     DesiredStressEvent.broadcast(desiredStress)
     if self.timeInWave > MAX_WAVE_TIME then
       self:EnterNextPhase()
+      return
     end
 
     return 1
@@ -168,6 +183,11 @@ end
 function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
   DesiredStressEvent.broadcast(1.1) -- force impossible stress at peak
+  Timers:CreateTimer(function()
+    self:SpawnSpecialUnit()
+
+    return RandomInt(3, 5)
+  end)
   Timers:CreateTimer(PEAK_TIME, function()
     -- end peak on a timer
     HordeDirector:EnterNextPhase()
@@ -192,6 +212,71 @@ function HordeDirector:StartNextWave()
   HordeDirector.wave = HordeDirector.wave + 1
   WaveEvent.broadcast(HordeDirector.wave)
   return
+end
+
+function HordeDirector:ScheduleSpecialUnit(unitName, location)
+  DebugPrint('Spawning special unit ' .. unitName)
+  if not self:ShouldSpawnSpecialUnit(unitName) then
+    table.insert(self.specialUnitQueue, { unitName, location })
+    self:ResetSpecialUnitTimer()
+    return
+  end
+  local function done (unit)
+    if unit then
+      if not self.specialUnitsByType[unitName] then
+        self.specialUnitsByType[unitName] = 1
+      else
+        self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
+      end
+      self.specialUnitsAlive = self.specialUnitsAlive + 1
+      unit:OnDeath(function()
+        self.specialUnitsAlive = self.specialUnitsAlive - 1
+        self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
+      end)
+    end
+  end
+  -- it was easy to write, not sure if we need it though
+  -- disable timeout for now
+  -- self:specialUnitTimeout = 5
+  if location then
+    -- this unit is not bound to players
+    -- probably based on a storyline objective
+    local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
+    done(unit)
+    return
+  end
+
+  HordeSpawner:BestPlayerForUnit(unitName):ScheduleUnitSpawn(unitName, done)
+end
+
+function  HordeDirector:ShouldSpawnSpecialUnit (unitName)
+  return self.specialUnitsAlive < MAX_SPECIAL_UNITS and (not self.specialUnitsByType[unitName] or self.specialUnitsByType[unitName] < MAX_SPECIAL_UNITS_EACH)
+end
+
+function HordeDirector:ResetSpecialUnitTimer()
+  if self.specialUnitTimerIsRunning then
+    return
+  end
+  self.specialUnitTimerIsRunning = true
+  Timers:CreateTimer(1, function()
+    if self.specialUnitTimeout > 0 then
+      return self.specialUnitTimeout
+    end
+    local unitQueue = self.specialUnitQueue
+    self.specialUnitQueue = {}
+    for _,unit in ipairs(unitQueue) do
+      self:ScheduleSpecialUnit(unit[1], unit[2])
+    end
+    if #self.specialUnitQueue > 0 then
+      return #self.specialUnitQueue
+    end
+    -- else we stop the loop
+    self.specialUnitTimerIsRunning = false
+  end)
+end
+
+function HordeDirector:ClearQueue()
+  self.specialUnitQueue = {}
 end
 
 function HordeDirector:Pause()

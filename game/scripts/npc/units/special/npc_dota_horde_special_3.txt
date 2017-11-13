@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 3: SLEEPER
+  // HORDE SPECIAL 3: SLEEPER - working
   //=================================================================================
   "npc_dota_horde_special_3"
   {
@@ -84,13 +84,13 @@
         }
         "OffensiveAbilities"
         {
-            "Ability1"                
+            "Ability1"
             {
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
                 "Radius"             "400"
                 "MinimumTargets"     "1"
-            }              
+            }
         }
         "AttachWearables"
         {

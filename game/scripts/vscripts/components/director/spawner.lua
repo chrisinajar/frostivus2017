@@ -3,9 +3,42 @@ HordeSpawner = HordeSpawner or class({})
 
 Debug.EnabledModules['director:spawner'] = true
 
+-- number of creeps per wave
 HORDE_MIN_WAVE = 1
 HORDE_MAX_WAVE = 20
 
+-- per-act special units
+SpecialCreeps = {
+  [1] = {
+    "npc_dota_horde_special_2",
+    "npc_dota_horde_special_3",
+    "npc_dota_horde_special_5",
+    -- "npc_dota_horde_special_6", -- throws exceptions
+    "npc_dota_horde_special_7"
+  },
+  [2] = {
+    "npc_dota_horde_special_2",
+    "npc_dota_horde_special_3",
+    "npc_dota_horde_special_5",
+    -- "npc_dota_horde_special_6", -- throws exceptions
+    "npc_dota_horde_special_7"
+  },
+  [3] = {
+    "npc_dota_horde_special_2",
+    "npc_dota_horde_special_3",
+    "npc_dota_horde_special_5",
+    -- "npc_dota_horde_special_6", -- throws exceptions
+    "npc_dota_horde_special_7"
+  },
+  [4] = {
+    "npc_dota_horde_special_2",
+    "npc_dota_horde_special_3",
+    "npc_dota_horde_special_5",
+    -- "npc_dota_horde_special_6", -- throws exceptions
+    "npc_dota_horde_special_7"
+  },
+}
+-- basic waves
 WaveData = {
   {
     horde = "npc_dota_horde_basic_1"
@@ -99,4 +132,28 @@ function HordeSpawner:CreateHorde(wave, intensity)
   -- do things?
 
   return unittable
+end
+
+function HordeSpawner:ChooseSpecialUnit()
+  --[[
+  eventually we can do logic based on how the players are doing
+  to select targeted special units
+  ]]
+  local act = StorylineManager.currentState
+  local choices = SpecialCreeps[act]
+  local index = RandomInt(1, #choices)
+  return choices[index]
+end
+
+function HordeSpawner:BestPlayerForUnit(unitName)
+  local leastStress = 1.1
+  local result = nil
+  for _,watcher in ipairs(HordeDirector.watchers) do
+    if watcher.stressLevel < leastStress then
+      result = watcher
+      leastStress = watcher.stressLevel
+    end
+  end
+
+  return result
 end

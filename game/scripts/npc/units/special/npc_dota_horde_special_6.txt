@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 6: BANELING
+  // HORDE SPECIAL 6: BANELING - throws exceptions, needs ai
   //=================================================================================
     "npc_dota_horde_special_6"
     {
@@ -84,6 +84,6 @@
         "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
         "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
         "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
-        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"  
+        "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
     }
 }
