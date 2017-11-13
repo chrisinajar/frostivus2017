@@ -56,7 +56,8 @@
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "lucience;lucio"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "UpgradesItems"                                       "item_lucience;item_lucience_2"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
+
     // Precache
     //-------------------------------------------------------------------------------------------------------------
     "precache"

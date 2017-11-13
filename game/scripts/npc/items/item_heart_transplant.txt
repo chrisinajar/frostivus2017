@@ -59,6 +59,7 @@
     "ItemQuality"                                         "rare"
     "ItemAliases"                                         "transplant;heart transplant"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "1"
     "UpgradesItems"                                       "item_heart_transplant"

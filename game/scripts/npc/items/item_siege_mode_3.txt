@@ -57,6 +57,7 @@
     "ItemQuality"                                         "artifact"
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "siege mode 3;siege 3"
+    "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
     "MaxUpgradeLevel"                                     "3"
     "ItemBaseLevel"                                       "3"
 
