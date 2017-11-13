@@ -63,8 +63,8 @@ function PhaseOne:Start(callback)
   end
 
   self.sleigh = sleigh[1]:GetAbsOrigin()
-  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_GOODGUYS)
-  self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, true, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, false, nil, nil, DOTA_TEAM_GOODGUYS)
   self.santa:OnDeath(function ()
     if self.running then
       GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
