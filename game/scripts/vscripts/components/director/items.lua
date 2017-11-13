@@ -9,9 +9,9 @@ end
 --local DROP_CHANCE = 0.25
 
 -- The C initial chance parameter for the pseudo-random distribution function
--- Set for average chance of 5%. Functions for calculation and a bunch of pre-calculated values can be found here:
+-- Set for average chance of less than ???%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
-PRD_C = 0.032220914373087674975117359
+PRD_C = 0.000356
 
 --creep properties enumerations
 local NAME_ENUM = 1

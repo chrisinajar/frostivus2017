@@ -160,6 +160,7 @@ function GameMode:OnPreGame()
   InitModule(ZoneControl)
   InitModule(Music)
   InitModule(DebugInfos)
+  InitModule(TombstoneRespawn)
 
   CheckCheatMode()
 end

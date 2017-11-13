@@ -30,7 +30,7 @@ function PlayerWatcher:Init(hero, playerID)
   self.desiredIntensity = 10
   self.desiredStress = 0.2
   self.hordeAlive = 0
-  self.wave = 1
+ 
   self.itemDropValue = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
@@ -109,7 +109,8 @@ function PlayerWatcher:Think()
 
   if self.hero:IsAlive() and self.stressLevel < self.desiredStress and not self.spawningHorde and HordeDirector:ShouldSpawn(self) then
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
-    local horde = HordeSpawner:CreateHorde(self.wave, self.desiredIntensity)
+    local horde = HordeSpawner:CreateHorde(HordeDirector.wave, self.desiredIntensity)
+    DebugPrint('Wave Level ' .. HordeDirector.wave)
     DebugPrintTable(horde)
     self:SpawnHorde(horde)
   end
@@ -148,7 +149,11 @@ function PlayerWatcher:GetStressLevel()
   local stressLevel = hpScale * ((#nearbyUnits + 1) / (self.killedUnits + 1)) + (((self.killedUnits / 5) + (self.killedNearbyUnits / 3)) * math.max(0.2, 1-hpPercent)) + (1-hpPercent)/5
   stressLevel = math.min(1, stressLevel)
 
-  stressLevel = math.ceil(((stressLevel + (self.stressLevel * 3)) / 4) * 100) / 100
+  if stressLevel < self.stressLevel then
+    stressLevel = math.floor(((stressLevel + self.stressLevel) / 2) * 100) / 100
+  else
+    stressLevel = math.ceil(((stressLevel + (self.stressLevel * 3)) / 4) * 100) / 100
+  end
 
   return stressLevel
 end

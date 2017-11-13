@@ -5,20 +5,27 @@
 -- director
 MAX_SPECIAL_UNITS = 5
 MAX_SPECIAL_UNITS_EACH = 2
--- horde
-MIN_WAVE_TIME = 180
-MAX_WAVE_TIME = 300
 
-ITEM_DESPAWN_TIME = 120
+-- horde
+MIN_WAVE_TIME = 90
+MAX_WAVE_TIME = 120
+PEAK_TIME = 20
+REST_TIME = 20
+
+ITEM_DESPAWN_TIME = 60
 
 -- act 1
 REPAIR_UNITS_REQUIRED = 100
+
+-- act 2
+NUMBER_PRESENTS_REQUIRED = 4
+NUMBER_PRESENTS_SPAWNED = 10
 
 ------------------------------------------------
 
 PREGAME_TIME = 10
 
-ENABLE_HERO_RESPAWN = true              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
+ENABLE_HERO_RESPAWN = false              -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = false             -- Should the main shop contain Secret Shop items as well as regular items
 ALLOW_SAME_HERO_SELECTION = false       -- Should we let people select the same hero as each other
 
@@ -27,7 +34,7 @@ HERO_SELECTION_TIME = 30.0              -- How long should we let people select 
 POST_GAME_TIME = 60.0                   -- How long should we let people look at the scoreboard before closing the server automatically?
 TREE_REGROW_TIME = 60.0                 -- How long should it take individual trees to respawn after being cut down/destroyed?
 
-GOLD_PER_TICK = 1                       -- How much gold should players get per tick?
+GOLD_PER_TICK = 0                       -- How much gold should players get per tick?
 GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = false     -- Should we disable the recommened builds for heroes
@@ -49,7 +56,7 @@ USE_STANDARD_DOTA_BOT_THINKING = true   -- Should we have bots act like they wou
 USE_STANDARD_HERO_GOLD_BOUNTY = true    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
-TOP_BAR_VISIBLE = true                  -- Should we display the top bar score/count at all?
+TOP_BAR_VISIBLE = false                 -- Should we display the top bar score/count at all?
 SHOW_KILLS_ON_TOPBAR = true             -- Should we display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES
 
 ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection for our towers?
@@ -60,7 +67,7 @@ END_GAME_ON_KILLS = false               -- Should the game end after a certain n
 KILLS_TO_END_GAME_FOR_TEAM = 50         -- How many kills for a team should signify an end of game?
 
 USE_CUSTOM_HERO_LEVELS = true           -- Should we allow heroes to have custom levels?
-MAX_LEVEL = 5000                        -- What level should we let heroes get to?
+MAX_LEVEL = 25                       -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true             -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 
 -- Fill this table up with the required XP per level if you want to change it
@@ -97,9 +104,9 @@ end
 
 ENABLE_FIRST_BLOOD = true               -- Should we enable first blood for the first kill in this game?
 HIDE_KILL_BANNERS = false               -- Should we hide the kill banners that show when a player is killed?
-LOSE_GOLD_ON_DEATH = true               -- Should we have players lose the normal amount of dota gold on death?
+LOSE_GOLD_ON_DEATH = false               -- Should we have players lose the normal amount of dota gold on death?
 SHOW_ONLY_PLAYER_INVENTORY = false      -- Should we only allow players to see their own inventory even when selecting other units?
-DISABLE_STASH_PURCHASING = false        -- Should we prevent players from being able to buy items into their stash when not at a shop?
+DISABLE_STASH_PURCHASING = true        -- Should we prevent players from being able to buy items into their stash when not at a shop?
 DISABLE_ANNOUNCER = false               -- Should we disable the announcer from working in the game?
 FORCE_PICKED_HERO = nil                 -- What hero should we force all players to spawn as? (e.g. "npc_dota_hero_axe").  Use nil to allow players to pick their own hero.
 
@@ -112,7 +119,7 @@ MINIMUM_ATTACK_SPEED = 20               -- What should we use for the minimum at
 
 GAME_END_DELAY = -1                     -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)
 VICTORY_MESSAGE_DURATION = 3            -- How long should we wait after the victory message displays to show the End Screen?  Use
-STARTING_GOLD = 625                     -- How much starting gold should we give to each player?
+STARTING_GOLD = 0                    -- How much starting gold should we give to each player?
 DISABLE_DAY_NIGHT_CYCLE = false         -- Should we disable the day night cycle from naturally occurring? (Manual adjustment still possible)
 DISABLE_KILLING_SPREE_ANNOUNCER = false -- Shuold we disable the killing spree announcer?
 DISABLE_STICKY_ITEM = false             -- Should we disable the sticky item button in the quick buy area?

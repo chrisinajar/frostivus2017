@@ -3,9 +3,43 @@
   //=================================================================================================================
   // HERO: Io/Wisp
   //=================================================================================================================
-  "npc_dota_hero_wisp"
-  {
-    // Abilities
+
+	"npc_dota_hero_wisp"
+	{
+		"override_hero"				"npc_dota_hero_wisp"		// Hero to override
+	    "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
+	    "Ability2"                  "evil_wisp_omni_party"    // Ability 2
+	    "Ability3"                  "evil_wisp_moon_rain"    // Ability 3
+	    "Ability4"                  "evil_wisp_egg"      	// Ability 4
+		"VisionNighttimeRange"		"1000"										// Range of vision at night time.
+		"VisionDaytimeRange"		"1000"
+		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+		"ModelScale"	"1.2"
+		"StatusHealth"	"5000"
+		"StatusHealthRegen"	"20"
+		"StatusMana"	"6000"
+		"StatusManaRegen"	"15"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+    	"AttackRange"               "400"   // Range within a target can be attacked.
+		"AttackDamageMin"	"30"
+		"AttackDamageMax"	"40"
+		"ArmorPhysical"	"25"
+		"MagicalResistance"	"0"
+		// Hull type used for navigation/locomotion.
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
+		"MovementSpeed"	"350"
+		"HasInventory"	"0"
+		"MinimapIconSize"	"800"
+		"AttributeBaseStrength"	"0"
+		"AttributeStrengthGain"	"0"
+		"AttributeBaseIntelligence"	"0"
+		"AttributeIntelligenceGain"	"0"
+		"AttributeBaseAgility"	"0"
+		"AttributeAgilityGain"	"0"
+
+	
+    // Talents
     //-------------------------------------------------------------------------------------------------------------
     "Ability11"                                           "special_bonus_magic_resistance_10"
     "Ability12"                                           "special_bonus_armor_6"

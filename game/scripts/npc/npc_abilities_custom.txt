@@ -14,6 +14,7 @@
 #base "abilities/creep_cold_combustion.txt"
 #base "abilities/creep_snow_cloak.txt"
 #base "abilities/creep_siren_song.txt"
+#base "abilities/creep_self_destruction.txt"
 
 #base "abilities/evil_wisp_moon_beam.txt"
 #base "abilities/evil_wisp_moon_rain.txt"
@@ -31,6 +32,7 @@
 #base "abilities/santa_sled_capturepoint.txt"
 #base "abilities/santa_sled_santa_armour.txt"
 #base "abilities/santa_sled_move.txt"
+#base "abilities/broken_sleigh.txt"
 
 #base "abilities/not_of_this_world.txt"
 

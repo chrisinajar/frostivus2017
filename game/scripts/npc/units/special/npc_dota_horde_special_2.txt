@@ -7,16 +7,17 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl" // Model.
+
+    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "1.2"
-
+    "ModelScale"                ".7"
+    
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  ""      // Ability 1
+    "Ability1"                  "creep_damage_block"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
@@ -35,7 +36,7 @@
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
     "AttackRange"               "100"   // Range within a target can be attacked.
     "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.
+    "ProjectileSpeed"           "0"     // Speed of projectile.   
 
     // Bounds
     //----------------------------------------------------------------
@@ -44,9 +45,9 @@
 
     // Bounty
     //----------------------------------------------------------------
-    "BountyXP"                  "33"    // Experience earn.
-    "BountyGoldMin"             "17"    // Gold earned min.
-    "BountyGoldMax"             "20"    // Gold earned max.
+    "BountyXP"                  "0"    // Experience earn.
+    "BountyGoldMin"             "0"    // Gold earned min.
+    "BountyGoldMax"             "0"    // Gold earned max.
 
     // Movement
     //----------------------------------------------------------------
@@ -55,11 +56,11 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "400"   // Base health.
+    "StatusHealth"              "100"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
-
+  
     // Vision
     //----------------------------------------------------------------
     "VisionDaytimeRange"        "800"   // Range of vision during day light.
