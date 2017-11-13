@@ -183,13 +183,18 @@ end
 function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
   DesiredStressEvent.broadcast(1.1) -- force impossible stress at peak
+  local inPeak = true
   Timers:CreateTimer(function()
+    if not inPeak then
+      return
+    end
     self:SpawnSpecialUnit()
 
     return RandomInt(3, 5)
   end)
   Timers:CreateTimer(PEAK_TIME, function()
     -- end peak on a timer
+    inPeak = false
     HordeDirector:EnterNextPhase()
   end)
 end
@@ -223,21 +228,26 @@ function HordeDirector:ScheduleSpecialUnit(unitName, location)
   end
   local function done (unit)
     if unit then
-      if not self.specialUnitsByType[unitName] then
-        self.specialUnitsByType[unitName] = 1
-      else
-        self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
-      end
-      self.specialUnitsAlive = self.specialUnitsAlive + 1
       unit:OnDeath(function()
         self.specialUnitsAlive = self.specialUnitsAlive - 1
         self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
       end)
+    else
+      self.specialUnitsAlive = self.specialUnitsAlive - 1
+      self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
     end
   end
   -- it was easy to write, not sure if we need it though
   -- disable timeout for now
   -- self:specialUnitTimeout = 5
+
+  if not self.specialUnitsByType[unitName] then
+    self.specialUnitsByType[unitName] = 1
+  else
+    self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
+  end
+  self.specialUnitsAlive = self.specialUnitsAlive + 1
+
   if location then
     -- this unit is not bound to players
     -- probably based on a storyline objective
