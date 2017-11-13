@@ -1,0 +1,35 @@
+#QuestPrepText
+{
+	visibility: collapse;
+}
+
+#QuestRoundText
+{
+	visibility: collapse;
+}
+
+.QuestGenericText
+{
+	font-family: TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	text-shadow: 2px 2px 1px 3.0 #333333b0;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 20px;
+}
+
+#QuestCenter
+{
+	vertical-align: top;
+	horizontal-align: left;
+	height: 120px;
+	width: 50%;
+	margin-top: 6%;
+	margin-left: 50px;
+}
+
+.QuestsRoot
+{
+	height: 100%;
+	width: 100%;
+}
