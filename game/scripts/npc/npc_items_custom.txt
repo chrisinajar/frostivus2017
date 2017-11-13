@@ -1,4 +1,34 @@
-#base "items/tombstone.txt"
+#base "items/item_bogduggs_cudgel.txt"
+#base "items/item_bogduggs_cudgel_2.txt"
+#base "items/item_bogduggs_cudgel_3.txt"
+#base "items/item_ogre_seal_totem.txt"
+#base "items/item_ogre_seal_totem_2.txt"
+#base "items/item_ogre_seal_totem_3.txt"
+#base "items/item_heart_transplant.txt"
+#base "items/item_heart_transplant_2.txt"
+#base "items/item_heart_transplant_3.txt"
+#base "items/item_lucience.txt"
+#base "items/item_lucience_2.txt"
+#base "items/item_lucience_3.txt"
+#base "items/item_pull_staff.txt"
+#base "items/item_pull_staff_2.txt"
+#base "items/item_pull_staff_3.txt"
+#base "items/item_regen_crystal.txt"
+#base "items/item_regen_crystal_2.txt"
+#base "items/item_regen_crystal_3.txt"
+#base "items/item_siege_mode.txt"
+#base "items/item_siege_mode_2.txt"
+#base "items/item_siege_mode_3.txt"
+#base "items/item_stoneskin.txt"
+#base "items/item_stoneskin_2.txt"
+#base "items/item_stoneskin_3.txt"
+#base "items/item_tombstone.txt"
+#base "items/item_wand_of_the_brine.txt"
+#base "items/item_wand_of_the_brine_2.txt"
+#base "items/item_wand_of_the_brine_3.txt"
+#base "items/item_watchers_gaze.txt"
+#base "items/item_watchers_gaze_2.txt"
+#base "items/item_watchers_gaze_3.txt"
 
 "DOTAItems"
 {
@@ -16,7 +46,7 @@
 		"AbilityTextureName" "item_present"
 		"ItemInitialCharges" "1"
 		"ItemPermanent" "0"
-		
+
 		"Model"			"models/props_winter/present.vmdl"
 		"Effect" 		"particles/generic_gameplay/dropped_item.vpcf"
 		"ItemQuality"	"artifact"
@@ -26,7 +56,7 @@
 	        "modifier_item_present"
 	        {
 	            "Passive"  "1"
-	            "IsHidden" "1" 
+	            "IsHidden" "1"
 	            "Properties"
 	            {
 	                "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"
@@ -35,7 +65,7 @@
 	            {
 	            	"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
 	            }
-	        } 
+	        }
     	}
 	}
 }

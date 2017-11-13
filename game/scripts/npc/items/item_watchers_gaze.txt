@@ -1,0 +1,81 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Watcher's Gaze
+  //=================================================================================================================
+  "item_watchers_gaze"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "item_lua"
+    "AbilityTextureName"      "watchers_gaze"
+    "ScriptFile"          "items/item_watchers_gaze"
+
+    "Model"             "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"            "particles/generic_gameplay/dropped_aegis.vpcf"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    //"DungeonItemDef"        "12054"
+    //"DungeonAction"         "dungeon_in_game_item_12054"
+    //"DungeonCurrencyCost"     "80"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "100"
+    "AbilityCastPoint"        "0.0"
+    "AbilityCooldown"       "45.0"
+    "AbilityManaCost"       "75"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"            "0"
+    "ItemPurchasable"       "0"
+    "ItemQuality"         ""
+    "ItemStackable"         "0"
+    "ItemSellable"          "0"
+    "ItemShareability"        "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"         "0"
+    "ItemDisplayOwnership"      "1"
+    "CustomShop"          "1"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "1"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "required_level"      "0"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_stats"       "20"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "stone_duration"      "4.0"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "bonus_physical_damage"   "50"
+      }
+      "05"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "vision_cone"       "0.08715"   // 85 degree cone
+      }
+    }
+
+    "precache"
+    {
+      "particle"            "particles/units/heroes/hero_medusa/medusa_stone_gaze_active.vpcf"
+      "soundfile"           "soundevents/game_sounds_dungeon_enemies.vsndevts"
+    }
+  }
+}
