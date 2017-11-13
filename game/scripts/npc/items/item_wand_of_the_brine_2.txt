@@ -1,0 +1,76 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Wand of the Brine 2
+  //=================================================================================================================
+  "item_wand_of_the_brine_2"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_lua"
+    "AbilityTextureName"            "wand_of_the_brine"
+    "ScriptFile"                    "items/item_wand_of_the_brine"
+
+    "Model"                         "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"                        "particles/generic_gameplay/dropped_aegis.vpcf"
+
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    //"DungeonItemDef"                "12063"
+    //"DungeonAction"                 "dungeon_in_game_item_12063"
+    //"DungeonCurrencyCost"           "110"
+
+    // Stats
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "700"
+    "AbilityCastPoint"              "0.2"
+    "AbilityCooldown"               "25.0"
+
+    // Item Info
+    //-------------------------------------------------------------------------------------------------------------
+    "ItemCost"                      "0"
+    "ItemPurchasable"               "0"
+    "ItemQuality"                   ""
+    "ItemStackable"                 "0"
+    "ItemSellable"                  "0"
+    "ItemShareability"              "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"                 "0"
+    "ItemDisplayOwnership"          "1"
+    "CustomShop"                    "1"
+    "MaxUpgradeLevel"                                     "3"
+    "ItemBaseLevel"                                       "2"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "required_level"        "0"
+      }
+      "02"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bonus_intelligence"    "50"
+      }
+      "03"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bonus_mana_regen"      "2.5"
+      }
+      "04"
+      {
+        "var_type"              "FIELD_FLOAT"
+        "bubble_duration"       "3.0"
+      }
+      "05"
+      {
+        "var_type"              "FIELD_INTEGER"
+        "bubble_regen"          "300"
+      }
+    }
+  }
+}

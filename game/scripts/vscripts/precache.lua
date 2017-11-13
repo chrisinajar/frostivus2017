@@ -4,6 +4,10 @@ g_ItemPrecache = {
   "item_siege_mode",
   "item_pull_staff",
   "item_lucience",
+  "item_ogre_seal_totem",
+  "item_bogduggs_cudgel",
+  "item_wand_of_the_brine",
+  "item_watchers_gaze",
 }
 
 g_UnitPrecache = {
