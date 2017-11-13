@@ -11,7 +11,7 @@
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Ranged"
     "Level"                     "1"
-    "ModelScale"                "1.0"
+    "ModelScale"                "0.7"
 
 
     // Abilities
@@ -32,8 +32,8 @@
     "AttackDamageMax"           "20"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "600"   // Range within a target can be acquired.
-    "AttackRange"               "500"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "1100"   // Range within a target can be acquired.
+    "AttackRange"               "1000"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -85,12 +85,12 @@
         }
         "OffensiveAbilities"
         {
-            "Ability1"                
+            "Ability1"
             {
                 "Name"               "holdout_glacier_arrows"
                 "Damage"            "1"
 
-            }              
+            }
         }
 
     }
