@@ -99,8 +99,8 @@
       }
       "02"
       {
-          "var_type"            "FIELD_INTEGER"
-          "knockback_distance"      "10 15 20 25"
+        "var_type"            "FIELD_INTEGER"
+        "knockback_distance"      "10 15 20 25"
       }
       "03"
       {
