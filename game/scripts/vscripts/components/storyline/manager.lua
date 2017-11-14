@@ -8,16 +8,16 @@ function VictoryPhase:Start()
 end
 
 local STORY_STATES = {
-  {
-    comic = ComicData.act1,
-    phase = PhaseOne,
-    name = "repair"
-  },
-  {
-   comic = ComicData.act2,
-   phase = PhaseTwo,
-   name = "forest"
-  },
+  -- {
+  --   comic = ComicData.act1,
+  --   phase = PhaseOne,
+  --   name = "repair"
+  -- },
+  -- {
+  --  comic = ComicData.act2,
+  --  phase = PhaseTwo,
+  --  name = "forest"
+  -- },
   {
     comic = ComicData.act3,
     phase = PhaseThree,
@@ -96,9 +96,7 @@ function StorylineManager:Next()
   local state = STORY_STATES[self.currentState]
 
   DebugPrint("Starting storyline act: " .. state.name)
-  
-  Quests:NextAct({})
-  
+
   DebugOverlay:Update("currentPhase", {
     Value = state.name,
     forceUpdate = true
@@ -109,8 +107,6 @@ function StorylineManager:Next()
     return
   end
     -- HordeDirector:Resume()
-    Notifications:TopToAll({text="#Act" .. self.currentState .. "Title", duration=10.0, style={["font-size"]="110px"}})
-    Notifications:TopToAll({text="#Act" .. self.currentState .. "SubTitle", duration=10.0})
     state.phase:Start(function()
       Timers:CreateTimer(1, function()
         self:Next()

@@ -59,6 +59,9 @@ function PhaseOne:Prepare()
 end
 
 function PhaseOne:Start(callback)
+  Quests:NextAct({
+    nextAct = 1
+  })
   FinishedEvent.once(function()
     self.running = false
     HordeDirector:Pause()
@@ -104,10 +107,7 @@ function PhaseOne:RepairInterval()
   end
 
   self.repairRemaining = self.repairRemaining - 1
-  Quests:ModifyProgress(1)
-
-  CustomNetTables:SetTableValue("info", "game_state", oldTable)
-
+  Quests:ModifyProgress(1 / REPAIR_UNITS_REQUIRED * 100)
 end
 
 function PhaseOne:SpawnHelper()

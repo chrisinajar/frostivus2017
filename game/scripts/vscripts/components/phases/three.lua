@@ -43,6 +43,10 @@ function PhaseThree:Prepare(callback)
 end
 
 function PhaseThree:Start(callback)
+  Quests:NextAct({
+    nextAct = 3
+  })
+
   FinishedEvent.once(callback)
   DebugPrint("Starting Phase 3: Payload")
   -- phase three uses the director
@@ -60,7 +64,7 @@ function PhaseThree:Start(callback)
       "trigger_act_3_path_7"
     }),
     currentIndex = 1,
-    tankIndex = 5,
+    tankIndex = 6,
     tankSpawned = false,
     tankDied = false
   }
@@ -102,7 +106,7 @@ function PhaseThree:Start(callback)
     self:UpdateDebugOverlayEntry("distanceMoved", self.totalPathLength - self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("pathLenghtLeft", self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
-    self:UpdateDebugOverlayEntry("cartSpeed", (self.Cart.Handle.Speed or 0))
+    self:UpdateDebugOverlayEntry("cartSpeed", (self:GetCartSpeed()))
     self:UpdateDebugOverlayEntry("unitsCapturing", self.Cart.Handle.StackCount)
     DebugOverlay:UpdateDisplay()
     return 1
@@ -110,7 +114,7 @@ function PhaseThree:Start(callback)
 
   self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
   self.MainTimer = Timers:CreateTimer(function()
-    if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
+    if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self:GetCartSpeed()) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
         DebugPrint("Ride is done, finishing up Phase 3")
@@ -126,6 +130,13 @@ function PhaseThree:Start(callback)
     end
     return 2
   end)
+end
+
+function PhaseThree:GetCartSpeed()
+  if self.Cart.Handle.IsStopped then
+    return 0
+  end
+  return self.Cart.Handle.Speed or 0
 end
 
 function PhaseThree:AddDebugOverlayEntry(name, display, value)
@@ -195,18 +206,15 @@ function PhaseThree:GetCurrentWaypointTrigger()
 end
 
 function PhaseThree:IncrementWaypointTriggerIndex()
-  if self.Waypoints.tankSpawned and not self.Waypoints.tankDied then
-    return
-  end
-
   self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
 
   if self.Waypoints.currentIndex == self.Waypoints.tankIndex and not self.Waypoints.tankSpawned then
     self.Waypoints.tankSpawned = true
     self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.tankSpawn)
+    self.Cart.Handle.IsStopped = true
     self.tankUnit:OnDeath(function ()
       self.Waypoints.tankDied = true
-      self:IncrementWaypointTriggerIndex()
+      self.Cart.Handle.IsStopped = false
     end)
   end
 end
@@ -228,4 +236,5 @@ function PhaseThree:MakeProgressBar(text)
 end
 
 function PhaseThree:UpdateProgressbar(percentage)
+  Quests:UpdateProgress(percentage)
 end

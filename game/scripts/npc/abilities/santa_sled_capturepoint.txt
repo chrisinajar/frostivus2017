@@ -29,7 +29,7 @@
       "02"
       {
         "var_type"                      "FIELD_INTEGER"
-        "movement_buff"                 "0.0 50 30 45 60 85" // each level is the number of heroes
+        "movement_buff"                 "0.0 15 30 45 60 85" // each level is the number of heroes
       }
     }
   }

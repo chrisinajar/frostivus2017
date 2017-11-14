@@ -6,4 +6,6 @@
 "QuestObjectiveTextAct3"                                      	"Quest: Help Santa deliver the presents and save Frostivus"
 "QuestObjectiveTextAct4"                                      	"Quest: Defeat Evil Io to save Frostivus for good"
 "QuestProgressTextAct1"                                      	"Sled Repair Status: {d:objective}%"
-"QuestProgressTextAct2"                                      	"Presents Returned: {d:objective}/{d:maxObjective}"
+"QuestProgressTextAct2"                                       "Presents Found: {d:objective}/{d:maxObjective}"
+"QuestProgressTextAct3"                                       "Presents Delivered: {d:objective}%"
+"QuestProgressTextAct4"                                      	"Evil Io HP: {d:objective}%"

@@ -30,7 +30,10 @@ function Quests:NextAct(entryData)
   gameStateInfo["current_act"] = self.currentAct
   gameStateInfo["act_progress"] = self.currentProgress
   gameStateInfo["max_progress"] = self.maxProgress
-  
+
+  Notifications:TopToAll({text="#Act" .. self.currentAct .. "Title", duration=10.0, style={["font-size"]="110px"}})
+  Notifications:TopToAll({text="#Act" .. self.currentAct .. "SubTitle", duration=10.0})
+
   CustomNetTables:SetTableValue("game_state", "act_info", gameStateInfo)
 end
 
@@ -39,7 +42,6 @@ function Quests:UpdateProgress(newVal)
   local gameStateInfo = CustomNetTables:GetTableValue("game_state", "act_info") or {}
   gameStateInfo["act_progress"] = self.currentProgress
   CustomNetTables:SetTableValue("game_state", "act_info", gameStateInfo)
-  if self.currentProgress > self.maxProgress then self:NextAct() end
 end
 
 function Quests:ModifyProgress(amt)
@@ -47,5 +49,4 @@ function Quests:ModifyProgress(amt)
   local gameStateInfo = CustomNetTables:GetTableValue("game_state", "act_info") or {}
   gameStateInfo["act_progress"] = self.currentProgress
   CustomNetTables:SetTableValue("game_state", "act_info", gameStateInfo)
-  if self.currentProgress > self.maxProgress then self:NextAct() end
 end
