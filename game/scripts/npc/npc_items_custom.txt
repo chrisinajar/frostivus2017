@@ -29,43 +29,8 @@
 #base "items/item_watchers_gaze.txt"
 #base "items/item_watchers_gaze_2.txt"
 #base "items/item_watchers_gaze_3.txt"
-
+#base "items/item_present_for_search.txt"
 "DOTAItems"
 {
-	"item_present_for_search"
-	{
-		"ID" "2645"
-		"BaseClass" "item_datadriven"
-		"ItemCost"			"0"
-		"ItemKillable"		"0"
-		"ItemSellable"		"0"
-		"ItemPurchasable"	"0"
-		"ItemDroppable"		"0"
-		"ItemStackable"		"1"
-		"ItemShareability"	"ITEM_FULLY_SHAREABLE_STACKING"
-		"AbilityTextureName" "item_present"
-		"ItemInitialCharges" "1"
-		"ItemPermanent" "0"
 
-		"Model"			"models/props_winter/present.vmdl"
-		"Effect" 		"particles/generic_gameplay/dropped_item.vpcf"
-		"ItemQuality"	"artifact"
-
-		"Modifiers"
-    	{
-	        "modifier_item_present"
-	        {
-	            "Passive"  "1"
-	            "IsHidden" "1"
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"
-	            }
-	            "States"
-	            {
-	            	"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	        }
-    	}
-	}
 }
