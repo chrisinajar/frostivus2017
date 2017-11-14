@@ -1,1 +1,1 @@
-
+require('components/units/wearables')
