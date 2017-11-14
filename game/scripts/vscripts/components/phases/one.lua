@@ -105,6 +105,10 @@ function PhaseOne:RepairInterval()
   end
 
   self.repairRemaining = self.repairRemaining - 1
+  local oldTable = CustomNetTables:GetTableValue("info", "game_state")
+  oldTable["act_progress"] = 100 - self.repairRemaining
+
+  CustomNetTables:SetTableValue("info", "game_state", oldTable)
 
 end
 

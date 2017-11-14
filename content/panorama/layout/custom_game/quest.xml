@@ -9,9 +9,8 @@
 	<Panel class="QuestsRoot" hittest="false">
 		<Panel class="QuestsContainer" id="QuestCenter" hittest="false">
 			<!-- <Label hittest="false" class="QuestGenericText" id="QuestDifficultyText" text="DIFFICULTY: JUST FUCK ME UP FAM"/> -->
-			<Label hittest="false" class="QuestGenericText" id="QuestRoundText" text=""/>
-			<Label hittest="false" class="QuestGenericText" id="QuestLifeText" text="CURRENT LIVES: 7"/>
-			<Label hittest="false" class="QuestGenericText" id="QuestPrepText" text="TIME UNTIL NEXT ROUND: 28"/>
+			<Label hittest="false" class="QuestGenericText" id="QuestObjectiveLabel" text="Protect Santa and his helpers from the horde"/>
+			<Label hittest="false" class="QuestGenericText" id="QuestProgressLabel" text="Sled Repair Status: 50%"/>
 		</Panel>
 	</Panel>
 </root>

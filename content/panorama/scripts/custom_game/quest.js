@@ -1,31 +1,36 @@
-GameEvents.Subscribe( "updateQuestLife", UpdateLives);
-GameEvents.Subscribe( "updateQuestPrepTime", UpdateTimer);
-GameEvents.Subscribe( "updateQuestRound", UpdateRound);
-
-
 var ID = Players.GetLocalPlayer();
 var playerHero = Players.GetPlayerSelectedHero(ID);
 
+var currentAct = 1
 
-function UpdateLives(arg){
-	$("#QuestLifeText").SetDialogVariableInt( "lives", arg.lives );
-	$("#QuestLifeText").SetDialogVariableInt( "maxLives", arg.maxLives );
-	$("#QuestLifeText").text =  $.Localize( "#QuestLifeText", $("#QuestLifeText") );
-}
+CustomNetTables.SubscribeNetTableListener( "info", UpdateQuestHud);
 
-function UpdateTimer(arg){
-	if( arg.prepTime > 0){	
-		$("#QuestPrepText").visible =  true
-		$("#QuestPrepText").SetDialogVariableInt( "prepTime", arg.prepTime );
-		$("#QuestPrepText").text =  $.Localize( "#QuestPrepText", $("#QuestPrepText") );
-	} else {
-		$("#QuestPrepText").visible =  false
+function UpdateQuestHud(arg){
+	var actInfo = CustomNetTables.GetTableValue( "info", "game_state" )
+	var actProgress = actInfo["act_progress"]
+	if(currentAct != actInfo["current_act"]){
+		currentAct = actInfo["current_act"]
+		$("#QuestObjectiveLabel").text =  $.Localize( "#QuestObjectiveTextAct"+currentAct, $("#QuestObjectiveLabel") );
 	}
+	if(actProgress != null){
+		$("#QuestProgressLabel").SetDialogVariableInt( "objective", actProgress );
+		$("#QuestProgressLabel").text =  $.Localize( "#QuestProgressTextAct"+currentAct, $("#QuestProgressLabel") );
+	}
+	$("#QuestProgressLabel").SetHasClass("Hidden", actProgress == null)
 }
 
-function UpdateRound(arg){
-	$("#QuestRoundText").visible =  true
-	$("#QuestRoundText").SetDialogVariableInt( "roundNumber", arg.roundNumber );
-	$("#QuestRoundText").SetDialogVariable( "roundText", $.Localize( arg.roundText ) );
-	$("#QuestRoundText").text =  $.Localize( "#QuestRoundText", $("#QuestRoundText") );
-}
+
+(function()
+{
+	var actInfo = CustomNetTables.GetTableValue( "info", "game_state" )
+	currentAct = actInfo["current_act"] || 1
+	var actProgress = actInfo["act_progress"] || 0
+	$("#QuestObjectiveLabel").text =  $.Localize( "#QuestObjectiveTextAct"+currentAct, $("#QuestObjectiveLabel") );
+	if(actProgress != null){
+		$("#QuestProgressLabel").SetDialogVariableInt( "objective", actProgress );
+		$("#QuestProgressLabel").text =  $.Localize( "#QuestProgressTextAct"+currentAct, $("#QuestProgressLabel") );
+	} else {
+		$("#QuestProgressLabel").SetHasClass("Hidden", actProgress != null)
+	}
+	
+})();
