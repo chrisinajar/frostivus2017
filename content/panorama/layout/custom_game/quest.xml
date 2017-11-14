@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="file://{resources}/styles/custom_game/quest.css" />
+	</styles> 
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/quest.js" />
+	</scripts>
+	<Panel class="QuestsRoot" hittest="false">
+		<Panel class="QuestsContainer" id="QuestCenter" hittest="false">
+			<!-- <Label hittest="false" class="QuestGenericText" id="QuestDifficultyText" text="DIFFICULTY: JUST FUCK ME UP FAM"/> -->
+			<Label hittest="false" class="QuestGenericText" id="QuestObjectiveLabel" text="Protect Santa and his helpers from the horde"/>
+			<Label hittest="false" class="QuestGenericText" id="QuestProgressLabel" text="Sled Repair Status: 50%"/>
+		</Panel>
+	</Panel>
+</root>

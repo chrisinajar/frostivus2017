@@ -5,50 +5,12 @@
   //=================================================================================================================
   "broken_sleigh"
   {
-      // General
-      //-------------------------------------------------------------------------------------------------------------
-      "ID"                        "83648"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-      "BaseClass"                 "ability_datadriven"
-      "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-      "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"  
-      "SpellDispellableType"      "SPELL_DISPELLABLE_NO"
       
-    "AbilityTextureName"  "ursa_overpower"
-
-    "AbilityCastRange"  "10"
-    "OnOwnerSpawned"
-    {
-        "ApplyModifier"
-        {
-            "Target" "CASTER"
-            "ModifierName" "modifier_stunning_target"
-        }
-    }
-
-    "Modifiers"
-    {
-
-      "modifier_stunning_target"
-      {
-        "Passive" "1"
-        "IsHidden"  "1"
-        "OnCreated"
-        {
-          "Stun"
-          {
-            "Target" "TARGET"
-            "Duration" "1000"
-          }
-        }
-        "States"
-        {
-            "MODIFIER_STATE_MAGIC_IMMUNE"     "MODIFIER_STATE_VALUE_ENABLED"
-        }
-
-
-
-      }
-    }
-
+    "ID"                        "83659"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "Scriptfile"                "abilities/broken_sleigh.lua"
+    "AbilityType"               "DOTA_ABILITY_TYPE_HIDDEN"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                  "1"
   }
 }

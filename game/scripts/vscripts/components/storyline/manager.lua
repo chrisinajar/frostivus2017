@@ -39,7 +39,6 @@ function StorylineManager:Init()
   DebugPrint('Initializing storyline manager')
   self.currentState = 0
   -- do things to make sure the players don't see their heroes until after the comic
-
   DebugOverlay:AddGroup("root", {
     Name = "StorylinePhases",
     DisplayName = "Storyline Phases",
@@ -77,7 +76,9 @@ function StorylineManager:Next()
   local state = STORY_STATES[self.currentState]
 
   DebugPrint("Starting storyline act: " .. state.name)
-
+  
+  Quests:NextAct({})
+  
   DebugOverlay:Update("currentPhase", {
     Value = state.name,
     forceUpdate = true

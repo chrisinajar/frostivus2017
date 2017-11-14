@@ -1,2 +1,833 @@
 "DOTAAbilities" {
+//Items
+    "item_abyssal_blade"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_aegis"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_aether_lens"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ancient_janggo"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_arcane_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_armlet"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_assault"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_band_of_elvenskin"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_basher"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_belt_of_strength"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_bfury"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_black_king_bar"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_blades_of_attack"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_blade_mail"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_blade_of_alacrity"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_blight_stone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }    
+    "item_blink"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_bloodstone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_bloodthorn"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_boots_of_elves"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_bottle"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_bracer"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_branches"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_broadsword"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_buckler"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_butterfly"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_chainmail"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_cheese"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_circlet"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_clarity"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_claymore"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_cloak"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_crimson_guard"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_octarine_core"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dagon"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dagon_2"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dagon_3"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dagon_4"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dagon_5"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_demon_edge"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_desolator"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_diffusal_blade"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_diffusal_blade_2"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_dragon_lance"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }    
+    "item_dust"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_eagle"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_echo_sabre"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_enchanted_mango"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_energy_booster"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ethereal_blade"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_cyclone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_faerie_fire"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_flask"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_flask2"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_force_staff"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_gauntlets"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_gem"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_gem_of_true_sight"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ghost"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ghost_scepter"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_glimmer_cape"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_gloves"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_gloves_of_haste"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_greater_clarity"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_greater_crit"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_guardian_greaves"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_hand_of_midas"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_headdress"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_heart"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_heavens_halberd"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_helm_of_iron_will"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_helm_of_the_dominator"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_hood_of_defiance"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_hurricane_pike"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_hyperstone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_infused_raindrop"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_invis_sword"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_iron_talon"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }    
+    "item_javelin"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_lesser_crit"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_lifesteal"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_lotus_orb"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_maelstrom"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_magic_stick"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_magic_wand"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_manta"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mantle"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mask_of_madness"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_medallion_of_courage"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mekansm"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mithril_hammer"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mjollnir"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_monkey_king_bar"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_moon_shard"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_mystic_staff"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_necronomicon"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_necronomicon_2"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_necronomicon_3"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_null_talisman"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_oblivion_staff"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ogre_axe"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_orb_of_venom"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_orchid"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_pers"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_phase_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_pipe"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_platemail"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_point_booster"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_poor_mans_shield"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_power_treads"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_quarterstaff"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_quelling_blade"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_radiance"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_rapier"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_reaver"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_refresher"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_relic"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ring_of_aquila"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ring_of_basilius"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ring_of_health"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ring_of_protection"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ring_of_regen"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_robe"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_rod_of_atos"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_salve"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_sange"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_sange_and_yasha"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_satanic"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_shadow_amulet"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_sheepstick"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_shivas_guard"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_silver_edge"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_skadi"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_slippers"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_slippers_of_halcyon"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_smoke_of_deceit"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_sobi_mask"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_solar_crest"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_soul_booster"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_soul_ring"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_sphere"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_staff_of_wizardry"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_stout_shield"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_talisman_of_evasion"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tango"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tango_single"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tome_of_knowledge"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tombstone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tpscroll"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_tranquil_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_travel_boots"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_travel_boots_2"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ultimate_orb"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ultimate_scepter"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_urn_of_shadows"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_vanguard"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_veil_of_discord"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_vitality_booster"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_vladmir"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_void_stone"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ward_observer"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_ward_sentry"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_wind_lace"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }    
+    "item_wraith_band"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
+    "item_yasha"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
 }
