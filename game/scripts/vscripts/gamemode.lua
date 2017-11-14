@@ -161,7 +161,7 @@ function GameMode:OnPreGame()
   InitModule(Music)
   InitModule(DebugInfos)
   InitModule(TombstoneRespawn)
-
+  InitModule(Wearables)
   CheckCheatMode()
 end
 
