@@ -33,9 +33,11 @@ function UpdateQuestHud(arg){
 	if(actInfo != null){
 		currentAct = actInfo["current_act"] || 1;
 		var actProgress = actInfo["act_progress"] || 0;
+    var maxProgress = actInfo["max_progress"];
 		$("#QuestObjectiveLabel").text =  $.Localize( "#QuestObjectiveTextAct"+currentAct, $("#QuestObjectiveLabel") );
 		if(actProgress != null){
 			$("#QuestProgressLabel").SetDialogVariableInt( "objective", actProgress );
+      if(maxProgress != null){$("#QuestProgressLabel").SetDialogVariableInt( "maxObjective", maxProgress );}
 			$("#QuestProgressLabel").text =  $.Localize( "#QuestProgressTextAct"+currentAct, $("#QuestProgressLabel") );
 		} else {
 			$("#QuestProgressLabel").SetHasClass("Hidden", actProgress != null)
