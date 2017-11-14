@@ -1,0 +1,3 @@
+"DOTA_Tooltip_ability_item_starting_gift"                   "<font color=\"#FF0000\">Starting Gift</font>"
+"DOTA_Tooltip_ability_item_starting_gift_Description"       "<h1>Active: Merry Frostivus</h1>You will recieve brown boots, some healing items and a random item!"
+"DOTA_Tooltip_ability_item_starting_gift_Lore"              "Ho ho ho I need presents."

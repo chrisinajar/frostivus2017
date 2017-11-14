@@ -39,6 +39,7 @@ function PhaseOne:Prepare()
           hero:RemoveItem(itemHandle)
         end
       end
+	  hero:AddItem(CreateItem("item_starting_gift", hero, hero))
     end
   end
 

@@ -1,0 +1,31 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Starting Gift
+  //=================================================================================================================
+  "item_starting_gift"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"           "item_lua"
+    "AbilityTextureName"  "custom/starting_gift"
+    "ScriptFile"          "items/item_starting_gift"
+
+    "Model"             "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"            "particles/generic_gameplay/dropped_aegis.vpcf"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    //"DungeonItemDef"        "12054"
+    //"DungeonAction"         "dungeon_in_game_item_12054"
+    //"DungeonCurrencyCost"     "80"
+
+    "ItemPurchasable"       "0"
+    "ItemQuality"         	""
+    "ItemStackable"         "0"
+    "ItemSellable"          "0"
+    "ItemShareability"      "ITEM_FULLY_SHAREABLE"
+    "ItemPermanent"         "0"
+    "ItemDisplayOwnership"  "1"
+  }
+}

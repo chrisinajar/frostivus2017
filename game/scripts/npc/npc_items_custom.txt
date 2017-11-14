@@ -30,6 +30,7 @@
 #base "items/item_watchers_gaze_2.txt"
 #base "items/item_watchers_gaze_3.txt"
 #base "items/item_present_for_search.txt"
+#base "items/item_starting_gift.txt"
 "DOTAItems"
 {
 
