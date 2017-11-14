@@ -34,6 +34,12 @@ function PhaseThree:Prepare(callback)
     FindClearSpaceForUnit(hero, spawnPoint, true)
     hero:SetRespawnPosition(spawnPoint)
   end
+
+  local tankSpawn = Entities:FindAllByName("trigger_act_3_tank_spawn")
+  if #tankSpawn < 1 then
+    error("Failed to find tank spawn for act 3")
+  end
+  self.tankSpawn = tankSpawn[1]:GetAbsOrigin()
 end
 
 function PhaseThree:Start(callback)
@@ -53,7 +59,10 @@ function PhaseThree:Start(callback)
       "trigger_act_3_path_6",
       "trigger_act_3_path_7"
     }),
-    currentIndex = 1
+    currentIndex = 1,
+    tankIndex = 5,
+    tankSpawned = false,
+    tankDied = false
   }
 
   self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
@@ -186,7 +195,20 @@ function PhaseThree:GetCurrentWaypointTrigger()
 end
 
 function PhaseThree:IncrementWaypointTriggerIndex()
+  if self.Waypoints.tankSpawned and not self.Waypoints.tankDied then
+    return
+  end
+
   self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
+
+  if self.Waypoints.currentIndex == self.Waypoints.tankIndex and not self.Waypoints.tankSpawned then
+    self.Waypoints.tankSpawned = true
+    self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.tankSpawn)
+    self.tankUnit:OnDeath(function ()
+      self.Waypoints.tankDied = true
+      self:IncrementWaypointTriggerIndex()
+    end)
+  end
 end
 
 function PhaseThree:SetCartTarget(targetPosition)

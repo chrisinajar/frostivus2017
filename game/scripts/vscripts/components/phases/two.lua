@@ -165,7 +165,9 @@ function PhaseTwo:Start(callback)
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
         DebugPrint("All presents found, finishing up Phase 2")
-        FinishedEvent.broadcast({}) -- we're done
+        -- FinishedEvent.broadcast({}) -- we're done
+        -- lost the game
+        StorylineManager:Defeat("Failed to find the presents in time")
         self:CleanUp()
         return
       else

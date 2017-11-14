@@ -2,6 +2,12 @@ PhaseOne = PhaseOne or {}
 
 local FinishedEvent = Event()
 
+--[[
+TODO: Move code from init back into prepare
+Teleport players as part of prepare after santa is spawned
+remove init method and remove InitModule line calling it
+]]
+
 function PhaseOne:Init()
   local sleightrig = Entities:FindAllByName("trigger_act_1_santa")
   if #sleightrig < 1 then
@@ -15,7 +21,7 @@ function PhaseOne:Init()
   self.sleigh_pos = sleightrig[1]:GetAbsOrigin()
   self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
   FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
-  
+
   self.santa_sleigh_holder = CreateUnitByName("npc_dota_sleigh", self.sleigh_pos, false, nil, nil, DOTA_TEAM_GOODGUYS)
 
 end
@@ -55,7 +61,10 @@ end
 function PhaseOne:Start(callback)
   FinishedEvent.once(function()
     self.running = false
-    callback()
+    HordeDirector:Pause()
+    HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", function (unit)
+      unit:OnDeath(callback)
+    end)
   end)
   self.running = true
   self.repairRemaining = REPAIR_UNITS_REQUIRED
@@ -70,14 +79,14 @@ function PhaseOne:Start(callback)
     error("Failed to find act one helper spawn point")
   end
   self.spawnPoint = spawnPoint[1]:GetAbsOrigin()
-  
+
   self.santa_sleigh = CreateUnitByName("npc_dota_sleigh", self.sleigh_pos, false, nil, nil, DOTA_TEAM_GOODGUYS)
   self.santa_sleigh:OnDeath(function ()
     if self.running then
       GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
     end
   end)
-  
+
   FinishedEvent.once(function()
     if self.santa_sleigh and not self.santa_sleigh:IsNull() then
       self.santa_sleigh:Destroy()
