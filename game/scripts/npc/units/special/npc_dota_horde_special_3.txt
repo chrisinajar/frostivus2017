@@ -7,11 +7,11 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/slardar/slardar.vmdl" // Model.
+    "Model"                     "models/heroes/siren/siren.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "1.3"
+    "ModelScale"                "0.7"
 
 
     // Abilities
@@ -88,13 +88,18 @@
             {
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
-                "Radius"             "400"
+                "Radius"             "200"
                 "MinimumTargets"     "1"
             }
         }
         "AttachWearables"
         {
-            "Wearable1" { "ItemDef" "4192" }
+            "Wearable1" { "ItemDef" "191" }
+            "Wearable2" { "ItemDef" "192" }
+            "Wearable3" { "ItemDef" "193" }
+            "Wearable4" { "ItemDef" "194" }
+
+
         }
     }
 

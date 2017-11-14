@@ -2,6 +2,22 @@ PhaseOne = PhaseOne or {}
 
 local FinishedEvent = Event()
 
+function PhaseOne:Init()
+  local sleigh = Entities:FindAllByName("trigger_act_1_santa")
+  if #sleigh < 1 then
+    error("Failed to find act one sleigh repair spot")
+  end
+  local rosh_trig = Entities:FindAllByName("trigger_act_1_rosh_pos")
+  if #rosh_trig < 1 then
+    error("Failed to find act one rosh spot")
+  end
+
+  self.sleigh = sleigh[1]:GetAbsOrigin()
+  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
+  FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
+  self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, false, nil, nil, DOTA_TEAM_GOODGUYS)
+end
+
 function PhaseOne:Prepare()
   local allPlayers = {}
   local function addToList (list, id)
@@ -52,7 +68,7 @@ function PhaseOne:Start(callback)
   end
 
   self.spawnPoint = spawnPoint[1]:GetAbsOrigin()
-
+--[[
   local sleigh = Entities:FindAllByName("trigger_act_1_santa")
   if #sleigh < 1 then
     error("Failed to find act one sleigh repair spot")
@@ -64,7 +80,9 @@ function PhaseOne:Start(callback)
 
   self.sleigh = sleigh[1]:GetAbsOrigin()
   self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
+  FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
   self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, false, nil, nil, DOTA_TEAM_GOODGUYS)
+  ]]
   self.santa:OnDeath(function ()
     if self.running then
       GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
