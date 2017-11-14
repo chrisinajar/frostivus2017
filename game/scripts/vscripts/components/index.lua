@@ -13,3 +13,5 @@ require('components/director/index')
 require('components/xp/index')
 
 require('components/respawn/index')
+
+require('components/units/index')
