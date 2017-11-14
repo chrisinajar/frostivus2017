@@ -39,7 +39,6 @@ function StorylineManager:Init()
   DebugPrint('Initializing storyline manager')
   self.currentState = 0
   -- do things to make sure the players don't see their heroes until after the comic
-  CustomNetTables:SetTableValue("info", "game_state", {})
   DebugOverlay:AddGroup("root", {
     Name = "StorylinePhases",
     DisplayName = "Storyline Phases",
@@ -78,15 +77,7 @@ function StorylineManager:Next()
 
   DebugPrint("Starting storyline act: " .. state.name)
   
-  local oldTable = CustomNetTables:GetTableValue("info", "game_state")
-  oldTable["current_act"] = self.currentState
-  if self.currentState < 3 then
-	oldTable["act_progress"] = 0
-  else
-    oldTable["act_progress"] = nil
-  end
-  print(oldTable["act_progress"])
-  CustomNetTables:SetTableValue("info", "game_state", oldTable)
+  Quests:NextAct({})
   
   DebugOverlay:Update("currentPhase", {
     Value = state.name,
