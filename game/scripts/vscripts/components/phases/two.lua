@@ -55,6 +55,7 @@ function PhaseTwo:Prepare(callback)
     DebugPrint(itemname)
     if itemname == "item_present_for_search" then
       self.PresentsToPickUp = self.PresentsToPickUp - 1;
+      Quests:ModifyProgress(1)
       if self.PresentsToPickUp <= 0 then
         DebugPrint("All presents found, finishing up Phase 2")
         FinishedEvent.broadcast({}) -- we're done
@@ -66,6 +67,10 @@ function PhaseTwo:Prepare(callback)
 end
 
 function PhaseTwo:Start(callback)
+  Quests:NextAct({
+    nextAct = 2,
+    maxProgress = NUMBER_PRESENTS_REQUIRED
+  })
   FinishedEvent.once(callback)
   self.isRunning = true
   DebugPrint("Starting Phase 2: Present Search")
@@ -165,7 +170,9 @@ function PhaseTwo:Start(callback)
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
         DebugPrint("All presents found, finishing up Phase 2")
-        FinishedEvent.broadcast({}) -- we're done
+        -- FinishedEvent.broadcast({}) -- we're done
+        -- lost the game
+        StorylineManager:Defeat("Failed to find the presents in time")
         self:CleanUp()
         return
       else

@@ -3,8 +3,9 @@
 ------------------------------------------------
 -- Frostivus specific stuff
 -- director
-MAX_SPECIAL_UNITS = 6
-MAX_SPECIAL_UNITS_EACH = 3
+-- limit code is wonky, keep these at 99 for now
+MAX_SPECIAL_UNITS = 99
+MAX_SPECIAL_UNITS_EACH = 99
 
 -- horde
 MIN_WAVE_TIME = 90

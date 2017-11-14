@@ -166,7 +166,7 @@ function HordeDirector:StartBuildUp()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
     end
-    if RandomInt(1, 100) == 1 then
+    if RandomInt(1, 60) == 1 then
       self:SpawnSpecialUnit()
     end
     desiredStress = math.min(1, desiredStress + 0.01)
@@ -190,7 +190,7 @@ function HordeDirector:StartPeak()
     end
     self:SpawnSpecialUnit()
 
-    return RandomInt(3, 5)
+    return RandomInt(5, 8)
   end)
   Timers:CreateTimer(PEAK_TIME, function()
     -- end peak on a timer
@@ -219,7 +219,16 @@ function HordeDirector:StartNextWave()
   return
 end
 
-function HordeDirector:ScheduleSpecialUnit(unitName, location)
+function HordeDirector:ScheduleSpecialUnit(unitName, location, ...)
+  local callback = ({...})[1]
+  if not callback then
+    callback = noop
+  end
+  if type(location) == "function" then
+    callback = location
+    location = nil
+  end
+
   DebugPrint('Spawning special unit ' .. unitName)
   if not self:ShouldSpawnSpecialUnit(unitName) then
     table.insert(self.specialUnitQueue, { unitName, location })
@@ -232,6 +241,8 @@ function HordeDirector:ScheduleSpecialUnit(unitName, location)
         self.specialUnitsAlive = self.specialUnitsAlive - 1
         self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
       end)
+      callback(unit)
+      return unit
     else
       self.specialUnitsAlive = self.specialUnitsAlive - 1
       self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
@@ -252,8 +263,7 @@ function HordeDirector:ScheduleSpecialUnit(unitName, location)
     -- this unit is not bound to players
     -- probably based on a storyline objective
     local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-    done(unit)
-    return
+    return done(unit)
   end
 
   HordeSpawner:BestPlayerForUnit(unitName):ScheduleUnitSpawn(unitName, done)

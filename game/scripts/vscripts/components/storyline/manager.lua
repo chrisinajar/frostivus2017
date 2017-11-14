@@ -68,24 +68,45 @@ function StorylineManager:ShowComic(comicData, callback)
 end
 
 function StorylineManager:Victory()
+  if self.gameIsOver then
+    return
+  end
+  self.gameIsOver = true
+  self.defeat = true
   GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 end
 
+function StorylineManager:Defeat (reason)
+  if self.gameIsOver then
+    return
+  end
+  self.gameIsOver = true
+  self.defeat = true
+  Notifications:TopToAll({text=reason, duration=5.0, style={["color"]="red", ["font-size"]="80px"}})
+  Timers:CreateTimer(3, function()
+    GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+  end)
+end
+
 function StorylineManager:Next()
+  if self.gameIsOver then
+    return
+  end
   self.currentState = self.currentState + 1
   local state = STORY_STATES[self.currentState]
 
   DebugPrint("Starting storyline act: " .. state.name)
-  
-  Quests:NextAct({})
-  
+
   DebugOverlay:Update("currentPhase", {
     Value = state.name,
     forceUpdate = true
   })
 
   local function startPhase (data)
-    HordeDirector:Resume()
+  if self.gameIsOver then
+    return
+  end
+    -- HordeDirector:Resume()
     state.phase:Start(function()
       Timers:CreateTimer(1, function()
         self:Next()

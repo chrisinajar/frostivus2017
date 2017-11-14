@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
-Debug.EnabledModules['director:player_watcher'] = true
+-- Debug.EnabledModules['director:player_watcher'] = true
 
 PlayerWatcher = PlayerWatcher or class({})
 
@@ -30,7 +30,7 @@ function PlayerWatcher:Init(hero, playerID)
   self.desiredIntensity = 10
   self.desiredStress = 0.2
   self.hordeAlive = 0
- 
+
   self.itemDropValue = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})

@@ -9,6 +9,10 @@ Debug = Debug or {
   EnableAll = false
 }
 
+-- no op
+function noop ()
+end
+
 function split(s, delimiter)
     result = {};
     for match in (s..delimiter):gmatch("(.-)"..delimiter) do
