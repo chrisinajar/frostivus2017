@@ -2,6 +2,24 @@ PhaseOne = PhaseOne or {}
 
 local FinishedEvent = Event()
 
+function PhaseOne:Init()
+  local sleightrig = Entities:FindAllByName("trigger_act_1_santa")
+  if #sleightrig < 1 then
+    error("Failed to find act one sleigh repair spot")
+  end
+  local rosh_trig = Entities:FindAllByName("trigger_act_1_rosh_pos")
+  if #rosh_trig < 1 then
+    error("Failed to find act one rosh spot")
+  end
+
+  self.sleigh_pos = sleightrig[1]:GetAbsOrigin()
+  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
+  FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
+  
+  self.santa_sleigh_holder = CreateUnitByName("npc_dota_sleigh", self.sleigh_pos, false, nil, nil, DOTA_TEAM_GOODGUYS)
+
+end
+
 function PhaseOne:Prepare()
   local allPlayers = {}
   local function addToList (list, id)
@@ -50,31 +68,20 @@ function PhaseOne:Start(callback)
   if #spawnPoint < 1 then
     error("Failed to find act one helper spawn point")
   end
-
   self.spawnPoint = spawnPoint[1]:GetAbsOrigin()
-
-  local sleigh = Entities:FindAllByName("trigger_act_1_santa")
-  if #sleigh < 1 then
-    error("Failed to find act one sleigh repair spot")
-  end
-  local rosh_trig = Entities:FindAllByName("trigger_act_1_rosh_pos")
-  if #rosh_trig < 1 then
-    error("Failed to find act one rosh spot")
-  end
-
-  self.sleigh = sleigh[1]:GetAbsOrigin()
-  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
-  self.santa = CreateUnitByName("npc_dota_sleigh", self.sleigh, false, nil, nil, DOTA_TEAM_GOODGUYS)
-  self.santa:OnDeath(function ()
+  
+  self.santa_sleigh = CreateUnitByName("npc_dota_sleigh", self.sleigh_pos, false, nil, nil, DOTA_TEAM_GOODGUYS)
+  self.santa_sleigh:OnDeath(function ()
     if self.running then
       GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
     end
   end)
+  
   FinishedEvent.once(function()
-    if self.santa and not self.santa:IsNull() then
-      self.santa:Destroy()
+    if self.santa_sleigh and not self.santa_sleigh:IsNull() then
+      self.santa_sleigh:Destroy()
     end
-    self.santa = nil
+    self.santa_sleigh = nil
   end)
   Timers:CreateTimer(0, function()
     return self:SpawnHelper()
@@ -94,7 +101,10 @@ function PhaseOne:SpawnHelper()
   if not self.running then
     return
   end
-
+  if self.santa_sleigh_holder and not self.santa_sleigh_holder:IsNull() then
+      self.santa_sleigh_holder:Destroy()
+      self.santa_sleigh_holder = nil
+  end
   local helper = CreateUnitByName("npc_dota_act_1_helper", self.spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
 
   FinishedEvent.once(function()
