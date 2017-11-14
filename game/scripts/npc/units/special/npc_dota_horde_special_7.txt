@@ -17,7 +17,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                  "holdout_glacier_arrows"      // Ability 1
-    "Ability2"                  ""      // Ability 2
+    "Ability2"                  "creep_fury_swipes"      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
 
@@ -32,8 +32,8 @@
     "AttackDamageMax"           "20"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "1100"   // Range within a target can be acquired.
-    "AttackRange"               "1000"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
+    "AttackRange"               "2000"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -51,7 +51,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"             "300"   // Speed.
+    "MovementSpeed"             "150"   // Speed.
 
     // Status
     //----------------------------------------------------------------
@@ -62,8 +62,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "800"   // Range of vision during day light.
-    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+    "VisionDaytimeRange"        "2800"   // Range of vision during day light.
+    "VisionNighttimeRange"      "2800"   // Range of vision at night time.
     "Creature"
     {
         "AttachWearables"
@@ -90,6 +90,11 @@
                 "Name"               "holdout_glacier_arrows"
                 "Damage"            "1"
 
+            }
+            "Ability2"
+            {
+                "Name"          "creep_fury_swipes"
+                "Damage"        "10"
             }
         }
 
