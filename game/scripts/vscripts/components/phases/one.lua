@@ -95,6 +95,9 @@ function PhaseOne:RepairInterval()
   end
 
   self.repairRemaining = self.repairRemaining - 1
+  Quests:ModifyProgress(1)
+
+  CustomNetTables:SetTableValue("info", "game_state", oldTable)
 
 end
 

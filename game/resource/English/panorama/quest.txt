@@ -1,0 +1,9 @@
+//=====================================================================================
+//  CREEPS
+//=====================================================================================
+"QuestObjectiveTextAct1"                                       	"Quest: Protect Santa and his helpers from the horde"
+"QuestObjectiveTextAct2"                                      	"Quest: Help Santa find all of the lost presents"
+"QuestObjectiveTextAct3"                                      	"Quest: Help Santa deliver the presents and save Frostivus"
+"QuestObjectiveTextAct4"                                      	"Quest: Defeat Evil Io to save Frostivus for good"
+"QuestProgressTextAct1"                                      	"Sled Repair Status: {d:objective}%"
+"QuestProgressTextAct2"                                      	"Presents Returned: {d:objective}/{d:maxObjective}"

@@ -1,0 +1,30 @@
+.QuestGenericText
+{
+	font-family: Radiance,FZLanTingHei-R-GBK,TH Sarabun New,YDYGO 540,Gulim,MingLiU;
+	text-shadow: 1px 1px 1px 2 #00000099;
+	text-transform: uppercase;
+	color: #9DAFCB;
+	font-size: 18px;
+	padding-top: 5px;
+}
+
+.QuestsContainer
+{
+	vertical-align: top;
+	horizontal-align: left;
+	flow-children: down;
+	padding-left: 10px;
+	padding-right: 10px;
+	
+}
+
+.QuestsRoot
+{
+	margin-top: 12%;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663cc ), color-stop( .5, #42566355 ), to( #0000 ) );
+}
+
+.Hidden
+{
+	visibility: collapse;
+}
