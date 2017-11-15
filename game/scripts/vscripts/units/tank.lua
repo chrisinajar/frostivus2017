@@ -1,11 +1,11 @@
-local Boss = class({})
+local Tank = class({})
 
 function Spawn (entityKeyValues) --luacheck: ignore Spawn
-  local Boss = Boss()
-  Boss:Init(thisEntity)
+  local Tank = Tank()
+  Tank:Init(thisEntity)
 end
 
-function Boss:Init(entity)
+function Tank:Init(entity)
   -- thisEntity
   self.entity = entity
   
@@ -20,7 +20,7 @@ function Boss:Init(entity)
   end)
 end
 
-function Boss:Think()
+function Tank:Think()
   if self.entity:IsNull() or not self.entity:IsAlive() then
     return
   end
@@ -33,7 +33,7 @@ function Boss:Think()
   return 1
 end
 
-function Boss:Slam()
+function Tank:Slam()
   local target = self:NearestEnemyHeroInRange( 9999 )
   if target then
     ExecuteOrderFromTable({
@@ -47,7 +47,7 @@ function Boss:Slam()
   return self.slam:GetCastPoint() + 0.1
 end
 
-function Boss:Quake()
+function Tank:Quake()
   local target = self:NearestEnemyHeroInRange( 9999 )
   if target then
     ExecuteOrderFromTable({
@@ -61,7 +61,7 @@ function Boss:Quake()
   return self.quake:GetCastPoint() + 0.1
 end
 
-function Boss:NearestEnemyHeroInRange( range )
+function Tank:NearestEnemyHeroInRange( range )
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
   
