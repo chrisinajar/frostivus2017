@@ -38,8 +38,7 @@
     "ItemPermanent"         "0"
     "ItemDisplayOwnership"      "1"
     "CustomShop"          "1"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -58,7 +57,7 @@
       "03"
       {
         "var_type"          "FIELD_FLOAT"
-        "stone_duration"      "4.0"
+        "stone_duration"      "3.0"
       }
       "04"
       {
