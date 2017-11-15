@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"            "FIELD_INTEGER"
-        "egg_hits"            "25"
+        "egg_hits"            "35"
       }
       "02"
       {
