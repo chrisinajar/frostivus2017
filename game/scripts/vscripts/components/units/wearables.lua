@@ -22,5 +22,18 @@ function Wearables:AddWearablesToCreature(creature)
     for _,v in pairs(wearableList) do
       SpawnEntityFromTableSynchronous("prop_dynamic", {model=v}):FollowEntity(creature, true)
     end
+	if creature:GetModelName() == "models/courier/greevil/greevil.vmdl" then
+		local name = creature:GetUnitName()
+		local powerLevel = tonumber(name:sub(string.len(name) ) )
+		MAX_POWER_LEVEL = 10
+		MIN_SATURATION = 85
+		SATURATION_SCALING = (255 - MIN_SATURATION) / MAX_POWER_LEVEL
+		if powerLevel > MAX_POWER_LEVEL then
+			MIN_SATURATION = MIN_SATURATION - ((MIN_SATURATION / MAX_POWER_LEVEL) * (powerLevel - MAX_POWER_LEVEL))
+		end
+		local maxSaturation = MIN_SATURATION + SATURATION_SCALING * powerLevel
+		local minSaturation = math.max(MIN_SATURATION, maxSaturation - SATURATION_SCALING)
+		creature:SetRenderColor( RandomInt(MIN_SATURATION, maxSaturation), RandomInt(MIN_SATURATION, maxSaturation), RandomInt(MIN_SATURATION, maxSaturation) )
+	end
   end
 end
