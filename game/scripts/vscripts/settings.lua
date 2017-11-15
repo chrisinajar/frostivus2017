@@ -20,7 +20,10 @@ REPAIR_UNITS_REQUIRED = 100
 
 -- act 2
 NUMBER_PRESENTS_REQUIRED = 4
-NUMBER_PRESENTS_SPAWNED = 10
+NUMBER_PRESENTS_SPAWNED = 40
+NUMBER_PRESENTS_PER_GROUP = 5
+NUMBER_GROUPS_OF_PRESENTS = 5 --Cannot be greater than 14
+--Total presents is Presents Spawned, with Presents/Group * Groups the number of presents in camps, with the rest scattered
 
 ------------------------------------------------
 
