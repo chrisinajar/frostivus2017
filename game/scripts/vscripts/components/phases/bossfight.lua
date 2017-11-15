@@ -22,11 +22,8 @@ function BossFight:Prepare()
     if not hero then
       error("Could not find her for player " .. playerId)
     end
-    -- Strong dispel buffs and debuffs
-    hero:Purge(true, true, false, true, true)
     FindClearSpaceForUnit(hero, spawnPoint, true)
     hero:SetRespawnPosition(spawnPoint)
-    hero:RespawnHero(false, false)
   end
 
   self.zone = ZoneControl:CreateZone("trigger_act_4_zone", {

@@ -42,11 +42,8 @@ function PhaseTwo:Prepare(callback)
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
-    -- Strong dispel buffs and debuffs
-    hero:Purge(true, true, false, true, true)
     FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
     hero:SetRespawnPosition(self.heroSpawnPos)
-    hero:RespawnHero(false, false)
     hero:AddNewModifier(hero, nil, "modifier_forest_fog", {})
   end
 
