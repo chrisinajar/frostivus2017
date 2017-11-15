@@ -17,6 +17,26 @@ function item_present_for_search:GetCooldown(nLevel)
 	return 0.5
 end
 
+function item_present_for_search:OnOwnerDied() 
+	local hCaster = self:GetCaster()
+	local numberOfPresents = self:GetCurrentCharges()
+	local pos = hCaster:GetAbsOrigin()
+	for i  = 1,numberOfPresents do
+		PhaseTwo:SpawnPresent(pos,100)
+	end
+	hCaster:RemoveItem(self)
+end
+--[[
+function item_present_for_search:OnUnequip() --Does not seem to work
+	local hCaster = self:GetCaster()
+	local numberOfPresents = self:GetCurrentCharges()
+	local pos = hCaster:GetAbsOrigin()
+	for i  = 1,numberOfPresents do
+		PhaseTwo:SpawnPresent(pos,100)
+	end
+	hCaster:RemoveItem(self)
+end
+]]
 function item_present_for_search:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
@@ -29,8 +49,8 @@ end
 
 modifier_item_present = class(ModifierBaseClass)
 function modifier_item_present:OnCreated()
-  self:SetSetStackCount(1)
-  if IsServer() then self:StartIntervalThink(0.1)
+  self:SetStackCount(1)
+  if IsServer() then self:StartIntervalThink(0.1) end
 end
   
 function modifier_item_present:OnIntervalThink()
@@ -47,3 +67,4 @@ end
 function modifier_item_present:GetModifierMoveSpeedBonus_Percentage( params )
 	return -10 * self:GetStackCount()
 end
+
