@@ -52,7 +52,7 @@
 	  "01"
       {
         "var_type"            "FIELD_FLOAT"
-        "beam_delay"          "1"
+        "beam_delay"          "0.75"
       }
 	  "01"
       {
