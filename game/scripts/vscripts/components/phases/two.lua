@@ -1,3 +1,5 @@
+-- Vision-reducing modifier
+LinkLuaModifier("modifier_forest_fog", "modifiers/modifier_forest_fog.lua", LUA_MODIFIER_MOTION_NONE)
 
 --[[
 
@@ -43,10 +45,9 @@ function PhaseTwo:Prepare(callback)
     -- Strong dispel buffs and debuffs
     hero:Purge(true, true, false, true, true)
     FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
-    hero:SetDayTimeVisionRange(600)
-    hero:SetNightTimeVisionRange(600)
     hero:SetRespawnPosition(self.heroSpawnPos)
     hero:RespawnHero(false, false)
+    hero:AddNewModifier(hero, nil, "modifier_forest_fog", {})
   end
 
   self.PresentsToPickUp = NUMBER_PRESENTS_REQUIRED
@@ -289,8 +290,7 @@ function PhaseTwo:CleanUp()
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
-    hero:SetDayTimeVisionRange(1800)
-    hero:SetNightTimeVisionRange(1000)
+    hero:RemoveModifierByName("modifier_forest_fog")
     if hero:HasItemInInventory("item_present_for_search") then
       for i = 0,5 do
         local itemHandle = hero:GetItemInSlot(i)
