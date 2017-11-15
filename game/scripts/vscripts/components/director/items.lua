@@ -35,98 +35,93 @@ ItemPowerTable = {
   { "item_health_potion",        0,     -1,       1},
   { "item_mana_potion",          0,     -1,       2},
   { "item_enchanted_mango",      0,     10,      10},
-  --SUPER EARLY
-  { "item_stout_shield",         0,      3,       7},
-  { "item_gauntlets",            0,      3,       2},
-  { "item_slippers",             0,      3,       2},
-  { "item_mantle",               0,      3,       2},
-  --EARLY
-  { "item_magic_wand",           2,      8,       3},
-  { "item_ring_of_basilius",     2,      8,       3}, --avoid multiples
-  { "item_wraith_band",          2,      8,       1},
-  { "item_bracer",               2,      8,       1},
-  { "item_null_talisman",        2,      8,       1},
-  { "item_cloak",                2,      8,       1},
-  { "item_headdress",            2,      8,       1},
-  { "item_chainmail",            2,      8,       1},
-  { "item_blades_of_attack",     2,      8,       1},
-  { "item_belt_of_strength",     2,      8,       1},
-  { "item_boots_of_elves",       2,      8,       1},
-  { "item_robe",                 2,      8,       1},
-  { "item_gloves",               2,      8,       1},
-  --ADV EARLY
-  { "item_buckler",              5,      8,       3}, --avoid multiples
-  { "item_void_stone",           5,      8,       1},
-  { "item_ring_of_health",       5,      8,       1},
-  { "item_vitality_booster",     5,      8,       1},
-  { "item_energy_booster",       5,      8,       1},
-  { "item_point_booster",        5,      8,       1},
-  { "item_soul_ring",            5,      8,       1},
-  { "item_vitality_booster",     5,      8,       1},
-  { "item_ring_of_aquila",       5,      8,       3}, --avoid multiples
-  { "item_helm_of_iron_will",    5,     10,       5}, --just because it's really good
-  --SMALL
-  { "item_medallion_of_courage", 9,     16,       1},
-  { "item_ghost",                9,     16,       7}, --prevent ghost spam
-  { "item_force_staff",          9,     16,       1},
-  { "item_aether_lens",          9,     16,       3}, --probably pretty good
-  { "item_lesser_crit",          9,     16,       1},
-  { "item_sange",                9,     16,       1},
-  { "item_yasha",                9,     16,       1},
-  { "item_trident",              9,     16,       3}, --no idea how good this is
-  { "item_ancient_janggo",       9,     16,       5}, --avoid multiples
-  { "item_dragon_lance",         9,     16,       3}, --probably pretty good
-  { "item_platemail",            9,     16,       1},
-  { "item_lifesteal",            9,     16,       1},
-  { "item_blade_mail",           9,     16,       3},
-  { "item_mask_of_madness",      9,     16,       3},
-  { "item_ultimate_orb",         9,     16,       2}, --attempt at preventing ez skadi
-  { "item_arcane_boots",         9,     16,       8}, --people have boots
-  { "item_tranquil_boots",       9,     16,       8}, --people have boots
-  { "item_phase_boots",          9,     16,       8}, --people have boots
-  { "item_power_treads",         9,     16,       8}, --people have boots
-  --ADV SMALL
-  { "item_vanguard",            12,     16,       5}, --just because it's really good
-  { "item_armlet",              12,     16,       3}, --probably pretty good
-  { "item_veil_of_discord",     12,     16,       3}, --probably pretty good
-  { "item_mekansm",             12,     16,       3}, --avoid multiples
-  { "item_vladmir",             12,     16,       3}, --avoid multiples
-  --MEDIUM
-  { "item_solar_crest",         17,     24,       1},
-  { "item_desolator",           17,     24,       1},
-  { "item_basher",              17,     24,       1},
-  { "item_hurricane_pike",      17,     24,       1},
-  { "item_black_king_bar",      17,     24,       2}, --might actually want to make it rarer or not drop at all
-  { "item_heavens_halberd",     17,     24,       1},
-  { "item_cyclone",             17,     24,       1}, --do we even want this in?
-  { "item_diffusal_blade",      17,     24,       1},
-  { "item_echo_sabre",          17,     24,       1},
-  { "item_orchid",              17,     24,       1},
-  { "item_hood_of_defiance",    17,     24,       1},
-  --BAUMI'S FAVORITE(MEDIUM)
-  { "item_lotus_orb",           17,     24,       3},
-  --ADV MEDIUM
-  { "item_pipe",                20,     24,       1},
-  { "item_ultimate_scepter",    20,     24,       1}, --avoid multiples, but some people really want this
-  { "item_crimson_guard",       20,     24,       5}, --just because it's really good
-  { "item_maelstrom",           20,     24,       3}, --just because it's really good
-  { "item_sange_and_yasha",     20,     24,       3}, --TBH people already have this
-  --GREAT
-  { "item_heart",               25,     -1,       10}, -- heart and radiance are insane in this type of game
-  { "item_radiance",            25,     -1,       10},
-  { "item_skadi",               25,     -1,       1},
-  { "item_sheepstick",          25,     -1,       1},
-  { "item_shivas_guard",        25,     -1,       2},
-  { "item_assault",             25,     -1,       1},
-  { "item_greater_crit",        25,     -1,       1},
-  { "item_butterfly",           25,     -1,       1},
-  { "item_bloodthorn",          25,     -1,       1},
-  { "item_manta",               25,     -1,       1},
-  { "item_satanic",             25,     -1,       1},
-  { "item_mjollnir",            25,     -1,       1},
-  { "item_monkey_king_bar",     25,     -1,       1},
-  { "item_octarine_core",       25,     -1,       1},
-  { "item_refresher",           25,     -1,       1},
+  --ACT 1, PART 1
+  { "item_magic_wand",           0,      5,       3},
+  { "item_ring_of_basilius",     0,      5,       3}, --avoid multiples
+  { "item_wraith_band",          0,      5,       1},
+  { "item_bracer",               0,      5,       1},
+  { "item_null_talisman",        0,      5,       1},
+  { "item_cloak",                0,      5,       1},
+  { "item_headdress",            0,      5,       1},
+  { "item_chainmail",            0,      5,       1},
+  { "item_blades_of_attack",     0,      5,       1},
+  { "item_belt_of_strength",     0,      5,       1},
+  { "item_boots_of_elves",       0,      5,       1},
+  { "item_robe",                 0,      5,       1},
+  { "item_soul_ring",            0,      5,       1},
+  --ACT 1, PART 2
+  { "item_buckler",              3,      8,       3}, --avoid multiples
+  { "item_void_stone",           3,      8,       1},
+  { "item_ring_of_health",       3,      8,       1},
+  { "item_ring_of_aquila",       3,      8,       3}, --avoid multiples
+  { "item_helm_of_iron_will",    5,     11,       5}, --just because it's really good
+  { "item_medallion_of_courage", 3,      8,       1},
+  { "item_aether_lens",          3,      8,       1}, --probably pretty good
+  { "item_ghost",                3,      8,       7}, --prevent ghost spam
+  { "item_force_staff",          3,      8,       1},
+  --ACT 2, PART 1
+  { "item_vitality_booster",     8,     13,       1},
+  { "item_energy_booster",       8,     13,       1},
+  { "item_lesser_crit",          8,     13,       1},
+  { "item_sange",                8,     13,       1},
+  { "item_yasha",                8,     13,       1},
+  { "item_trident",              8,     13,       3}, --no idea how good this is
+  { "item_ancient_janggo",       8,     13,       5}, --avoid multiples
+  { "item_dragon_lance",         8,     13,       3}, --probably pretty good
+  { "item_platemail",            8,     13,       1},
+  { "item_lifesteal",            8,     13,       1},
+  { "item_blade_mail",           8,     13,       3},
+  { "item_mask_of_madness",      8,     13,       3},
+  { "item_ultimate_orb",         8,     13,       2}, --attempt at preventing ez skadi
+  { "item_arcane_boots",         8,     13,       7}, --people have boots
+  { "item_tranquil_boots",       8,     13,       7}, --people have boots
+  { "item_phase_boots",          8,     13,       7}, --people have boots
+  { "item_power_treads",         8,     13,       7}, --people have boots
+  { "item_vanguard",             8,     13,       5}, --just because it's really good
+  { "item_armlet",               8,     13,       3}, --probably pretty good
+  { "item_veil_of_discord",     11,     16,       3}, --probably pretty good
+  --ACT 2, PART 2
+  { "item_point_booster",       11,     16,       1},
+  { "item_mekansm",             11,     16,       3}, --avoid multiples
+  { "item_vladmir",             11,     16,       3}, --avoid multiples
+  { "item_solar_crest",         11,     16,       1},
+  { "item_desolator",           11,     16,       1},
+  { "item_hood_of_defiance",    11,     16,       1},
+  { "item_pipe",                11,     16,       3}, --avoid multiples
+  { "item_basher",              11,     16,       1},
+  { "item_diffusal_blade",      11,     16,       1},
+  { "item_heavens_halberd",     11,     16,       1},
+  { "item_echo_sabre",          11,     16,       1},
+  { "item_orchid",              11,     16,       1},
+  { "item_crimson_guard",       11,     16,       5}, --just because it's really good
+  { "item_maelstrom",           11,     16,       3}, --just because it's really good
+  { "item_cyclone",             11,     16,       1},
+  { "item_rod_of_atos",         11,     16,       1}, --do we even want this in?
+  --BAUMI'S FAVORITE(A2P2)
+  { "item_lotus_orb",           11,     16,       3},
+  --ACT 3, PART 1
+  { "item_hurricane_pike",      17,     22,       1},
+  { "item_black_king_bar",      17,     22,       2}, --might actually want to make it rarer or not drop at all
+  { "item_ultimate_scepter",    17,     22,       1}, --avoid multiples, but some people really want this
+  { "item_sphere",              17,     22,       1},
+  { "item_ethereal_blade",      17,     22,       1},
+  { "item_radiance",            17,     22,       10},
+  { "item_shivas_guard",        17,     22,       4},
+  { "item_sheepstick",          17,     22,       1},
+  { "item_refresher",           17,     22,       1},
+  { "item_monkey_king_bar",     17,     22,       1},
+  { "item_manta",               17,     22,       1},
+  { "item_butterfly",           17,     22,       1},
+  --ACT 3, PART 2
+  { "item_heart",               23,     -1,       10}, -- heart and radiance are insane in this type of game
+  { "item_skadi",               23,     -1,       1},
+  { "item_assault",             23,     -1,       1},
+  { "item_greater_crit",        23,     -1,       1},
+  { "item_bloodthorn",          23,     -1,       1},
+  { "item_satanic",             23,     -1,       1},
+  { "item_mjollnir",            23,     -1,       1},
+  { "item_octarine_core",       23,     -1,       1},
+  { "item_bfury",               23,     -1,       1},
 }
 
 function CreepItemDrop:CreateDrop (itemName, pos)

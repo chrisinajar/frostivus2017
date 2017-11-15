@@ -52,8 +52,6 @@
     "ItemAliases"                                         "transplant 2;heart transplant 2"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
 
     // "IsTempestDoubleClonable"                          "0"
 
@@ -81,17 +79,17 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "135 180"
+        "bonus_strength"                                  "25"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1350"
+        "bonus_health"                                    "500"
       }
       "06"
       {
         "var_type"                                        "FIELD_FLOAT"
-        "health_regen_rate"                               "7"
+        "health_regen_rate"                               "5"
       }
       "07"
       {

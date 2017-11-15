@@ -65,7 +65,7 @@ function PhaseOne:Start(callback)
   FinishedEvent.once(function()
     self.running = false
     HordeDirector:Pause()
-    HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", function (unit)
+    HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.spawnPoint, function (unit)
       unit:OnDeath(callback)
     end)
   end)

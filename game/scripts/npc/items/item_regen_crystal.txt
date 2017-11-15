@@ -38,8 +38,6 @@
     "AbilityCooldown"                                     "20.0"
     "AbilityCastPoint"                                    "0.0"
 
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
 
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
@@ -61,22 +59,22 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "4000"
+        "bonus_health"                                    "500"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_armor"                                     "20"
+        "bonus_armor"                                     "5"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "magic_resistance"                                "20"
+        "magic_resistance"                                "5"
       }
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "1000"
+        "bonus_health_regen"                              "100"
       }
       "05"
       {

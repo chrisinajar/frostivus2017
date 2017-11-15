@@ -4,13 +4,13 @@
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_bonus_strength"      "+$str"
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_bonus_damage"        "+$damage"
 
-"DOTA_Tooltip_ability_item_bogduggs_cudgel_2"                   "<font color=\"#4ae0bf\">Bogdugg's Cudgel</font>"
+"DOTA_Tooltip_ability_item_bogduggs_cudgel_2"                   "<font color=\"#4ae0bf\">Bogdugg's Cudgel 2</font>"
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_2_Description"       "<h1>Passive: Smash (MELEE ONLY)</h1>\All attack speed is halved, but attacks deal splash damage in a %damage_radius% radius area around the target and stun for %stun_duration% seconds."
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_2_Lore"              "Bogdugg came to lord over Bonemeal Ridge by carrying the biggest stick."
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_2_bonus_strength"    "+$str"
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_2_bonus_damage"      "+$damage"
 
-"DOTA_Tooltip_ability_item_bogduggs_cudgel_3"                   "<font color=\"#4ae0bf\">Bogdugg's Cudgel</font>"
+"DOTA_Tooltip_ability_item_bogduggs_cudgel_3"                   "<font color=\"#4ae0bf\">Bogdugg's Cudgel 3</font>"
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_3_Description"       "<h1>Passive: Smash (MELEE ONLY)</h1>\All attack speed is halved, but attacks deal splash damage in a %damage_radius% radius area around the target and stun for %stun_duration% seconds."
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_3_Lore"              "Bogdugg came to lord over Bonemeal Ridge by carrying the biggest stick."
 "DOTA_Tooltip_ability_item_bogduggs_cudgel_3_bonus_strength"    "+$str"

@@ -51,12 +51,12 @@
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_strength"      "20"
+        "bonus_strength"      "60"
       }
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_damage"        "20"
+        "bonus_damage"        "60"
       }
       "04"
       {

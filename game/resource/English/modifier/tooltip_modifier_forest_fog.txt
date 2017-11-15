@@ -1,0 +1,2 @@
+"DOTA_Tooltip_modifier_forest_fog"                           "Dense Forest"
+"DOTA_Tooltip_modifier_forest_fog_Description"               "Vision reduced to %dMODIFIER_PROPERTY_FIXED_DAY_VISION% units."

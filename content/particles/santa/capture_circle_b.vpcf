@@ -5,7 +5,7 @@
 	m_nMaxParticles = 10
 	m_flConstantRadius = 96.0
 	m_flConstantLifespan = 2.0
-	m_ConstantColor = [ 23, 178, 0, 55 ]
+	m_ConstantColor = [ 173, 216, 230, 94 ]
 	m_Renderers = 
 	[
 		{

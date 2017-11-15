@@ -9,7 +9,6 @@
     //-------------------------------------------------------------------------------------------------------------
     "Ability1"				"treant_overgrowth"
     "Ability2"				"treant_leech_seed_nb2017"
-    "Ability5"				""
     "Ability6"				"treant_great_protector"
     "Ability10"                                           "special_bonus_attack_speed_30"
     "Ability11"                                           "special_bonus_mp_regen_2"

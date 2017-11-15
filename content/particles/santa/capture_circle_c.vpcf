@@ -4,7 +4,7 @@
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 2
 	m_flConstantRadius = 64.0
-	m_ConstantColor = [ 0, 100, 0, 61 ]
+	m_ConstantColor = [ 173, 216, 230, 30 ]
 	m_Renderers = 
 	[
 		{

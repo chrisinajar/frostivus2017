@@ -58,8 +58,7 @@
     "ItemDisassembleRule"                                 "DOTA_ITEM_DISASSEMBLE_NEVER"
     "ItemAliases"                                         "siege mode 2;siege 2"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -68,12 +67,12 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_agility"                                   "25 30"
+        "bonus_agility"                                   "24"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "20 25"
+        "bonus_strength"                                  "24"
       }
       "03"
       {
@@ -88,12 +87,12 @@
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_damage_bonus"                              "300 450"
+        "siege_damage_bonus"                              "150"
       }
       "06"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "siege_atkspd_bonus"                              "-150"
+        "siege_atkspd_bonus"                              "-100"
         // meant for negative bonus
         // aka a self-slow
       }

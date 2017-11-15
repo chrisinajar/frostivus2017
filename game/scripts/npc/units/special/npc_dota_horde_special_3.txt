@@ -105,4 +105,214 @@
     }
 
   }
+  //=================================================================================
+  //=================================================================================
+  //=================================================================================
+  "npc_dota_horde_special_3_act2"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                     "models/heroes/siren/siren.vmdl" // Model.
+    "BaseClass"                 "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+    "Level"                     "1"
+    "ModelScale"                "0.7"
+
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                  "creep_siren_song"      // Ability 1
+    "Ability2"                  ""     // Ability 2
+    "Ability3"                  ""      // Ability 3
+    "Ability4"                  ""      // Ability 4
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"            "0"     // Physical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "15"    // Damage range min.
+    "AttackDamageMax"           "20"    // Damage range max.
+    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+    "AttackRange"               "180"   // Range within a target can be attacked.
+    "ProjectileModel"           ""      // Particle system model for projectile.
+    "ProjectileSpeed"           "0"     // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                "35"
+    "HealthBarOffset"           "175"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                  "0"    // Experience earn.
+    "BountyGoldMin"             "0"    // Gold earned min.
+    "BountyGoldMax"             "0"    // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "100"   // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"              "200"   // Base health.
+    "StatusHealthRegen"         "0"   // Health regeneration rate.
+    "StatusMana"                "200"     // Base mana.
+    "StatusManaRegen"           "1.0"   // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"        "800"   // Range of vision during day light.
+    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "DefaultState"       "Invade"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"          "Invade"
+                "Aggression"    "100.0"
+                "Avoidance"     "0.0"
+            }
+        }
+        "OffensiveAbilities"
+        {
+            "Ability1"
+            {
+                "Name"                "creep_siren_song"
+                "AOE"                "1"
+                "Radius"             "200"
+                "MinimumTargets"     "1"
+            }
+        }
+        "AttachWearables"
+        {
+            "Wearable1" "models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
+            "Wearable2" "models/heroes/lich/lich_horns.vmdl"
+            "Wearable3" "models/items/siren/exile_blade/exile_blade.vmdl"
+            "Wearable4" "models/items/siren/treasureofthedeep_offhand_s1/treasureofthedeep_offhand_s1.vmdl"
+            "Wearable5" "models/heroes/enchantress/enchantress_hair.vmdl"
+            "Wearable6" "models/items/siren/allure_of_the_deep_legs/allure_of_the_deep_legs.vmdl"
+            "Wearable7" "models/items/skywrath_mage/blessing_of_the_crested_dawn_shoulder/blessing_of_the_crested_dawn_shoulder.vmdl"
+        }
+    }
+
+  }
+  //=================================================================================
+  //=================================================================================
+  //=================================================================================
+  "npc_dota_horde_special_3_act3"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                     "models/heroes/siren/siren.vmdl" // Model.
+    "BaseClass"                 "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+    "Level"                     "1"
+    "ModelScale"                "0.7"
+
+
+    // Abilities
+    //----------------------------------------------------------------
+    "Ability1"                  "creep_siren_song"      // Ability 1
+    "Ability2"                  ""     // Ability 2
+    "Ability3"                  ""      // Ability 3
+    "Ability4"                  ""      // Ability 4
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"            "0"     // Physical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "15"    // Damage range min.
+    "AttackDamageMax"           "20"    // Damage range max.
+    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+    "AttackRange"               "180"   // Range within a target can be attacked.
+    "ProjectileModel"           ""      // Particle system model for projectile.
+    "ProjectileSpeed"           "0"     // Speed of projectile.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                "35"
+    "HealthBarOffset"           "175"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                  "0"    // Experience earn.
+    "BountyGoldMin"             "0"    // Gold earned min.
+    "BountyGoldMax"             "0"    // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "100"   // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"              "200"   // Base health.
+    "StatusHealthRegen"         "0"   // Health regeneration rate.
+    "StatusMana"                "200"     // Base mana.
+    "StatusManaRegen"           "1.0"   // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"        "800"   // Range of vision during day light.
+    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "DefaultState"       "Invade"
+        "States"
+        {
+            "Invade"
+            {
+                "Name"          "Invade"
+                "Aggression"    "100.0"
+                "Avoidance"     "0.0"
+            }
+        }
+        "OffensiveAbilities"
+        {
+            "Ability1"
+            {
+                "Name"                "creep_siren_song"
+                "AOE"                "1"
+                "Radius"             "200"
+                "MinimumTargets"     "1"
+            }
+        }
+        "AttachWearables"
+        {
+            "Wearable1" "models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
+            "Wearable2" "models/heroes/lich/lich_horns.vmdl"
+            "Wearable3" "models/items/siren/exile_blade/exile_blade.vmdl"
+            "Wearable4" "models/items/siren/treasureofthedeep_offhand_s1/treasureofthedeep_offhand_s1.vmdl"
+            "Wearable5" "models/heroes/enchantress/enchantress_hair.vmdl"
+            "Wearable6" "models/items/siren/allure_of_the_deep_legs/allure_of_the_deep_legs.vmdl"
+            "Wearable7" "models/items/skywrath_mage/blessing_of_the_crested_dawn_shoulder/blessing_of_the_crested_dawn_shoulder.vmdl"
+        }
+    }
+
+  }
 }

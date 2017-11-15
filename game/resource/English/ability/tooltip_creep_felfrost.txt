@@ -1,0 +1,3 @@
+"DOTA_Tooltip_ability_creep_felfrost"                            "Felfrost Attack"
+"DOTA_Tooltip_ability_creep_felfrost_Description"                "Attacks afflict their victims with <font color='#DDEEFF'>Felfrost<font>.\n\n<font color='#DDEEFF'>Felfrost</font> slows, reduces armor, and attracts the horde to the victim."
+"DOTA_Tooltip_ability_creep_felfrost_Lore"                       "The whyte wynter serpynts hunt prey with semi-magical corrosive spray that erodes metal and flesh both and chills to the soul."
