@@ -81,7 +81,10 @@ if IsServer() then
 
 				-- apply felfrost and increase its stack count
 				local mod = unit:AddNewModifier( parent, spell, "modifier_felfrost", {} )
-				mod:IncrementStackCount()
+				
+				if mod then
+					mod:IncrementStackCount()
+				end
 			end
 
 			-- play sound effect
