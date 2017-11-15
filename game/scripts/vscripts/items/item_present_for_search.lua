@@ -28,6 +28,14 @@ function item_present_for_search:OnSpellStart()
 end
 
 modifier_item_present = class(ModifierBaseClass)
+function modifier_item_present:OnCreated()
+  self:SetSetStackCount(1)
+  if IsServer() then self:StartIntervalThink(0.1)
+end
+  
+function modifier_item_present:OnIntervalThink()
+  self:SetStackCount( self:GetAbility():GetCurrentCharges() )
+end
 
 function modifier_item_present:DeclareFunctions()
   local funcs = {
@@ -37,5 +45,5 @@ function modifier_item_present:DeclareFunctions()
 end
 
 function modifier_item_present:GetModifierMoveSpeedBonus_Percentage( params )
-	return -10
+	return -10 * self:GetStackCount()
 end
