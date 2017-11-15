@@ -46,8 +46,6 @@
     "AbilityManaCost"                                     "0"
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "38150"
@@ -71,17 +69,17 @@
       "01"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_damage"                                    "65"
+        "bonus_damage"                                    "45"
       }
       "02"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "regen_bonus"                                     "65 130 260"
+        "regen_bonus"                                     "45"
       }
       "03"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "speed_bonus"                                     "20 40 60"
+        "speed_bonus"                                     "45"
       }
       "04"
       {

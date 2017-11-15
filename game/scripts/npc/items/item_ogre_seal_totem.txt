@@ -38,8 +38,6 @@
     "ItemPermanent"         "0"
     "ItemDisplayOwnership"      "1"
     "CustomShop"          "1"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "1"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

@@ -39,8 +39,7 @@
     "ItemPermanent"                 "0"
     "ItemDisplayOwnership"          "1"
     "CustomShop"                    "1"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "2"
+
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -54,7 +53,7 @@
       "02"
       {
         "var_type"              "FIELD_INTEGER"
-        "bonus_intelligence"    "50"
+        "bonus_intelligence"    "30"
       }
       "03"
       {
@@ -69,7 +68,7 @@
       "05"
       {
         "var_type"              "FIELD_INTEGER"
-        "bubble_regen"          "300"
+        "bubble_regen"          "200"
       }
     }
   }

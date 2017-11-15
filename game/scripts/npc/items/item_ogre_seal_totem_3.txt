@@ -38,8 +38,6 @@
     "ItemPermanent"         "0"
     "ItemDisplayOwnership"      "1"
     "CustomShop"          "1"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -53,12 +51,12 @@
       "02"
       {
         "var_type"          "FIELD_INTEGER"
-        "bonus_strength"      "8"
+        "bonus_strength"      "24"
       }
       "03"
       {
         "var_type"          "FIELD_INTEGER"
-        "bonus_hp"          "200"
+        "bonus_hp"          "600"
       }
       "04"
       {
@@ -68,7 +66,7 @@
       "05"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage"                    "250"
+        "damage"                    "500"
       }
       "06"
       {
