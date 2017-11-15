@@ -10,6 +10,7 @@
 #base "abilities/creep_rush.txt"
 #base "abilities/creep_shackles.txt"
 #base "abilities/creep_stagger.txt"
+#base "abilities/creep_felfrost.txt"
 #base "abilities/creep_frostfang.txt"
 #base "abilities/creep_cold_combustion.txt"
 #base "abilities/creep_snow_cloak.txt"

@@ -1,0 +1,18 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Felfrost
+  //=================================================================================================================
+  "creep_felfrost"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "15504"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/creep_felfrost"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
+    "AbilityTextureName"        "crystal_maiden_frostbite"
+    "MaxLevel"                  "1"
+  }
+}
