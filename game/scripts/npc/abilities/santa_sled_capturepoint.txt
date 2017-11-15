@@ -16,6 +16,11 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
+	
+	"precache"
+	{
+		"particle"				"particles/santa/capture_circle.vpcf"
+	}
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
