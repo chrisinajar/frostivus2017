@@ -77,10 +77,10 @@
         {
             "Wearable1" "models/courier/greevil/greevil_eyes.vmdl"
             "Wearable2" "models/courier/greevil/greevil_ears1.vmdl"
-            "Wearable4" "models/courier/greevil/greevil_hair2.vmdl"
-            "Wearable5" "models/courier/greevil/greevil_horns1.vmdl"
-            "Wearable6" "models/courier/greevil/greevil_tail1.vmdl"
-            "Wearable7" "models/courier/greevil/greevil_teeth2.vmdl"
+            "Wearable3" "models/courier/greevil/greevil_hair2.vmdl"
+            "Wearable4" "models/courier/greevil/greevil_horns1.vmdl"
+            "Wearable5" "models/courier/greevil/greevil_tail1.vmdl"
+            "Wearable6" "models/courier/greevil/greevil_teeth2.vmdl"
             "Wearable7" "models/courier/greevil/greevil_wings3.vmdl"
         }
     }

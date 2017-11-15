@@ -77,9 +77,9 @@
         {
             "Wearable1" "models/courier/greevil/greevil_eyes.vmdl"
             "Wearable2" "models/courier/greevil/greevil_ears1.vmdl"
-            "Wearable6" "models/courier/greevil/greevil_tail3.vmdl"
-            "Wearable7" "models/courier/greevil/greevil_teeth3.vmdl"
-            "Wearable7" "models/courier/greevil/greevil_nose1.vmdl"
+            "Wearable3" "models/courier/greevil/greevil_tail3.vmdl"
+            "Wearable4" "models/courier/greevil/greevil_teeth3.vmdl"
+            "Wearable5" "models/courier/greevil/greevil_nose1.vmdl"
         }
     }
   }
