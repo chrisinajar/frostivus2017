@@ -152,7 +152,7 @@ function PhaseTwo:Start(callback)
   }
   DebugPrint("Creating " .. NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS .. " presents in camps")
   local spawnGroupPresentsNum = 0
-  while spawnGroupPresentsNum < NUMBER_PRESENTS_PER_GROUP * math.min(NUMBER_GROUPS_OF_PRESENTS,14) do 
+  while spawnGroupPresentsNum < NUMBER_PRESENTS_PER_GROUP * math.min(NUMBER_GROUPS_OF_PRESENTS,14) do
     local tospawnIt = math.random(14)
     local campRadius = 150
     if self.CampLocation.presentIndex[tospawnIt] < NUMBER_PRESENTS_PER_GROUP then
@@ -192,17 +192,10 @@ function PhaseTwo:Start(callback)
     if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
-        DebugPrint("Path restarting")
-        self.Waypoints.currentIndex = RandomInt(1, 2)
-        self.Waypoints.currentOption = 1
-        self.Waypoints.currentStep = 1
-        --self:IncrementWaypointTriggerIndex()
-        print(PhaseTwo:IsRideDone())
-        self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
         -- FinishedEvent.broadcast({}) -- we're done
         -- lost the game
-        --StorylineManager:Defeat("Failed to find the presents in time")
-        --self:CleanUp()
+        StorylineManager:Defeat("Failed to find the presents in time")
+        self:CleanUp()
         return
       else
         DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
@@ -290,17 +283,17 @@ end
 
 function PhaseTwo:IncrementWaypointTriggerIndex()
   local wp = self.Waypoints
-  if wp.currentIndex == 4 then
-      self.Waypoints.currentIndex = RandomInt(0, 1)
-      self.Waypoints.currentOption = 1
-      self.Waypoints.currentStep = 1
-  end
   local nextStep = wp.Trigger[self:WaypointName(wp.currentIndex, wp.currentOption, wp.currentStep + 1)]
   if nextStep then
     self.Waypoints.currentStep = self.Waypoints.currentStep + 1
     return
   end
   self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
+  -- if we reach the end, cycle back to a random start
+  if not wp.Trigger[self:WaypointName(wp.currentIndex, 1, 1)] then
+    self.Waypoints.currentIndex = RandomInt(1, 2)
+  end
+
   local maxOptions = 1
   while wp.Trigger[self:WaypointName(wp.currentIndex, maxOptions + 1, 1)] do
     maxOptions = maxOptions + 1
