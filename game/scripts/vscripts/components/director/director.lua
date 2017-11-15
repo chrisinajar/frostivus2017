@@ -166,7 +166,7 @@ function HordeDirector:StartBuildUp()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
     end
-    if RandomInt(1, 60) == 1 then
+    if RandomInt(1, 40) == 1 then
       self:SpawnSpecialUnit()
     end
     desiredStress = math.min(1, desiredStress + 0.01)
