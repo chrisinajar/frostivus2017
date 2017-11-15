@@ -52,8 +52,7 @@
     "ItemAliases"                                         "transplant 3;heart transplant 3"
     "ItemDeclarations"                                    "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
     "ItemShareability"                                    "ITEM_FULLY_SHAREABLE"
-    "MaxUpgradeLevel"                                     "3"
-    "ItemBaseLevel"                                       "3"
+
 
     // "IsTempestDoubleClonable"                          "0"
 
@@ -81,12 +80,12 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_strength"                                  "135 180"
+        "bonus_strength"                                  "40"
       }
       "05"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health"                                    "1000 1350"
+        "bonus_health"                                    "650"
       }
       "06"
       {
