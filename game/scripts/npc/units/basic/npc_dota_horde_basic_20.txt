@@ -55,7 +55,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "882"   // Base health.
+    "StatusHealth"              "1176"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
@@ -71,5 +71,19 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" "models/courier/greevil/greevil_eyes.vmdl"
+            "Wearable2" "models/courier/greevil/greevil_ears2.vmdl"
+            "Wearable3" "models/courier/greevil/greevil_feathers.vmdl"
+            "Wearable4" "models/courier/greevil/greevil_horns2.vmdl"
+            "Wearable5" "models/courier/greevil/greevil_tail3.vmdl"
+            "Wearable6" "models/courier/greevil/greevil_teeth3.vmdl"
+            "Wearable7" "models/courier/greevil/greevil_nose3.vmdl"
+            "Wearable8" "models/courier/greevil/greevil_wings4.vmdl"
+        }
+    }
   }
 }

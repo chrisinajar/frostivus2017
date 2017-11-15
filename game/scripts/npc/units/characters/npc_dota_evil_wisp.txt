@@ -8,6 +8,7 @@
     // General
     //----------------------------------------------------------------
     "Model"                     "models/heroes/wisp/wisp.vmdl" // Model.
+    "vscripts"                  "units/act4/boss.lua"
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"

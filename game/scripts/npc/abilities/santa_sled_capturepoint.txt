@@ -16,6 +16,11 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
     "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_NONE"
+	
+	"precache"
+	{
+		"particle"				"particles/santa/capture_circle.vpcf"
+	}
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -29,7 +34,7 @@
       "02"
       {
         "var_type"                      "FIELD_INTEGER"
-        "movement_buff"                 "0.0 10 20 35 50 70" // each level is the number of heroes
+        "movement_buff"                 "0.0 15 30 45 60 85" // each level is the number of heroes
       }
     }
   }

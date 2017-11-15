@@ -361,7 +361,9 @@ function GameMode:OnEntityKilled( keys )
         break
       end
     end
-    if allDead then GameRules:SetGameWinner( DOTA_TEAM_BADGUYS ) end
+    if allDead then
+      StorylineManager:Defeat("Everyone died")
+    end
     OnHeroDiedEvent(killedUnit)
   end
 end

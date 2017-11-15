@@ -71,5 +71,19 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    // Creature
+    //----------------------------------------------------------------
+    "Creature"
+    {
+      "AttachWearables"
+      {
+            "Wearable1" "models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
+            "Wearable2" "models/heroes/kunkka/kunkka_hair.vmdl"
+            "Wearable3" "models/heroes/siren/siren_tail.vmdl"
+            "Wearable4" "models/items/blood_seeker/weapon_savagebeast.vmdl"
+            "Wearable4" "models/items/blood_seeker/offhand_savagebeast.vmdl"
+      }
+    }
   }
 }

@@ -7,7 +7,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl" // Model.
+    "Model"                     "models/courier/greevil/greevil.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
@@ -28,8 +28,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "20"    // Damage range min.
-    "AttackDamageMax"           "30"    // Damage range max.
+    "AttackDamageMin"           "15"    // Damage range min.
+    "AttackDamageMax"           "25"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
@@ -71,5 +71,15 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" "models/courier/greevil/greevil_eyes.vmdl"
+            "Wearable2" "models/courier/greevil/greevil_ears2.vmdl"
+            "Wearable3" "models/courier/greevil/greevil_tail1.vmdl"
+            "Wearable4" "models/courier/greevil/greevil_teeth2.vmdl"
+        }
+    }
   }
 }

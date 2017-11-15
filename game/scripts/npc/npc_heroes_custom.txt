@@ -39,6 +39,7 @@
 #base "heroes/undying.txt"
 #base "heroes/visage.txt"
 #base "heroes/winter_wyvern.txt"
+#base "heroes/witch_doctor.txt"
 #base "heroes/zeus.txt"
 
 "DOTAHeroes"

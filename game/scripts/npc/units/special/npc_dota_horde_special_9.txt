@@ -71,5 +71,15 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" "models/items/pudge/promo_trapper_shoulder/promo_trapper_shoulder.vmdl"
+            "Wearable2" "models/items/alchemist/cranial_clap_trap/cranial_clap_trap.vmdl"
+
+
+        }
+    }
   }
 }

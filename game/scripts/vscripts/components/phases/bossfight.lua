@@ -36,6 +36,9 @@ function BossFight:Prepare()
 end
 
 function BossFight:Start(callback)
+  Quests:NextAct({
+    nextAct = 3
+  })
   FinishedEvent.once(callback)
   HordeDirector:Pause()
 

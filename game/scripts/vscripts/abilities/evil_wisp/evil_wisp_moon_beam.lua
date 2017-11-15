@@ -12,14 +12,16 @@ function evil_wisp_moon_beam:OnSpellStart()
 	local beamDelay = self:GetSpecialValueFor("beam_delay")
 	
 	local possibleTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, searchRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-	if possibleTargets == 0 then 
+	if #possibleTargets == 0 then 
 		self:EndCooldown()
 		return
 	end
 	
 	for i = 1, targetCount do
-		local position = possibleTargets[i]:GetAbsOrigin()
-		Timers:CreateTimer(0.2*i, function() self:LaunchBeam(position, beamDelay, beamRadius, beamDamage) end)
+		if possibleTargets[i] then
+			local position = possibleTargets[i]:GetAbsOrigin()
+			Timers:CreateTimer(0.2*i, function() self:LaunchBeam(position, beamDelay, beamRadius, beamDamage) end)
+		end
 	end
 end
 

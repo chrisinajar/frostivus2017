@@ -7,11 +7,11 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/heroes/slardar/slardar.vmdl" // Model.
+    "Model"                     "models/heroes/siren/siren.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "1.3"
+    "ModelScale"                "0.7"
 
 
     // Abilities
@@ -50,7 +50,7 @@
     // Movement
     //----------------------------------------------------------------
     "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-    "MovementSpeed"             "200"   // Speed.
+    "MovementSpeed"             "100"   // Speed.
 
     // Status
     //----------------------------------------------------------------
@@ -88,13 +88,19 @@
             {
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
-                "Radius"             "400"
+                "Radius"             "200"
                 "MinimumTargets"     "1"
             }
         }
         "AttachWearables"
         {
-            "Wearable1" { "ItemDef" "4192" }
+            "Wearable1" "models/items/siren/treasureofthedeep_armor_s1/treasureofthedeep_armor_s1.vmdl"
+            "Wearable2" "models/heroes/lich/lich_horns.vmdl"
+            "Wearable3" "models/items/siren/exile_blade/exile_blade.vmdl"
+            "Wearable4" "models/items/siren/treasureofthedeep_offhand_s1/treasureofthedeep_offhand_s1.vmdl"
+            "Wearable5" "models/heroes/enchantress/enchantress_hair.vmdl"
+            "Wearable6" "models/items/siren/allure_of_the_deep_legs/allure_of_the_deep_legs.vmdl"
+            "Wearable7" "models/items/skywrath_mage/blessing_of_the_crested_dawn_shoulder/blessing_of_the_crested_dawn_shoulder.vmdl"
         }
     }
 

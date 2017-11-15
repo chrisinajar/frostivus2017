@@ -26,6 +26,7 @@
 #base "abilities/santa_sled_capturepoint.txt"
 #base "abilities/santa_sled_santa_armour.txt"
 #base "abilities/santa_sled_move.txt"
+#base "abilities/santa_act_two_flying.txt"
 
 #base "abilities/not_of_this_world.txt"
 
@@ -49,6 +50,8 @@
 #base "abilities/treant_great_protector.txt"
 #base "abilities/treant_leech_seed.txt"
 #base "abilities/treant_overgrowth.txt"
+#base "abilities/witch_doctor_death_ward.txt"
+#base "abilities/witch_doctor_maledict.txt"
 #base "abilities/zuus_static_field.txt"
 #base "abilities/zuus_thundergods_wrath.txt"
 

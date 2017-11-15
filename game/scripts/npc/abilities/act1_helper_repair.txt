@@ -9,8 +9,8 @@
     //-------------------------------------------------------------------------------------------------------------
     "ID"                        "1101"                            // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                 "ability_lua"
-    "ScriptFile"                "abilities/helper_repair"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT"
+    "ScriptFile"                "abilities/helper_repair.lua"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
     "AbilityTextureName"        "ancient_apparition_ice_blast"
     "MaxLevel"                  "1"

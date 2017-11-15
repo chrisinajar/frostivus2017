@@ -17,7 +17,7 @@
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                  ""  // Ability 1
-    "Ability2"                  "not_of_this_world"  // Ability 2
+    "Ability2"                  "santa_act_two_flying"  // Ability 2
     "Ability3"                  ""          // Ability 3
     "Ability4"                  ""      // Ability 4
 

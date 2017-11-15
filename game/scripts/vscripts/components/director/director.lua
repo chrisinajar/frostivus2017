@@ -166,7 +166,7 @@ function HordeDirector:StartBuildUp()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
     end
-    if RandomInt(1, 100) == 1 then
+    if RandomInt(1, 60) == 1 then
       self:SpawnSpecialUnit()
     end
     desiredStress = math.min(1, desiredStress + 0.01)
@@ -183,13 +183,18 @@ end
 function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
   DesiredStressEvent.broadcast(1.1) -- force impossible stress at peak
+  local inPeak = true
   Timers:CreateTimer(function()
+    if not inPeak then
+      return
+    end
     self:SpawnSpecialUnit()
 
-    return RandomInt(3, 5)
+    return RandomInt(5, 8)
   end)
   Timers:CreateTimer(PEAK_TIME, function()
     -- end peak on a timer
+    inPeak = false
     HordeDirector:EnterNextPhase()
   end)
 end
@@ -214,7 +219,16 @@ function HordeDirector:StartNextWave()
   return
 end
 
-function HordeDirector:ScheduleSpecialUnit(unitName, location)
+function HordeDirector:ScheduleSpecialUnit(unitName, location, ...)
+  local callback = ({...})[1]
+  if not callback then
+    callback = noop
+  end
+  if type(location) == "function" then
+    callback = location
+    location = nil
+  end
+
   DebugPrint('Spawning special unit ' .. unitName)
   if not self:ShouldSpawnSpecialUnit(unitName) then
     table.insert(self.specialUnitQueue, { unitName, location })
@@ -223,27 +237,33 @@ function HordeDirector:ScheduleSpecialUnit(unitName, location)
   end
   local function done (unit)
     if unit then
-      if not self.specialUnitsByType[unitName] then
-        self.specialUnitsByType[unitName] = 1
-      else
-        self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
-      end
-      self.specialUnitsAlive = self.specialUnitsAlive + 1
       unit:OnDeath(function()
         self.specialUnitsAlive = self.specialUnitsAlive - 1
         self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
       end)
+      callback(unit)
+      return unit
+    else
+      self.specialUnitsAlive = self.specialUnitsAlive - 1
+      self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] - 1
     end
   end
   -- it was easy to write, not sure if we need it though
   -- disable timeout for now
   -- self:specialUnitTimeout = 5
+
+  if not self.specialUnitsByType[unitName] then
+    self.specialUnitsByType[unitName] = 1
+  else
+    self.specialUnitsByType[unitName] = self.specialUnitsByType[unitName] + 1
+  end
+  self.specialUnitsAlive = self.specialUnitsAlive + 1
+
   if location then
     -- this unit is not bound to players
     -- probably based on a storyline objective
     local unit = CreateUnitByName(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS)
-    done(unit)
-    return
+    return done(unit)
   end
 
   HordeSpawner:BestPlayerForUnit(unitName):ScheduleUnitSpawn(unitName, done)
