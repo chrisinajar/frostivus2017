@@ -50,9 +50,12 @@ if IsServer() then
 		if event.attacker == parent then
 			local spell = self:GetAbility()
 			local target = event.target
-			
+
 			--if UnitFilter( target, DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor( DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_CREEP ), DOTA_UNIT_TARGET_FLAG_NONE, parent:GetTeamNumber() ) == UF_SUCCESS then
 				local mod = target:AddNewModifier( parent, spell, "modifier_felfrost", {} )
+        if not mod then
+          return
+        end
 				mod:IncrementStackCount()
 			--end
 		end

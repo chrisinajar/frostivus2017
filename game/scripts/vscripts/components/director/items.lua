@@ -58,7 +58,7 @@ ItemPowerTable = {
   --ACT 1, PART 2
   { "item_buckler",              3,      8,       3}, --avoid multiples
   { "item_void_stone",           3,      8,       1},
-  { "item_ring_of_health",       3,      8,       1}
+  { "item_ring_of_health",       3,      8,       1},
   { "item_ring_of_aquila",       3,      8,       3}, --avoid multiples
   { "item_helm_of_iron_will",    5,     11,       5}, --just because it's really good
   { "item_medallion_of_courage", 3,      8,       1},
