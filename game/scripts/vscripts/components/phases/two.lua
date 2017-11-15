@@ -40,10 +40,13 @@ function PhaseTwo:Prepare(callback)
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
+    -- Strong dispel buffs and debuffs
+    hero:Purge(true, true, false, true, true)
     FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
     hero:SetDayTimeVisionRange(600)
     hero:SetNightTimeVisionRange(600)
     hero:SetRespawnPosition(self.heroSpawnPos)
+    hero:RespawnHero(false, false)
   end
 
   self.PresentsToPickUp = NUMBER_PRESENTS_REQUIRED

@@ -31,8 +31,11 @@ function PhaseThree:Prepare(callback)
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
+    -- Strong dispel buffs and debuffs
+    hero:Purge(true, true, false, true, true)
     FindClearSpaceForUnit(hero, spawnPoint, true)
     hero:SetRespawnPosition(spawnPoint)
+    hero:RespawnHero(false, false)
   end
 
   local tankSpawn = Entities:FindAllByName("trigger_act_3_tank_spawn")
