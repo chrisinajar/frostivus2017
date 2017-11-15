@@ -57,10 +57,25 @@
         "var_type"                 "FIELD_FLOAT"
         "egg_self_stun_duration"   "10.0"
       }
-	  "03"
+	    "04"
       {
         "var_type"                  "FIELD_FLOAT"
         "egg_enemy_stun_duration"   "5"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_FLOAT"
+        "tick_interval"             "1"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "damage_per_tick"           "100"
+      }
+      "04"
+      {
+        "var_type"                  "FIELD_INTEGER"
+        "damage_radius"             "900"
       }
     }
   }

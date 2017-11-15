@@ -100,7 +100,21 @@ if IsServer() then
 	function modifier_evil_wisp_egg_egg:OnCreated()
 		self.internalHP = self:GetParent():GetMaxHealth()
 		self:SetStackCount(0)
+    
+    self.tick = self:GetSpecialValueFor("tick_interval")
+    self.damage_tick = self:GetSpecialValueFor("damage_per_tick")
+    self.damage_radius = self:GetSpecialValueFor("damage_radius")
+    
+    if IsServer() then self:StartIntervalThink(self.tick) end
 	end
+  
+  function modifier_evil_wisp_egg_egg:OnIntervalThink()
+    local caster = self:GetCaster()
+    local heroes = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), caster, self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
+		for _,hero in pairs( heroes ) do
+			ApplyDamage({victim = hero, attacker = self:GetCaster(), damage = self.damage_tick, ability = self:GetAbility(), damage_type = self:GetAbility:GetAbilityDamageType()})
+		end
+  end
 
 	function modifier_evil_wisp_egg_egg:OnDestroy()
 		self:GetParent():Kill(self:GetAbility(), self:GetCaster())
