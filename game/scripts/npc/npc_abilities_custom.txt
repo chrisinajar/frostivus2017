@@ -56,6 +56,9 @@
 #base "abilities/zuus_static_field.txt"
 #base "abilities/zuus_thundergods_wrath.txt"
 
+#base "abilities/tank_ground_slam.txt"
+#base "abilities/tank_earthquake.txt"
+
 "DOTAAbilities"
 {
 

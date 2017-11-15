@@ -1,0 +1,2 @@
+"DOTA_Tooltip_ability_tank_earthquake"								"Earthquake"
+"DOTA_Tooltip_ability_tank_earthquake_Description"					"Slams the earth with a slow, massive strike, stunning and damaging everyone in massive radius."
