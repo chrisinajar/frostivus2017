@@ -191,11 +191,17 @@ function PhaseTwo:Start(callback)
     if self.Cart.Handle:IsPositionInRange(self:GetCurrentWaypointTrigger():GetAbsOrigin(), (self.Cart.Handle.Speed or 0) + 100) then
       self:IncrementWaypointTriggerIndex()
       if self:IsRideDone() then
-        DebugPrint("All presents found, finishing up Phase 2")
+        DebugPrint("Path restarting")
+        self.Waypoints.currentIndex = RandomInt(1, 2)
+        self.Waypoints.currentOption = 1
+        self.Waypoints.currentStep = 1
+        --self:IncrementWaypointTriggerIndex()
+        print(PhaseTwo:IsRideDone())
+        self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
         -- FinishedEvent.broadcast({}) -- we're done
         -- lost the game
-        StorylineManager:Defeat("Failed to find the presents in time")
-        self:CleanUp()
+        --StorylineManager:Defeat("Failed to find the presents in time")
+        --self:CleanUp()
         return
       else
         DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
@@ -283,6 +289,11 @@ end
 
 function PhaseTwo:IncrementWaypointTriggerIndex()
   local wp = self.Waypoints
+  if wp.currentIndex == 4 then
+      self.Waypoints.currentIndex = RandomInt(0, 1)
+      self.Waypoints.currentOption = 1
+      self.Waypoints.currentStep = 1
+  end
   local nextStep = wp.Trigger[self:WaypointName(wp.currentIndex, wp.currentOption, wp.currentStep + 1)]
   if nextStep then
     self.Waypoints.currentStep = self.Waypoints.currentStep + 1
