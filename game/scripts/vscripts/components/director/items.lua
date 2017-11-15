@@ -32,15 +32,9 @@ local RARITY_ENUM = 4
 ItemPowerTable = {
   --NAME                        FROM    TO      RARITY
   --CONSUMABLES
-  { "item_tango_single",         0,      3,       1},
-  { "item_tango",                2,     10,       1},
-  { "item_clarity",              2,     10,       5},
-  { "item_flask",                2,     10,      10},
+  { "item_health_potion",        0,     -1,       1},
+  { "item_mana_potion",          0,     -1,       2},
   { "item_enchanted_mango",      0,     10,      10},
-  { "item_tango",               11,     20,       5},
-  { "item_clarity",             11,     20,      10},
-  { "item_flask",               11,     20,      15},
-  { "item_enchanted_mango",     11,     20,      15},
   --SUPER EARLY
   { "item_stout_shield",         0,      3,       7},
   { "item_gauntlets",            0,      3,       2},
