@@ -89,7 +89,6 @@
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
                 "Radius"             "200"
-                "MinimumTargets"     "1"
             }
         }
         "AttachWearables"
@@ -194,7 +193,6 @@
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
                 "Radius"             "200"
-                "MinimumTargets"     "1"
             }
         }
         "AttachWearables"
@@ -299,7 +297,6 @@
                 "Name"                "creep_siren_song"
                 "AOE"                "1"
                 "Radius"             "200"
-                "MinimumTargets"     "1"
             }
         }
         "AttachWearables"
