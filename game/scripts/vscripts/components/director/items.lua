@@ -49,8 +49,6 @@ ItemPowerTable = {
   --EARLY
   { "item_magic_wand",           2,      8,       3},
   { "item_ring_of_basilius",     2,      8,       3}, --avoid multiples
-  { "item_boots",                2,      4,       1},
-  { "item_boots",                5,      8,      10}, --each player only needs one
   { "item_wraith_band",          2,      8,       1},
   { "item_bracer",               2,      8,       1},
   { "item_null_talisman",        2,      8,       1},
@@ -63,14 +61,14 @@ ItemPowerTable = {
   { "item_robe",                 2,      8,       1},
   { "item_gloves",               2,      8,       1},
   --ADV EARLY
-  { "item_buckler",              5,       8,       3}, --avoid multiples
-  { "item_void_stone",           5,       8,       1},
-  { "item_ring_of_health",       5,       8,       1},
-  { "item_vitality_booster",     5,       8,       1},
-  { "item_energy_booster",       5,       8,       1},
-  { "item_point_booster",        5,       8,       1},
-  { "item_soul_ring",            5,       8,       1},
-  { "item_vitality_booster",     5,       8,       1},
+  { "item_buckler",              5,      8,       3}, --avoid multiples
+  { "item_void_stone",           5,      8,       1},
+  { "item_ring_of_health",       5,      8,       1},
+  { "item_vitality_booster",     5,      8,       1},
+  { "item_energy_booster",       5,      8,       1},
+  { "item_point_booster",        5,      8,       1},
+  { "item_soul_ring",            5,      8,       1},
+  { "item_vitality_booster",     5,      8,       1},
   { "item_ring_of_aquila",       5,      8,       3}, --avoid multiples
   { "item_helm_of_iron_will",    5,     10,       5}, --just because it's really good
   --SMALL
