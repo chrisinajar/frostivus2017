@@ -6,37 +6,27 @@
   	"item_present_for_search"
 	{
 		"ID" "2645"
-		"BaseClass" "item_datadriven"
+		"BaseClass" "item_lua"
+		"ScriptFile"                       "items/item_present_for_search.lua"
 		"ItemCost"			"0"
 		"ItemKillable"		"0"
 		"ItemSellable"		"0"
 		"ItemPurchasable"	"0"
-		"ItemDroppable"		"0"
+		"ItemDroppable"		"1"
 		"ItemStackable"		"1"
 		"ItemShareability"	"ITEM_FULLY_SHAREABLE_STACKING"
 		"AbilityTextureName" "item_present"
 		"ItemInitialCharges" "1"
 		"ItemPermanent" "0"
+		"AllowedInBackpack"		"0"
 
 		"Model"			"models/props_winter/present.vmdl"
 		"Effect" 		"particles/generic_gameplay/dropped_item.vpcf"
 		"ItemQuality"	"artifact"
 
-		"Modifiers"
-    	{
-	        "modifier_item_present"
-	        {
-	            "Passive"  "1"
-	            "IsHidden" "1"
-	            "Properties"
-	            {
-	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"
-	            }
-	            "States"
-	            {
-	            	//"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
-	            }
-	        }
-    	}
+		"AbilityCastRange" "400"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 	}
 }

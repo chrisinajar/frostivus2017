@@ -10,6 +10,8 @@
     "ID"                        "15123"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
     "BaseClass"                 "ability_lua"
     "Scriptfile"                "abilities/santa_act_two_flying.lua"
+
+    "AbilityTextureName"        "queenofpain_blink"
     "AbilityType"               "DOTA_ABILITY_TYPE_HIDDEN"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                  "1"

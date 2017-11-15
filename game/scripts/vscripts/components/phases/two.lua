@@ -47,7 +47,7 @@ function PhaseTwo:Prepare(callback)
   end
 
   self.PresentsToPickUp = NUMBER_PRESENTS_REQUIRED
-
+--[[
   GameEvents:OnItemPickedUp(function (keys)
     local player = PlayerResource:GetPlayer(keys.PlayerID)
     local itemname = keys.itemname
@@ -63,7 +63,19 @@ function PhaseTwo:Prepare(callback)
       end
     end
   end)
+]]
+end
 
+
+function PhaseTwo:PresentsTurnedIn(presNum)
+  self.PresentsToPickUp = self.PresentsToPickUp - presNum;
+  Quests:ModifyProgress(presNum)
+  print(presNum .. " presents turned in")
+  if self.PresentsToPickUp <= 0 then
+    DebugPrint("All presents found, finishing up Phase 2")
+    FinishedEvent.broadcast({}) -- we're done
+    self:CleanUp()
+  end
 end
 
 function PhaseTwo:Start(callback)
@@ -137,22 +149,32 @@ function PhaseTwo:Start(callback)
       0
     }
   }
-  local spawnPresentsNum = 0
-  while spawnPresentsNum < NUMBER_PRESENTS_SPAWNED do
+  DebugPrint("Creating " .. NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS .. " presents in camps")
+  local spawnGroupPresentsNum = 0
+  while spawnGroupPresentsNum < NUMBER_PRESENTS_PER_GROUP * math.min(NUMBER_GROUPS_OF_PRESENTS,14) do 
     local tospawnIt = math.random(14)
-    if self.CampLocation.presentIndex[tospawnIt] == 0 then
-      self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin())
-      self.CampLocation.presentIndex[tospawnIt] = 1
-      spawnPresentsNum = spawnPresentsNum + 1
-      DebugPrint('Creating a present')
+    local campRadius = 150
+    if self.CampLocation.presentIndex[tospawnIt] < NUMBER_PRESENTS_PER_GROUP then
+      for i=1,NUMBER_PRESENTS_PER_GROUP do
+        self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),campRadius)
+        self.CampLocation.presentIndex[tospawnIt] = self.CampLocation.presentIndex[tospawnIt] + 1
+        spawnGroupPresentsNum = spawnGroupPresentsNum + 1
+      end
     end
   end
-  --[[
-  for i = 1,#self.CampLocation.Trigger do
-    DebugPrint('Creating a present')
-    self:SpawnPresent(self.CampLocation.Trigger[i]:GetAbsOrigin())
+
+  DebugPrint("Creating " .. NUMBER_PRESENTS_SPAWNED - (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS) .. " scattered presents")
+  local spawnPresentsNum = 0
+  while spawnPresentsNum < NUMBER_PRESENTS_SPAWNED - (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS) do
+    local tospawnIt = math.random(14)
+    local campRadius = 1800
+    if self.CampLocation.presentIndex[tospawnIt] <= math.max(NUMBER_PRESENTS_PER_GROUP,math.ceil(NUMBER_PRESENTS_SPAWNED/14)) then
+      self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),campRadius)
+      self.CampLocation.presentIndex[tospawnIt] = self.CampLocation.presentIndex[tospawnIt] + 1
+      spawnPresentsNum = spawnPresentsNum + 1
+    end
   end
-  ]]
+
 
   self.Cart = self:SpawnCart()
 
@@ -218,7 +240,7 @@ function PhaseTwo:MakeWaypointTriggerMap(TriggerNames)
   return TriggerMap
 end
 
-function PhaseTwo:SpawnPresent(pos)
+function PhaseTwo:SpawnPresent(pos,campRadius)
   local newItem = CreateItem("item_present_for_search", nil, nil)--"item_present_for_search", nil, nil)
 
   if not newItem then
@@ -229,6 +251,7 @@ function PhaseTwo:SpawnPresent(pos)
   newItem.firstPickedUp = false
 
   CreateItemOnPositionSync(pos, newItem)
+  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, campRadius)))
   return
 end
 

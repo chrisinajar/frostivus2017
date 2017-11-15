@@ -94,6 +94,10 @@ function PhaseOne:Start(callback)
     if self.santa_sleigh and not self.santa_sleigh:IsNull() then
       self.santa_sleigh:Destroy()
     end
+    if self.rosh_sad and not self.rosh_sad:IsNull() then
+      self.rosh_sad:Destroy()
+    end
+    self.rosh_sad = nil
     self.santa_sleigh = nil
   end)
   Timers:CreateTimer(0, function()
