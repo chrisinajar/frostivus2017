@@ -15,7 +15,7 @@ function modifier_santa_sled_capturepoint:IsHidden()
 end
 
 function modifier_santa_sled_capturepoint:GetEffectName()
-  return "particle/indicators/big_green_circle.vpcf"
+  return "particles/santa/capture_circle.vpcf"
 end
 
 function modifier_santa_sled_capturepoint:GetEffectAttachType()

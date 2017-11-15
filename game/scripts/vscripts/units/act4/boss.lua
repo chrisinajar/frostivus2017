@@ -6,10 +6,10 @@ function Spawn (entityKeyValues) --luacheck: ignore Spawn
 end
 
 PhaseEnums = {
-	[1] = 100
-	[2] = 75
-	[3] = 50
-	[4] = 25
+	[1] = 100,
+	[2] = 75,
+	[3] = 50,
+	[4] = 25,
 }
 
 function Boss:Init(entity)
@@ -38,19 +38,19 @@ function Boss:Think()
     return
   end
   if self.entity:GetHealthPercent() < PhaseEnums[self.phase + 1] and self.phase < 3 then
-	Boss:GoToNexPhase()
+	self:GoToNexPhase()
   end
   if self.moonbeam:IsFullyCastable() then
-	Boss:MoonBeam()
+	self:MoonBeam()
   end
   if self.moonrain:IsFullyCastable() then
-	Boss:MoonRain()
+	self:MoonRain()
   end
   if self.omni:IsFullyCastable() then
-	Boss:OmniParty()
+	self:OmniParty()
   end
   if self.egg:IsFullyCastable() and self.phase >= 3 and self.entity:GetHealthPercent() < PhaseEnums[self.phase] then
-	Boss:Egg()
+	self:Egg()
   end
   return 1
 end
@@ -64,9 +64,9 @@ end
 
 function Boss:MoonBeam()
   ExecuteOrderFromTable({
-	UnitIndex = thisEntity:entindex(),
+	UnitIndex = self.entity:entindex(),
 	OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-	AbilityIndex = thisEntity.moonbeam:entindex()
+	AbilityIndex = self.moonbeam:entindex()
   })
   return self.moonbeam:GetCastPoint() + 0.1
 end
@@ -75,10 +75,10 @@ function Boss:MoonRain()
 	local target = self:NearestEnemyHeroInRange( 9999 )
 	if target then
 		ExecuteOrderFromTable({
-			UnitIndex = thisEntity:entindex(),
+			UnitIndex = self.entity:entindex(),
 			OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 			TargetIndex = target:entindex(),
-			AbilityIndex = thisEntity.thread:entindex()
+			AbilityIndex = self.moonrain:entindex()
 		})
 	end
   return self.moonrain:GetCastPoint() + 0.1
@@ -90,9 +90,9 @@ end
 
 function Boss:Egg()
    ExecuteOrderFromTable({
-	UnitIndex = thisEntity:entindex(),
+	UnitIndex = self.entity:entindex(),
 	OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-	AbilityIndex = thisEntity.egg:entindex()
+	AbilityIndex = self.egg:entindex()
   })
   return self.egg:GetCastPoint() + 0.1
 end
