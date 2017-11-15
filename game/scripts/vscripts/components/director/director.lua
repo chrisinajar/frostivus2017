@@ -166,7 +166,7 @@ function HordeDirector:StartBuildUp()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
     end
-    if RandomInt(1, 40) == 1 then
+    if RandomInt(1, 30) == 1 then
       self:SpawnSpecialUnit()
     end
     desiredStress = math.min(1, desiredStress + 0.01)
@@ -190,7 +190,7 @@ function HordeDirector:StartPeak()
     end
     self:SpawnSpecialUnit()
 
-    return RandomInt(5, 8)
+    return RandomInt(4, 7)
   end)
   Timers:CreateTimer(PEAK_TIME, function()
     -- end peak on a timer
