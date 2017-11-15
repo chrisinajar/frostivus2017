@@ -114,8 +114,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "60"    // Damage range min.
-    "AttackDamageMax"           "80"    // Damage range max.
+    "AttackDamageMin"           "300"    // Damage range min.
+    "AttackDamageMax"           "400"    // Damage range max.
     "AttackRate"                "2.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
@@ -155,7 +155,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "400"   // Base health.
+    "StatusHealth"              "1000"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
@@ -200,8 +200,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "60"    // Damage range min.
-    "AttackDamageMax"           "80"    // Damage range max.
+    "AttackDamageMin"           "1000"    // Damage range min.
+    "AttackDamageMax"           "1200"    // Damage range max.
     "AttackRate"                "2.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
@@ -241,7 +241,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "400"   // Base health.
+    "StatusHealth"              "1500"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.

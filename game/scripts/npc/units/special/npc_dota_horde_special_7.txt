@@ -134,12 +134,12 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"           "15"    // Damage range min.
-    "AttackDamageMax"           "20"    // Damage range max.
+    "AttackDamageMin"           "150"    // Damage range min.
+    "AttackDamageMax"           "200"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
-    "AttackRange"               "2000"   // Range within a target can be attacked.
+    "AttackRange"               "1500"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -161,7 +161,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "250"   // Base health.
+    "StatusHealth"              "1000"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "120"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
@@ -240,12 +240,12 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
-    "AttackDamageMin"           "15"    // Damage range min.
-    "AttackDamageMax"           "20"    // Damage range max.
+    "AttackDamageMin"           "450"    // Damage range min.
+    "AttackDamageMax"           "500"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
-    "AttackRange"               "2000"   // Range within a target can be attacked.
+    "AttackRange"               "1500"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -267,7 +267,7 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "250"   // Base health.
+    "StatusHealth"              "1500"   // Base health.
     "StatusHealthRegen"         "0"   // Health regeneration rate.
     "StatusMana"                "120"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
