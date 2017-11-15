@@ -107,6 +107,18 @@ function StorylineManager:Next()
     return
   end
     -- HordeDirector:Resume()
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not hero then
+        return
+      end
+      if not hero:IsAlive() then
+        hero:RespawnHero(false, false)
+      end
+      hero:Purge(false, true, false, true, true)
+      hero:SetHealth(hero:GetMaxHealth())
+      hero:SetMana(hero:GetMaxMana())
+    end)
     state.phase:Start(function()
       Timers:CreateTimer(1, function()
         self:Next()
