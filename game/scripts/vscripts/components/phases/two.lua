@@ -23,7 +23,16 @@ local FinishedEvent = Event()
 
 Debug.EnabledModules['phases:two'] = true
 
-function PhaseTwo:Prepare(callback)
+function PhaseTwo:GetSpawnPoint()
+  if not self.heroSpawnPos then
+    local spawnPoint = Entities:FindByName(nil, "trigger_act_2_santa")
+    assert(spawnPoint, "Failed to find player spawn point for act 2")
+    self.heroSpawnPos = spawnPoint:GetAbsOrigin()
+  end
+  return self.heroSpawnPos
+end
+
+function PhaseTwo:Prepare()
   local allPlayers = {}
   local function addToList (list, id)
     list[id] = true
@@ -31,20 +40,13 @@ function PhaseTwo:Prepare(callback)
   each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
 
   self.playerList = allPlayers
-  local spawnPoint = Entities:FindAllByName("trigger_act_2_santa")
-  if #spawnPoint < 1 then
-    error("Failed to find player spawn point for act 2")
-  end
+  self.SpawnPosition = self:GetSpawnPoint()
 
-  self.heroSpawnPos = spawnPoint[1]:GetAbsOrigin()
-  self.SpawnPosition = self.heroSpawnPos
   for playerId,_ in pairs(allPlayers) do
     local hero = PlayerResource:GetSelectedHeroEntity(playerId)
     if not hero then
       error("Could not find hero for player " .. playerId)
     end
-    FindClearSpaceForUnit(hero, self.heroSpawnPos, true)
-    hero:SetRespawnPosition(self.heroSpawnPos)
     hero:AddNewModifier(hero, nil, "modifier_forest_fog", {})
   end
 
@@ -61,7 +63,6 @@ function PhaseTwo:Prepare(callback)
       if self.PresentsToPickUp <= 0 then
         DebugPrint("All presents found, finishing up Phase 2")
         FinishedEvent.broadcast({}) -- we're done
-        self:CleanUp()
       end
     end
   end)
@@ -76,7 +77,6 @@ function PhaseTwo:PresentsTurnedIn(presNum)
   if self.PresentsToPickUp <= 0 then
     DebugPrint("All presents found, finishing up Phase 2")
     FinishedEvent.broadcast({}) -- we're done
-    self:CleanUp()
   end
 end
 
@@ -85,32 +85,18 @@ function PhaseTwo:Start(callback)
     nextAct = 2,
     maxProgress = NUMBER_PRESENTS_REQUIRED
   })
-  FinishedEvent.once(callback)
+  FinishedEvent.once(function()
+    self:CleanUp()
+    callback({})
+  end)
+
   self.isRunning = true
   DebugPrint("Starting Phase 2: Present Search")
   -- phase Two uses the director
   HordeDirector:Resume()
 
   self.Waypoints = {
-    Trigger = self:MakeWaypointTriggerMap({
-      "trigger_act_2_santa",
-      "trigger_act_2_path_1_1_1",
-      "trigger_act_2_path_1_1_2",
-      "trigger_act_2_path_1_2_1",
-      "trigger_act_2_path_1_2_2",
-      "trigger_act_2_path_2_1_1",
-      "trigger_act_2_path_2_1_2",
-      "trigger_act_2_path_2_1_3",
-      "trigger_act_2_path_2_2_1",
-      "trigger_act_2_path_2_2_2",
-      "trigger_act_2_path_3_1_1",
-      "trigger_act_2_path_3_1_2",
-      "trigger_act_2_path_3_2_1",
-      "trigger_act_2_path_3_2_2",
-      "trigger_act_2_path_3_2_3",
-      "trigger_act_2_path_4_1_1",
-      "trigger_act_2_path_4_1_2"
-    }),
+    Trigger = self:MakePathTriggerMap("trigger_act_2_santa"),
     currentIndexName = "trigger_act_2_santa",
     currentIndex = 0,
     currentOption = 1,
@@ -134,25 +120,12 @@ function PhaseTwo:Start(callback)
       "trigger_act_2_camp_12",
       "trigger_act_2_camp_13"
     }),
-    presentIndex = {
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
+    campSpawns = {
+      start = true
     }
   }
 
-  self.CreepCampUnitGuide = 
+  self.CreepCampUnitGuide =
   {
     {
       "npc_dota_neutral_satyr_big",
@@ -170,48 +143,30 @@ function PhaseTwo:Start(callback)
       "npc_dota_neutral_centaur_small"
     }
   }
-  self.CreepCampUnits = {hUnits = {}, hNumber = 0}
 
-  DebugPrint("Creating " .. NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS .. " presents in camps")
-  local spawnGroupPresentsNum = 0
-  while spawnGroupPresentsNum < NUMBER_PRESENTS_PER_GROUP * math.min(NUMBER_GROUPS_OF_PRESENTS,14) do
-    local tospawnIt = math.random(14)
-    local campRadius = 150
-    if self.CampLocation.presentIndex[tospawnIt] < NUMBER_PRESENTS_PER_GROUP then
-      --Spawn Guarding Creeps
-        local creepIndex = math.random(3)
-        local creep1 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][1], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
-        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
-        local creep2 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][2], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
-        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
-        local creep3 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][3], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
-        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
-        self.CreepCampUnits.hNumber = self.CreepCampUnits.hNumber + 3
-        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-2] = creep1
-        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-1] = creep2
-        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-0] = creep3
-
-      --Spawn Presents
-      for i=1,NUMBER_PRESENTS_PER_GROUP do
-        self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),campRadius)
-        self.CampLocation.presentIndex[tospawnIt] = self.CampLocation.presentIndex[tospawnIt] + 1
-        spawnGroupPresentsNum = spawnGroupPresentsNum + 1
-      end
+  assert(#self.CampLocation.Trigger >= NUMBER_GROUPS_OF_PRESENTS, 'Not enough camps to spawn that many creeps for act 2')
+  for i= 1,NUMBER_GROUPS_OF_PRESENTS do
+    local wpIndex = 'start'
+    while self.CampLocation.campSpawns[wpIndex] do
+      wpIndex = RandomInt(1, #self.CampLocation.Trigger)
     end
+    self.CampLocation.campSpawns[wpIndex] = true
+    PhaseTwo:SpawnCreepCamp(self.CampLocation.Trigger[wpIndex]:GetAbsOrigin())
   end
 
-  DebugPrint("Creating " .. NUMBER_PRESENTS_SPAWNED - (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS) .. " scattered presents")
-  local spawnPresentsNum = 0
-  while spawnPresentsNum < NUMBER_PRESENTS_SPAWNED - (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS) do
-    local tospawnIt = math.random(14)
-    local campRadius = 1800
-    if self.CampLocation.presentIndex[tospawnIt] <= math.max(NUMBER_PRESENTS_PER_GROUP,math.ceil(NUMBER_PRESENTS_SPAWNED/14)) then
-      self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),campRadius)
-      self.CampLocation.presentIndex[tospawnIt] = self.CampLocation.presentIndex[tospawnIt] + 1
-      spawnPresentsNum = spawnPresentsNum + 1
-    end
-  end
+  -- local forestZone =
+  DebugPrint("Creating " .. NUMBER_PRESENTS_SPAWNED .. " scattered presents")
+  local totalZone = Entities:FindByName(nil, "trigger_act_2_zone")
+  local zoneOrigin = totalZone:GetAbsOrigin()
+  local minsMaxs = totalZone:GetBounds()
 
+  DebugPrintTable(minsMaxs)
+  DebugPrint(tostring(zoneOrigin))
+  for i = 1,NUMBER_PRESENTS_SPAWNED do
+    local location = Vector(RandomFloat(minsMaxs.Mins.x, minsMaxs.Maxs.x) + zoneOrigin.x, RandomFloat(minsMaxs.Mins.y, minsMaxs.Maxs.y) + zoneOrigin.y, 1028)
+    DebugPrint('Spawning a present at ' .. tostring(location))
+    self:SpawnPresent(location, 600)
+  end
 
   self.Cart = self:SpawnCart()
 
@@ -244,6 +199,42 @@ function PhaseTwo:Start(callback)
   end)
 end
 
+function PhaseTwo:SpawnCreepCamp(location)
+  local creepIndex = math.random(3)
+  local creep1 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][1], location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+  FindClearSpaceForUnit(creep1,location,true)
+  local creep2 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][2], location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+  FindClearSpaceForUnit(creep1,location,true)
+  local creep3 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][3], location, false, nil, nil, DOTA_TEAM_NEUTRALS)
+  FindClearSpaceForUnit(creep1,location,true)
+
+  local function destroyCreeps()
+    if not creep1:IsNull() then
+      creep1:Destroy()
+    end
+    if not creep2:IsNull() then
+      creep2:Destroy()
+    end
+    if not creep3:IsNull() then
+      creep3:Destroy()
+    end
+  end
+  local function finished()
+    for i = 1,NUMBER_PRESENTS_PER_GROUP do
+      self:SpawnPresent(location, 600)
+    end
+    -- async destroy so other death handlers can work
+    Timers:CreateTimer(1, destroyCreeps)
+  end
+
+  local done = after(3, finished)
+  creep1:OnDeath(done)
+  creep2:OnDeath(done)
+  creep3:OnDeath(done)
+
+  FinishedEvent.once(destroyCreeps)
+end
+
 function PhaseTwo:AddDebugOverlayEntry (name, display, value)
   DebugOverlay:AddEntry("Phase_forest", {
     Name = "Phase_forest" .. name,
@@ -254,6 +245,44 @@ end
 
 function PhaseTwo:UpdateDebugOverlayEntry(name, value)
   DebugOverlay:Update("Phase_forest" .. name, { Value = value })
+end
+
+function PhaseTwo:MakePathTriggerMap(startLocation)
+  local TriggerMap = {}
+  TriggerMap[startLocation] = Entities:FindByName(nil, startLocation)
+  assert(TriggerMap[startLocation], "Couldn't find a Trigger with Name '" .. startLocation .. "'")
+  local index = 1
+  local option = 1
+  local step = 0
+  local running = true
+  while running do
+    -- step
+    step = step + 1
+    local waypointName = self:WaypointName(index, option, step)
+    TriggerMap[waypointName] = Entities:FindByName(nil, waypointName)
+    -- option
+    if not TriggerMap[waypointName] then
+      step = 1
+      option = option + 1
+      waypointName = self:WaypointName(index, option, step)
+      TriggerMap[waypointName] = Entities:FindByName(nil, waypointName)
+    end
+    -- index
+    if not TriggerMap[waypointName] then
+      step = 1
+      option = 1
+      index = index + 1
+      waypointName = self:WaypointName(index, option, step)
+      TriggerMap[waypointName] = Entities:FindByName(nil, waypointName)
+    end
+    if not TriggerMap[waypointName] then
+      running = false
+    else
+      DebugPrint('Adding act 2 waypoint: ' .. waypointName)
+    end
+  end
+
+  return TriggerMap
 end
 
 function PhaseTwo:MakeWaypointTriggerList(TriggerNames)
@@ -276,7 +305,7 @@ function PhaseTwo:MakeWaypointTriggerMap(TriggerNames)
   return TriggerMap
 end
 
-function PhaseTwo:SpawnPresent(pos,campRadius)
+function PhaseTwo:SpawnPresent(pos, campRadius)
   local newItem = CreateItem("item_present_for_search", nil, nil)--"item_present_for_search", nil, nil)
 
   if not newItem then
@@ -287,7 +316,7 @@ function PhaseTwo:SpawnPresent(pos,campRadius)
   newItem.firstPickedUp = false
 
   CreateItemOnPositionSync(pos, newItem)
-  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(50, campRadius)))
+  newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(campRadius/3, campRadius)))
   return
 end
 
@@ -295,6 +324,7 @@ function PhaseTwo:SpawnCart()
   local santa = CreateUnitByName("npc_dota_search_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
   assert(santa, "Failed to spawn santa")
   santa:AddNewModifier(santa, nil, "modifier_act2_auto_present", {})
+  santa.Speed = santa:GetBaseMoveSpeed()
   local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   assert(projectileTarget, "Failed to spawn ProjectileTarget")
   santa.ProjectileTarget = projectileTarget
@@ -364,13 +394,6 @@ function PhaseTwo:CleanUp()
     end
   end
 
-  for i,hand in ipairs(self.CreepCampUnits.hUnits) do
-    if not hand:IsNull() then
-      hand:Destroy()
-    end
-    self.CreepCampUnits.hUnits[i] = nil
-  end
-  self.CreepCampUnits.hNumber = 0
   if not self.Cart.Handle:IsNull() then
     self.Cart.Handle:Destroy()
   end

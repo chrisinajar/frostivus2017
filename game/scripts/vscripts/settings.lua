@@ -19,12 +19,13 @@ ITEM_DESPAWN_TIME = 60
 REPAIR_UNITS_REQUIRED = 100
 
 -- act 2
-NUMBER_PRESENTS_REQUIRED = 20
-NUMBER_PRESENTS_SPAWNED = 40
-NUMBER_PRESENTS_PER_GROUP = 5
-NUMBER_GROUPS_OF_PRESENTS = 5 --Cannot be greater than 14
---Total presents is Presents Spawned, with Presents/Group * Groups the number of presents in camps, with the rest scattered
+NUMBER_PRESENTS_REQUIRED = 40
+NUMBER_PRESENTS_SPAWNED = 60 -- presents scattered around
+NUMBER_PRESENTS_PER_GROUP = 5 -- Number of presents to drop per camp
+NUMBER_GROUPS_OF_PRESENTS = 7 -- Number of creep camps to create
 
+AUTO_PRESENT_RADIUS = 500 -- radius around roshan in which presents are auto-deposited
+-- total presents = NUMBER_PRESENTS_SPAWNED + (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS)
 ------------------------------------------------
 
 PREGAME_TIME = 10

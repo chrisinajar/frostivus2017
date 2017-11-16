@@ -105,21 +105,20 @@ function StorylineManager:Next()
   })
 
   local function startPhase (data)
-  if self.gameIsOver then
-    return
-  end
-    -- HordeDirector:Resume()
+    if self.gameIsOver then
+      return
+    end
+
     PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
       local hero = PlayerResource:GetSelectedHeroEntity(playerId)
       if not hero then
         return
       end
       hero:RemoveModifierByName("modifier_cinematic_freeze")
-      hero:Purge(false, true, false, true, true)
-      hero:SetHealth(hero:GetMaxHealth())
-      hero:SetMana(hero:GetMaxMana())
+      PlayerResource:SetCameraTarget(playerId, nil)
     end)
     state.phase:Start(function()
+      -- looks nice
       Timers:CreateTimer(1, function()
         self:Next()
       end)
@@ -128,6 +127,24 @@ function StorylineManager:Next()
 
   local function showComicAndStart ()
     self:ShowComic(state.comic, startPhase)
+
+    PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+      local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+      if not hero then
+        return
+      end
+      hero:AddNewModifier(hero, nil, "modifier_cinematic_freeze", {})
+      hero:Purge(false, true, false, true, true)
+      hero:SetHealth(hero:GetMaxHealth())
+      hero:SetMana(hero:GetMaxMana())
+    end)
+
+    if state.phase.GetSpawnPoint then
+      self:SpawnHerosForAct(state.phase:GetSpawnPoint())
+    end
+    if state.phase.Prepare then
+      state.phase:Prepare()
+    end
   end
   HordeDirector:Pause()
 
@@ -140,14 +157,23 @@ function StorylineManager:Next()
       hero:RespawnHero(false, false)
     end
     hero:AddNewModifier(hero, nil, "modifier_cinematic_freeze", {})
+    hero:Purge(false, true, false, true, true)
+    hero:SetHealth(hero:GetMaxHealth())
+    hero:SetMana(hero:GetMaxMana())
   end)
 
-  if state.phase.Prepare then
-    Timers:CreateTimer(1, function()
-      state.phase:Prepare()
-      showComicAndStart()
-    end)
-  else
-    showComicAndStart()
-  end
+  showComicAndStart()
+end
+
+function StorylineManager:SpawnHerosForAct(location)
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      return
+    end
+
+    FindClearSpaceForUnit(hero, location + RandomVector(RandomInt(200, 300)), true)
+    hero:SetRespawnPosition(location)
+    PlayerResource:SetCameraTarget(playerId, hero)
+  end)
 end

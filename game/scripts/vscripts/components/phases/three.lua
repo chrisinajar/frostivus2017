@@ -15,26 +15,16 @@ PhaseThree = PhaseThree or {}
 local FinishedEvent = Event()
 Debug.EnabledModules['phases:three'] = true
 
-function PhaseThree:Prepare(callback)
-  local allPlayers = {}
-  local function addToList (list, id)
-    list[id] = true
+function PhaseThree:GetSpawnPoint()
+  if not self.heroSpawnPos then
+    local spawnPoint = Entities:FindByName(nil, "trigger_act_3_path_0")
+    assert(spawnPoint, "Failed to find player spawn point for act 3")
+    self.heroSpawnPos = spawnPoint:GetAbsOrigin()
   end
-  each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
-  local spawnPoint = Entities:FindAllByName("trigger_act_3_path_0")
-  if #spawnPoint < 1 then
-    error("Failed to find player spawn point for act 3")
-  end
-  spawnPoint = spawnPoint[1]:GetAbsOrigin()
-  for playerId,_ in pairs(allPlayers) do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-    if not hero then
-      error("Could not find hero for player " .. playerId)
-    end
-    FindClearSpaceForUnit(hero, spawnPoint, true)
-    hero:SetRespawnPosition(spawnPoint)
-  end
+  return self.heroSpawnPos
+end
 
+function PhaseThree:Prepare()
   local tankSpawn = Entities:FindAllByName("trigger_act_3_tank_spawn")
   if #tankSpawn < 1 then
     error("Failed to find tank spawn for act 3")

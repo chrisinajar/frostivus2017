@@ -27,7 +27,7 @@ function modifier_act2_auto_present:GetAuraSearchTeam()
 end
 
 function modifier_act2_auto_present:GetAuraRadius()
-  return 1000
+  return AUTO_PRESENT_RADIUS
 end
 
 function modifier_act2_auto_present:GetModifierAura()

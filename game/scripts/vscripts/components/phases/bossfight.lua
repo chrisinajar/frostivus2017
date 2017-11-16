@@ -4,6 +4,15 @@ BossFight = BossFight or {}
 
 local FinishedEvent = Event()
 
+function BossFight:GetSpawnPoint()
+  if not self.heroSpawnPos then
+    local spawnPoint = Entities:FindByName(nil, "trigger_act_4_santa")
+    assert(spawnPoint, "Failed to find player spawn point for act 4")
+    self.heroSpawnPos = spawnPoint:GetAbsOrigin()
+  end
+  return self.heroSpawnPos
+end
+
 function BossFight:Prepare()
   DebugPrint('Preparing for boss fight...')
   local allPlayers = {}
@@ -11,20 +20,6 @@ function BossFight:Prepare()
     list[id] = true
   end
   each(partial(addToList, allPlayers), PlayerResource:GetAllTeamPlayerIDs())
-
-  local spawnPoint = Entities:FindAllByName("trigger_act_4_santa")
-  if #spawnPoint < 1 then
-    error("Failed to find player spawn point for boss fight")
-  end
-  spawnPoint = spawnPoint[1]:GetAbsOrigin()
-  for playerId,_ in pairs(allPlayers) do
-    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
-    if not hero then
-      error("Could not find her for player " .. playerId)
-    end
-    FindClearSpaceForUnit(hero, spawnPoint, true)
-    hero:SetRespawnPosition(spawnPoint)
-  end
 
   self.zone = ZoneControl:CreateZone("trigger_act_4_zone", {
     mode = ZONE_CONTROL_EXCLUSIVE_IN,
