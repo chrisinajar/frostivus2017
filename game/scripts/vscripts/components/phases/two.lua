@@ -151,12 +151,47 @@ function PhaseTwo:Start(callback)
       0
     }
   }
+
+  self.CreepCampUnitGuide = 
+  {
+    {
+      "npc_dota_neutral_satyr_big",
+      "npc_dota_neutral_satyr_medium",
+      "npc_dota_neutral_satyr_small"
+    },
+    {
+      "npc_dota_neutral_ogre_blue",
+      "npc_dota_neutral_ogre_red",
+      "npc_dota_neutral_ogre_red"
+    },
+    {
+      "npc_dota_neutral_centaur_big",
+      "npc_dota_neutral_centaur_small",
+      "npc_dota_neutral_centaur_small"
+    }
+  }
+  self.CreepCampUnits = {hUnits = {}, hNumber = 0}
+
   DebugPrint("Creating " .. NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS .. " presents in camps")
   local spawnGroupPresentsNum = 0
   while spawnGroupPresentsNum < NUMBER_PRESENTS_PER_GROUP * math.min(NUMBER_GROUPS_OF_PRESENTS,14) do
     local tospawnIt = math.random(14)
     local campRadius = 150
     if self.CampLocation.presentIndex[tospawnIt] < NUMBER_PRESENTS_PER_GROUP then
+      --Spawn Guarding Creeps
+        local creepIndex = math.random(3)
+        local creep1 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][1], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
+        local creep2 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][2], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
+        local creep3 = CreateUnitByName(self.CreepCampUnitGuide[creepIndex][3], self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(), false, nil, nil, DOTA_TEAM_NEUTRALS)
+        FindClearSpaceForUnit(creep1,self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),true)
+        self.CreepCampUnits.hNumber = self.CreepCampUnits.hNumber + 3
+        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-2] = creep1
+        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-1] = creep2
+        self.CreepCampUnits.hUnits[self.CreepCampUnits.hNumber-0] = creep3
+
+      --Spawn Presents
       for i=1,NUMBER_PRESENTS_PER_GROUP do
         self:SpawnPresent(self.CampLocation.Trigger[tospawnIt]:GetAbsOrigin(),campRadius)
         self.CampLocation.presentIndex[tospawnIt] = self.CampLocation.presentIndex[tospawnIt] + 1
@@ -329,6 +364,13 @@ function PhaseTwo:CleanUp()
     end
   end
 
+  for i,hand in ipairs(self.CreepCampUnits.hUnits) do
+    if not hand:IsNull() then
+      hand:Destroy()
+    end
+    self.CreepCampUnits.hUnits[i] = nil
+  end
+  self.CreepCampUnits.hNumber = 0
   if not self.Cart.Handle:IsNull() then
     self.Cart.Handle:Destroy()
   end
