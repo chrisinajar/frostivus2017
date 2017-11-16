@@ -9,6 +9,7 @@
     //----------------------------------------------------------------
     "Model"                     "models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
+	"vscripts"					"units/tank"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "2.0"
@@ -16,8 +17,8 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  ""      // Ability 1
-    "Ability2"                  ""      // Ability 2
+    "Ability1"                  "tank_ground_slam"      // Ability 1
+    "Ability2"                  "tank_earthquake"      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
 
