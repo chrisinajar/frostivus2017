@@ -10,9 +10,9 @@
 		"BaseClass"						"ability_lua"
 		"AbilityTextureName"			"earthshaker_aftershock"
 		"ScriptFile"					"abilities/tank_ground_slam"
-
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
@@ -29,6 +29,7 @@
 			"particle"					"particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
 			"particle"					"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 		}
+
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

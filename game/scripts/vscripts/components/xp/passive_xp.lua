@@ -18,7 +18,7 @@ end
 
 function PassiveXP:EverySecond()
   local allHeroes = map(partial(PlayerResource.GetSelectedHeroEntity, PlayerResource), PlayerResource:GetAllTeamPlayerIDs())
-  local xpps = (1.0/600.0) * ((45.0 * self.minute*self.minute) + (67.0 * self.minute) + 2450.0)
+  local xpps = (1.0/600.0) * ((33.0 * self.minute*self.minute) + (523.0 * self.minute) + 3456.0)
 
   allHeroes:each(function (hero)
     if hero:IsNull() or hero:GetLevel() >=25 then

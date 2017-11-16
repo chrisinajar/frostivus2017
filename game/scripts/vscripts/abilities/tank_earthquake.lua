@@ -37,4 +37,5 @@ function tank_earthquake:OnSpellStart()
 	ParticleManager:SetParticleControl(stunFX, 1, Vector(radius,0,0))
 	ParticleManager:ReleaseParticleIndex( stunFX )
 	EmitSoundOnLocationWithCaster(position, "n_creep_Ursa.Clap", caster)
+
 end
