@@ -5,11 +5,9 @@
 
 function OnTableChange(arg) {
   var comicData = CustomNetTables.GetTableValue("comics", "state");
-
   if (!comicData) {
     return;
   }
-
   UpdateComic(comicData);
 }
 
@@ -19,6 +17,7 @@ function UpdateComic(comicData) {
     return;
   }
   $("#ComicBookOverlay").SetHasClass('Shown', true);
+  $("#SkipPanel").style.visibility = !comicData.isSplashing ? 'visible' : 'collapse';
   // $("#ComicBookOverlay").style.backgroundImage = 'file://{images}/custom_game/comics/' + comicData.image + '.png';
   // act1_1.png
   $("#ComicBookOverlay").Children().forEach(function (comicImage) {
@@ -30,5 +29,11 @@ function UpdateComic(comicData) {
     comicImage.SetScaling('stretch-to-fit-preserve-aspect')
   });
 
-  $.Msg(comicData);
+  $("#SkipVoteLabel").text = comicData.votes + '/' + comicData.maxVotes;
+}
+
+function VoteToSkip () {
+  GameEvents.SendCustomGameEventToServer('vote_skip', {
+    playerId: Players.GetLocalPlayer(),
+  });
 }

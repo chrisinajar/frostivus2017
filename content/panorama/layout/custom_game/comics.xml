@@ -15,9 +15,10 @@
       <Image class="Comic act2_1" src="file://{images}/custom_game/comics/act2_1.png" />
       <Image class="Comic act3_1" src="file://{images}/custom_game/comics/act3_1.png" />
       <Image class="Comic act4_1" src="file://{images}/custom_game/comics/act4_1.png" />
-      <Panel class="SkipPanel">
+      <Panel id="SkipPanel">
         <Button id="SkipButton" onactivate="VoteToSkip()">
-          <Label text="Skip" />
+          <Label class="SkipHeader" text="Skip" />
+          <Label id="SkipVoteLabel" text="0/5" />
         </Button>
       </Panel>
     </Panel>

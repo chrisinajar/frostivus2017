@@ -1,4 +1,4 @@
-LinkLuaModifier('modifier_cinemetic_freeze', 'modifiers/modifier_cinemetic_freeze', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier('modifier_cinematic_freeze', 'modifiers/modifier_cinematic_freeze.lua', LUA_MODIFIER_MOTION_NONE)
 
 StorylineManager = StorylineManager or class({})
 
@@ -114,7 +114,7 @@ function StorylineManager:Next()
       if not hero then
         return
       end
-      hero:RemoveModifierByName("modifier_cinemetic_freeze")
+      hero:RemoveModifierByName("modifier_cinematic_freeze")
       hero:Purge(false, true, false, true, true)
       hero:SetHealth(hero:GetMaxHealth())
       hero:SetMana(hero:GetMaxMana())
@@ -139,7 +139,7 @@ function StorylineManager:Next()
     if not hero:IsAlive() then
       hero:RespawnHero(false, false)
     end
-    hero:AddNewModifier(hero, nil, "modifier_cinemetic_freeze", {})
+    hero:AddNewModifier(hero, nil, "modifier_cinematic_freeze", {})
   end)
 
   if state.phase.Prepare then
