@@ -200,7 +200,7 @@ function PhaseThree:IncrementWaypointTriggerIndex()
 
   if self.Waypoints.currentIndex == self.Waypoints.tankIndex and not self.Waypoints.tankSpawned then
     self.Waypoints.tankSpawned = true
-    self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.tankSpawn)
+    self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn)
     self.Cart.Handle.IsStopped = true
     self.tankUnit:OnDeath(function ()
       self.Waypoints.tankDied = true
