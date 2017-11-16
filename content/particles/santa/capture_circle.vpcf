@@ -60,9 +60,6 @@
 		{
 			m_ChildRef = resource:"particles/santa/capture_circle_c.vpcf"
 		},
-		{
-			m_ChildRef = resource:"particles/santa/capture_circle_ring.vpcf"
-		},
 	]
 	m_controlPointConfigurations = 
 	[
