@@ -1,0 +1,49 @@
+.ComicBookWrapper {
+  height: 100%;
+  width: 100%;
+}
+#ComicBookOverlay {
+  height: 100%;
+  width: 100%;
+  transition-property: transform;
+  transition-duration: 0.5s;
+  transform: translate3d(0, -110%, 1500px);
+  background-color: #dbdbdb;
+}
+#ComicBookOverlay.Shown {
+  transform: translate3d(0, 0%, 0);
+}
+.Comic {
+  horizontal-align: center;
+  height: 100%;
+  width: 70%;
+  visibility: collapse;
+}
+#SkipPanel {
+  visibility: collapse;
+  horizontal-align: right;
+  vertical-align: bottom;
+  margin-bottom: 300px;
+  height: 60px;
+  width: 100px;
+  padding-right: 20px;
+}
+#SkipButton {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  horizontal-align: right;
+}
+#SkipButton Label {
+  horizontal-align: right;
+  text-align: right;
+  color: black;
+}
+#SkipButton Label.SkipHeader {
+  font-size: 28px;
+}
+#SkipVoteLabel {
+  width: 100%;
+  font-size: 16px;
+  color: black;
+}

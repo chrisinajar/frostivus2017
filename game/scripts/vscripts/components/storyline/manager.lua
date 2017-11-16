@@ -1,3 +1,5 @@
+LinkLuaModifier('modifier_cinematic_freeze', 'modifiers/modifier_cinematic_freeze.lua', LUA_MODIFIER_MOTION_NONE)
+
 StorylineManager = StorylineManager or class({})
 
 Debug.EnabledModules['storyline:manager'] = true
@@ -112,9 +114,7 @@ function StorylineManager:Next()
       if not hero then
         return
       end
-      if not hero:IsAlive() then
-        hero:RespawnHero(false, false)
-      end
+      hero:RemoveModifierByName("modifier_cinematic_freeze")
       hero:Purge(false, true, false, true, true)
       hero:SetHealth(hero:GetMaxHealth())
       hero:SetMana(hero:GetMaxMana())
@@ -127,9 +127,20 @@ function StorylineManager:Next()
   end
 
   local function showComicAndStart ()
-    HordeDirector:Pause()
     self:ShowComic(state.comic, startPhase)
   end
+  HordeDirector:Pause()
+
+  PlayerResource:GetAllTeamPlayerIDs():each(function(playerId)
+    local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+    if not hero then
+      return
+    end
+    if not hero:IsAlive() then
+      hero:RespawnHero(false, false)
+    end
+    hero:AddNewModifier(hero, nil, "modifier_cinematic_freeze", {})
+  end)
 
   if state.phase.Prepare then
     Timers:CreateTimer(1, function()
