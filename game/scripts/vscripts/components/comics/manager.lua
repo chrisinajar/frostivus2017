@@ -5,6 +5,7 @@ ComicManager = ComicManager or class({})
 function ComicManager:Init()
   self.votes = {}
   self.state = {}
+  self.isSplashing = true
   self:ShowSlide('splash')
   self:VoteSkip()
   CustomGameEventManager:RegisterListener("vote_skip", function (num, keys)
@@ -16,10 +17,9 @@ end
 
 function ComicManager:Show(comicData, callback)
   if not self.hasSplashed then
-    self.isSplashing = true
     self:ShowSlide('splash')
     self.hasSplashed = true
-    Timers:CreateTimer(3, function()
+    Timers:CreateTimer(2, function()
       self.isSplashing = false
       self:Show(comicData, callback)
     end)
@@ -46,9 +46,6 @@ function ComicManager:Show(comicData, callback)
 end
 
 function ComicManager:VoteSkip(keys)
-  if self.isSplashing then
-    return
-  end
   if keys then
     self.votes[keys.playerId] = true
   end
@@ -66,7 +63,7 @@ function ComicManager:VoteSkip(keys)
 
   self:UpdateState()
 
-  if totalVotes == totalPlayers then
+  if totalVotes == totalPlayers and not self.isSplashing then
     self:EndComic()
   end
 end

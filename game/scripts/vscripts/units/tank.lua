@@ -8,12 +8,12 @@ end
 function Tank:Init(entity)
   -- thisEntity
   self.entity = entity
-  
-  self.slam =  self.entity:FindAbilityByName("evil_wisp_moon_rain")
-  self.quake = self.entity:FindAbilityByName("evil_wisp_moon_beam")
-  
+  self.lastAction = 0
+
+  self.slam =  self.entity:FindAbilityByName("tank_ground_slam")
+  self.quake = self.entity:FindAbilityByName("tank_earthquake")
+
   self.phase = 1
-  
 
   Timers:CreateTimer(1, function()
     return self:Think()
@@ -25,10 +25,10 @@ function Tank:Think()
     return
   end
   if self.slam:IsFullyCastable() and self.lastAction + 5 < GameRules:GetGameTime() then
-	self:Slam()
+	  self:Slam()
   end
   if self.quake:IsFullyCastable()  and self.lastAction + 5 < GameRules:GetGameTime() then
-	self:Quake()
+	  self:Quake()
   end
   return 1
 end
@@ -39,7 +39,7 @@ function Tank:Slam()
     ExecuteOrderFromTable({
     UnitIndex = self.entity:entindex(),
     OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-    Position = target:GetPosition(),
+    Position = target:GetAbsOrigin(),
     AbilityIndex = self.slam:entindex()
     })
   end
@@ -53,7 +53,7 @@ function Tank:Quake()
     ExecuteOrderFromTable({
       UnitIndex = self.entity:entindex(),
       OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-      Position = target:GetPosition(),
+      Position = target:GetAbsOrigin(),
       AbilityIndex = self.quake:entindex()
     })
   end
@@ -64,10 +64,10 @@ end
 function Tank:NearestEnemyHeroInRange( range )
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
   local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
-  
+
   local minRange = range
   local target = nil
-  
+
   for _,enemy in pairs(enemies) do
     local distanceToEnemy = (self.entity:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
     if enemy:IsAlive() and distanceToEnemy < minRange then
