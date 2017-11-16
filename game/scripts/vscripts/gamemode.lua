@@ -157,6 +157,7 @@ end
 
 function GameMode:OnPreGame()
   -- initialize modules
+  InitModule(ComicManager)
   InitModule(Quests)
   InitModule(ZoneControl)
   InitModule(Music)

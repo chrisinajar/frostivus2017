@@ -1,0 +1,25 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/comics.css" />
+  </styles>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/comics.js" />
+  </scripts>
+  <script>
+  </script>
+  <Panel class="ComicBookWrapper" hittest="false">
+    <Panel id="ComicBookOverlay" class="Shown" hittest="true">
+      <Image class="Comic splash" src="file://{images}/custom_game/comics/splash.png" />
+      <Image class="Comic act1_1" src="file://{images}/custom_game/comics/act1_1.png" />
+      <Image class="Comic act1_2" src="file://{images}/custom_game/comics/act1_2.png" />
+      <Image class="Comic act2_1" src="file://{images}/custom_game/comics/act2_1.png" />
+      <Image class="Comic act3_1" src="file://{images}/custom_game/comics/act3_1.png" />
+      <Image class="Comic act4_1" src="file://{images}/custom_game/comics/act4_1.png" />
+      <Panel class="SkipPanel">
+        <Button id="SkipButton" onactivate="VoteToSkip()">
+          <Label text="Skip" />
+        </Button>
+      </Panel>
+    </Panel>
+  </Panel>
+</root>
