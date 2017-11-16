@@ -71,7 +71,9 @@ function HordeDirector:Init()
   self.timeInWave = 0
 
   Timers:CreateTimer(1, function()
-    self.timeInWave = self.timeInWave + 1
+    if not self.disabled then
+      self.timeInWave = self.timeInWave + 1
+    end
     if self.specialUnitTimeout > 0 then
       self.specialUnitTimeout = self.specialUnitTimeout - 1
     end
@@ -165,6 +167,10 @@ function HordeDirector:StartBuildUp()
   Timers:CreateTimer(1, function()
     if self.currentPhase ~= PHASE_BUILD_UP then
       return
+    end
+    if self.disabled then
+      desiredStress = 0
+      return 1
     end
     if RandomInt(1, 30) == 1 then
       self:SpawnSpecialUnit()
@@ -269,7 +275,7 @@ function HordeDirector:ScheduleSpecialUnit(unitName, location, ...)
   HordeSpawner:BestPlayerForUnit(unitName):ScheduleUnitSpawn(unitName, done)
 end
 
-function  HordeDirector:ShouldSpawnSpecialUnit (unitName)
+function HordeDirector:ShouldSpawnSpecialUnit (unitName)
   return self.specialUnitsAlive < MAX_SPECIAL_UNITS and (not self.specialUnitsByType[unitName] or self.specialUnitsByType[unitName] < MAX_SPECIAL_UNITS_EACH)
 end
 
