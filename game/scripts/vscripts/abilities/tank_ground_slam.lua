@@ -23,6 +23,6 @@ function tank_ground_slam:OnSpellStart()
 	local targets = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
 	ParticleManager:ReleaseParticleIndex( self.warningFX )
 	for _, target in pairs( targets ) do			
-		ApplyDamage({victim = hero, attacker = self:GetCaster(), damage = damage, ability = self:GetAbility(), damage_type = self:GetAbility:GetAbilityDamageType()})
+		ApplyDamage({victim = target, attacker = self:GetCaster(), damage = damage, ability = self:GetAbility(), damage_type = self:GetAbility():GetAbilityDamageType()})
 	end
 end
