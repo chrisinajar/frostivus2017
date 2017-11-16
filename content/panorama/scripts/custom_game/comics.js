@@ -18,13 +18,10 @@ function UpdateComic(comicData) {
   }
   $("#ComicBookOverlay").SetHasClass('Shown', true);
   $("#SkipPanel").style.visibility = !comicData.isSplashing ? 'visible' : 'collapse';
-  // $("#ComicBookOverlay").style.backgroundImage = 'file://{images}/custom_game/comics/' + comicData.image + '.png';
-  // act1_1.png
   $("#ComicBookOverlay").Children().forEach(function (comicImage) {
     if (!comicImage.BHasClass('Comic')) {
       return
     }
-    $.Msg(comicData.image + ': ' + comicImage.BHasClass(comicData.image))
     comicImage.style.visibility = comicImage.BHasClass(comicData.image) ? 'visible' : 'collapse';
     comicImage.SetScaling('stretch-to-fit-preserve-aspect')
   });
