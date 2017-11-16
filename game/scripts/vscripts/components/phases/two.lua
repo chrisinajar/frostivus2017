@@ -1,4 +1,5 @@
 -- Vision-reducing modifier
+LinkLuaModifier('modifier_act2_auto_present', 'modifiers/modifier_act2_auto_present.lua', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_forest_fog", "modifiers/modifier_forest_fog.lua", LUA_MODIFIER_MOTION_NONE)
 
 --[[
@@ -258,6 +259,7 @@ end
 function PhaseTwo:SpawnCart()
   local santa = CreateUnitByName("npc_dota_search_santa", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS) --spawn santa ready for his sled
   assert(santa, "Failed to spawn santa")
+  santa:AddNewModifier(santa, nil, "modifier_act2_auto_present", {})
   local projectileTarget = CreateUnitByName("npc_dota_target_marker", self.SpawnPosition, false, nil, nil, DOTA_TEAM_GOODGUYS)
   assert(projectileTarget, "Failed to spawn ProjectileTarget")
   santa.ProjectileTarget = projectileTarget
