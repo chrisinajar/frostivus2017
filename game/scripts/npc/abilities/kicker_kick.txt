@@ -19,10 +19,10 @@
 		"AbilityCastPoint"				"0.8"
 		"AbilityCastRange"				"150"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"12"
-		
+
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_tusk/tusk_walruskick_tgt.vpcf"
@@ -42,8 +42,8 @@
 			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"push_length"				"500"
-			}			
+				"push_length"				"1200"
+			}
 			"07"
 			{
 				"var_type"					"FIELD_INTEGER"
