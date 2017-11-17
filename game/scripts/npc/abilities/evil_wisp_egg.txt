@@ -33,7 +33,7 @@
 
 	"precache"
 	{
-		"particle"					"particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+		"particle"					"particles/act_4/io_dwarf_egg.vpcf"
 		"model"						"models/heroes/phoenix/phoenix_egg.vmdl"
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 	}

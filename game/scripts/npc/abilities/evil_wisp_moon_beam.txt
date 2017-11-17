@@ -30,10 +30,8 @@
 
 	"precache"
 	{
-		"particle"				"particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike_team.vpcf"
-		"particle"				"particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike.vpcf"
+		"particle"				"particles/act_4/io_moon_strike_team.vpcf"
+		"particle"				"particles/act_4/io_moon_strike.vpcf"
 		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
 	}
 

@@ -2,15 +2,15 @@ evil_wisp_moon_rain = class({})
 
 function evil_wisp_moon_rain:OnSpellStart()
     local caster = self:GetCaster()
-    
+
     self.duration = self:GetSpecialValueFor("duration")
     local searchRadius = self:GetCastRange(caster:GetAbsOrigin(), caster)
     local beamRadius = self:GetSpecialValueFor("beam_radius")
     local beamDamage = self:GetSpecialValueFor("beam_damage")
     local beamDelay = self:GetSpecialValueFor("beam_delay")
-    
+
     self:SetLevel(4)
-    
+
     caster:AddNewModifier(caster, self, "modifier_stunned", {duration = self.duration})
     self.internalTimer = 0
     self.distance = 150
@@ -51,11 +51,11 @@ function evil_wisp_moon_rain:PhaseOne(beamDelay, beamRadius, beamDamage, bPhase4
     local caster = self:GetCaster()
     local tick = self:GetSpecialValueFor("phase_1_tick_time")
     if bPhase4 then tick = self:GetSpecialValueFor("phase_4_tick_time") end
-    
+
     Timers:CreateTimer(tick, function()
         local position = caster:GetAbsOrigin() + RandomVector( RandomInt(150, searchRadius) )
         self:LaunchBeam(position, beamDelay, beamRadius, beamDamage)
-        
+
         self.internalTimer = self.internalTimer + tick
         if self.internalTimer < self.duration then return tick end
     end)
@@ -67,15 +67,15 @@ function evil_wisp_moon_rain:PhaseTwo(beamDelay, beamRadius, beamDamage, bPhase4
     if bPhase4 then tick = self:GetSpecialValueFor("phase_4_tick_time") end
     local waveDistance = self:GetSpecialValueFor("phase_2_distance")
     local waveGap = self:GetSpecialValueFor("phase_2_gap_width")
-    
+
     local initFwd = caster:GetForwardVector()
     local beamCount = 1
-    
+
     Timers:CreateTimer(tick, function()
         for i = 1, 4 do
             local fwdVector = RotateVector2D(initFwd, ToRadians( 90 * (i-1) ) ):Normalized()
             local perpVec = GetPerpendicularVector(fwdVector):Normalized()
-            
+
             for i = 1, beamCount do
                 position = caster:GetAbsOrigin() + (fwdVector * self.distance) + (perpVec * (waveGap + beamRadius) * (i-(beamCount % 2)) * (-1)^i)
                 self:LaunchBeam(position, beamDelay, beamRadius, beamDamage)
@@ -100,22 +100,22 @@ function evil_wisp_moon_rain:PhaseThree(beamDelay, beamRadius, beamDamage, bPhas
     local angVel = self:GetSpecialValueFor("phase_3_ang_vel")
     local waveDistance = self:GetSpecialValueFor("phase_2_distance")
     local waveGap = self:GetSpecialValueFor("phase_2_gap_width")
-    
+
     local initFwd = caster:GetForwardVector()
     local beamCount = 1
-    
+
     Timers:CreateTimer(tick, function()
         for i = 1, 4 do
             local fwdVector = RotateVector2D(initFwd, ToRadians( 90 * (i-1) ) ):Normalized()
             local perpVec = GetPerpendicularVector(fwdVector):Normalized()
-            
+
             for i = 1, beamCount do
                 position = caster:GetAbsOrigin() + (fwdVector * waveGap * i)
                 self:LaunchBeam(position, beamDelay, beamRadius, beamDamage)
             end
         end
         if beamCount < math.ceil(waveDistance/waveGap) then
-            
+
             beamCount = beamCount + 1
         end
         initFwd = RotateVector2D(initFwd, ToRadians( angVel ) )
@@ -126,8 +126,7 @@ end
 
 function evil_wisp_moon_rain:LaunchBeam(position, beamDelay, beamRadius, beamDamage)
     local caster = self:GetCaster()
-    local warning = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
+    local warning = ParticleManager:CreateParticle("particles/act_4/io_moon_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(warning, 0, position)
     ParticleManager:SetParticleControl(warning, 1, Vector(beamRadius,1,1) )
     EmitSoundOn("Hero_Invoker.SunStrike.Charge", caster)
@@ -135,12 +134,11 @@ io_moon_strike_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
         EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
         ParticleManager:DestroyParticle(warning, false)
         ParticleManager:ReleaseParticleIndex(warning)
-        local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike.vpcf", PATTACH_WORLDORIGIN, nil)
+        local impact = ParticleManager:CreateParticle("particles/act_4/io_moon_strike.vpcf", PATTACH_WORLDORIGIN, nil)
         ParticleManager:SetParticleControl(impact, 0, position)
         ParticleManager:SetParticleControl(impact, 1, Vector(beamRadius,1,1) )
         ParticleManager:ReleaseParticleIndex(impact)
-        
+
         local impactTargets = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, beamRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
         for _, impactTarget in ipairs(impactTargets) do
             ApplyDamage({victim = impactTarget, attacker = caster, ability = self, damage = beamDamage, damage_type = self:GetAbilityDamageType()})

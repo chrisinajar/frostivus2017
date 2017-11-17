@@ -27,8 +27,7 @@ end
 
 function evil_wisp_moon_beam:LaunchBeam(position, beamDelay, beamRadius, beamDamage)
 	local caster = self:GetCaster()
-	local warning = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
+	local warning = ParticleManager:CreateParticle("particles/act_4/io_moon_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(warning, 0, position)
 	ParticleManager:SetParticleControl(warning, 1, Vector(beamRadius,1,1) )
 	EmitSoundOn("Hero_Invoker.SunStrike.Charge", caster)
@@ -36,8 +35,7 @@ io_moon_strike_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
 		EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
 		ParticleManager:DestroyParticle(warning, false)
 		ParticleManager:ReleaseParticleIndex(warning)
-		local impact = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/io_moon
-io_moon_strike_strike.vpcf", PATTACH_WORLDORIGIN, nil)
+		local impact = ParticleManager:CreateParticle("particles/act_4/io_moon_strike.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(impact, 0, position)
 		ParticleManager:SetParticleControl(impact, 1, Vector(beamRadius,1,1) )
 		ParticleManager:ReleaseParticleIndex(impact)
