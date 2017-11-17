@@ -13,7 +13,7 @@
 			m_flEndFadeSize = 8.0
 			m_bDisableZBuffering = true
 			m_flOverbrightFactor = 10.0
-			m_hTexture = resource:"materials/particle/oracle/oracle_fortune.vtex"
+			m_hTexture = resource:"materials/particle/ring02.vtex"
 			m_nOrientationType = 2
 		},
 	]
@@ -57,8 +57,8 @@
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMin = 33
-			m_nAlphaMax = 33
+			m_nAlphaMin = 11
+			m_nAlphaMax = 11
 		},
 		{
 			_class = "C_INIT_RemapScalar"

@@ -60,7 +60,7 @@
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 98, 31, 255, 255 ]
+			m_ColorFade = [ 127, 89, 225, 255 ]
 		},
 		{
 			_class = "C_OP_OscillateVector"
@@ -89,8 +89,8 @@
 		{
 			_class = "C_INIT_RandomColor"
 			m_nFieldOutput = 22
-			m_ColorMax = [ 52, 11, 11, 255 ]
-			m_ColorMin = [ 29, 4, 4, 255 ]
+			m_ColorMax = [ 201, 201, 201, 255 ]
+			m_ColorMin = [ 207, 207, 207, 255 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
