@@ -172,7 +172,7 @@ function HordeDirector:StartBuildUp()
       desiredStress = 0
       return 1
     end
-    if RandomInt(1, 30) == 1 then
+    if RandomInt(1, 25) == 1 then
       self:SpawnSpecialUnit()
     end
     desiredStress = math.min(1, desiredStress + 0.01)
