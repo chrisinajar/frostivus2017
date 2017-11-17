@@ -12,7 +12,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "1.4"
-	"IsAncient" 		"1"
+    "IsAncient"                 "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -71,12 +71,12 @@
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	
+
 	"HasInventory"				"1"
     "Creature"
     {
 		"DefaultState"       "Invade"
-		
+
 		"EquippedItems"
 		{
 			"Scepter"
@@ -85,7 +85,7 @@
 			}
 		}
 
-		
+
         "States"
         {
             "Invade"
@@ -123,6 +123,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "1.4"
+    "IsAncient"                 "1"
 
 
     // Abilities
@@ -225,6 +226,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "1.4"
+    "IsAncient"                 "1"
 
 
     // Abilities
@@ -285,7 +287,7 @@
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
-	
+
     "Creature"
     {
 		"DefaultState"       "Invade"

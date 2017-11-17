@@ -13,7 +13,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "0.7"
-	"IsAncient" 		"1"
+    "IsAncient"                 "1"
 
     // Abilities
     //----------------------------------------------------------------
@@ -86,6 +86,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "0.7"
+    "IsAncient"                 "1"
 
 
     // Abilities
@@ -159,6 +160,7 @@
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "0.7"
+    "IsAncient"                 "1"
 
 
     // Abilities
