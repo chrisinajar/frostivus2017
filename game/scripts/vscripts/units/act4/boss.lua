@@ -24,9 +24,9 @@ function Boss:Init(entity)
   table.insert(self.abilityList, self.omni)
   self.egg = self.entity:FindAbilityByName("evil_wisp_egg")
   table.insert(self.abilityList, self.egg)
-  
+
   self.phase = 1
-  
+
 
   Timers:CreateTimer(1, function()
     return self:Think()
@@ -38,35 +38,45 @@ function Boss:Think()
     return
   end
   if self.entity:GetHealthPercent() < PhaseEnums[self.phase + 1] and self.phase < 3 then
-	self:GoToNexPhase()
+    self:GoToNextPhase()
   end
   if self.moonbeam:IsFullyCastable() then
-	self:MoonBeam()
+    return self:MoonBeam()
   end
   if self.moonrain:IsFullyCastable() then
-	self:MoonRain()
+    return self:MoonRain()
   end
-  if self.omni:IsFullyCastable() then
-	self:OmniParty()
-  end
+  -- if self.omni:IsFullyCastable() then
+  --   return self:OmniParty()
+  -- end
   if self.egg:IsFullyCastable() and self.phase >= 3 and self.entity:GetHealthPercent() < PhaseEnums[self.phase] then
-	self:Egg()
+    return self:Egg()
   end
+  self:Wander()
   return 1
 end
 
-function Boss:GoToNexPhase()
+function Boss:GoToNextPhase()
 	self.phase = self.phase + 1
 	for _, ability in ipairs(self.abilityList) do
 		ability:SetLevel(self.phase)
 	end
 end
 
+function Boss:Wander()
+  ExecuteOrderFromTable({
+    UnitIndex = self.entity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+    Position = self.entity:GetAbsOrigin() + RandomVector(600),
+    Queue = 0
+  })
+end
+
 function Boss:MoonBeam()
   ExecuteOrderFromTable({
-	UnitIndex = self.entity:entindex(),
-	OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-	AbilityIndex = self.moonbeam:entindex()
+  UnitIndex = self.entity:entindex(),
+  OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+  AbilityIndex = self.moonbeam:entindex()
   })
   return self.moonbeam:GetCastPoint() + 0.1
 end
@@ -89,10 +99,10 @@ function Boss:OmniParty()
 end
 
 function Boss:Egg()
-   ExecuteOrderFromTable({
-	UnitIndex = self.entity:entindex(),
-	OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
-	AbilityIndex = self.egg:entindex()
+  ExecuteOrderFromTable({
+  	UnitIndex = self.entity:entindex(),
+  	OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+  	AbilityIndex = self.egg:entindex()
   })
   return self.egg:GetCastPoint() + 0.1
 end
@@ -100,10 +110,10 @@ end
 function Boss:NearestEnemyHeroInRange( range )
 	local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
 	local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, range, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
-	
+
 	local minRange = range
 	local target = nil
-	
+
 	for _,enemy in pairs(enemies) do
 		local distanceToEnemy = (self.entity:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
 		if enemy:IsAlive() and distanceToEnemy < minRange then
@@ -113,4 +123,3 @@ function Boss:NearestEnemyHeroInRange( range )
 	end
 	return target
 end
-

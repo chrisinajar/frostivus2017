@@ -50,6 +50,7 @@ end
 function evil_wisp_moon_rain:PhaseOne(beamDelay, beamRadius, beamDamage, bPhase4)
     local caster = self:GetCaster()
     local tick = self:GetSpecialValueFor("phase_1_tick_time")
+    local searchRadius = self:GetCastRange(caster:GetAbsOrigin(), caster)
     if bPhase4 then tick = self:GetSpecialValueFor("phase_4_tick_time") end
 
     Timers:CreateTimer(tick, function()

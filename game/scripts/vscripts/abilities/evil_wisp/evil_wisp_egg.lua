@@ -112,7 +112,7 @@ if IsServer() then
     local caster = self:GetCaster()
     local heroes = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), caster, self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
 		for _,hero in pairs( heroes ) do
-			ApplyDamage({victim = hero, attacker = self:GetCaster(), damage = self.damage_tick, ability = self:GetAbility(), damage_type = self:GetAbility:GetAbilityDamageType()})
+			ApplyDamage({victim = hero, attacker = self:GetCaster(), damage = self.damage_tick, ability = self:GetAbility(), damage_type = self:GetAbilityDamageType()})
 		end
   end
 
