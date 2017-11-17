@@ -12,7 +12,7 @@
     "ScriptFile"                "abilities/helper_repair.lua"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "SpellDispellableType"      "SPELL_DISPELLABLE_YES"
-    "AbilityTextureName"        "ancient_apparition_ice_blast"
+    "AbilityTextureName"        "custom/helper_repair"
     "MaxLevel"                  "1"
 
     // Special
