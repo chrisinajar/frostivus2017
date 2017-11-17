@@ -100,9 +100,9 @@ function PhaseOne:Start(callback)
     self.rosh_sad = nil
     self.santa_sleigh = nil
   end)
-  Timers:CreateTimer(0, function()
-    return self:SpawnHelper()
-  end)
+  for i = 1,MAX_HELPERS do
+    self:SpawnHelper()
+  end
 end
 
 function PhaseOne:RepairInterval()
