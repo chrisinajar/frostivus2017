@@ -19,6 +19,7 @@ ITEM_DESPAWN_TIME = 60
 REPAIR_UNITS_REQUIRED = 100
 
 -- act 2
+SLED_MOVE_SPEED = 50
 NUMBER_PRESENTS_REQUIRED = 40
 NUMBER_PRESENTS_SPAWNED = 60 -- presents scattered around
 NUMBER_PRESENTS_PER_GROUP = 5 -- Number of presents to drop per camp

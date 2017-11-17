@@ -27,13 +27,25 @@ function HordeWatcher:Think()
     return
   end
   if self.unit:IsIdle() then
-    -- keep A walking towards target
-    ExecuteOrderFromTable({
-      UnitIndex = self.unit:entindex(),
-      OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-      Position = self.target:GetAbsOrigin(), --Optional.  Only used when targeting the ground
-      Queue = 0 --Optional.  Used for queueing up abilities
-    })
+    local sirenSong = self.unit:FindAbilityByName('creep_siren_song')
+    if sirenSong and sirenSong:IsCooldownReady() then
+      -- force siren song to always use instantly
+      ExecuteOrderFromTable({
+        UnitIndex = self.unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+        -- Position = self.unit:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+        AbilityIndex = sirenSong:entindex(),
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    else
+      -- keep A walking towards target
+      ExecuteOrderFromTable({
+        UnitIndex = self.unit:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+        Position = self.target:GetAbsOrigin(), --Optional.  Only used when targeting the ground
+        Queue = 0 --Optional.  Used for queueing up abilities
+      })
+    end
   end
 
   if self.canBeGC and not self.unit:HasModifier('modifier_is_near_player') then

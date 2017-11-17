@@ -21,9 +21,30 @@ end
 
 function modifier_santa_act_two_flying:DeclareFunctions()
   local funcs = {
-    MODIFIER_PROPERTY_VISUAL_Z_DELTA
+    MODIFIER_PROPERTY_VISUAL_Z_DELTA,
+    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+    MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE_MIN,
+    MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
+    MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+    MODIFIER_PROPERTY_MOVESPEED_MAX
   }
   return funcs
+end
+
+function modifier_santa_act_two_flying:GetModifierMoveSpeed_Absolute()
+  return SLED_MOVE_SPEED or 0
+end
+function modifier_santa_act_two_flying:GetModifierMoveSpeed_AbsoluteMin()
+  return SLED_MOVE_SPEED or 0
+end
+function modifier_santa_act_two_flying:GetModifierMoveSpeedOverride()
+  return SLED_MOVE_SPEED or 0
+end
+function modifier_santa_act_two_flying:GetModifierMoveSpeed_Limit()
+  return SLED_MOVE_SPEED or 0
+end
+function modifier_santa_act_two_flying:GetModifierMoveSpeed_Max()
+  return SLED_MOVE_SPEED or 0
 end
 
 function modifier_santa_act_two_flying:GetVisualZDelta( params )
