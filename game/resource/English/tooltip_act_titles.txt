@@ -1,5 +1,5 @@
 "Act1Title"         "Act 1"
-"Act1SubTitle"      "Repair the sleigh"
+"Act1SubTitle"      "Repair Roshan's sleigh"
 
 "Act2Title"         "Act 2"
 "Act2SubTitle"      "Find the lost presents"
@@ -8,4 +8,4 @@
 "Act3SubTitle"      "Help Roshan deliver the presents"
 
 "Act4Title"         "Act 4"
-"Act4SubTitle"      "You must destroy Evil Io"
+"Act4SubTitle"      "Save Frostivus"
