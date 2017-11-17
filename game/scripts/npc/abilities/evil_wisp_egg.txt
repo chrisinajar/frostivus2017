@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"            "FIELD_INTEGER"
-        "egg_hits"            "50"
+        "egg_hits"            "75"
       }
       "02"
       {
@@ -75,7 +75,7 @@
       "04"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage_radius"             "900"
+        "damage_radius"             "3000"
       }
     }
   }

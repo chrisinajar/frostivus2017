@@ -8,16 +8,17 @@
     // General
     //----------------------------------------------------------------
 
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "Hero_ancient_apparition"
+    "IdleSoundLoop"             "Hero_Ancient_Apparition.IdleLoop"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "creep_damage_block"      // Ability 1
+    "Ability1"                  "creep_frostfang"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
@@ -31,12 +32,12 @@
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
-    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
-    "AttackRange"               "100"   // Range within a target can be attacked.
-    "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.
+    "AttackAcquisitionRange"    "900"   // Range within a target can be acquired.
+    "AttackRange"               "800"   // Range within a target can be attacked.
+    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -81,9 +82,10 @@
     // General
     //----------------------------------------------------------------
 
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "Hero_ancient_apparition"
+    "IdleSoundLoop"             "Hero_Ancient_Apparition.IdleLoop"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -91,7 +93,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "creep_damage_block"      // Ability 1
+    "Ability1"                  "creep_frostfang"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
@@ -105,12 +107,12 @@
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
-    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
-    "AttackRange"               "100"   // Range within a target can be attacked.
-    "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.
+    "AttackAcquisitionRange"    "1800"   // Range within a target can be acquired.
+    "AttackRange"               "1600"   // Range within a target can be attacked.
+    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
@@ -155,9 +157,10 @@
     // General
     //----------------------------------------------------------------
 
-    "Model"                     "models/creeps/neutral_creeps/n_creep_ghost_b/n_creep_ghost_b.vmdl" // Model.
+    "Model"                     "models/heroes/ancient_apparition/ancient_apparition.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
-    "SoundSet"                  "n_creep_Melee"
+    "SoundSet"                  "Hero_ancient_apparition"
+    "IdleSoundLoop"             "Hero_Ancient_Apparition.IdleLoop"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -165,7 +168,7 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "creep_damage_block"      // Ability 1
+    "Ability1"                  "creep_frostfang"      // Ability 1
     "Ability2"                  ""      // Ability 2
     "Ability3"                  ""      // Ability 3
     "Ability4"                  ""      // Ability 4
@@ -179,12 +182,12 @@
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
-    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
-    "AttackRange"               "100"   // Range within a target can be attacked.
-    "ProjectileModel"           ""      // Particle system model for projectile.
-    "ProjectileSpeed"           "0"     // Speed of projectile.
+    "AttackAcquisitionRange"    "2700"   // Range within a target can be acquired.
+    "AttackRange"               "2400"   // Range within a target can be attacked.
+    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
     //----------------------------------------------------------------
