@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 5: SNEAK - working, needs better AI
+  // HORDE SPECIAL 5: SNEAK - working
   //=================================================================================
   "npc_dota_horde_special_5"
   {
@@ -10,6 +10,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
+    "vscripts"                    "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -96,6 +97,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
+    "vscripts"                    "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -183,6 +185,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
+    "vscripts"                    "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"

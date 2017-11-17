@@ -15,7 +15,7 @@ SpecialCreeps = {
     "npc_dota_horde_special_5",
     "npc_dota_horde_special_6",
     "npc_dota_horde_special_7",
-	"npc_dota_horde_special_10"
+  	"npc_dota_horde_special_10"
   },
   [2] = {
     "npc_dota_horde_special_2_act2",
@@ -23,7 +23,7 @@ SpecialCreeps = {
     "npc_dota_horde_special_5_act2",
     "npc_dota_horde_special_6_act2",
     "npc_dota_horde_special_7_act2",
-	"npc_dota_horde_special_10_act2"
+    "npc_dota_horde_special_10_act2"
   },
   [3] = {
     "npc_dota_horde_special_2_act3",
@@ -31,7 +31,7 @@ SpecialCreeps = {
     "npc_dota_horde_special_5_act3",
     "npc_dota_horde_special_6_act3",
     "npc_dota_horde_special_7_act3",
-	"npc_dota_horde_special_10_act3"
+    "npc_dota_horde_special_10_act3"
   },
   [4] = {
     "npc_dota_horde_special_2_act3",
@@ -39,7 +39,7 @@ SpecialCreeps = {
     "npc_dota_horde_special_5_act3",
     "npc_dota_horde_special_6_act3",
     "npc_dota_horde_special_7_act3",
-	"npc_dota_horde_special_10_act3"
+    "npc_dota_horde_special_10_act3"
   },
 }
 -- basic waves
