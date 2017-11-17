@@ -70,7 +70,6 @@ function PhaseThree:Start(callback)
   self.pathLenghtLeft = self.totalPathLength
   self.distanceMoved = 0 --self.totalPathLength - self.pathLenghtLeft
 
-
   DebugPrint("Finished Initializing Phase 3")
   DebugPrint("Creating DebugOverlay for Phase 3")
 
@@ -93,7 +92,7 @@ function PhaseThree:Start(callback)
     self.pathLenghtLeft = self:CalculateMoveDistance(self.Cart.Handle:GetAbsOrigin())
     self.distanceMoved = self.totalPathLength - self.pathLenghtLeft
     self:UpdateProgressbar(self.distanceMoved / self.totalPathLength)
-    self:UpdateDebugOverlayEntry("distanceMoved", self.totalPathLength - self.pathLenghtLeft)
+    self:UpdateDebugOverlayEntry("distanceMoved", self.distanceMoved)
     self:UpdateDebugOverlayEntry("pathLenghtLeft", self.pathLenghtLeft)
     self:UpdateDebugOverlayEntry("projectilePosition", self.Cart.Handle.ProjectilePosition)
     self:UpdateDebugOverlayEntry("cartSpeed", (self:GetCartSpeed()))
@@ -112,7 +111,7 @@ function PhaseThree:Start(callback)
         self:CleanUp()
         return
       else
-        DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex + 1)
+        DebugPrint("Cart has reached Waypoint " ..   self.Waypoints.currentIndex - 1 ..". Targeting new Waypoint " ..   self.Waypoints.currentIndex)
         self:UpdateDebugOverlayEntry("currentTrigger", self:GetCurrentWaypointTrigger():GetName())
         self:SetCartTarget(self:GetCurrentWaypointTrigger():GetAbsOrigin())
         return 0.5
@@ -168,19 +167,17 @@ end
 function PhaseThree:CalculateMoveDistance(startPosition)
   local distanceToMove = 0
   local distance = 0
-  local lastWaypointPosition = startPosition or self.SpawnPosition
+  local lastWaypointPosition = startPosition or self.Waypoints.Trigger[1]:GetAbsOrigin()
   local currentWaypointPosition = nil
 
   for i,Waypoint in ipairs(self.Waypoints.Trigger) do
     if i >= self.Waypoints.currentIndex then
-      if not lastWaypointPosition then
-        lastWaypointPosition = Waypoint:GetAbsOrigin()
-      else
-        currentWaypointPosition = Waypoint:GetAbsOrigin()
-        distance = (lastWaypointPosition + currentWaypointPosition):Length2D()
-        distanceToMove = distanceToMove + distance
-        lastWaypointPosition = currentWaypointPosition
-      end
+      -- if we're on 1 headed to 2, then this doesn't run for 1
+      -- it does run for 2
+      currentWaypointPosition = Waypoint:GetAbsOrigin()
+      distance = (lastWaypointPosition - currentWaypointPosition):Length2D()
+      distanceToMove = distanceToMove + distance
+      lastWaypointPosition = currentWaypointPosition
     end
   end
 
@@ -226,5 +223,5 @@ function PhaseThree:MakeProgressBar(text)
 end
 
 function PhaseThree:UpdateProgressbar(percentage)
-  Quests:UpdateProgress(percentage)
+  Quests:UpdateProgress(percentage * 100)
 end
