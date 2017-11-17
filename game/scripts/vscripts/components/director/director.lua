@@ -172,7 +172,7 @@ function HordeDirector:StartBuildUp()
       desiredStress = 0
       return 1
     end
-    local maxRate = 28 - (StorylineManager.currentState * 3)
+    local maxRate = 28 - (StorylineManager.currentState * 5)
     if RandomInt(1, maxRate) == 1 then
       self:SpawnSpecialUnit()
     end
