@@ -45,7 +45,7 @@
       "01"
       {
         "var_type"            "FIELD_INTEGER"
-        "egg_hits"            "35"
+        "egg_hits"            "50"
       }
       "02"
       {
@@ -70,7 +70,7 @@
       "04"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage_per_tick"           "100"
+        "damage_per_tick"           "500"
       }
       "04"
       {
