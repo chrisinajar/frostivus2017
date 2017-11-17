@@ -3,7 +3,7 @@
 //=====================================================================================
 "QuestObjectiveTextAct1"                                       	"Quest: Protect Roshan and his helpers from the horde"
 "QuestObjectiveTextAct2"                                      	"Quest: Find the lost presents and return them to Roshan"
-"QuestObjectiveTextAct3"                                      	"Quest: Help Roshan deliver the presents and save Frostivus"
+"QuestObjectiveTextAct3"                                      	"Quest: Group up and help Roshan push his sleigh through the town"
 "QuestObjectiveTextAct4"                                      	"Quest: Defeat Evil Io to save Frostivus for good"
 "QuestProgressTextAct1"                                      	  "Sled Repair Status: {d:objective}%"
 "QuestProgressTextAct2"                                         "Presents Found: {d:objective}/{d:maxObjective}"
