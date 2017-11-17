@@ -51,6 +51,7 @@
 #base "units/special/npc_dota_horde_special_7.txt"
 #base "units/special/npc_dota_horde_special_8.txt"
 #base "units/special/npc_dota_horde_special_9.txt"
+#base "units/special/npc_dota_horde_special_10.txt"
 
 //#base "units/deprecated/npc_dota_horde_basic_damage_block.txt"
 //#base "units/deprecated/npc_dota_horde_basic_desolate.txt"

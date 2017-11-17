@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+	"kicker_kick"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kicker_kick"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"tusk_walrus_kick"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+		"AbilityCastRange"				"150"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12"
+		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_tusk/tusk_walruskick_tgt.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+		}
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"air_time"					"1.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"push_length"				"500"
+			}			
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"150"
+			}
+		}
+	}
+}

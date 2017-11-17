@@ -48,6 +48,9 @@
 "npc_dota_horde_special_9"                                      "Hooker"
 "npc_dota_horde_special_9_act2"                                 "Hooker"
 "npc_dota_horde_special_9_act3"                                 "Hooker"
+"npc_dota_horde_special_10"                                     "Kicker"
+"npc_dota_horde_special_10_act2"                                "Kicker"
+"npc_dota_horde_special_10_act3"                                "Kicker"
 
 "npc_dota_act1_helper"                                          "Helper Elf"
 "npc_dota_santa_separate"                                       "Old Saint Roshan"
