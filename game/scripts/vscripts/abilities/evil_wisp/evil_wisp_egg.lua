@@ -3,26 +3,26 @@ evil_wisp_egg = class(AbilityBaseClass)
 function evil_wisp_egg:OnSpellStart()
 	local caster = self:GetCaster()
 	local dummy = CreateUnitByName("npc_dota_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
-	
+
 	dummy:SetBaseMaxHealth( self:GetSpecialValueFor("egg_hits") )
 	dummy:SetMaxHealth( self:GetSpecialValueFor("egg_hits") )
 	dummy:SetHealth( self:GetSpecialValueFor("egg_hits") )
-	
+
 	caster:AddNewModifier(caster, self, "modifier_evil_wisp_egg_hide", {duration = self:GetSpecialValueFor("egg_duration")})
 	dummy:AddNewModifier(caster, self, "modifier_evil_wisp_egg_egg", {duration = self:GetSpecialValueFor("egg_duration")})
-	
+
 	EmitSoundOn("Hero_Phoenix.SuperNova.Cast", caster)
 	EmitSoundOn("Hero_Phoenix.SuperNova.Begin", caster)
 end
 
 function evil_wisp_egg:StunWinner(bEggKilled)
 	local caster = self:GetCaster()
-	
-	local FX = "particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf"
-	if bEggKilled then FX = "particles/units/heroes/hero_phoenix/phoenix_supernova_death.vpcf" end
+
+	local FX = "particles/act_4/io_dwarf_reborn.vpcf"
+	if bEggKilled then FX = "particles/act_4/io_dwarf_death.vpcf" end
 	local eggFX = ParticleManager:CreateParticle(FX, PATTACH_POINT_FOLLOW, caster)
 	ParticleManager:ReleaseParticleIndex(eggFX)
-	
+
 	if bEggKilled then
 		caster:AddNewModifier(caster, self, "modifier_evil_wisp_egg_stun", {duration = self:GetSpecialValueFor("egg_self_stun_duration")})
 		EmitSoundOn("Hero_Phoenix.SuperNova.Explode", caster)
@@ -30,7 +30,7 @@ function evil_wisp_egg:StunWinner(bEggKilled)
 		EmitSoundOn("Hero_Phoenix.SuperNova.Death", caster)
 		local stunTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, -1, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
 		local stunDuration = self:GetSpecialValueFor("egg_enemy_stun_duration")
-		
+
 		for _, stunTarget in ipairs(stunTargets) do
 			stunTarget:AddNewModifier(caster, self, "modifier_evil_wisp_egg_stun", {duration = stunDuration})
 		end
@@ -100,14 +100,14 @@ if IsServer() then
 	function modifier_evil_wisp_egg_egg:OnCreated()
 		self.internalHP = self:GetParent():GetMaxHealth()
 		self:SetStackCount(0)
-    
+
     self.tick = self:GetSpecialValueFor("tick_interval")
     self.damage_tick = self:GetSpecialValueFor("damage_per_tick")
     self.damage_radius = self:GetSpecialValueFor("damage_radius")
-    
+
     if IsServer() then self:StartIntervalThink(self.tick) end
 	end
-  
+
   function modifier_evil_wisp_egg_egg:OnIntervalThink()
     local caster = self:GetCaster()
     local heroes = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), caster, self.damage_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false )
@@ -153,5 +153,5 @@ function modifier_evil_wisp_egg_egg:GetModifierModelChange()
 end
 
 function modifier_evil_wisp_egg_egg:GetEffectName()
-	return "particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf"
+	return "particles/act_4/io_dwarf_egg.vpcf"
 end
