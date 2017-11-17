@@ -4,7 +4,7 @@
 // Neutral: Ogre Mauler
 //=================================================================================
 	"npc_dota_neutral_ogre_red"
-	{										
+	{
 		// General
 		//----------------------------------------------------------------
 		"Model"						"models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.mdl"	// Model.
@@ -28,14 +28,14 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"24"		// Damage range min.
-		"AttackDamageMax"			"27"		// Damage range max.	
+		"AttackDamageMin"			"124"		// Damage range min.
+		"AttackDamageMax"			"127"		// Damage range max.
 		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"100"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -55,11 +55,11 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"850"		// Base health.
+		"StatusHealth"				"1850"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
-		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
@@ -71,5 +71,5 @@
 	    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
 	    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
 	    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	}	
+	}
 }

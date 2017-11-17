@@ -1,9 +1,9 @@
 "DOTAUnits"
 {
-//=================================================================================	
+//=================================================================================
 // Neutral: Satyr Trickster
 //=================================================================================
-	"npc_dota_neutral_satyr_medium"	
+	"npc_dota_neutral_satyr_medium"
 	{
 		// General
 		//----------------------------------------------------------------
@@ -28,14 +28,14 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"7"			// Damage range min.
-		"AttackDamageMax"			"10"		// Damage range max.
+		"AttackDamageMin"			"107"			// Damage range min.
+		"AttackDamageMax"			"110"		// Damage range max.
 		"AttackRate"				"1.7"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.
 		"AttackRange"				"300"		// Range within a target can be attacked.
 		"ProjectileModel"			"satyr_trickster_projectile" // Particle system model for projectile.
-		"ProjectileSpeed"			"1500"		// Speed of projectile.		     
+		"ProjectileSpeed"			"1500"		// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -51,15 +51,15 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"330"		// Speed.			
+		"MovementSpeed"				"330"		// Speed.
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"300"		// Base health.
+		"StatusHealth"				"1300"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
-		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 
-		
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.
+
 		// Vision
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
@@ -92,5 +92,5 @@
 	            }
 	        }
         }
-	}	
+	}
 }
