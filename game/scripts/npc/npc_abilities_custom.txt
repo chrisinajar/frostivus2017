@@ -59,7 +59,8 @@
 #base "abilities/tank_ground_slam.txt"
 #base "abilities/tank_earthquake.txt"
 
+#base "abilities/kicker_kick.txt"
+
 "DOTAAbilities"
 {
-
 }

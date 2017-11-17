@@ -1,0 +1,2 @@
+"DOTA_Tooltip_ability_kicker_kick"								"Kick"
+"DOTA_Tooltip_ability_kicker_kick_Description"					"Kicks an enemy backwards with a ferocious kick."
