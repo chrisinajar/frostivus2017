@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 2: CHRISTMAS APPARITION - ???
+  // HORDE SPECIAL 2: CHRISTMAS APPARITION - covfefe
   //=================================================================================
   "npc_dota_horde_special_2"
   {

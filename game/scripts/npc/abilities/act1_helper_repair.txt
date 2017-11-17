@@ -22,7 +22,7 @@
       "01"
       {
         "var_type"              "FIELD_FLOAT"
-        "channel_time"              "6.0"
+        "channel_time"              "4.0"
       }
     }
 

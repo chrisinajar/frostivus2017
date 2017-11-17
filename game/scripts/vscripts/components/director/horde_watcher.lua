@@ -19,6 +19,13 @@ function HordeWatcher:Init(unit, target)
   Timers:CreateTimer(function ()
     return self:Think()
   end)
+
+  for abilityIndex = 0, self.unit:GetAbilityCount() - 1 do
+    local ability = self.unit:GetAbilityByIndex(abilityIndex)
+    if ability then
+      ability:SetLevel(StorylineManager.currentState)
+    end
+  end
 end
 
 function HordeWatcher:Think()
