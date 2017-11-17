@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 6: BANELING - throws exceptions, needs ai
+  // HORDE SPECIAL 6: BANELING - working, needs ai
   //=================================================================================
     "npc_dota_horde_special_6"
     {
