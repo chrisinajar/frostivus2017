@@ -60,7 +60,6 @@
 			_class = "C_OP_BasicMovement"
 			m_fDrag = 0.05
 			m_Gravity = [ 0.0, 0.0, 75.0 ]
-			m_bDisableOperator = true
 		},
 	]
 	m_Initializers = 
@@ -72,8 +71,6 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 20.0
-			m_flRadiusMax = 40.0
 		},
 		{
 			_class = "C_INIT_RandomColor"
