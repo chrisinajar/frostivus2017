@@ -32,9 +32,9 @@ local RARITY_ENUM = 4
 ItemPowerTable = {
   --NAME                        FROM    TO      RARITY
   --CONSUMABLES
-  { "item_health_potion",        0,     -1,       3},
-  { "item_mana_potion",          0,     -1,       6},
-  { "item_enchanted_mango",      0,     10,      30},
+  { "item_health_potion",        0,     -1,       1},
+  { "item_mana_potion",          0,     -1,       2},
+  { "item_enchanted_mango",      0,     10,      10},
   --ACT 1, PART 1
   { "item_ring_of_basilius",     1,      6,       9}, --avoid multiples
   { "item_wraith_band",          0,      5,       3},
