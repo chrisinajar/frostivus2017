@@ -29,14 +29,14 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
     "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "900"   // Range within a target can be acquired.
     "AttackRange"               "800"   // Range within a target can be attacked.
-    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileModel"           "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
@@ -104,14 +104,14 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
     "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "1800"   // Range within a target can be acquired.
     "AttackRange"               "1600"   // Range within a target can be attacked.
-    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileModel"           "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
@@ -179,14 +179,14 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
     "AttackRate"                "4"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "2700"   // Range within a target can be acquired.
     "AttackRange"               "2400"   // Range within a target can be attacked.
-    "ProjectileModel"           "particles/units/heroes/hero_ancient_apparition/ancient_apparition_base_attack.vpcf"      // Particle system model for projectile.
+    "ProjectileModel"           "particles/units/heroes/hero_lich/lich_chain_frost.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "1250"     // Speed of projectile.
 
     // Bounds
