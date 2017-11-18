@@ -107,3 +107,7 @@ end
 function modifier_creep_frostfang_debuff:GetDisableHealing( event )
 	return 1
 end
+
+function modifier_creep_frostfang_debuff:RemoveOnDeath()
+  return true
+end
