@@ -1,7 +1,7 @@
 LinkLuaModifier('modifier_marker_creep', 'modifiers/modifier_marker_creep', LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier('modifier_player_watcher', 'modifiers/modifier_player_watcher', LUA_MODIFIER_MOTION_NONE)
 
--- Debug.EnabledModules['director:player_watcher'] = true
+Debug.EnabledModules['director:player_watcher'] = true
 
 PlayerWatcher = PlayerWatcher or class({})
 
@@ -111,7 +111,6 @@ function PlayerWatcher:Think()
     DebugPrint('Lets spawn a group... ' .. self.stressLevel .. ' of target ' .. self.desiredStress)
     local horde = HordeSpawner:CreateHorde(HordeDirector.wave, self.desiredIntensity)
     DebugPrint('Wave Level ' .. HordeDirector.wave)
-    DebugPrintTable(horde)
     self:SpawnHorde(horde)
   end
 
@@ -203,9 +202,38 @@ function PlayerWatcher:SpawnHorde(unitTable)
   end
 end
 
+KV_CACHE = {}
+function PlayerWatcher:BaseNameForCreep(unitName)
+  if string.sub(string.sub(unitName, -5), 0, 4) == "_act" then
+    return string.sub(unitName, 0, -6)
+  end
+  return unitName
+end
+function PlayerWatcher:KVDataForUnit(unitName)
+  local baseName = self:BaseNameForCreep(unitName)
+  DebugPrint('Basename: ' .. baseName)
+  local Kvs = KV_CACHE[baseName]
+  if not Kvs then
+    Kvs = LoadKeyValues("scripts/npc/units/special/" .. baseName .. ".txt") or LoadKeyValues("scripts/npc/units/basic/" .. baseName .. ".txt")
+  end
+  KV_CACHE[baseName] = Kvs
+  return Kvs[unitName] or {}
+end
+
 function PlayerWatcher:ScheduleUnitSpawn(unitName, callback)
-  self:FindSpawnPoint(function (location)
-    self:SpawnUnitAt(unitName, location, callback)
+  local foundIt = false
+  local jobIndex = self:FindSpawnPoint(function (location)
+    foundIt = true
+    local Kvs = self:KVDataForUnit(unitName)
+    local spawnCount = Kvs.SpawnCount or 0
+    for i = 1,spawnCount do
+      self:SpawnUnitAt(unitName, location, callback)
+    end
+  end)
+  Timers:CreateTimer(20, function()
+    if not foundIt then
+      DebugPrint("Failed to find a spawn location for " .. jobIndex)
+    end
   end)
 end
 function PlayerWatcher:ScheduleHordeSpawn(unitList, callback)
@@ -222,13 +250,19 @@ function PlayerWatcher:GetPlayerValue()
 end
 
 function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
+  local foundIt = false
+  Timers:CreateTimer(20, function()
+    if not foundIt then
+      DebugPrint("Failed to create the unit!! " .. unitName)
+    end
+  end)
   CreateUnitByNameAsync(unitName, location, true, nil, nil, DOTA_TEAM_NEUTRALS, function (unit)
+    foundIt = true
     local entIndex = unit:entindex()
     local hordeWatcher = HordeWatcher()
     hordeWatcher:Init(unit, self.hero)
     self.hordeAlive = self.hordeAlive + 1
     unit:OnDeath(function ()
-      DebugPrint('Horde unit died! ' .. unit:entindex())
       CreepItemDrop:DropItem(unit, self:GetPlayerValue())
       self.hordeAlive = self.hordeAlive - 1
     end)
@@ -242,12 +276,17 @@ function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
   end)
 end
 
+local jobIndex = 0
 function PlayerWatcher:FindSpawnPoint (callback)
+  jobIndex = jobIndex + 1
   self.nextJob = {
     callback = callback,
-    next = self.nextJob
+    next = self.nextJob,
+    jobIndex = jobIndex
   }
   self:StartJobQueue()
+
+  return jobIndex
 end
 
 function PlayerWatcher:StartJobQueue()
@@ -257,24 +296,33 @@ function PlayerWatcher:StartJobQueue()
   self.isRunning = true
 
   local function runJob (job)
+    -- DebugPrint('Running job ' .. job.jobIndex)
+    local foundIt = false
+    Timers:CreateTimer(20, function()
+      if not foundIt then
+        DebugPrint("Failed to run marker!! " .. job.jobIndex)
+      end
+    end)
     self:RunMarker(function (location)
+      foundIt = true
       job.callback(location)
-      self.nextJob = self.nextJob.next
       if self.nextJob then
-        runJob(self.nextJob)
+        local nextJob = self.nextJob
+        self.nextJob = self.nextJob.next
+        runJob(nextJob)
       else
         self.isRunning = false
       end
     end)
   end
 
-  runJob(self.nextJob)
+  local job = self.nextJob
+  self.nextJob = self.nextJob.next
+  runJob(job)
 end
 
 function PlayerWatcher:RunMarker (callback)
   local minRange = self.hero:GetCurrentVisionRange() + 200 -- just outside max vision
-
-  DebugPrint('Range is ' .. minRange)
 
   local direction = RandomVector(1):Normalized()
   local spawnLocation = self.hero:GetAbsOrigin()

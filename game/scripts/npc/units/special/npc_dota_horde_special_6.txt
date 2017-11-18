@@ -14,6 +14,9 @@
         "ModelScale"                "1"
         "IsAncient"                 "1"
 
+        // director
+        "SpawnCount"                "1"
+
         // Abilities
         //----------------------------------------------------------------
         "Ability1"                  "creep_cold_combustion"      // Ability 1
@@ -97,6 +100,8 @@
         "ModelScale"                "1"
         "IsAncient"                 "1"
 
+        // director
+        "SpawnCount"                "3"
 
         // Abilities
         //----------------------------------------------------------------
@@ -181,6 +186,8 @@
         "ModelScale"                "1"
         "IsAncient"                 "1"
 
+        // director
+        "SpawnCount"                "5"
 
         // Abilities
         //----------------------------------------------------------------

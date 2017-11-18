@@ -58,7 +58,7 @@ function HordeWatcher:Think()
   if self.canBeGC and not self.unit:HasModifier('modifier_is_near_player') then
     -- DebugPrint('This unit is lost and pointless...')
     if not self.target:CanEntityBeSeenByMyTeam(self.unit) then
-      -- DebugPrint('destroying invisible pointless unit')
+      DebugPrint('destroying invisible pointless unit')
       self.unit:Destroy()
       return
     end
