@@ -11,6 +11,31 @@ end
 -- The C initial chance parameter for the pseudo-random distribution function
 -- Set for average chance of less than ???%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
+--[[
+function testPRD(prd) {
+  var counter = 1;
+  var truths = 0;
+  var attempts = 0;
+
+  for (var i = 0; i < 10000000; ++i) {
+    random();
+  }
+  console.log(truths, attempts, Math.round(truths/attempts * 10000) / 100);
+
+  function random() {
+    attempts++;
+    if (Math.random() < prd * counter) {
+      counter = 1;
+      truths++;
+      return true;
+    } else {
+      counter++;
+      return false;
+    }
+  }
+}
+]]
+-- 1.19%
 PRD_C = 0.000222
 
 --creep properties enumerations

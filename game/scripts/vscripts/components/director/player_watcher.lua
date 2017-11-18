@@ -214,7 +214,11 @@ function PlayerWatcher:KVDataForUnit(unitName)
   DebugPrint('Basename: ' .. baseName)
   local Kvs = KV_CACHE[baseName]
   if not Kvs then
-    Kvs = LoadKeyValues("scripts/npc/units/special/" .. baseName .. ".txt") or LoadKeyValues("scripts/npc/units/basic/" .. baseName .. ".txt")
+    if string.sub(baseName, 0, 22) == 'npc_dota_horde_special' then
+      Kvs = LoadKeyValues("scripts/npc/units/special/" .. baseName .. ".txt")
+    else
+      Kvs = LoadKeyValues("scripts/npc/units/basic/" .. baseName .. ".txt")
+    end
   end
   KV_CACHE[baseName] = Kvs
   return Kvs[unitName] or {}
@@ -225,7 +229,7 @@ function PlayerWatcher:ScheduleUnitSpawn(unitName, callback)
   local jobIndex = self:FindSpawnPoint(function (location)
     foundIt = true
     local Kvs = self:KVDataForUnit(unitName)
-    local spawnCount = Kvs.SpawnCount or 0
+    local spawnCount = Kvs.SpawnCount or 1
     for i = 1,spawnCount do
       self:SpawnUnitAt(unitName, location, callback)
     end
