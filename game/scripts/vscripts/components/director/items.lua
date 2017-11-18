@@ -11,7 +11,7 @@ end
 -- The C initial chance parameter for the pseudo-random distribution function
 -- Set for average chance of less than ???%. Functions for calculation and a bunch of pre-calculated values can be found here:
 -- https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
-PRD_C = 0.000256
+PRD_C = 0.000222
 
 --creep properties enumerations
 local NAME_ENUM = 1
