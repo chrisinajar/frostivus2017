@@ -60,10 +60,11 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flEndScale = 0.0
 			m_flBias = 0.1
+			m_flStartScale = 1.5
 		},
 		{
 			_class = "C_OP_ColorInterpolate"
-			m_ColorFade = [ 193, 50, 15, 255 ]
+			m_ColorFade = [ 121, 22, 0, 255 ]
 		},
 	]
 	m_Initializers = 
@@ -90,8 +91,8 @@
 		{
 			_class = "C_INIT_CreateWithinSphere"
 			m_fRadiusMin = 40.0
-			m_fSpeedMax = 50.0
-			m_fRadiusMax = 60.0
+			m_fSpeedMax = 100.0
+			m_fRadiusMax = 80.0
 		},
 		{
 			_class = "C_INIT_RandomColor"
