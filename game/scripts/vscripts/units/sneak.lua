@@ -33,11 +33,13 @@ function Sneak:Think()
     TargetIndex = target:entindex(), --Optional.  Only used when targeting the ground
     Queue = 0 --Optional.  Used for queueing up abilities
   })
+
+  return 5
 end
 
 function Sneak:FindWeakestHero()
   local flags = DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS
-  local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, flags, 0, false )
+  local enemies = FindUnitsInRadius( self.entity:GetTeamNumber(), self.entity:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, flags, 0, false )
 
   local minHP = nil
   local target = nil
