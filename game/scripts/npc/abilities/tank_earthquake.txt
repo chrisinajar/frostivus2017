@@ -20,8 +20,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"25.0"
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"1.5"
 
 		"precache"
 		{
