@@ -2,6 +2,8 @@ tank_earthquake = class({})
 
 --------------------------------------------------------------------------------
 function tank_earthquake:OnAbilityPhaseStart()
+	self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
+	self:GetCaster():StartGestureWithPlaybackRate( ACT_DOTA_CAST_ABILITY_2, 2.25/self:GetCastPoint())
 	self.position = self:GetCursorPosition()
 	self.radius = self:GetSpecialValueFor("stun_radius")
 	self.warningFX = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -14,13 +16,16 @@ function tank_earthquake:OnAbilityPhaseStart()
 end
 
 function tank_earthquake:OnAbilityPhaseInterrupted()
+	self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_2 )
 	ParticleManager:ReleaseParticleIndex( self.warningFX )
 end
 
 
 function tank_earthquake:OnSpellStart()
 	local caster = self:GetCaster()
-
+	
+	caster:Interrupt()
+	caster:Stop()
 	local duration = self:GetSpecialValueFor("stun_duration")
 	local damage = self:GetSpecialValueFor("damage")
 

@@ -2,6 +2,8 @@ tank_ground_slam = class({})
 
 --------------------------------------------------------------------------------
 function tank_ground_slam:OnAbilityPhaseStart()
+	self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_1 )
+	self:GetCaster():StartGestureWithPlaybackRate( ACT_DOTA_CAST_ABILITY_1, 1.5/self:GetCastPoint())
 	self.position = self:GetCursorPosition()
 	self.radius = self:GetSpecialValueFor("stun_radius")
 	self.warningFX = ParticleManager:CreateParticle("particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -14,6 +16,7 @@ function tank_ground_slam:OnAbilityPhaseStart()
 end
 
 function tank_ground_slam:OnAbilityPhaseInterrupted()
+	self:GetCaster():RemoveGesture( ACT_DOTA_CAST_ABILITY_1 )
 	ParticleManager:ReleaseParticleIndex( self.warningFX )
 end
 
@@ -21,6 +24,8 @@ end
 function tank_ground_slam:OnSpellStart()
 	local caster = self:GetCaster()
 
+	caster:Interrupt()
+	caster:Stop()
 	local duration = self:GetSpecialValueFor("stun_duration")
 	local damage = self:GetSpecialValueFor("damage")
 
