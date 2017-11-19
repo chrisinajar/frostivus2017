@@ -161,6 +161,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_wisp/wisp_ambient_g.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_bEndCap = true
