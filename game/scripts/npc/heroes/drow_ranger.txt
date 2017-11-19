@@ -6,6 +6,5 @@
 	"npc_dota_hero_drow_ranger"
 	{
 		"Ability1"					"holdout_glacier_arrows"
-		"Ability2"					"holdout_multishot"
 	}
 }
