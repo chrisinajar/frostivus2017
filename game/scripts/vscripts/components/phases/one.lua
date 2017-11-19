@@ -109,13 +109,21 @@ function PhaseOne:Start(callback)
 end
 
 function PhaseOne:RepairInterval()
+  if self.isFightingTank then
+    return
+  end
   if self.repairRemaining == 1 then
     FinishedEvent.broadcast({})
     return
   end
-  if self.repairRemaining == 15 then
+  if not self.hasKilledTank and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - TANK_PERCENT_SPAWN / 100) then
+    HordeDirector:Pause()
+    self.isFightingTank = true
     HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.spawnPoint, function (unit)
       unit:OnDeath(function()
+        HordeDirector:Resume()
+        self.isFightingTank = false
+        self.hasKilledTank = true
         TankCreepItemDrop:DropItem(unit, 1)
       end)
     end)
