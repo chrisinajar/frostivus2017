@@ -1,8 +1,8 @@
 
 -- Taken from bb template
-if CreepItemDrop == nil then
-    DebugPrint ( '[creeps/item_drop] creating new CreepItemDrop object' )
-    CreepItemDrop = class({})
+if SpecialCreepItemDrop == nil then
+    DebugPrint ( '[creeps/item_drop] creating new SpecialCreepItemDrop object' )
+    SpecialCreepItemDrop = class({})
 end
 
 --define how often items drop from creeps. min = 0 (0%), max = 1 (100%)
@@ -35,8 +35,8 @@ function testPRD(prd) {
   }
 }
 ]]
--- 1.19%
-PRD_C = 0.000222
+-- 30%
+local PRD_C = 0.1188
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -54,11 +54,9 @@ local RARITY_ENUM = 4
 --  *FROM and TO -> item will drop at any level.
 --  *RARITY -> item will not drop.
 --it is possible to define the same item twice, for maximum flexibility
-ItemPowerTable = {
+local ItemPowerTable = {
   --NAME                        FROM    TO      RARITY
   --CONSUMABLES
-  { "item_health_potion",        0,     -1,       2},
-  { "item_mana_potion",          0,     -1,       4},
   { "item_enchanted_mango",      0,     10,      20},
   --ACT 1, PART 1
   { "item_ring_of_basilius",     1,      6,       9}, --avoid multiples
@@ -146,10 +144,10 @@ ItemPowerTable = {
   { "item_satanic",             20,     -1,       3},
   { "item_mjollnir",            20,     -1,       4},
   { "item_octarine_core",       20,     -1,       3},
-  { "item_bfury",               20,     -1,       3},
+  { "item_bfury",               20,     -1,       3}
 }
 
-function CreepItemDrop:CreateDrop (itemName, pos)
+function SpecialCreepItemDrop:CreateDrop (itemName, pos)
   local newItem = CreateItem(itemName, nil, nil)
 
   if not newItem then
@@ -173,19 +171,19 @@ function CreepItemDrop:CreateDrop (itemName, pos)
   end)
 end
 
-function CreepItemDrop:DropItem (killedEntity, itemPowerLevel)
+function SpecialCreepItemDrop:DropItem (killedEntity, itemPowerLevel)
   if killedEntity then
     DebugPrint('Attempting an item drop! ' .. tostring(itemPowerLevel))
     killedEntity.Is_ItemDropEnabled = false
-    local itemToDrop = CreepItemDrop:RandomDropItemName(itemPowerLevel)
+    local itemToDrop = SpecialCreepItemDrop:RandomDropItemName(itemPowerLevel)
     if itemToDrop ~= "" and itemToDrop ~= nil then
-      CreepItemDrop:CreateDrop(itemToDrop, killedEntity:GetAbsOrigin())
+      SpecialCreepItemDrop:CreateDrop(itemToDrop, killedEntity:GetAbsOrigin())
     end
   end
 end
 
 local PRDCounter = 1
-function CreepItemDrop:RandomDropItemName(itemPowerLevel)
+function SpecialCreepItemDrop:RandomDropItemName(itemPowerLevel)
   DebugPrint('Attempt item drop')
   --first we need to check against the drop percentage.
   if RandomFloat(0, 1) > math.min(1, PRD_C * PRDCounter) then

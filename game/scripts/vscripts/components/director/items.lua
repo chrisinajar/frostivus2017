@@ -36,7 +36,7 @@ function testPRD(prd) {
 }
 ]]
 -- 1.19%
-PRD_C = 0.000222
+local PRD_C = 0.000222
 
 --creep properties enumerations
 local NAME_ENUM = 1
@@ -54,7 +54,7 @@ local RARITY_ENUM = 4
 --  *FROM and TO -> item will drop at any level.
 --  *RARITY -> item will not drop.
 --it is possible to define the same item twice, for maximum flexibility
-ItemPowerTable = {
+local ItemPowerTable = {
   --NAME                        FROM    TO      RARITY
   --CONSUMABLES
   { "item_health_potion",        0,     -1,       1},
