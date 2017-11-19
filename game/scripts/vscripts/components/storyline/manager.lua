@@ -115,6 +115,7 @@ function StorylineManager:Next()
         return
       end
       hero:RemoveModifierByName("modifier_cinematic_freeze")
+      hero:Stop()
       PlayerResource:SetCameraTarget(playerId, nil)
     end)
     state.phase:Start(function()
