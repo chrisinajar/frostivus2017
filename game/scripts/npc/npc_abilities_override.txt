@@ -765,6 +765,11 @@
         "ItemPurchasable"                "0"
         "ItemShareability" "ITEM_FULLY_SHAREABLE"
     }
+    "item_trident"
+    {
+        "ItemPurchasable"                "0"
+        "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    }
     "item_ultimate_orb"
     {
         "ItemPurchasable"                "0"

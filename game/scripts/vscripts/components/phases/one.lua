@@ -19,8 +19,10 @@ function PhaseOne:Init()
   end
 
   self.sleigh_pos = sleightrig[1]:GetAbsOrigin()
+--[[
   self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
   FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
+]]
 
   self.santa_sleigh_holder = CreateUnitByName("npc_dota_sleigh", self.sleigh_pos, false, nil, nil, DOTA_TEAM_GOODGUYS)
 
@@ -48,6 +50,9 @@ function PhaseOne:Prepare()
 	  hero:AddItem(CreateItem("item_starting_gift", hero, hero))
     end
   end
+  local rosh_trig = Entities:FindAllByName("trigger_act_1_rosh_pos")
+  self.rosh_sad = CreateUnitByName("npc_dota_santa_separate", rosh_trig[1]:GetAbsOrigin() , false, nil, nil, DOTA_TEAM_GOODGUYS)
+  FindClearSpaceForUnit(self.rosh_sad,rosh_trig[1]:GetAbsOrigin(),true)
 
   self.zone = ZoneControl:CreateZone("trigger_act_1_zone", {
     mode = ZONE_CONTROL_EXCLUSIVE_IN,

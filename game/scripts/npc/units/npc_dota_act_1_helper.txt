@@ -44,6 +44,7 @@
             "Wearable1" "models/units/characters/santa_hat_for_radiant_ranged.vmdl"
         }
     }
+
   }
 //=================================================================================
 // Santa's Helper Dire
