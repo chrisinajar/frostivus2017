@@ -10,6 +10,7 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
         "ModelScale"                "1.5"
         "IsAncient"                 "1"
@@ -96,6 +97,7 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
         "ModelScale"                "1.5"
         "IsAncient"                 "1"
@@ -182,6 +184,7 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
         "ModelScale"                "1.5"
         "IsAncient"                 "1"
