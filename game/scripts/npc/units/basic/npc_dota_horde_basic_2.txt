@@ -13,7 +13,6 @@
     "Level"                     "1"
     "ModelScale"                ".7"
 
-
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                  ""      // Ability 1
@@ -28,8 +27,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "32"    // Damage range min.
-    "AttackDamageMax"           "42"    // Damage range max.
+    "AttackDamageMin"           "27"    // Damage range min.
+    "AttackDamageMax"           "37"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
