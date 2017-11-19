@@ -209,12 +209,16 @@ function PlayerWatcher:BaseNameForCreep(unitName)
   end
   return unitName
 end
+
+function PlayerWatcher:IsSpecialUnit(unitName)
+  return string.sub(unitName, 0, 22) == 'npc_dota_horde_special'
+end
+
 function PlayerWatcher:KVDataForUnit(unitName)
   local baseName = self:BaseNameForCreep(unitName)
-  DebugPrint('Basename: ' .. baseName)
   local Kvs = KV_CACHE[baseName]
   if not Kvs then
-    if string.sub(baseName, 0, 22) == 'npc_dota_horde_special' then
+    if self:IsSpecialUnit(unitName) then
       Kvs = LoadKeyValues("scripts/npc/units/special/" .. baseName .. ".txt")
     else
       Kvs = LoadKeyValues("scripts/npc/units/basic/" .. baseName .. ".txt")
@@ -267,7 +271,11 @@ function PlayerWatcher:SpawnUnitAt(unitName, location, callback)
     hordeWatcher:Init(unit, self.hero)
     self.hordeAlive = self.hordeAlive + 1
     unit:OnDeath(function ()
-      CreepItemDrop:DropItem(unit, self:GetPlayerValue())
+      if self:IsSpecialUnit(unitName) then
+        SpecialCreepItemDrop:DropItem(unit, self:GetPlayerValue())
+      else
+        CreepItemDrop:DropItem(unit, self:GetPlayerValue())
+      end
       self.hordeAlive = self.hordeAlive - 1
     end)
     ExecuteOrderFromTable({
@@ -339,7 +347,6 @@ function PlayerWatcher:RunMarker (callback)
   local function checkMarkerVisibility()
     local position = self.marker:GetAbsOrigin()
     if position == lastPosition then
-      DebugPrint('Failed to find a spawn point in this direction, failing out and retrying')
       self:RunMarker(callback)
       return nil
     end

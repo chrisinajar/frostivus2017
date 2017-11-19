@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
 	//=================================================================================================================
 	// Tiny: Trample
@@ -15,7 +15,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"12.0"
 

@@ -7,7 +7,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/units/characters/rosh_and_sleigh_with_hitbox.vmdl" // Model.
+    "Model"                     "models/units/characters/rosh_and_sleigh_with_hitbox_with_hat.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"

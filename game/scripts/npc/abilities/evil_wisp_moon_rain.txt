@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
-	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_rain"
+    "ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_rain"
     "AbilityTextureName"        "luna_eclipse"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -34,12 +34,12 @@
     "AbilityManaCost"         "0"
 
 
-	"precache"
-	{
-		"particle"				"particles/act_4/io_moon_strike_team.vpcf"
-		"particle"				"particles/act_4/io_moon_strike.vpcf"
-		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-	}
+    "precache"
+    {
+      "particle"        "particles/act_4/io_moon_strike_team.vpcf"
+      "particle"        "particles/act_4/io_moon_strike.vpcf"
+      "soundfile"       "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -55,52 +55,47 @@
         "var_type"            "FIELD_FLOAT"
         "duration"            "10"
       }
-      "02"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "beam_damage"         "500"
-      }
-	  "01"
+      "03"
       {
         "var_type"            "FIELD_FLOAT"
         "beam_delay"          "3"
       }
-	  "01"
+      "04"
       {
         "var_type"            "FIELD_INTEGER"
         "beam_radius"         "200"
       }
-	  "03"
+      "05"
       {
         "var_type"            "FIELD_FLOAT"
         "phase_1_tick_time"           "0.25"
       }
-	   "03"
+      "06"
       {
         "var_type"            "FIELD_FLOAT"
         "phase_2_tick_time"           "0.5"
       }
-	   "03"
+      "07"
       {
         "var_type"            "FIELD_FLOAT"
         "phase_3_tick_time"           "0.5"
       }
-	   "03"
+      "08"
       {
         "var_type"            "FIELD_FLOAT"
         "phase_4_tick_time"           "1"
       }
-	  "03"
+      "09"
       {
         "var_type"            "FIELD_INTEGER"
         "phase_2_gap_width"   "200"
       }
-	  "03"
+      "10"
       {
         "var_type"              "FIELD_INTEGER"
-        "phase_2_distance"   	"2000"
+        "phase_2_distance"    "2000"
       }
-	  "03"
+      "11"
       {
         "var_type"            "FIELD_FLOAT"
         "phase_3_ang_vel"     "15"

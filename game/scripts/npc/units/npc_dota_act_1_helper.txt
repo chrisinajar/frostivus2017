@@ -38,6 +38,14 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" "models/units/characters/santa_hat_for_radiant_ranged.vmdl"
+        }
+    }
+
   }
 //=================================================================================
 // Santa's Helper Dire
@@ -77,5 +85,13 @@
     "CombatClassAttack"                                   "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"                                   "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"                               "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" "models/units/characters/santa_hat_for_radiant_ranged.vmdl"
+        }
+    }
   }
 }

@@ -13,7 +13,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"tusk_walrus_kick"
 		"FightRecapLevel"				"1"
-    "MaxLevel"              "3"
+		"MaxLevel"              "3"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -35,17 +35,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"02"
+			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
 				"air_time"					"1.0 1.2 1.4"
 			}
-			"03"
+			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"push_length"				"600 1200 1800"
 			}
-			"07"
+			"03"
 			{
 				"var_type"					"FIELD_INTEGER"
 				"damage"					  "150 300 450"

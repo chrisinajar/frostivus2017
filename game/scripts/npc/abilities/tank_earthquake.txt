@@ -20,7 +20,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"25.0"
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"1.5"
+		"AbilityCastPoint"				"1.9"
 
 		"precache"
 		{

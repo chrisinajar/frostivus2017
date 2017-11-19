@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
 	//=================================================================================================================
 	// Treant Protector: Overgrowth
@@ -9,7 +9,7 @@
 		"MaxLevel"						"4"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
 		
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
 
@@ -32,14 +32,14 @@
 				"var_type"						"FIELD_INTEGER"
 				"radius"						"275 300 350 400"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-			}	
+			}
 			
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
 				"eyes_radius"					"275 300 350 400"
 				"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-			}				
+			}
 		}
 	}
 }
