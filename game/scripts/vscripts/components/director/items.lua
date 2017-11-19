@@ -35,8 +35,8 @@ function testPRD(prd) {
   }
 }
 ]]
--- 1.19%
-local PRD_C = 0.000222
+-- 1.25%
+local PRD_C = 0.000242
 
 --creep properties enumerations
 local NAME_ENUM = 1

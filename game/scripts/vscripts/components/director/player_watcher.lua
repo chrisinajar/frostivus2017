@@ -216,7 +216,6 @@ end
 
 function PlayerWatcher:KVDataForUnit(unitName)
   local baseName = self:BaseNameForCreep(unitName)
-  DebugPrint('Basename: ' .. baseName)
   local Kvs = KV_CACHE[baseName]
   if not Kvs then
     if self:IsSpecialUnit(unitName) then
@@ -348,7 +347,6 @@ function PlayerWatcher:RunMarker (callback)
   local function checkMarkerVisibility()
     local position = self.marker:GetAbsOrigin()
     if position == lastPosition then
-      DebugPrint('Failed to find a spawn point in this direction, failing out and retrying')
       self:RunMarker(callback)
       return nil
     end

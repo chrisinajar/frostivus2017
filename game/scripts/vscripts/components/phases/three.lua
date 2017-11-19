@@ -202,6 +202,10 @@ function PhaseThree:IncrementWaypointTriggerIndex()
     self.tankUnit:OnDeath(function ()
       self.Waypoints.tankDied = true
       self.Cart.Handle.IsStopped = false
+
+      self.tankUnit:OnDeath(function()
+        TankCreepItemDrop:DropItem(self.tankUnit, 1)
+      end)
     end)
   end
 end

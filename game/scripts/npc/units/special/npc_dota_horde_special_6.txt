@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 6: BANELING - working, needs ai
+  // HORDE SPECIAL 6: BANELING - working
   //=================================================================================
     "npc_dota_horde_special_6"
     {
@@ -10,8 +10,9 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
@@ -96,8 +97,9 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
@@ -182,8 +184,9 @@
         "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
+        "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
