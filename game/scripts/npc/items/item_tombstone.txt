@@ -29,7 +29,7 @@
     "ItemShopTags"            "consumable"
     "ItemQuality"             "consumable"
     "ItemStackable"           "1"
-    "ItemShareability"        "ITEM_PARTIALLY_SHAREABLE"
+    "ItemShareability"        "ITEM_FULLY_SHAREABLE"
     "ItemPermanent"           "0"
     "ItemInitialCharges"      "1"
     "ItemCastOnPickup"        "1"
