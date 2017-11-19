@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
 	//=================================================================================================================
 	// Tank: Small Smash
@@ -28,7 +28,6 @@
 			"particle"					"particles/econ/generic/generic_aoe_shockwave_1/generic_aoe_shockwave_1.vpcf"
 			"particle"					"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
 		}
-
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
 	//=================================================================================================================
 	// Holdout: Multishot
@@ -34,7 +34,6 @@
 				"var_type"					"FIELD_INTEGER"
 				"arrow_width"				"35"
 			}
-			
 			"02"
 			{
 				"var_type"					"FIELD_FLOAT"

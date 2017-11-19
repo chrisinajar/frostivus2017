@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
-	"ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
+    "ScriptFile"                "abilities/evil_wisp/evil_wisp_moon_beam"
     "AbilityTextureName"        "luna_lucent_beam"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
@@ -28,12 +28,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
 
-	"precache"
-	{
-		"particle"				"particles/act_4/io_moon_strike_team.vpcf"
-		"particle"				"particles/act_4/io_moon_strike.vpcf"
-		"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
-	}
+    "precache"
+    {
+      "particle"        "particles/act_4/io_moon_strike_team.vpcf"
+      "particle"        "particles/act_4/io_moon_strike.vpcf"
+      "soundfile"       "soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+    }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -49,12 +49,12 @@
         "var_type"            "FIELD_INTEGER"
         "beam_damage"         "500"
       }
-	  "01"
+      "03"
       {
         "var_type"            "FIELD_FLOAT"
         "beam_delay"          "0.75"
       }
-	  "01"
+      "04"
       {
         "var_type"            "FIELD_INTEGER"
         "beam_radius"         "150"
