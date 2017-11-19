@@ -7,6 +7,9 @@ Layer0
 	//---- Specular ----
 	F_SPECULAR 1
 
+	//---- Translucent ----
+	F_ALPHA_TEST 1
+
 	//---- Color ----
 	g_vColorTint "[1.000000 1.000000 1.000000 0.000000]"
 	g_vTexCoordOffset "[0.000 0.000]"
@@ -21,4 +24,8 @@ Layer0
 	g_flSpecularIntensity "0.000"
 	TextureBloom "materials/models/tilesets/christmas_lights/lights_fullwhite.tga"
 	TextureReflectance "materials/default/default_refl.tga"
+
+	//---- Translucent ----
+	g_flAlphaTestReference "0.700"
+	TextureTranslucency "materials/models/tilesets/christmas_lights/lights_trans.tga"
 }
