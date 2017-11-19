@@ -24,6 +24,7 @@ g_ParticlePrecache = {
   "particles/indicators/big_green_circle.vpcf",
   "particles/indicators/big_red_circle.vpcf",
 }
+g_ParticlePrecache[#g_ParticlePrecache + 1] = WEATHER_PARTICLE_NAME
 
 g_ParticleFolderPrecache = {
 

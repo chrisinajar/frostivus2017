@@ -29,6 +29,10 @@ NUMBER_GROUPS_OF_PRESENTS = 7 -- Number of creep camps to create
 
 AUTO_PRESENT_RADIUS = 500 -- radius around roshan in which presents are auto-deposited
 -- total presents = NUMBER_PRESENTS_SPAWNED + (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS)
+
+-- weather effects
+WEATHER_PARTICLE_NAME = "particles/weather/econ_weather_frostivus_base.vpcf"
+
 ------------------------------------------------
 
 PREGAME_TIME = 10

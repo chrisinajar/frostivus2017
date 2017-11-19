@@ -14,6 +14,7 @@ local ITEM_VALUE_INCREMENT = 1/60
 
 function PlayerWatcher:Init(hero, playerID)
   DebugPrint('Init player watcher for ' .. playerID)
+  self.player = hero:GetPlayerOwner()
   self.playerID = playerID
   self.debugGroupName = 'Player' .. playerID
   self.hero = hero
@@ -34,6 +35,9 @@ function PlayerWatcher:Init(hero, playerID)
   self.itemDropValue = 1
 
   self.modifier = self.hero:AddNewModifier(self.hero, nil, 'modifier_player_watcher', {})
+
+  local particle = ParticleManager:CreateParticle(WEATHER_PARTICLE_NAME, PATTACH_EYES_FOLLOW, self.player)
+  ParticleManager:ReleaseParticleIndex(particle)
 
   local function addPlayerValue (name, value)
     DebugOverlay:AddEntry(self.debugGroupName, {
