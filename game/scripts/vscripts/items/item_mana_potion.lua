@@ -26,12 +26,13 @@ function item_mana_potion:OnSpellStart()
 		end
 
 		self:SpendCharge()
+    self:Destroy()
 	end
 end
 
 --------------------------------------------------------------------------------
 
-function item_health_potion:HealHero(hero)
+function item_mana_potion:HealHero(hero)
   local caster = self:GetCaster()
 	hero:GiveMana( caster:GetMaxMana() * self.mana_restore_pct / 100 )
 

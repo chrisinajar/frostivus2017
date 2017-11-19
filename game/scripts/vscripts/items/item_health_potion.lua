@@ -13,7 +13,7 @@ function item_health_potion:OnSpellStart()
 		local caster = self:GetCaster()
 		self.hp_restore_pct = self:GetSpecialValueFor( "hp_restore_pct" )
 		caster:EmitSoundParams( "DOTA_Item.FaerieSpark.Activate", 0, 0.5, 0)
-		
+
 		if self:GetSpecialValueFor("affects_allies") == 1 then
 			local Heroes = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), caster, self:GetSpecialValueFor("heal_radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, 0, false )
 			for _,Hero in pairs( Heroes ) do
@@ -24,6 +24,7 @@ function item_health_potion:OnSpellStart()
 		end
 
 		self:SpendCharge( )
+    self:Destroy()
 	end
 end
 
