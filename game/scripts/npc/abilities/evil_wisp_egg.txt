@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
-	"ScriptFile"                "abilities/evil_wisp/evil_wisp_egg"
+  "ScriptFile"                "abilities/evil_wisp/evil_wisp_egg"
     "AbilityTextureName"        "phoenix_supernova"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
@@ -31,12 +31,12 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
 
-	"precache"
-	{
-		"particle"					"particles/act_4/io_dwarf_egg.vpcf"
-		"model"						"models/heroes/phoenix/phoenix_egg.vmdl"
-		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
-	}
+  "precache"
+  {
+    "particle"          "particles/act_4/io_dwarf_egg.vpcf"
+    "model"           "models/heroes/phoenix/phoenix_egg.vmdl"
+    "soundfile"         "soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+  }
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -57,22 +57,22 @@
         "var_type"                 "FIELD_FLOAT"
         "egg_self_stun_duration"   "10.0"
       }
-	    "04"
+      "04"
       {
         "var_type"                  "FIELD_FLOAT"
         "egg_enemy_stun_duration"   "5"
       }
-      "04"
+      "05"
       {
         "var_type"                  "FIELD_FLOAT"
         "tick_interval"             "1"
       }
-      "04"
+      "06"
       {
         "var_type"                  "FIELD_INTEGER"
         "damage_per_tick"           "500"
       }
-      "04"
+      "07"
       {
         "var_type"                  "FIELD_INTEGER"
         "damage_radius"             "3000"

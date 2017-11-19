@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
 	//=================================================================================================================
 	// Treant Protector: Great Protector
@@ -20,7 +20,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		
-		// Time		
+		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"45"
 
@@ -36,7 +36,7 @@
 			{
 				"var_type"						"FIELD_FLOAT"
 				"duration"						"10.0 11.0 12.0"
-			}		
+			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
@@ -51,7 +51,7 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"model_scale"					"60 80 100"
-			}				
+			}
 		}
 	}
 }

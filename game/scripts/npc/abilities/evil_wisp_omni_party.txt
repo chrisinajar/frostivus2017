@@ -8,7 +8,7 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
-	"ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
+    "ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
     "AbilityTextureName"        "wisp_relocate"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
@@ -48,7 +48,7 @@
         "var_type"            "FIELD_FLOAT"
         "safe_count"          "12 10 8 6"
       }
-	  "03"
+      "04"
       {
         "var_type"            "FIELD_FLOAT"
         "blast_damage"        "1000"
