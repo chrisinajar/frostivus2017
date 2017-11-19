@@ -1,7 +1,7 @@
 "DOTAUnits"
 {
   //=================================================================================
-  // HORDE SPECIAL 6: BANELING - working, needs ai
+  // HORDE SPECIAL 6: BANELING - working
   //=================================================================================
     "npc_dota_horde_special_6"
     {
@@ -12,7 +12,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
@@ -99,7 +99,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
@@ -186,7 +186,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                "1.5"
+        "ModelScale"                ".4"
         "IsAncient"                 "1"
 
         // director
