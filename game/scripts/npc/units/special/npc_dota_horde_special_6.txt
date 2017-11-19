@@ -7,11 +7,11 @@
     {
         // General
         //----------------------------------------------------------------
-        "Model"                     "models/heroes/broodmother/broodmother.vmdl" // Model.
+        "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
         "Level"                     "1"
-        "ModelScale"                "1"
+        "ModelScale"                "1.5"
         "IsAncient"                 "1"
 
         // director
@@ -93,11 +93,11 @@
     {
         // General
         //----------------------------------------------------------------
-        "Model"                     "models/heroes/broodmother/broodmother.vmdl" // Model.
+        "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
         "Level"                     "1"
-        "ModelScale"                "1"
+        "ModelScale"                "1.5"
         "IsAncient"                 "1"
 
         // director
@@ -179,11 +179,11 @@
     {
         // General
         //----------------------------------------------------------------
-        "Model"                     "models/heroes/broodmother/broodmother.vmdl" // Model.
+        "Model"                     "models/items/broodmother/spiderling/lycosidae_spiderling/lycosidae_spiderling.vmdl" // Model.
         "BaseClass"                 "npc_dota_creature"
         "SoundSet"                  "n_creep_Melee"
         "Level"                     "1"
-        "ModelScale"                "1"
+        "ModelScale"                "1.5"
         "IsAncient"                 "1"
 
         // director
