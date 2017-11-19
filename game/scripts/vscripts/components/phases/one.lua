@@ -70,9 +70,7 @@ function PhaseOne:Start(callback)
   FinishedEvent.once(function()
     self.running = false
     HordeDirector:Pause()
-    HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.spawnPoint, function (unit)
-      unit:OnDeath(callback)
-    end)
+    callback()
   end)
   self.running = true
   self.repairRemaining = REPAIR_UNITS_REQUIRED
@@ -113,6 +111,14 @@ end
 function PhaseOne:RepairInterval()
   if self.repairRemaining == 1 then
     FinishedEvent.broadcast({})
+    return
+  end
+  if self.repairRemaining == 15 then
+    HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4", self.spawnPoint, function (unit)
+      unit:OnDeath(function()
+        TankCreepItemDrop:DropItem(unit, 1)
+      end)
+    end)
   end
 
   self.repairRemaining = self.repairRemaining - 1
