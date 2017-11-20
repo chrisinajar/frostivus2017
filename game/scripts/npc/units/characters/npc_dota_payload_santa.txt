@@ -7,7 +7,7 @@
   {
     // General
     //----------------------------------------------------------------
-    "Model"                     "models/units/characters/rosh_and_sleigh_with_hitbox_with_hat.vmdl" // Model.
+    "Model"                     "models/units/characters/rosh_sleigh_act3.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
@@ -16,10 +16,10 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "santa_sled_capturepoint"  // Ability 1
+    "Ability1"                  ""  // Ability 1
     "Ability2"                  "santa_sled_santa_armour"  // Ability 2
     "Ability3"                  "santa_sled_move"          // Ability 3
-    "Ability4"                  ""      // Ability 4
+    "Ability4"                  "santa_sled_capturepoint"      // Ability 4
 
     // Armor
     //----------------------------------------------------------------
