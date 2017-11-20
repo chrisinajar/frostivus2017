@@ -1,0 +1,2 @@
+"DOTA_Tooltip_ability_broken_sleigh"                         "Broken"
+"DOTA_Tooltip_ability_broken_sleigh_Description"             "The sleigh suffered terrible damage in the crash. It needs repair!"

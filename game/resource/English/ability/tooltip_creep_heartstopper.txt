@@ -1,0 +1,6 @@
+"DOTA_Tooltip_ability_creep_heartstopper"                  "Heartstopper Aura"
+"DOTA_Tooltip_ability_creep_heartstopper_Description"      "A chill presence drains the life of all nearby enemies."
+"DOTA_Tooltip_ability_creep_heartstopper_Lore"             "Those who come within a short distance of this unit can feel the frost in the air."
+"DOTA_Tooltip_ability_creep_heartstopper_Note0"            "Damage won't disable items like Blink Dagger."
+"DOTA_Tooltip_ability_creep_heartstopper_aura_radius"      "RADIUS:"
+"DOTA_Tooltip_ability_creep_heartstopper_aura_damage"      "%HEALTH DECAY:"

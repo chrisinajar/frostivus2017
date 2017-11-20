@@ -1,0 +1,4 @@
+"DOTA_Tooltip_ability_creep_leap"                              "Leap"
+"DOTA_Tooltip_ability_creep_leap_Description"                  "Leaps forward into battle, covering a great distance."
+"DOTA_Tooltip_ability_creep_leap_Lore"                         "'Tis the season to frolic and leap!"
+"DOTA_Tooltip_ability_creep_leap_leap_distance"                "DISTANCE:"
