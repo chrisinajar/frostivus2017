@@ -65,7 +65,6 @@ local ItemPowerTable = {
   { "item_wraith_band",          0,      5,       3},
   { "item_bracer",               0,      5,       3},
   { "item_null_talisman",        0,      5,       3},
-  { "item_cloak",                0,      4,       3},
   { "item_headdress",            0,      5,       3},
   { "item_chainmail",            0,      5,       3},
   { "item_blades_of_attack",     0,      5,       3},
@@ -111,7 +110,6 @@ local ItemPowerTable = {
   { "item_vladmir",             11,     18,       9}, --avoid multiples
   { "item_solar_crest",         10,     17,       3},
   { "item_desolator",           12,     19,       3},
-  { "item_hood_of_defiance",    11,     18,       3},
   { "item_pipe",                13,     20,       9}, --avoid multiples
   { "item_basher",              11,     18,       3},
   { "item_diffusal_blade",      11,     18,       3},
