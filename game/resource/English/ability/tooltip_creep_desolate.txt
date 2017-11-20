@@ -1,0 +1,7 @@
+"DOTA_Tooltip_ability_creep_desolate"                     "Desolate"
+"DOTA_Tooltip_ability_creep_desolate_Description"         "Deals bonus damage whenever this unit attacks an enemy who is alone. Reduces the enemy vision for %blind_duration% seconds."
+"DOTA_Tooltip_ability_creep_desolate_Lore"                "Being alone can be especially dangerous in the season of sharing."
+"DOTA_Tooltip_ability_creep_desolate_Note0"               "Damage is dealt before the attack."
+"DOTA_Tooltip_ability_creep_desolate_bonus_damage"        "BONUS DAMAGE:"
+"DOTA_Tooltip_ability_creep_desolate_radius"              "RADIUS:"
+"DOTA_Tooltip_ability_creep_desolate_blind_pct"           "%VISION REDUCTION:"

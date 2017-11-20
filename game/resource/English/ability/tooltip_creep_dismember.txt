@@ -1,0 +1,6 @@
+"DOTA_Tooltip_ability_creep_dismember"                            "Dismember"
+"DOTA_Tooltip_ability_creep_dismember_Description"                "CHANNELED - Chows down on an enemy unit, disabling it and dealing damage over time. Heals for the same amount as damage dealt. Lasts 3 seconds on Heroes, 6 seconds on creeps."
+"DOTA_Tooltip_ability_creep_dismember_Lore"                       "One of the best parts of Frostivus is the delicacies"
+"DOTA_Tooltip_ability_creep_dismember_Note0"                      "Dismember will disable Spell Immune units, but not damage them."
+"DOTA_Tooltip_ability_creep_dismember_Note1"                      "If a unit becomes invisible while Dismembered, it will still be under the effects of Dismember."
+"DOTA_Tooltip_ability_creep_dismember_dismember_damage"           "DAMAGE PER SECOND:"
