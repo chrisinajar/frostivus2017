@@ -43,7 +43,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"push_length"				"600 1200 1800"
+				"push_length"				"600 900 1200"
 			}
 			"03"
 			{

@@ -12,7 +12,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                ".4"
+        "ModelScale"                ".3"
         "IsAncient"                 "1"
 
         // director
@@ -66,7 +66,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"             "400"   // Speed.
+        "MovementSpeed"             "300"   // Speed.
 
         // Status
         //----------------------------------------------------------------
@@ -99,7 +99,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                ".4"
+        "ModelScale"                ".3"
         "IsAncient"                 "1"
 
         // director
@@ -153,7 +153,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"             "400"   // Speed.
+        "MovementSpeed"             "300"   // Speed.
 
         // Status
         //----------------------------------------------------------------
@@ -186,7 +186,7 @@
         "SoundSet"                  "n_creep_Melee"
         "vscripts"                  "units/baneling"
         "Level"                     "1"
-        "ModelScale"                ".4"
+        "ModelScale"                ".3"
         "IsAncient"                 "1"
 
         // director
@@ -240,7 +240,7 @@
         // Movement
         //----------------------------------------------------------------
         "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
-        "MovementSpeed"             "400"   // Speed.
+        "MovementSpeed"             "300"   // Speed.
 
         // Status
         //----------------------------------------------------------------
