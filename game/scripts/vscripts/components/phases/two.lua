@@ -170,6 +170,8 @@ function PhaseTwo:Start(callback)
 
   self.Cart = self:SpawnCart()
 
+  self:SpawnTank()
+
   DebugPrint("Finished Initializing Phase 2")
 
   DebugPrint("Starting Timers for Phase 2")
@@ -318,6 +320,21 @@ function PhaseTwo:SpawnPresent(pos, campRadius)
   CreateItemOnPositionSync(pos, newItem)
   newItem:LaunchLoot(false, 300, 0.75, pos + RandomVector(RandomFloat(campRadius/3, campRadius)))
   return
+end
+
+function PhaseTwo:SpawnTank()
+  local spawnPoint = Entities:FindByName(nil, "trigger_act_2_tank_spawn")
+  assert(spawnPoint, "Failed to find spawn for act 2 tank")
+  spawnPoint = spawnPoint:GetAbsOrigin()
+  HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act2", spawnPoint, function (unit)
+    unit:OnDeath(function()
+      self.hasKilledTank = true
+      TankCreepItemDrop:DropItem(unit, 2)
+      for i = 1,10 do
+        self:SpawnPresent(unit:GetAbsOrigin(), 400)
+      end
+    end)
+  end)
 end
 
 function PhaseTwo:SpawnCart()
