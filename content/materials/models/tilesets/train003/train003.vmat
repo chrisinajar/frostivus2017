@@ -14,11 +14,11 @@ Layer0
 	TextureColor "materials/models/tilesets/train003/train003.tga"
 
 	//---- Self Illum ----
-	TextureSelfIllumMask "materials/default/default_selfillum.tga"
+	TextureSelfIllumMask "materials/models/tilesets/train003/train003_illum.tga"
 
 	//---- Specular ----
-	g_flSpecularBloom "0.000"
+	g_flSpecularBloom "1.354"
 	g_flSpecularIntensity "1.000"
-	TextureBloom "materials/default/default_bloom.tga"
+	TextureBloom "materials/models/tilesets/train003/train003_illum.tga"
 	TextureReflectance "materials/models/tilesets/train003/train003_refl.tga"
 }
