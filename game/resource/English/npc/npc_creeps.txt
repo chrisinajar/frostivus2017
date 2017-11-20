@@ -1,6 +1,7 @@
 //=====================================================================================
 //  CREEPS
 //=====================================================================================
+"npc_dota_horde_basic"                                          "Fel Spawn"
 "npc_dota_horde_basic_1"                                        "Fel Spawn"
 "npc_dota_horde_basic_2"                                        "Fel Spawn"
 "npc_dota_horde_basic_3"                                        "Fel Spawn"
@@ -64,7 +65,7 @@
 "npc_dota_act_1_helper_dire"                                    "Helper Elf"
 "npc_dota_creep_marker"                                         "Creep Marker"
 "npc_dota_dummy"                                                "Easter Egg"
-"npc_dota_testdummy"                                            "Test Dummy"
+"npc_dota_horde_testdummy"                                      "Test Dummy"
 "npc_dota_target_marker"                                        "Target Marker"
 "npc_dota_santa_separate"                                       "Old Saint Roshan"
 "npc_dota_search_santa"                                         "Old Saint Roshan"
