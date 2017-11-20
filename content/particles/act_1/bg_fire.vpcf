@@ -22,10 +22,10 @@
 		},
 		{
 			_class = "C_OP_RenderDeferredLight"
-			m_flRadiusScale = 500.0
-			m_flAlphaScale = 2.0
+			m_flRadiusScale = 1000.0
+			m_flAlphaScale = 0.75
 			m_flStartFalloff = 0.001
-			m_ColorScale = [ 255, 110, 0 ]
+			m_ColorScale = [ 255, 119, 0 ]
 		},
 	]
 	m_Operators = 
@@ -113,13 +113,13 @@
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/act_1/fire_sleigh_flame.vpcf"
+			m_ChildRef = resource:"particles/act_1/bg_sleigh_flame.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/act_1/fire_sleigh_glow_c.vpcf"
+			m_ChildRef = resource:"particles/act_1/bg_sleigh_glow.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/act_1/fire_sleigh_smoke.vpcf"
+			m_ChildRef = resource:"particles/act_1/bg_fire_smoke.vpcf"
 		},
 	]
 	m_controlPointConfigurations = 

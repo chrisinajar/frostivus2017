@@ -17,8 +17,8 @@ Layer0
 	TextureSelfIllumMask "materials/models/tilesets/lights_streetlight01_snow_on/light_streetlight01_snow_on_selfillum.tga"
 
 	//---- Specular ----
-	g_flSpecularBloom "0.000"
+	g_flSpecularBloom "10.000"
 	g_flSpecularIntensity "1.000"
-	TextureBloom "materials/default/default_bloom.tga"
+	TextureBloom "materials/models/tilesets/lights_streetlight01_snow_on/light_streetlight01_snow_on_selfillum.tga"
 	TextureReflectance "materials/default/default_refl.tga"
 }
