@@ -1,0 +1,4 @@
+"DOTA_Tooltip_ability_creep_shackles"                     "Shackles"
+"DOTA_Tooltip_ability_creep_shackles_Description"         "CHANNELED - Magically binds an enemy unit so that it cannot move or attack."
+"DOTA_Tooltip_ability_creep_shackles_Lore"                "Frostivus is a time to bond, and a time to bind."
+"DOTA_Tooltip_ability_creep_shackles_channel_time"        "MAX DURATION:"

@@ -1,0 +1,5 @@
+"DOTA_Tooltip_ability_creep_necro_archer_aoe"                    "Speed Aura"
+"DOTA_Tooltip_ability_creep_necro_archer_aoe_Description"        "Increases movement and attack speed of nearby units."
+"DOTA_Tooltip_ability_creep_necro_archer_aoe_radius"             "RADIUS:"
+"DOTA_Tooltip_ability_creep_necro_archer_aoe_ms_bonus"           "%MOVE SPEED BONUS:"
+"DOTA_Tooltip_ability_creep_necro_archer_aoe_as_bonus"           "ATTACK SPEED BONUS:"
