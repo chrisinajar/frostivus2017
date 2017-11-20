@@ -17,7 +17,7 @@ function item_present_for_search:GetCooldown(nLevel)
 	return 0.5
 end
 
-function item_present_for_search:OnOwnerDied() 
+function item_present_for_search:OnOwnerDied()
 	local hCaster = self:GetCaster()
 	local numberOfPresents = self:GetCurrentCharges()
 	local pos = hCaster:GetAbsOrigin()
@@ -52,7 +52,7 @@ function modifier_item_present:OnCreated()
   self:SetStackCount(1)
   if IsServer() then self:StartIntervalThink(0.1) end
 end
-  
+
 function modifier_item_present:OnIntervalThink()
   self:SetStackCount( self:GetAbility():GetCurrentCharges() )
 end
@@ -65,6 +65,6 @@ function modifier_item_present:DeclareFunctions()
 end
 
 function modifier_item_present:GetModifierMoveSpeedBonus_Percentage( params )
-	return -10 * self:GetStackCount()
+	return -5 * self:GetStackCount()
 end
 
