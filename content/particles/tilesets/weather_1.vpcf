@@ -88,8 +88,8 @@
 		{
 			_class = "C_INIT_RandomColor"
 			m_flTintPerc = 0.2
-			m_ColorMax = [ 195, 223, 255, 255 ]
-			m_ColorMin = [ 183, 217, 255, 255 ]
+			m_ColorMax = [ 118, 177, 244, 255 ]
+			m_ColorMin = [ 132, 187, 247, 255 ]
 		},
 		{
 			_class = "C_INIT_PositionOffset"
