@@ -25,7 +25,6 @@ function item_mana_potion:OnSpellStart()
 			self:HealHero(caster)
 		end
 
-		self:SpendCharge()
     self:Destroy()
 	end
 end

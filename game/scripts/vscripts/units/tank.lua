@@ -34,7 +34,7 @@ function Tank:Think()
 end
 
 function Tank:Slam()
-  local target = self:NearestEnemyHeroInRange( 9999 )
+  local target = self:NearestEnemyHeroInRange( 1800 )
   if target then
     ExecuteOrderFromTable({
     UnitIndex = self.entity:entindex(),
@@ -48,7 +48,7 @@ function Tank:Slam()
 end
 
 function Tank:Quake()
-  local target = self:NearestEnemyHeroInRange( 9999 )
+  local target = self:NearestEnemyHeroInRange( 1800 )
   if target then
     ExecuteOrderFromTable({
       UnitIndex = self.entity:entindex(),

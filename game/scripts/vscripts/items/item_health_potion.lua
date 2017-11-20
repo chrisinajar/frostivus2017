@@ -23,7 +23,6 @@ function item_health_potion:OnSpellStart()
 			self:HealHero(caster)
 		end
 
-		self:SpendCharge( )
     self:Destroy()
 	end
 end
