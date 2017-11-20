@@ -1,0 +1,5 @@
+//======================================================================
+// Present
+//======================================================================
+"DOTA_Tooltip_modifier_item_present"                                "Present Carrier"
+"DOTA_Tooltip_modifier_item_present_Description"                    "Slowed by a present. These things are heavy!"

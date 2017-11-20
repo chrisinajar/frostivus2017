@@ -1,0 +1,7 @@
+"DOTA_Tooltip_ability_creep_greater_bash"                      "Greater Bash"
+"DOTA_Tooltip_ability_creep_greater_bash_Lore"                 "Attacks carry with them the power of the winds of Frostivus."
+"DOTA_Tooltip_ability_creep_greater_bash_Description"          "Gives a chance to stun and knockback an enemy unit on an attack. Deals a percentage of movement speed as damage."
+"DOTA_Tooltip_ability_creep_greater_bash_chance_pct"           "%CHANCE TO BASH:"
+"DOTA_Tooltip_ability_creep_greater_bash_damage"               "%MOVESPEED AS DAMAGE:"
+"DOTA_Tooltip_ability_creep_greater_bash_knockback_duration"   "KNOCKBACK DURATION:"
+"DOTA_Tooltip_ability_creep_greater_bash_duration"             "STUN DURATION:"
