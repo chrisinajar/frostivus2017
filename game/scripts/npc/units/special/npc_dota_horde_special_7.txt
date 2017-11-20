@@ -32,8 +32,8 @@
     "AttackDamageMax"           "20"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
-    "AttackRange"               "1500"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "1200"   // Range within a target can be acquired.
+    "AttackRange"               "1000"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -139,8 +139,8 @@
     "AttackDamageMax"           "200"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
-    "AttackRange"               "1500"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "1200"   // Range within a target can be acquired.
+    "AttackRange"               "1000"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 
@@ -246,8 +246,8 @@
     "AttackDamageMax"           "1400"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
-    "AttackAcquisitionRange"    "2200"   // Range within a target can be acquired.
-    "AttackRange"               "1500"   // Range within a target can be attacked.
+    "AttackAcquisitionRange"    "1200"   // Range within a target can be acquired.
+    "AttackRange"               "1000"   // Range within a target can be attacked.
     "ProjectileModel"           "particles/units/heroes/hero_venomancer/venomancer_base_attack.vpcf"      // Particle system model for projectile.
     "ProjectileSpeed"           "800"     // Speed of projectile.
 

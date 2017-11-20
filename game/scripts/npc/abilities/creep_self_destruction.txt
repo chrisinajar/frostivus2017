@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Self Destruct
@@ -60,7 +60,7 @@
       {
         "IsDebuff" "1"
         "IsPurgable" "0"
-        "EffectName" "particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"                
+        "EffectName" "particles/units/heroes/hero_alchemist/alchemist_acid_spray_debuff.vpcf"
         "ThinkInterval" "%tick_rate"
         "OnIntervalThink"
         {
@@ -73,11 +73,11 @@
         }
         "Properties"
         {
-          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction_percentage" 
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_reduction_percentage"
         }
       }
     }
-    // Special    
+    // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
     {
@@ -94,7 +94,7 @@
       "03"
       {
         "var_type"                "FIELD_INTEGER"
-        "damage"                "120"
+        "damage"                "100"
       }
       "04"
       {
