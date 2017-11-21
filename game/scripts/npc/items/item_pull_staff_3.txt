@@ -58,7 +58,7 @@
 
     // Stats
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastRange"                                    "800"
+    "AbilityCastRange"                                    "1500"
     "AbilityCastPoint"                                    "0.0"
     "AbilityCooldown"                                     "20.0"
     "AbilitySharedCooldown"                               "force"
