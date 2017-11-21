@@ -3,13 +3,13 @@
   //=================================================================================================================
   // Ability: Creep Shackles
   //=================================================================================================================
-  "evil_wisp_omni_party"
+  "evil_wisp_reinforcements"
   {
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "ability_lua"
-    "ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
-    "AbilityTextureName"        "wisp_relocate"
+    "ScriptFile"                "abilities/evil_wisp/evil_wisp_reinforcements"
+    "AbilityTextureName"        "wisp_overcharge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
     "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
@@ -22,7 +22,8 @@
     
     // Time   
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCooldown"         "30"
+    "AbilityChannelTime"      "10"
+    "AbilityCooldown"         "0"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -30,9 +31,10 @@
 	
 	"precache"
 	{
-		"particle"			"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
-		"particle"			"particles/act_4/io_omni_circle.vpcf"
-		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+		"particle"			"particles/neutral_fx/fortify_creeps.vpcf"
+		"particle"			"particles/econ/items/wisp/wisp_relocate_channel_ti7.vpcf"
+		"particle"			"particles/econ/items/wisp/wisp_tether_ti7.vpcf"
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
 	}
     
     // Special
@@ -42,42 +44,22 @@
       "01"
       {
         "var_type"            "FIELD_FLOAT"
-        "safe_radius"         "360 340 320 300"
+        "special_spawns"      "3 6 9 12"
       }
-	  "02"
+      "02"
       {
-        "var_type"              "FIELD_FLOAT"
-        "safe_radius_variation" "40"
+        "var_type"            "FIELD_FLOAT"
+        "tanks_spawned"       "1 1 1 2"
       }
       "03"
       {
         "var_type"            "FIELD_FLOAT"
-        "explosion_delay"     "4.5 4.25 4 3.75"
+        "tank_tier"           "1 2 3 3"
       }
 	  "04"
       {
-        "var_type"                      "FIELD_FLOAT"
-        "explosion_delay_variation"     "0.5"
-      }
-      "05"
-      {
         "var_type"            "FIELD_FLOAT"
-        "safe_count"          "3"
-      }
-	  "06"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "safe_variation"      "6 5 4 3"
-      }
-      "07"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "blast_damage"        "1000"
-      }
-	  "08"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "radius"              "1200"
+        "tank_spawn_delay"    "3"
       }
     }
   }

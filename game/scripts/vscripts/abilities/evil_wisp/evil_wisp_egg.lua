@@ -101,9 +101,9 @@ if IsServer() then
 		self.internalHP = self:GetParent():GetMaxHealth()
 		self:SetStackCount(0)
 
-    self.tick = self:GetSpecialValueFor("tick_interval")
-    self.damage_tick = self:GetSpecialValueFor("damage_per_tick")
-    self.damage_radius = self:GetSpecialValueFor("damage_radius")
+    self.tick = self:GetAbility():GetSpecialValueFor("tick_interval")
+    self.damage_tick = self:GetAbility():GetSpecialValueFor("damage_per_tick")
+    self.damage_radius = self:GetAbility():GetSpecialValueFor("damage_radius")
 
     if IsServer() then self:StartIntervalThink(self.tick) end
 	end
