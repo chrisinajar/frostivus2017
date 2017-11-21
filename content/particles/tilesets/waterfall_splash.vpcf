@@ -21,6 +21,7 @@
 		},
 		{
 			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.6
 		},
 		{
 			_class = "C_OP_OscillateScalar"
@@ -56,8 +57,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 5.0
-			m_flEndScale = 11.0
+			m_flStartScale = 7.0
+			m_flEndScale = 18.0
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
@@ -84,8 +85,8 @@
 		{
 			_class = "C_INIT_PositionOffset"
 			m_bLocalCoords = true
-			m_OffsetMin = [ -144.0, 0.0, 0.0 ]
-			m_OffsetMax = [ 144.0, 0.0, 0.0 ]
+			m_OffsetMin = [ -155.0, -5.0, 0.0 ]
+			m_OffsetMax = [ 155.0, 5.0, 0.0 ]
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
