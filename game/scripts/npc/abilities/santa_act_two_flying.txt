@@ -15,5 +15,10 @@
     "AbilityType"               "DOTA_ABILITY_TYPE_HIDDEN"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
     "MaxLevel"                  "1"
+    "precache"
+    {
+      "particle"	"particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_buff.vpcf"
+    }
+
   }
 }
