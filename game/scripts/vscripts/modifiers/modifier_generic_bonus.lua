@@ -11,6 +11,7 @@ end
 function modifier_generic_bonus:Setup()
   local attributesToCheck = {
     'bonus_health',
+    'bonus_health_regen',
     'bonus_armor',
     'magic_resistance',
     'bonus_strength',
@@ -39,6 +40,7 @@ end
 function modifier_generic_bonus:DeclareFunctions()
   return {
     MODIFIER_PROPERTY_HEALTH_BONUS,
+    MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
@@ -52,6 +54,10 @@ end
 
 function modifier_generic_bonus:GetModifierHealthBonus()
   return self.bonus_health or 0
+end
+
+function modifier_generic_bonus:GetModifierConstantHealthRegen()
+  return self.bonus_health_regen or 0
 end
 
 function modifier_generic_bonus:GetModifierPhysicalArmorBonus()
