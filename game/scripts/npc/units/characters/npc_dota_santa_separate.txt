@@ -14,6 +14,7 @@
     "ModelScale"                "0.8"
     "BoundsHullName"            "DOTA_HULL_SIZE_BARRACKS"
     "vscripts"                  "units/act1/santa_seperate.lua"
+    "IsAncient"                 "1"
     // Abilities
     //----------------------------------------------------------------
     "Ability1"                  "broken_sleigh"  // Ability 1
