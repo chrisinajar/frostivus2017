@@ -1,12 +1,13 @@
 "DOTAHeroes"
 {
   //=================================================================================================================
-  // HERO: Ogre Magi
+  // HERO: Venomancer
   //=================================================================================================================
-  "npc_dota_hero_ogre_magi"
+  "npc_dota_hero_venomancer"
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability10"   "special_bonus_mp_regen_2" //Frostivus
+    "Ability11"   "special_bonus_spell_amplify_6" //Frostivus
+    "Ability15"   "special_bonus_unique_venomancer_5" //Gale Hero Impact Summons 2 Wards
   }
 }
