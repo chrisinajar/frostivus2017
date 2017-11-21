@@ -54,16 +54,16 @@ function Boss:Think()
     return self:MoonBeam()
   end
   if not self.entity:IsInvulnerable() then
-	if self.stun:IsFullyCastable() then
-		return self:Stun()
-	end
-	if self.bond:IsFullyCastable() then
-		return self:Bond()
-	end
-	if self.totem:IsFullyCastable() and RollPercentage(33) then
-		return self:Totem()
-	end
-	if self.moonrain:IsFullyCastable() and RollPercentage(33) then
+    if self.stun:IsFullyCastable() then
+      return self:Stun()
+    end
+    if self.bond:IsFullyCastable() then
+      return self:Bond()
+    end
+    if self.totem:IsFullyCastable() and RollPercentage(33) then
+      return self:Totem()
+    end
+    if self.moonrain:IsFullyCastable() and RollPercentage(33) then
       return self:MoonRain()
     end
     if self.omni:IsFullyCastable() and RollPercentage(33) then
@@ -131,12 +131,13 @@ end
 function Boss:Bond()
   local target = self:NearestEnemyHeroInRange( 9999 )
   if target then
-	  ExecuteOrderFromTable({
-		UnitIndex = self.entity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = self.bond:entindex()
-	  })
-	  return self.bond:GetCastPoint() + 0.1
+    ExecuteOrderFromTable({
+      UnitIndex = self.entity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+      TargetIndex = target:entindex(),
+      AbilityIndex = self.bond:entindex()
+    })
+    return self.bond:GetCastPoint() + 0.1
    end
 end
 
@@ -152,12 +153,13 @@ end
 function Boss:Stun()
   local target = self:NearestEnemyHeroInRange( 9999 )
   if target then
-	  ExecuteOrderFromTable({
-		UnitIndex = self.entity:entindex(),
-		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-		AbilityIndex = self.stun:entindex()
-	  })
-	  return self.stun:GetCastPoint() + 0.1
+    ExecuteOrderFromTable({
+      UnitIndex = self.entity:entindex(),
+      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+      AbilityIndex = self.stun:entindex(),
+      TargetIndex = target:entindex(),
+    })
+    return self.stun:GetCastPoint() + 0.1
   end
 end
 
