@@ -10,11 +10,11 @@ function VictoryPhase:Start()
 end
 
 local STORY_STATES = {
-  {
-    comic = ComicData.act1,
-    phase = PhaseOne,
-    name = "repair"
-  },
+--   {
+--     comic = ComicData.act1,
+--     phase = PhaseOne,
+--     name = "repair"
+--   },
   {
    comic = ComicData.act2,
    phase = PhaseTwo,
