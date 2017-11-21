@@ -14,7 +14,5 @@
     "Ability13"       "special_bonus_unique_treant_3" //3s Tree Respawn Time (Means trees always respawn in 3 seconds)
     "Ability14"       "special_bonus_unique_treant_4" //+2s Nature's Guise Root
     "Ability15"       "special_bonus_unique_treant_2" //+40 Leech Seed Damage/Heal
-    "Ability16"       "special_bonus_unique_treant" //+6 Living Armor Block Instances
-    "Ability17"       "special_bonus_unique_treant_5" //+350 Eyes and Overgrowth AoE
   }
 }

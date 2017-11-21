@@ -7,7 +7,7 @@
   {
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
-    "Ability6" "holdout_gladiators_unite"
+    "Ability6"    "holdout_gladiators_unite"
     "Ability11"   "special_bonus_attack_armor_4" //Frostivus
     "Ability16"   "special_bonus_unique_legion_commander" //+40 Duel Damage Bonus
   }
