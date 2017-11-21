@@ -1,0 +1,52 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_soul_bond"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "ability_lua"
+    "ScriptFile"                "abilities/evil_wisp/evil_wisp_soul_bond"
+    "AbilityTextureName"        "wisp_tether"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
+    "FightRecapLevel"           "1"
+    "MaxLevel"                  "4" //4 PHASES
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0"
+    "AbilityCastRange"        "1000"
+    "AbilityCooldown"         "25"
+    
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"         "0"
+    
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+	  "01"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "tether_range"        "600"
+      }
+      "02"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "break_buffer"        "200"
+      }
+      "03"
+      {
+        "var_type"            "FIELD_FLOAT"
+        "tether_duration"     "10"
+      }
+    }
+  }
+}

@@ -21,6 +21,10 @@
 #base "abilities/evil_wisp_moon_beam.txt"
 #base "abilities/evil_wisp_moon_rain.txt"
 #base "abilities/evil_wisp_omni_party.txt"
+#base "abilities/evil_wisp_psycho_blast.txt"
+#base "abilities/evil_wisp_totems.txt"
+#base "abilities/evil_wisp_reinforcements.txt"
+#base "abilities/evil_wisp_soul_bond.txt"
 
 #base "abilities/act1_helper_repair.txt"
 
