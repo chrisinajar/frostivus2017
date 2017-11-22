@@ -20,7 +20,7 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0
+    "AbilityCastPoint"        "0"
     "AbilityCastRange"        "1000"
     "AbilityCooldown"         "25"
     
