@@ -7,6 +7,8 @@
 	{
 		"Ability1"				"holdout_blade_fury"
 		"Ability6"				"holdout_omnislash"
+    "Ability12"       "special_bonus_attack_damage_90" //Frostivus
+    "Ability15"       "special_bonus_spell_amplify_8" //Frostivus
     "Ability17"       "special_bonus_agility_15"//Frostivus
 	}
 }

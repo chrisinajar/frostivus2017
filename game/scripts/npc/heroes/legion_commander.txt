@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "Ability6"    "holdout_gladiators_unite"
     "Ability11"   "special_bonus_attack_armor_4" //Frostivus
-    "Ability16"   "special_bonus_unique_attack_damage_120" //Frostivus
+    "Ability13"   "special_bonus_spell_amplify_10" //Frostivus
+    "Ability16"   "special_bonus_attack_damage_120" //Frostivus
   }
 }
