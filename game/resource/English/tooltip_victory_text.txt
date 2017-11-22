@@ -1,0 +1,2 @@
+"dota_game_end_victory_title_radiant"           "You have saved Frostivus!"
+"dota_game_end_victory_title_team"              "Frostivus has been cancelled!"
