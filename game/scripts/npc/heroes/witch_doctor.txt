@@ -9,6 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "Ability6"    "holdout_death_ward"
     "Ability13"   "special_bonus_intelligence_12" //Frostivus
-    "Ability17"   "special_bonus_unique_witch_doctor_5" //+75 Death Ward Damage
+    "Ability14"   "special_bonus_cast_range_150" //Frostivus
+    "Ability17"   "special_bonus_spell_amplify_20" //Frostivus
   }
 }
