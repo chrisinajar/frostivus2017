@@ -27,12 +27,6 @@
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	"precache"
-	{
-		"particle"			  "particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
-		"particle"			  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
-		"model"				  "models/heroes/undying/undying_tower.vmdl"
-	}
     
     // Special
     //-------------------------------------------------------------------------------------------------------------
@@ -48,20 +42,10 @@
         "var_type"            "FIELD_FLOAT"
         "duration"            "10"
       }
-	  "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "totem_hits"            "10"
-      }
-      "04"
+      "03"
       {
         "var_type"            "FIELD_FLOAT"
         "stun_duration"       "1.5"
-      }
-	  "05"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "totem_distance"       "1500"
       }
     }
   }
