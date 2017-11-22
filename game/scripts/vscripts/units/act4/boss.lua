@@ -15,6 +15,9 @@ PhaseEnums = {
 function Boss:Init(entity)
   -- thisEntity
   self.entity = entity
+
+  ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW , self.entity)
+
   self.abilityList = {}
   self.moonrain =  self.entity:FindAbilityByName("evil_wisp_moon_rain")
   table.insert(self.abilityList, self.moonrain)
