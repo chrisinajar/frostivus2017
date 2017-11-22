@@ -31,6 +31,9 @@
     "ScriptFile"                                          "items/stoneskin.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
     "AbilityTextureName"                                  "custom/stoneskin"
+    "Model"                                               "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"                                              "particles/generic_gameplay/dropped_aegis.vpcf"
+
     // Stats
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "50"
