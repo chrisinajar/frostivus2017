@@ -136,7 +136,7 @@
     {
         "AttachWearables"
         {
-            "Wearable1"
+            "Wearable1" "models/heroes/bounty_hunter/bounty_hunter_rweapon.vmdl"
             "Wearable2" "models/heroes/bounty_hunter/bounty_hunter_lweapon.vmdl"
             "Wearable3" "models/heroes/bounty_hunter/bounty_hunter_backpack.vmdl"
             "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_pads.vmdl"
