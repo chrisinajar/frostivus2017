@@ -1,25 +1,6 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: stoneskin (Based on Armlet)
-  //=================================================================================================================
-  "item_recipe_stoneskin"
-  {
-    "ID"                                                  "3244"       // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_4"
-    "ItemCost"                                            "8000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_stoneskin"
-    "ItemRequirements"
-    {
-      "01"                                                "item_shivas_guard_3;item_upgrade_core_3"
-      "02"                                                "item_shivas_guard_3;item_upgrade_core_4"
-    }
-  }
-  //=================================================================================================================
   // stoneskin
   //=================================================================================================================
   "item_stoneskin"
@@ -45,6 +26,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "17750"
+    "ItemPurchasable"         "0"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian;stoneskin"

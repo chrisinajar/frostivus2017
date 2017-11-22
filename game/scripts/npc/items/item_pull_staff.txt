@@ -1,35 +1,6 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Pull Staff
-  //=================================================================================================================
-  "item_recipe_pull_staff"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3340" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_2"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "1500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_pull_staff"
-    "ItemRequirements"
-    {
-      "01"                                                "item_force_staff;item_upgrade_core"
-      "02"                                                "item_force_staff;item_upgrade_core_2"
-      "03"                                                "item_force_staff;item_upgrade_core_3"
-      "04"                                                "item_force_staff;item_upgrade_core_4"
-    }
-  }
-  //=================================================================================================================
   // Pull Staff
   //=================================================================================================================
   // Author: Chronophylos

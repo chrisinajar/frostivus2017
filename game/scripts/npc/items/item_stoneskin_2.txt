@@ -1,21 +1,5 @@
 "DOTAItems"
 {
-  "item_recipe_stoneskin_2"
-  {
-    "ID"                                                  "3245"      // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_5"
-    "ItemCost"                                            "20000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_stoneskin_2"
-    "ItemRequirements"
-    {
-      "01"                                                "item_stoneskin;item_upgrade_core_4"
-    }
-  }
-
   "item_stoneskin_2"
   {
     // General
@@ -41,6 +25,7 @@
     // Item Info
     //-------------------------------------------------------------------------------------------------------------
     "ItemCost"                                            "37750"
+    "ItemPurchasable"         "0"
     "ItemShopTags"                                        "damage;attack_speed;armor;regen_health;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "stoneskin of mordiggian 2;stoneskin 2"
