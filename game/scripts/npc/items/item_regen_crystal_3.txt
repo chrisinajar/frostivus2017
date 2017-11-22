@@ -32,6 +32,8 @@
     "BaseClass"                                           "item_lua"
     "ScriptFile"                                          "items/postactive_regen.lua"
     "AbilityBehavior"                                     "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "Model"                                               "models/props_gameplay/treasure_chest001.vmdl"
+    "Effect"                                              "particles/generic_gameplay/dropped_aegis.vpcf"
     "AbilityTextureName"                                  "custom/regen_crystal"
     // Stats
     //-------------------------------------------------------------------------------------------------------------

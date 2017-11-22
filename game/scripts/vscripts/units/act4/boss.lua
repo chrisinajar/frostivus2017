@@ -35,6 +35,10 @@ function Boss:Init(entity)
   table.insert(self.abilityList, self.bond)
   self.totem = self.entity:FindAbilityByName("evil_wisp_totems")
   table.insert(self.abilityList, self.totem)
+  self.kraken = self.entity:FindAbilityByName("evil_wisp_kraken")
+  table.insert(self.abilityList, self.kraken)
+  self.blink = self.entity:FindAbilityByName("evil_wisp_blink")
+  table.insert(self.abilityList, self.blink)
 
   self.phase = 1
 
@@ -53,31 +57,32 @@ function Boss:Think()
     self:GoToNextPhase()
     self:Reinforcements()
   end
-  if self.moonbeam:IsFullyCastable() then
-    return self:MoonBeam()
-  end
+  
   if not self.entity:IsInvulnerable() then
-    if self.stun:IsFullyCastable() then
-      return self:Stun()
-    end
-    if self.bond:IsFullyCastable() then
-      return self:Bond()
-    end
-    if self.totem:IsFullyCastable() and RollPercentage(33) then
-      return self:Totem()
-    end
-    if self.moonrain:IsFullyCastable() and RollPercentage(33) then
-      return self:MoonRain()
+	if self.stun:IsFullyCastable() then
+		if self:Stun() then return self:Stun() end
+	end
+	if self.bond:IsFullyCastable() then
+		if self:Bond() then return self:Bond() end
+	end
+	if self.totem:IsFullyCastable() and RollPercentage(33) then
+		return self:Totem()
+	end
+	if self.moonrain:IsFullyCastable() and RollPercentage(33) then
+	  if self:MoonRain() then return self:MoonRain() end
     end
     if self.omni:IsFullyCastable() and RollPercentage(33) then
       return self:OmniParty()
     end
     if self.egg:IsFullyCastable() and self.phase >= 3 and self.entity:GetHealthPercent() < PhaseEnums[self.phase] then
+
       return self:Egg()
     end
   end
-  self:Wander()
-  return 1
+  if self.moonbeam:IsFullyCastable() then
+    return self:MoonBeam()
+  end
+  return self:Wander()
 end
 
 function Boss:GoToNextPhase()
@@ -88,12 +93,23 @@ function Boss:GoToNextPhase()
 end
 
 function Boss:Wander()
-  ExecuteOrderFromTable({
-    UnitIndex = self.entity:entindex(),
-    OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
-    Position = self.entity:GetAbsOrigin() + RandomVector(600),
-    Queue = 0
-  })
+  if self.blink:IsFullyCastable() then
+	ExecuteOrderFromTable({
+	  UnitIndex = self.entity:entindex(),
+	  OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
+	  Position = self.entity:GetAbsOrigin() + RandomVector( self.blink:GetCastRange() ),
+	  Ability = self.blink:entindex(),
+	  Queue = 0
+    })
+  else
+	ExecuteOrderFromTable({
+	  UnitIndex = self.entity:entindex(),
+	  OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+	  Position = self.entity:GetAbsOrigin() + RandomVector(600),
+	  Queue = 0
+    })
+  end
+  return 1
 end
 
 function Boss:MoonBeam()
@@ -114,11 +130,16 @@ function Boss:MoonRain()
       TargetIndex = target:entindex(),
       AbilityIndex = self.moonrain:entindex()
     })
-  end
   return self.moonrain:GetCastPoint() + 0.1
+  end
 end
 
 function Boss:OmniParty()
+  ExecuteOrderFromTable({
+    UnitIndex = self.entity:entindex(),
+    OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
+    AbilityIndex = self.omni:entindex()
+  })
   return self.omni:GetCastPoint() + 0.1
 end
 
@@ -132,15 +153,14 @@ function Boss:Egg()
 end
 
 function Boss:Bond()
-  local target = self:NearestEnemyHeroInRange( 9999 )
+  local target = self:NearestEnemyHeroInRange( self.stun:GetCastRange(self.entity:GetAbsOrigin(), self.entity) )
   if target then
-    ExecuteOrderFromTable({
-      UnitIndex = self.entity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-      TargetIndex = target:entindex(),
-      AbilityIndex = self.bond:entindex()
-    })
-    return self.bond:GetCastPoint() + 0.1
+	  ExecuteOrderFromTable({
+		UnitIndex = self.entity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		AbilityIndex = self.bond:entindex()
+	  })
+   return self.bond:GetCastPoint() + 0.1
    end
 end
 
@@ -154,15 +174,14 @@ function Boss:Reinforcements()
 end
 
 function Boss:Stun()
-  local target = self:NearestEnemyHeroInRange( 9999 )
+  local target = self:NearestEnemyHeroInRange( self.stun:GetCastRange() )
   if target then
-    ExecuteOrderFromTable({
-      UnitIndex = self.entity:entindex(),
-      OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-      AbilityIndex = self.stun:entindex(),
-      TargetIndex = target:entindex(),
-    })
-    return self.stun:GetCastPoint() + 0.1
+	  ExecuteOrderFromTable({
+		UnitIndex = self.entity:entindex(),
+		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		AbilityIndex = self.stun:entindex()
+	  })
+	  return self.stun:GetCastPoint() + 0.1
   end
 end
 
