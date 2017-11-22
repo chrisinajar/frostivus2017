@@ -1,0 +1,37 @@
+"DOTAAbilities" 
+{
+  //=================================================================================================================
+  // Ability: Creep Shackles
+  //=================================================================================================================
+  "evil_wisp_kraken"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                 "tidehunter_kraken_shell"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilitySound"              "Hero_Tidehunter.KrakenShell"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "damage_reduction"      "12 24 36 48"
+            "LinkedSpecialBonus"    "special_bonus_unique_tidehunter_4"
+        }
+        "02"
+        {
+            "var_type"              "FIELD_INTEGER"
+            "damage_cleanse"        "600 550 500 450"
+        }
+        "03"
+        {
+            "var_type"              "FIELD_FLOAT"
+            "damage_reset_interval" "6.0 6.0 6.0 6.0"
+        }
+    }
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_2"
+  }
+}
