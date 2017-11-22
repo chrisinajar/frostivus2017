@@ -12,22 +12,23 @@
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
-    "ModelScale"                "2.5"
+    "ModelScale"                "1.5"
     "IsAncient" "1"
 
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  "evil_wisp_moon_beam"         // Ability 1
-    "Ability2"                  "evil_wisp_omni_party"        // Ability 2
-    "Ability3"                  "evil_wisp_moon_rain"         // Ability 3
-    "Ability4"                  "evil_wisp_egg"               // Ability 4
-	  "Ability5"                  "evil_wisp_soul_bond"         // Ability 4
-	  "Ability6"                  "evil_wisp_psycho_blast"      // Ability 4
-	  "Ability7"                  "evil_wisp_reinforcements"    // Ability 4
-	  "Ability8"                  "evil_wisp_totems"            // Ability 4
-	  "Ability9"                  "evil_wisp_blink"             // Ability 4
-	  "Ability10"                 "evil_wisp_kraken"            // Ability 4
+    "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
+    "Ability2"                  "evil_wisp_omni_party"      // Ability 2
+    "Ability3"                  "evil_wisp_moon_rain"      // Ability 3
+    "Ability4"                  "evil_wisp_egg"      // Ability 4
+    "Ability5"                  "evil_wisp_soul_bond"      // Ability 4
+    "Ability6"                  "evil_wisp_psycho_blast"      // Ability 4
+    "Ability7"                  "evil_wisp_reinforcements"      // Ability 4
+    "Ability8"                  "evil_wisp_totems"      // Ability 4
+    "Ability9"                  "evil_wisp_blink"      // Ability 4
+    "Ability10"                 "evil_wisp_kraken"      // Ability 4
+
 
     // Armor
     //----------------------------------------------------------------
