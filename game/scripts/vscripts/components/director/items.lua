@@ -71,6 +71,7 @@ local ItemPowerTable = {
   { "item_belt_of_strength",     1,      6,       3},
   { "item_boots_of_elves",       1,      6,       3},
   { "item_robe",                 1,      6,       3},
+  { "item_gloves",               1,      6,       3},
   { "item_soul_ring",            2,      7,       3},
   --ACT 1, PART 2
   { "item_buckler",              3,      8,       9}, --avoid multiples
