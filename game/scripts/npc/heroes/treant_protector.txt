@@ -11,8 +11,7 @@
     "Ability2"				"treant_leech_seed_nb2017"
     "Ability6"				"treant_great_protector"
     "Ability10"       "special_bonus_all_stats_6" //Frostivus
-    "Ability13"       "special_bonus_unique_treant_3" //3s Tree Respawn Time (Means trees always respawn in 3 seconds)
-    "Ability14"       "special_bonus_unique_treant_4" //+2s Nature's Guise Root
+    "Ability14"       "special_bonus_movement_speed_40" //Frostivus
     "Ability15"       "special_bonus_unique_treant_2" //+40 Leech Seed Damage/Heal
   }
 }
