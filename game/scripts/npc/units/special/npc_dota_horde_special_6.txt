@@ -30,9 +30,9 @@
 
             "AttachWearables"
             {
-                "Wearable1" { "ItemDef" "9090" }
-                "Wearable2" { "ItemDef" "7617" }
-                "Wearable3" { "ItemDef" "8395" }
+                "Wearable1" "models/items/broodmother/lycosidae_back/lycosidae_back.vmdl"
+                "Wearable2" "models/items/broodmother/virulent_matriarchs_legs/virulent_matriarchs_legs.vmdl"
+                "Wearable3" "models/items/broodmother/araknarok_broodmother_head/araknarok_broodmother_head.vmdl"
             }
         }
 
@@ -117,9 +117,9 @@
 
             "AttachWearables"
             {
-                "Wearable1" { "ItemDef" "9090" }
-                "Wearable2" { "ItemDef" "7617" }
-                "Wearable3" { "ItemDef" "8395" }
+                "Wearable1" "models/items/broodmother/lycosidae_back/lycosidae_back.vmdl"
+                "Wearable2" "models/items/broodmother/virulent_matriarchs_legs/virulent_matriarchs_legs.vmdl"
+                "Wearable3" "models/items/broodmother/araknarok_broodmother_head/araknarok_broodmother_head.vmdl"
             }
         }
 
@@ -204,9 +204,9 @@
 
             "AttachWearables"
             {
-                "Wearable1" { "ItemDef" "9090" }
-                "Wearable2" { "ItemDef" "7617" }
-                "Wearable3" { "ItemDef" "8395" }
+                "Wearable1" "models/items/broodmother/lycosidae_back/lycosidae_back.vmdl"
+                "Wearable2" "models/items/broodmother/virulent_matriarchs_legs/virulent_matriarchs_legs.vmdl"
+                "Wearable3" "models/items/broodmother/araknarok_broodmother_head/araknarok_broodmother_head.vmdl"
             }
         }
 
