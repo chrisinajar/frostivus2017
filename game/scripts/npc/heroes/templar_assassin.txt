@@ -6,5 +6,7 @@
 	"npc_dota_hero_templar_assassin"
 	{
 		"Ability1"					"templar_assassin_refraction_holdout"		// Ability 1
-	}	
+    "Ability14"         "special_bonus_hp_300" //Frostivus
+    "Ability17"         "special_bonus_attack_damage_100" //Frostivus
+	}
 }
