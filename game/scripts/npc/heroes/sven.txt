@@ -6,5 +6,6 @@
 	"npc_dota_hero_sven"
 	{
 		"Ability6"				"holdout_gods_strength"
+    "Ability16"       "special_bonus_strength_25"
 	}
 }

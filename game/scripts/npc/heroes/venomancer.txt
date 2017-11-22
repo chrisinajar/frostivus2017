@@ -8,6 +8,6 @@
     // Abilities
     //-------------------------------------------------------------------------------------------------------------
     "Ability11"   "special_bonus_spell_amplify_6" //Frostivus
-    "Ability15"   "special_bonus_unique_venomancer_5" //Gale Hero Impact Summons 2 Wards
+    "Ability15"   "special_bonus_magic_resistance_20" //Frostivus
   }
 }
