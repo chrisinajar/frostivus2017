@@ -10,7 +10,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
-    "vscripts"                    "units/sneak"
+    "vscripts"                  "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -48,12 +48,12 @@
     {
         "AttachWearables"
         {
-            "Wearable1" { "ItemDef" "50" }
-            "Wearable2" { "ItemDef" "51" }
-            "Wearable3" { "ItemDef" "52" }
-            "Wearable4" { "ItemDef" "53" }
-            "Wearable4" { "ItemDef" "54" }
-            "Wearable4" { "ItemDef" "55" }
+            "Wearable1" "models/heroes/bounty_hunter/bounty_hunter_rweapon.vmdl"
+            "Wearable2" "models/heroes/bounty_hunter/bounty_hunter_lweapon.vmdl"
+            "Wearable3" "models/heroes/bounty_hunter/bounty_hunter_backpack.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_pads.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_bandana.vmdl"
         }
 
     }
@@ -97,7 +97,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
-    "vscripts"                    "units/sneak"
+    "vscripts"                  "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -136,12 +136,12 @@
     {
         "AttachWearables"
         {
-            "Wearable1" { "ItemDef" "50" }
-            "Wearable2" { "ItemDef" "51" }
-            "Wearable3" { "ItemDef" "52" }
-            "Wearable4" { "ItemDef" "53" }
-            "Wearable4" { "ItemDef" "54" }
-            "Wearable4" { "ItemDef" "55" }
+            "Wearable1"
+            "Wearable2" "models/heroes/bounty_hunter/bounty_hunter_lweapon.vmdl"
+            "Wearable3" "models/heroes/bounty_hunter/bounty_hunter_backpack.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_pads.vmdl"
+            "Wearable5" "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+            "Wearable6" "models/heroes/bounty_hunter/bounty_hunter_bandana.vmdl"
         }
 
     }
@@ -185,7 +185,7 @@
     "Model"                     "models/heroes/bounty_hunter/bounty_hunter.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
     "SoundSet"                  "n_creep_Melee"
-    "vscripts"                    "units/sneak"
+    "vscripts"                  "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
     "IsAncient"                 "1"
@@ -224,12 +224,12 @@
     {
         "AttachWearables"
         {
-            "Wearable1" { "ItemDef" "50" }
-            "Wearable2" { "ItemDef" "51" }
-            "Wearable3" { "ItemDef" "52" }
-            "Wearable4" { "ItemDef" "53" }
-            "Wearable4" { "ItemDef" "54" }
-            "Wearable4" { "ItemDef" "55" }
+            "Wearable1" "models/heroes/bounty_hunter/bounty_hunter_rweapon.vmdl"
+            "Wearable2" "models/heroes/bounty_hunter/bounty_hunter_lweapon.vmdl"
+            "Wearable3" "models/heroes/bounty_hunter/bounty_hunter_backpack.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_pads.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+            "Wearable4" "models/heroes/bounty_hunter/bounty_hunter_bandana.vmdl"
         }
 
     }
