@@ -1,0 +1,6 @@
+"addon"
+{
+  "addon_game_name"                 "The Second Day of Frostivus"
+  "dota_gamemode_15"                "The Second Day of Frostivus"
+
+}

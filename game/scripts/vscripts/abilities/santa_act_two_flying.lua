@@ -11,10 +11,11 @@ modifier_santa_act_two_flying = class(ModifierBaseClass)
 function modifier_santa_act_two_flying:CheckState()
   return {
     [MODIFIER_STATE_INVISIBLE] = true,
-    --[MODIFIER_STATE_INVULNERABLE] = true,
+    [MODIFIER_STATE_INVULNERABLE] = true,
     --[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-    [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
+    [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,
+    [MODIFIER_STATE_MAGIC_IMMUNE] = true
   }
 end
 
@@ -52,8 +53,13 @@ function modifier_santa_act_two_flying:GetVisualZDelta( params )
 end
 
 function modifier_santa_act_two_flying:OnCreated()
-  -- BUG: AddNoDraw() doesn't exist
-  --self:GetCaster():AddNoDraw()
+    if IsServer() then
+        self.nFXIndex = ParticleManager:CreateParticle( "particles/econ/items/earthshaker/earthshaker_totem_ti6/earthshaker_totem_ti6_buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())--PATTACH_OVERHEAD_FOLLOW, self:GetParent())
+        ParticleManager:SetParticleControl( self.nFXIndex, 14, Vector(2, 2, 2 ) )
+        ParticleManager:SetParticleControl( self.nFXIndex, 15, Vector(100, 100, 255 ) )
+        self:AddParticle( self.nFXIndex, false, false, -1, false, false )
+        self:StartIntervalThink( 0.5 )
+    end
 end
 
 function modifier_santa_act_two_flying:IsHidden()

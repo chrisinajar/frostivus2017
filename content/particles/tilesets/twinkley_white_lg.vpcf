@@ -43,8 +43,8 @@
 		},
 		{
 			_class = "C_OP_ClampScalar"
-			m_flOutputMax = 12.0
-			m_flOutputMin = 6.0
+			m_flOutputMax = 20.0
+			m_flOutputMin = 10.0
 		},
 		{
 			_class = "C_OP_OscillateScalar"

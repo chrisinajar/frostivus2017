@@ -20,14 +20,13 @@
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------
-    "AbilityCastPoint"        "0"
-    "AbilityCastRange"        "1200"
+    "AbilityCastPoint"        "0
+    "AbilityCastRange"        "1000"
     "AbilityCooldown"         "25"
     
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
 	"precache"
 	{
 		"particle"				"particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"

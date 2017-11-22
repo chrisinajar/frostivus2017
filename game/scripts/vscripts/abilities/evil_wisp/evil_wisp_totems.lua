@@ -126,3 +126,4 @@ end
 function modifier_evil_wisp_totem_stun:IsPurgeException()
 	return true
 end
+

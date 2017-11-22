@@ -29,8 +29,8 @@
     // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "300"    // Damage range min.
-    "AttackDamageMax"           "400"    // Damage range max.
+    "AttackDamageMin"           "200"    // Damage range min.
+    "AttackDamageMax"           "350"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
@@ -82,11 +82,13 @@
     //----------------------------------------------------------------
      "Model"                     "models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl" // Model.
     "BaseClass"                 "npc_dota_creature"
-	  "vscripts"					          "units/tank"
+	"vscripts"					          "units/tank"
     "SoundSet"                  "n_creep_Melee"
     "Level"                     "1"
     "ModelScale"                "2.0"
     "IsAncient"                 "1"
+    "MinimapIcon"               "minimap_candybucket"
+    "MinimapIconSize"           "200"
 
     // Abilities
     //----------------------------------------------------------------
