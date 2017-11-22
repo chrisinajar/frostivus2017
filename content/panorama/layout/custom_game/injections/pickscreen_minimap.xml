@@ -1,0 +1,6 @@
+<root>
+  <styles>
+    <include src="file://{resources}/styles/custom_game/injections.css" />
+  </styles>
+  <Panel class="newHeroPickMinimap" />
+</root>

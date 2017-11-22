@@ -1,0 +1,23 @@
+.newHeroPickMinimap
+{
+  width: 300px;
+  height: 300px;
+
+  horizontal-align: center;
+
+
+  opacity: 1;
+
+  transition-property: opacity, transform;
+  transition-duration: .4s;
+  transition-timing-function: ease-in-out;
+
+  background-color: black;
+  background-image: url("file://{images}/custom_game/hud/pickscreen_minimap.png");
+  background-size: 100%;
+  background-position: 50%;
+
+  transform: rotateX(50deg) translateX(-148px);
+  //transform: rotateX(0deg) translateX(-200px) translateY(0px);
+  transform-origin: 0% 50%;
+}
