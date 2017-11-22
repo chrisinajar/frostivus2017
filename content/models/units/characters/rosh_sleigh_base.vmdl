@@ -97,7 +97,7 @@
 			[
 				{
 					m_Animationname = "rosh_sleigh_anim_bind"
-					m_Filepath = "models/units/characters/dmx/animations/rosh_sleigh_anim_bind.fbx"
+					m_Filepath = "models/units/characters/animations/rosh_sleigh_anim_bind.fbx"
 					m_nStartframe = 0
 					m_nEndframe = 1
 					m_flFps = 24.0
@@ -137,14 +137,14 @@
 				},
 				{
 					m_Animationname = "rosh_sleigh_anim_flying"
-					m_Filepath = "models/units/characters/dmx/animations/rosh_sleigh_anim_flying.fbx"
+					m_Filepath = "models/units/characters/animations/rosh_sleigh_anim_flying.fbx"
 					m_nStartframe = 0
 					m_nEndframe = 60
-					m_flFps = 28.0
+					m_flFps = 24.0
 					m_Loop = 
 					{
 						m_bLoop = true
-						m_bSmoothLoop = true
+						m_bSmoothLoop = false
 						m_nSmoothLoopStart = 0
 						m_nSmoothLoopEnd = 0
 						m_StartLoop = 
