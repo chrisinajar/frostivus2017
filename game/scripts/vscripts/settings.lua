@@ -23,9 +23,9 @@ MAX_HELPERS = 5
 -- act 2
 SLED_MOVE_SPEED = 60
 NUMBER_PRESENTS_REQUIRED = 40
-NUMBER_PRESENTS_SPAWNED = 60 -- presents scattered around
-NUMBER_PRESENTS_PER_GROUP = 5 -- Number of presents to drop per camp
-NUMBER_GROUPS_OF_PRESENTS = 7 -- Number of creep camps to create
+NUMBER_PRESENTS_SPAWNED = 70 -- presents scattered around
+NUMBER_PRESENTS_PER_GROUP = 6 -- Number of presents to drop per camp
+NUMBER_GROUPS_OF_PRESENTS = 9 -- Number of creep camps to create
 
 AUTO_PRESENT_RADIUS = 500 -- radius around roshan in which presents are auto-deposited
 -- total presents = NUMBER_PRESENTS_SPAWNED + (NUMBER_PRESENTS_PER_GROUP * NUMBER_GROUPS_OF_PRESENTS)
