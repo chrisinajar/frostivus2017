@@ -26,7 +26,7 @@
 		},
 		{
 			_class = "C_OP_SetToCP"
-			m_vecOffset = [ 0.0, 0.0, 150.0 ]
+			m_vecOffset = [ 0.0, 0.0, 330.0 ]
 		},
 		{
 			_class = "C_OP_FadeOutSimple"

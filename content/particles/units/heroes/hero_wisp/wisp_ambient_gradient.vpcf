@@ -31,12 +31,12 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 4.0
-			m_flEndScale = 4.0
+			m_flStartScale = 3.9
+			m_flEndScale = 3.9
 		},
 		{
 			_class = "C_OP_SetToCP"
-			m_vecOffset = [ 0.0, 0.0, 150.0 ]
+			m_vecOffset = [ 0.0, 0.0, 330.0 ]
 		},
 	]
 	m_Initializers = 
