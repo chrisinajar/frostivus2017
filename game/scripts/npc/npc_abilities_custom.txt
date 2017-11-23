@@ -31,6 +31,9 @@
 #base "abilities/act1_helper_repair.txt"
 
 #base "abilities/santa_act_two_flying.txt"
+#base "abilities/santa_act3_throw_right.txt"
+#base "abilities/santa_act3_throw_left.txt"
+
 #base "abilities/santa_sled_capturepoint.txt"
 #base "abilities/santa_sled_move.txt"
 #base "abilities/santa_sled_santa_armour.txt"

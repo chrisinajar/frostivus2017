@@ -25,11 +25,13 @@ function PhaseThree:GetSpawnPoint()
 end
 
 function PhaseThree:Prepare()
-  local tankSpawn = Entities:FindAllByName("trigger_act_3_tank_spawn")
-  if #tankSpawn < 1 then
+  local tankSpawn1 = Entities:FindAllByName("trigger_act_3_tank_spawn_1")
+  local tankSpawn2 = Entities:FindAllByName("trigger_act_3_tank_spawn_2")
+  local tankSpawn3 = Entities:FindAllByName("trigger_act_3_tank_spawn_3")
+  if #tankSpawn1 < 1 then
     error("Failed to find tank spawn for act 3")
   end
-  self.tankSpawn = tankSpawn[1]:GetAbsOrigin()
+  self.tankSpawn = {tankSpawn1[1]:GetAbsOrigin(),tankSpawn2[1]:GetAbsOrigin(),tankSpawn3[1]:GetAbsOrigin()}
 end
 
 function PhaseThree:Start(callback)
@@ -51,18 +53,78 @@ function PhaseThree:Start(callback)
       "trigger_act_3_path_4",
       "trigger_act_3_path_5",
       "trigger_act_3_path_6",
-      "trigger_act_3_path_7"
+      "trigger_act_3_path_7",
+      "trigger_act_3_path_8",
+      "trigger_act_3_path_9",
+      "trigger_act_3_path_10",
+      "trigger_act_3_path_11",
+      "trigger_act_3_path_12",
+      "trigger_act_3_path_13",
+      "trigger_act_3_path_14",
+      "trigger_act_3_path_15",
+      "trigger_act_3_path_16",
+      "trigger_act_3_path_17",
+      "trigger_act_3_path_18",
+      "trigger_act_3_path_19"
     }),
     currentIndex = 1,
-    tankIndex = 6,
-    tankSpawned = false,
-    tankDied = false
+    tankIndex = {[5] = true,[14] = true,[18] = true},
+    tankCounter = 1,
+    tankSpawned = {[5] = false,[14] = false,[18] = false},
+    tankDied = {[5] = false,[14] = false,[18] = false},
+    PresentRight = 
+    {
+      [0] = false,
+      [1] = false,
+      [2] = true,
+      [3] = false,
+      [4] = true,
+      [5] = false,
+      [6] = false,
+      [7] = false,
+      [8] = false,
+      [9] = false,
+      [10] = true,
+      [11] = false,
+      [12] = false,
+      [13] = false,
+      [14] = true,
+      [15] = false,
+      [16] = false,
+      [17] = false,
+      [18] = true,
+      [19] = false
+    },
+    PresentLeft = 
+    {
+      [0] = false,
+      [1] = false,
+      [2] = false,
+      [3] = true,
+      [4] = false,
+      [5] = true,
+      [6] = false,
+      [7] = true,
+      [8] = true,
+      [9] = true,
+      [10] = false,
+      [11] = true,
+      [12] = true,
+      [13] = false,
+      [14] = false,
+      [15] = true,
+      [16] = false,
+      [17] = false,
+      [18] = false,
+      [19] = false
+    }
   }
 
   self.SpawnPosition = self:GetCurrentWaypointTrigger():GetAbsOrigin()
   self.SantaSpawnPosition = self.SpawnPosition
 
   self.Cart = self:SpawnCart()
+   print("here")
   self.Cart.Handle:FindAbilityByName("santa_sled_move"):CastAbility()
 
   self.totalPathLength = self:CalculateMoveDistance(nil)
@@ -195,18 +257,51 @@ end
 function PhaseThree:IncrementWaypointTriggerIndex()
   self.Waypoints.currentIndex = self.Waypoints.currentIndex + 1
 
-  if self.Waypoints.currentIndex == self.Waypoints.tankIndex and not self.Waypoints.tankSpawned then
-    self.Waypoints.tankSpawned = true
-    self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn)
-    self.Cart.Handle.IsStopped = true
-    self.tankUnit:OnDeath(function ()
-      self.Waypoints.tankDied = true
-      self.Cart.Handle.IsStopped = false
+  if self.Waypoints.PresentRight[self.Waypoints.currentIndex - 1] then
+    self.Cart.Handle:FindAbilityByName("santa_act3_throw_right"):CastAbility()
+  end
+  if self.Waypoints.PresentLeft[self.Waypoints.currentIndex - 1] then
+    self.Cart.Handle:FindAbilityByName("santa_act3_throw_left"):CastAbility()
+  end
 
-      self.tankUnit:OnDeath(function()
+  if self.Waypoints.tankIndex[self.Waypoints.currentIndex] and not self.Waypoints.tankSpawned[self.Waypoints.currentIndex] then
+    self.Waypoints.tankSpawned[self.Waypoints.currentIndex] = true
+    if self.Waypoints.tankCounter<3 then
+      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
+      self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
+      self.Cart.Handle.IsStopped = true
+      self.tankUnit:OnDeath(function ()
+        self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
+        self.Cart.Handle.IsStopped = false
+        TankCreepItemDrop:DropItem(self.tankUnit, 1)
+        self.tankUnit = nil
+      end)
+    else
+      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
+      self.tankUnit2 = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
+      self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
+      self.Cart.Handle.IsStopped = true
+
+      self.tankUnit:OnDeath(function ()
+        if not self.tankUnit2:IsAlive() then
+          self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
+          self.Cart.Handle.IsStopped = false
+          self.tankUnit = nil
+          self.tankUnit2 = nil          
+        end
         TankCreepItemDrop:DropItem(self.tankUnit, 1)
       end)
-    end)
+
+      self.tankUnit2:OnDeath(function ()
+        if not self.tankUnit:IsAlive() then
+          self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
+          self.Cart.Handle.IsStopped = false
+          self.tankUnit = nil
+          self.tankUnit2 = nil
+        end
+        TankCreepItemDrop:DropItem(self.tankUnit2, 1)
+      end)      
+    end
   end
 end
 

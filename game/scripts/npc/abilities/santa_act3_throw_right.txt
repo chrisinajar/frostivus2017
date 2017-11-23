@@ -1,0 +1,20 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Santa Throws Present to the Right
+  //=================================================================================================================
+  "santa_act3_throw_right"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "98433"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "Scriptfile"                "abilities/santa_act3_throw_right.lua"
+
+    "AbilityTextureName"        "omniknight_degen_aura"
+    "AbilityType"               "DOTA_ABILITY_TYPE_HIDDEN"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                  "1"
+
+  }
+}
