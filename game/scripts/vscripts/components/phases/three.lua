@@ -283,23 +283,23 @@ function PhaseThree:IncrementWaypointTriggerIndex()
       self.Cart.Handle.IsStopped = true
 
       self.tankUnit:OnDeath(function ()
+        TankCreepItemDrop:DropItem(self.tankUnit, 1)
         if not self.tankUnit2:IsAlive() then
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil
           self.tankUnit2 = nil          
         end
-        TankCreepItemDrop:DropItem(self.tankUnit, 1)
       end)
 
       self.tankUnit2:OnDeath(function ()
+        TankCreepItemDrop:DropItem(self.tankUnit2, 1)
         if not self.tankUnit:IsAlive() then
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil
           self.tankUnit2 = nil
-        end
-        TankCreepItemDrop:DropItem(self.tankUnit2, 1)
+        end 
       end)      
     end
   end
