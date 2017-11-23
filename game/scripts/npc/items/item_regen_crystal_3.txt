@@ -76,7 +76,7 @@
       "04"
       {
         "var_type"                                        "FIELD_INTEGER"
-        "bonus_health_regen"                              "300"
+        "active_health_regen"                              "300"
       }
       "05"
       {
