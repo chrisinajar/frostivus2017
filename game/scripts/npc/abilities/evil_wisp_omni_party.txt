@@ -52,29 +52,34 @@
       "03"
       {
         "var_type"            "FIELD_FLOAT"
-        "explosion_delay"     "4.5 4.25 4 3.75"
+        "blast_duration"     "4.5 4.25 4 3.75"
       }
 	  "04"
       {
         "var_type"                      "FIELD_FLOAT"
-        "explosion_delay_variation"     "0.5"
+        "blast_duration_variation"     "0.5"
       }
-      "05"
+	  "05"
+      {
+        "var_type"                      "FIELD_FLOAT"
+        "blast_interval"     "0.5"
+      }
+      "06"
       {
         "var_type"            "FIELD_FLOAT"
         "safe_count"          "3"
       }
-	  "06"
+	  "07"
       {
         "var_type"            "FIELD_FLOAT"
         "safe_variation"      "6 5 4 3"
       }
-      "07"
+      "08"
       {
         "var_type"            "FIELD_FLOAT"
-        "blast_damage"        "1000"
+        "blast_damage"        "333"
       }
-	  "08"
+	  "09"
       {
         "var_type"            "FIELD_FLOAT"
         "radius"              "1200"

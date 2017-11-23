@@ -10,7 +10,7 @@ function evil_wisp_totems:OnSpellStart()
 	self.totems = {}
 	local totemCount = self:GetSpecialValueFor("totems")
 	local distance = self:GetSpecialValueFor("totem_distance")
-	print(totemCount, "ok")
+
 	for i = 1, totemCount do
 		self:CreateTotem( caster:GetAbsOrigin() + RandomVector(distance) )	
 	end
@@ -26,13 +26,17 @@ end
 function evil_wisp_totems:CreateTotem(position)
 	local caster = self:GetCaster()
 	local totem = CreateUnitByName("npc_dota_dummy", position, true, nil, nil, caster:GetTeam())
-
-	totem:SetBaseMaxHealth( self:GetSpecialValueFor("totem_hits") )
-	totem:SetMaxHealth( self:GetSpecialValueFor("totem_hits") )
-	totem:SetHealth( self:GetSpecialValueFor("totem_hits") )
 	
-	local modifier = totem:AddNewModifier(caster, self, "modifier_evil_wisp_totems_dummy_link", {duration = self:GetSpecialValueFor("duration")})
-	print( modifier, "??" )
+	local hits = self:GetSpecialValueFor("totem_hits")
+	local duration = self:GetSpecialValueFor("duration")
+
+	totem:SetBaseMaxHealth( hits )
+	totem:SetMaxHealth( hits )
+	totem:SetHealth( hits )
+	
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, self:GetSpecialValueFor("totem_distance"), duration, false)
+	
+	local modifier = totem:AddNewModifier(caster, self, "modifier_evil_wisp_totems_dummy_link", {duration = duration})
 	table.insert(self.totems, totem)
 end
 

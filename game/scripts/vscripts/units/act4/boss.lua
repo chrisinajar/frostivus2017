@@ -40,7 +40,7 @@ function Boss:Init(entity)
   self.phase = 1
 
 
-  Timers:CreateTimer(1, function()
+  Timers:CreateTimer(4, function()
     return self:Think()
   end)
 end
@@ -55,12 +55,14 @@ function Boss:Think()
     self:Reinforcements()
   end
   
-  if not self.entity:IsInvulnerable() then
+  if not self.entity:IsInvulnerable() and RollPercentage(66) then
 	if self.stun:IsFullyCastable() then
-		if self:Stun() then return self:Stun() end
+		local hasStunned = self:Stun()
+		if hasStunned then return hasStunned end
 	end
 	if self.bond:IsFullyCastable() then
-		if self:Bond() then return self:Bond() end
+		local hasBonded = self:Bond()
+		if hasBonded then return hasBonded end
 	end
 	if self.totem:IsFullyCastable() and RollPercentage(33) then
 		return self:Totem()
@@ -76,7 +78,7 @@ function Boss:Think()
     end
   end
   if self.moonbeam:IsFullyCastable() then
-    return self:MoonBeam()
+    self:MoonBeam()
   end
   return self:Wander()
 end
@@ -89,20 +91,14 @@ function Boss:GoToNextPhase()
 end
 
 function Boss:Wander()
-  if self.blink:IsFullyCastable() then
-	ExecuteOrderFromTable({
-	  UnitIndex = self.entity:entindex(),
-	  OrderType = DOTA_UNIT_ORDER_CAST_POSITION,
-	  Position = self.entity:GetAbsOrigin() + RandomVector( self.blink:GetCastRange() ),
-	  Ability = self.blink:entindex(),
-	  Queue = 0
-    })
+  if self.blink:IsFullyCastable() and RollPercentage(50) then
+	self.entity:Interrupt()
+	self.entity:CastAbilityOnPosition(self.entity:GetAbsOrigin() + RandomVector( RandomInt( self.blink:GetSpecialValueFor("min_blink_range"), self.blink:GetSpecialValueFor("blink_range") ) ), self.blink, -1)
   else
 	ExecuteOrderFromTable({
 	  UnitIndex = self.entity:entindex(),
 	  OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
 	  Position = self.entity:GetAbsOrigin() + RandomVector(600),
-	  Queue = 0
     })
   end
   return 1
@@ -114,7 +110,6 @@ function Boss:MoonBeam()
   OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
   AbilityIndex = self.moonbeam:entindex()
   })
-  return self.moonbeam:GetCastPoint() + 0.1
 end
 
 function Boss:MoonRain()
@@ -126,7 +121,7 @@ function Boss:MoonRain()
       TargetIndex = target:entindex(),
       AbilityIndex = self.moonrain:entindex()
     })
-  return self.moonrain:GetCastPoint() + 0.1
+  return self.moonrain:GetCastPoint() + 0.5
   end
 end
 
@@ -136,7 +131,7 @@ function Boss:OmniParty()
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = self.omni:entindex()
   })
-  return self.omni:GetCastPoint() + 0.1
+  return self.omni:GetCastPoint() + 0.5
 end
 
 function Boss:Egg()
@@ -145,7 +140,7 @@ function Boss:Egg()
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = self.egg:entindex()
   })
-  return self.egg:GetCastPoint() + 0.1
+  return self.egg:GetCastPoint() + 0.5
 end
 
 function Boss:Bond()
@@ -157,7 +152,7 @@ function Boss:Bond()
 		TargetIndex = target:entindex(),
 		AbilityIndex = self.bond:entindex()
 	  })
-   return self.bond:GetCastPoint() + 0.1
+   return self.bond:GetCastPoint() + 0.5
    end
 end
 
@@ -167,19 +162,21 @@ function Boss:Reinforcements()
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = self.reinforcements:entindex()
   })
-  return self.reinforcements:GetCastPoint() + 0.1
+  return self.reinforcements:GetCastPoint() + 0.5
 end
 
 function Boss:Stun()
   local target = self:NearestEnemyHeroInRange( self.stun:GetCastRange() )
+  print( target, self.stun:GetCastRange() )
   if target then
+	  print("stunning")
 	  ExecuteOrderFromTable({
 		UnitIndex = self.entity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
 		TargetIndex = target:entindex(),
 		AbilityIndex = self.stun:entindex()
 	  })
-	  return self.stun:GetCastPoint() + 0.1
+	  return self.stun:GetCastPoint() + 0.5
   end
 end
 
@@ -189,7 +186,7 @@ function Boss:Totem()
     OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET,
     AbilityIndex = self.totem:entindex()
   })
-  return self.totem:GetCastPoint() + 0.1
+  return self.totem:GetCastPoint() + 0.5
 end
 
 function Boss:NearestEnemyHeroInRange( range )

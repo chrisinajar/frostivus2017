@@ -5,7 +5,8 @@ function evil_wisp_omni_party:OnSpellStart()
 	local safeZones = self:GetSpecialValueFor("safe_count") + RandomInt(0, self:GetSpecialValueFor("safe_variation"))
 	
 	local damage = self:GetSpecialValueFor("blast_damage")
-	local delay = self:GetSpecialValueFor("explosion_delay") + RandomInt(0, self:GetSpecialValueFor("explosion_delay_variation"))
+	local duration = self:GetSpecialValueFor("blast_duration") + RandomInt(0, self:GetSpecialValueFor("blast_duration_variation"))
+	local delay = self:GetSpecialValueFor("blast_interval")
 	
 	self.zoneTable = {}
 	for i = 1, safeZones do
@@ -17,9 +18,10 @@ function evil_wisp_omni_party:OnSpellStart()
 		ParticleManager:SetParticleControl(zoneInfo.particle, 1, Vector(zoneInfo.radius,1,1))
 		table.insert(self.zoneTable, zoneInfo)
 	end
-	EmitSoundOn("hero_Crystal.CrystalNovaCast", caster)
+	local warning = self:FireWarning()
 	Timers:CreateTimer( delay, function()
 		local heroes = HeroList:GetAllHeroes()
+		
 		local blastFX = ParticleManager:CreateParticle("particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(blastFX, 0, caster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(blastFX, 1, Vector(3000,0,0))
@@ -29,9 +31,27 @@ function evil_wisp_omni_party:OnSpellStart()
 				ApplyDamage({attacker = caster, victim = hero, damage = damage, damage_type = DAMAGE_TYPE_PURE, ability = self})
 			end
 		end
-		self:ClearSafeZones()
+		
 		EmitSoundOn("Hero_Crystal.CrystalNova", caster)
+		
+		if duration > 0 then
+			duration = duration - delay
+			ParticleManager:DestroyParticle(warning, false)
+			ParticleManager:ReleaseParticleIndex(warning)
+			warning = self:FireWarning()
+			return delay
+		else
+			self:ClearSafeZones()
+		end
 	end)
+end
+
+function evil_wisp_omni_party:FireWarning()
+	local warning = ParticleManager:CreateParticle("particles/act_4/io_moon_strike_team.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(warning, 0, self:GetCaster():GetAbsOrigin() )
+	ParticleManager:SetParticleControl(warning, 1, Vector(3000,1,1) )
+	EmitSoundOn("hero_Crystal.CrystalNovaCast", caster)
+	return warning
 end
 
 function evil_wisp_omni_party:IsHeroSafe(hero)
