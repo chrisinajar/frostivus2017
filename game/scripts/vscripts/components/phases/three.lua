@@ -268,16 +268,16 @@ function PhaseThree:IncrementWaypointTriggerIndex()
     self.Waypoints.tankSpawned[self.Waypoints.currentIndex] = true
 
     if self.Waypoints.tankCounter==1 then
-      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_first_crossing", self.tankSpawn[self.Waypoints.tankCounter])
+      --self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_first_crossing", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
-      self.Cart.Handle.IsStopped = true
+      --[[self.Cart.Handle.IsStopped = true
       self.tankUnit:OnDeath(function ()
         self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
         self.Cart.Handle.IsStopped = false
         TankCreepItemDrop:DropItem(self.tankUnit, 1)
         self.tankUnit = nil
       end)
-    
+    ]]
     elseif self.Waypoints.tankCounter==2 then
       self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_second_crossing", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
