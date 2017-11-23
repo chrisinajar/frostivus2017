@@ -1,0 +1,103 @@
+"DOTAUnits"
+{
+  //=================================================================================
+  // EVIL WISP
+  //=================================================================================
+  "npc_dota_evil_wisp"
+  {
+    // General
+    //----------------------------------------------------------------
+    "Model"                     "models/heroes/wisp/wisp.vmdl" // Model.
+    "vscripts"                  "units/act4/boss.lua"
+    "BaseClass"                 "npc_dota_creature"
+    "SoundSet"                  "n_creep_Melee"
+    "Level"                     "1"
+    "ModelScale"                "1.5"
+    "IsAncient" "1"
+
+
+    // Abilities
+    //----------------------------------------------------------------
+<<<<<<< HEAD
+    "Ability1"                  "evil_wisp_moon_beam"         // Ability 1
+    "Ability2"                  "evil_wisp_omni_party"        // Ability 2
+    "Ability3"                  "evil_wisp_moon_rain"         // Ability 3
+    "Ability4"                  "evil_wisp_egg"               // Ability 4
+	  "Ability5"                  "evil_wisp_soul_bond"         // Ability 4
+	  "Ability6"                  "evil_wisp_psycho_blast"      // Ability 4
+	  "Ability7"                  "evil_wisp_reinforcements"    // Ability 4
+	  "Ability8"                  "evil_wisp_totems"            // Ability 4
+	  "Ability9"                  "evil_wisp_blink"             // Ability 4
+	  "Ability10"                 "evil_wisp_kraken"            // Ability 4
+=======
+    "Ability1"                  "evil_wisp_moon_beam"      // Ability 1
+    "Ability2"                  "evil_wisp_omni_party"      // Ability 2
+    "Ability3"                  "evil_wisp_moon_rain"      // Ability 3
+    "Ability4"                  "evil_wisp_egg"      // Ability 4
+	"Ability5"                  "evil_wisp_soul_bond"      // Ability 4
+	"Ability6"                  "evil_wisp_psycho_blast"      // Ability 4
+	"Ability7"                  "evil_wisp_reinforcements"      // Ability 4
+	"Ability8"                  "evil_wisp_totems"      // Ability 4
+>>>>>>> parent of 6958f47... finished Wisp (#204)
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"            "25"     // Physical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"           "30"    // Damage range min.
+    "AttackDamageMax"           "40"    // Damage range max.
+    "AttackRate"                "1.5"   // Speed of attack.
+    "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
+    "AttackRange"               "100"   // Range within a target can be attacked.
+    "ProjectileModel"           ""      // Particle system model for projectile.
+    "ProjectileSpeed"           "0"     // Speed of projectile.
+
+    //"Creature"
+    //{
+    //    "AttachWearables"
+    //    {
+    //        "Wearable1" { "ItemDef" "536" }
+    //    }
+//
+    //}
+
+    // Bounds
+    //----------------------------------------------------------------
+    "RingRadius"                "35"
+    "HealthBarOffset"           "175"
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"                  "33"    // Experience earn.
+    "BountyGoldMin"             "17"    // Gold earned min.
+    "BountyGoldMax"             "20"    // Gold earned max.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"             "300"   // Speed.
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"              "500000"   // Base health.
+    "StatusHealthRegen"         "25"   // Health regeneration rate.
+    "StatusMana"                "0"     // Base mana.
+    "StatusManaRegen"           "1.0"   // Mana regeneration rate.
+
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"        "800"   // Range of vision during day light.
+    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+
+    // Team
+    //----------------------------------------------------------------
+    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+    "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
+    "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
+    "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+  }
+}
