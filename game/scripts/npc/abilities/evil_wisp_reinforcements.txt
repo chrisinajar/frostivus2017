@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -11,7 +11,7 @@
     "ScriptFile"                "abilities/evil_wisp/evil_wisp_reinforcements"
     "AbilityTextureName"        "wisp_overcharge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"           "1"
     "MaxLevel"                  "4" //4 PHASES
@@ -19,16 +19,16 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0"
-    
-    // Time   
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"      "10"
     "AbilityCooldown"         "0"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
+
 	"precache"
 	{
 		"particle"			"particles/neutral_fx/fortify_creeps.vpcf"
@@ -36,7 +36,7 @@
 		"particle"			"particles/econ/items/wisp/wisp_tether_ti7.vpcf"
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
 	}
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -54,7 +54,7 @@
       "03"
       {
         "var_type"            "FIELD_FLOAT"
-        "tank_tier"           "1 2 3 3"
+        "tank_tier"           "3 3 3 3"
       }
 	  "04"
       {
