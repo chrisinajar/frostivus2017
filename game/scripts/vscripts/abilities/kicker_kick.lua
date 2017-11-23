@@ -35,8 +35,10 @@ if IsServer() then
 		if self.distance > self.distanceTravelled and self:GetParent():IsAlive() then
 			parent:SetAbsOrigin(parent:GetAbsOrigin() + self.direction * self.speed*dt)
 			self.distanceTravelled = self.distanceTravelled + self.speed*dt
+			GridNav:DestroyTreesAroundPoint(parent:GetAbsOrigin(), parent:GetHullRadius() + parent:GetCollisionPadding(), true)
 		else
 			parent:InterruptMotionControllers(true)
+			FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), true)
 			self:Destroy()
 		end
 	end

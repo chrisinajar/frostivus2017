@@ -3,6 +3,7 @@ LinkLuaModifier( "modifier_treant_leech_seed_nb2017", "abilities/treant_leech_se
 
 --------------------------------------------------------------------------------
 
+
 function treant_leech_seed_nb2017:GetIntrinsicModifierName()
 	return "modifier_treant_leech_seed_nb2017"
 end
@@ -12,8 +13,13 @@ end
 function treant_leech_seed_nb2017:OnProjectileHit( hTarget, vLocation )
 	if hTarget ~= nil then
 	end
+	
+	local heal = self:GetSpecialValueFor("leech_damage")
+	if self:GetCaster():FindAbilityByName("special_bonus_unique_treant_2") then
+		heal = heal + self:GetCaster():FindAbilityByName("special_bonus_unique_treant_2"):GetSpecialValueFor("value")
+	end
 
-	hTarget:Heal( self:GetSpecialValueFor( "leech_damage" ), self )
+	hTarget:Heal( heal, self )
 	return true 
 end
 

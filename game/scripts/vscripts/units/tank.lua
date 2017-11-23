@@ -12,10 +12,10 @@ function Tank:Init(entity)
 
   self.slam =  self.entity:FindAbilityByName("tank_ground_slam")
   self.quake = self.entity:FindAbilityByName("tank_earthquake")
-  self.opposingTeam = self.entity:GetOpposingTeamNumber()
+
   self.phase = 1
+
   Timers:CreateTimer(1, function()
-    AddFOWViewer(self.opposingTeam,self.entity:GetAbsOrigin(),400.0,1.5,true)
     return self:Think()
   end)
 end

@@ -38,7 +38,7 @@ function Boss:Init(entity)
   table.insert(self.abilityList, self.blink)
 
   self.phase = 1
-  ParticleManager:CreateParticle("particles/units/heroes/hero_wisp/wisp_ambient.vpcf", PATTACH_ABSORIGIN_FOLLOW , self.entity)
+
 
   Timers:CreateTimer(1, function()
     return self:Think()
@@ -54,7 +54,7 @@ function Boss:Think()
     self:GoToNextPhase()
     self:Reinforcements()
   end
-
+  
   if not self.entity:IsInvulnerable() then
 	if self.stun:IsFullyCastable() then
 		if self:Stun() then return self:Stun() end
@@ -72,7 +72,6 @@ function Boss:Think()
       return self:OmniParty()
     end
     if self.egg:IsFullyCastable() and self.phase >= 3 and self.entity:GetHealthPercent() < PhaseEnums[self.phase] then
-
       return self:Egg()
     end
   end
@@ -155,6 +154,7 @@ function Boss:Bond()
 	  ExecuteOrderFromTable({
 		UnitIndex = self.entity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		TargetIndex = target:entindex(),
 		AbilityIndex = self.bond:entindex()
 	  })
    return self.bond:GetCastPoint() + 0.1
@@ -176,6 +176,7 @@ function Boss:Stun()
 	  ExecuteOrderFromTable({
 		UnitIndex = self.entity:entindex(),
 		OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
+		TargetIndex = target:entindex(),
 		AbilityIndex = self.stun:entindex()
 	  })
 	  return self.stun:GetCastPoint() + 0.1

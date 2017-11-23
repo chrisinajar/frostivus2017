@@ -20,7 +20,14 @@ function Wearables:AddWearablesToCreature(creature)
   if self.UnitKV and self.UnitKV[creature:GetUnitName()] and self.UnitKV[creature:GetUnitName()]["Creature"] and self.UnitKV[creature:GetUnitName()]["Creature"]["AttachWearables"] then
     local wearableList = self.UnitKV[creature:GetUnitName()]["Creature"]["AttachWearables"]
     for _,v in pairs(wearableList) do
-      SpawnEntityFromTableSynchronous("prop_dynamic", {model=v}):FollowEntity(creature, true)
+		if type(v) == "string" then
+			if string.match(v, "vmdl") then
+				SpawnEntityFromTableSynchronous("prop_dynamic", {model=v}):FollowEntity(creature, true)
+			elseif string.match(v, "vpcf") then
+				local wearableFX = ParticleManager:CreateParticle(v, PATTACH_POINT_FOLLOW , creature)
+				ParticleManager:ReleaseParticleIndex(wearableFX)
+			end
+		end
     end
 	if creature:GetModelName() == "models/courier/greevil/greevil.vmdl" then
 		local name = creature:GetUnitName()
