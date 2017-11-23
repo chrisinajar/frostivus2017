@@ -60,7 +60,7 @@
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 1
+			m_nParticlesToEmit = 6
 		},
 	]
 	m_controlPointConfigurations = 
