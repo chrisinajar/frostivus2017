@@ -106,6 +106,8 @@ function PhaseOne:Start(callback)
   for i = 1,MAX_HELPERS do
     self:SpawnHelper()
   end
+  self.helpersAlive = MAX_HELPERS
+
 end
 
 function PhaseOne:RepairInterval()
@@ -142,6 +144,13 @@ function PhaseOne:SpawnHelper()
       self.santa_sleigh_holder = nil
   end
   local helper = CreateUnitByName("npc_dota_act_1_helper", self.spawnPoint, true, nil, nil, DOTA_TEAM_GOODGUYS)
+
+  helper:OnDeath(function ()
+    self.helpersAlive = self.helpersAlive - 1
+    if self.running and self.helpersAlive <=0 then
+      GameRules:SetGameWinner(DOTA_TEAM_NEUTRALS)
+    end
+  end)
 
   FinishedEvent.once(function()
     if not helper:IsNull() then
