@@ -13,7 +13,7 @@
         "vscripts"                  "units/baneling"
         "Level"                     "1"
         "ModelScale"                ".3"
-        "IsAncient"                 "1"
+        "ConsideredHero"            "1"
 
         // director
         "SpawnCount"                "1"

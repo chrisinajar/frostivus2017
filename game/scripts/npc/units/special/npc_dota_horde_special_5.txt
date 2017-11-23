@@ -13,7 +13,7 @@
     "vscripts"                  "units/sneak"
     "Level"                     "1"
     "ModelScale"                "0.7"
-    "IsAncient"                 "1"
+    "ConsideredHero"            "1"
 
     // Abilities
     //----------------------------------------------------------------
