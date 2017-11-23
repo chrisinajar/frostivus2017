@@ -25,7 +25,7 @@
     // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityChannelTime"      "10"
-    "AbilityCooldown"         "30"
+    "AbilityCooldown"         "60"
 
     // Cost
     //-------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@
       "04"
       {
         "var_type"                  "FIELD_FLOAT"
-        "egg_enemy_stun_duration"   "5"
+        "egg_enemy_stun_duration"   "10"
       }
       "05"
       {
@@ -70,7 +70,7 @@
       "06"
       {
         "var_type"                  "FIELD_INTEGER"
-        "damage_per_tick"           "500"
+        "damage_per_tick"           "300"
       }
       "07"
       {
