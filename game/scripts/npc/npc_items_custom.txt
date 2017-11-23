@@ -27,6 +27,7 @@
 #base "items/item_stoneskin_3.txt"
 #base "items/item_stoneskin.txt"
 #base "items/item_tombstone.txt"
+#base "items/item_wand_of_the_brine.txt"
 #base "items/item_wand_of_the_brine_2.txt"
 #base "items/item_wand_of_the_brine_3.txt"
 #base "items/item_wand_of_the_brine.txt"
