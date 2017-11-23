@@ -17,10 +17,12 @@
 
     // Abilities
     //----------------------------------------------------------------
-    "Ability1"                  ""  // Ability 1
-    "Ability2"                  "santa_sled_santa_armour"  // Ability 2
-    "Ability3"                  "santa_sled_move"          // Ability 3
-    "Ability4"                  "santa_sled_capturepoint"      // Ability 4
+    "Ability1"                  "santa_act3_throw_right"  // Ability 1
+    "Ability2"                  "santa_act3_throw_left"  // Ability 2
+    "Ability3"                  "not_of_this_world"  // Ability 3
+    "Ability4"                  "santa_sled_move"          // Ability 4
+    "Ability5"                  "santa_sled_capturepoint"      // Ability 5
+    "Ability6"                  ""      // Ability 6
 
     // Armor
     //----------------------------------------------------------------

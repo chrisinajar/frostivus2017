@@ -1,0 +1,20 @@
+"DOTAAbilities"
+{
+  //=================================================================================================================
+  // Ability: Santa Throws Present to the Left
+  //=================================================================================================================
+  "santa_act3_throw_left"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "ID"                        "31653"  // unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+    "BaseClass"                 "ability_lua"
+    "Scriptfile"                "abilities/santa_act3_throw_left.lua"
+
+    "AbilityTextureName"        "undying_soul_rip"
+    "AbilityType"               "DOTA_ABILITY_TYPE_HIDDEN"
+    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"                  "1"
+  }
+}
+

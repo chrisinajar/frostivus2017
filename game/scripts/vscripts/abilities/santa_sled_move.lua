@@ -11,7 +11,7 @@ function santa_sled_move:CreateProjectile(vSourceLoc)
     Target = caster.ProjectileTarget,
     Source = caster,
     Ability = self,
-    EffectName = "",
+    EffectName = "particles/dev/library/base_follow_absorigin_instant.vpcf",
     iMoveSpeed = caster.BaseSpeed,
     vSourceLoc = vSourceLoc,                          -- Optional (HOW)
     bDrawsOnMinimap = false,                          -- Optional
