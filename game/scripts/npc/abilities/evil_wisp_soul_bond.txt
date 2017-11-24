@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -13,7 +13,7 @@
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"           "1"
     "MaxLevel"                  "4" //4 PHASES
@@ -23,16 +23,16 @@
     "AbilityCastPoint"        "0"
     "AbilityCastRange"        "1200"
     "AbilityCooldown"         "25"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
-	"precache"
-	{
-		"particle"				"particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"
-	}
-    
+
+  	"precache"
+  	{
+  		"particle"				"particles/units/heroes/hero_death_prophet/death_prophet_spiritsiphon.vpcf"
+  	}
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
