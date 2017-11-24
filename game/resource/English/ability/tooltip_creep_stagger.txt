@@ -1,5 +1,5 @@
 "DOTA_Tooltip_ability_creep_stagger"                            "Staggering Blows"
 "DOTA_Tooltip_ability_creep_stagger_Description"                "Hits inflict a powerful but very short slow."
-"DOTA_Tooltip_ability_creep_stagger_Lore"                       "The unrelenting flurry caneven catch experienced warriors off guard."
+"DOTA_Tooltip_ability_creep_stagger_Lore"                       "The unrelenting flurry can even catch experienced warriors off guard."
 "DOTA_Tooltip_ability_creep_stagger_bonus_movespeed"            "%MOVE SLOW:"
 "DOTA_Tooltip_ability_creep_stagger_duration"                   "DURATION:" 
