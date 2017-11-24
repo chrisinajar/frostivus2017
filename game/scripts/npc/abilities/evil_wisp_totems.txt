@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -11,7 +11,7 @@
     "ScriptFile"                "abilities/evil_wisp/evil_wisp_totems"
     "AbilityTextureName"        "undying_tombstone"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"           "1"
     "MaxLevel"                  "4" //4 PHASES
@@ -19,22 +19,22 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0"
-    
-    // Time   
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"         "30"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
+
 	"precache"
 	{
 		"particle"			  "particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
 		"particle"			  "particles/units/heroes/hero_wisp/wisp_tether_agh.vpcf"
 		"model"				  "models/heroes/undying/undying_tower.vmdl"
 	}
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -57,7 +57,7 @@
       "04"
       {
         "var_type"            "FIELD_FLOAT"
-        "stun_duration"       "1.5"
+        "stun_duration"       "2.5"
       }
 	  "05"
       {

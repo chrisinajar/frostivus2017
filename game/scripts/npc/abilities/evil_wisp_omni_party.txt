@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -11,7 +11,7 @@
     "ScriptFile"                "abilities/evil_wisp/evil_wisp_omni_party"
     "AbilityTextureName"        "wisp_relocate"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL" 
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
     "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_NO"
     "FightRecapLevel"           "1"
     "MaxLevel"                  "4" //4 PHASES
@@ -19,22 +19,22 @@
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0"
-    
-    // Time   
+
+    // Time
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCooldown"         "30"
-    
+
     // Cost
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"         "0"
-	
+
 	"precache"
 	{
 		"particle"			"particles/units/heroes/hero_crystalmaiden/maiden_crystal_nova.vpcf"
 		"particle"			"particles/act_4/io_omni_circle.vpcf"
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 	}
-    
+
     // Special
     //-------------------------------------------------------------------------------------------------------------
     "AbilitySpecial"
@@ -52,7 +52,7 @@
       "03"
       {
         "var_type"            "FIELD_FLOAT"
-        "blast_duration"     "4.5 4.25 4 3.75"
+        "blast_duration"     "9 10 11 12"
       }
 	  "04"
       {
@@ -72,12 +72,12 @@
 	  "07"
       {
         "var_type"            "FIELD_FLOAT"
-        "safe_variation"      "6 5 4 3"
+        "safe_variation"      "3 2 1 0"
       }
       "08"
       {
         "var_type"            "FIELD_FLOAT"
-        "blast_damage"        "333"
+        "blast_damage"        "180"
       }
 	  "09"
       {
