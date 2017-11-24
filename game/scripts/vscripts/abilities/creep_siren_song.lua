@@ -171,6 +171,11 @@ if IsServer() then
 		local parent = self:GetParent()
 		local originParent = parent:GetAbsOrigin()
 
+    -- Start thinker for self-damage
+    if parent:IsRealHero() and not parent:IsTempestDouble() then
+      self:StartIntervalThink(1)
+    end
+
 		-- create the effect particle with custom attach point
 		self.part = ParticleManager:CreateParticle( "particles/units/heroes/hero_siren/naga_siren_song_debuff.vpcf", PATTACH_POINT_FOLLOW, parent )
 		ParticleManager:SetParticleControlEnt( self.part, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", originParent, true )
@@ -196,6 +201,22 @@ function modifier_creep_siren_song_debuff:CheckState()
 	}
 
 	return state
+end
+
+--------------------------------------------------------------------------------
+
+if IsServer() then
+  function modifier_creep_siren_song_debuff:OnIntervalThink()
+    local caster = self:GetCaster()
+    local damageTable = {
+      victim = caster,
+      attacker = caster,
+      damage = caster:GetMaxHealth() * 0.02,
+      damage_type = DAMAGE_TYPE_PURE,
+      ability = self:GetAbility()
+    }
+    ApplyDamage(damageTable)
+  end
 end
 
 --------------------------------------------------------------------------------
