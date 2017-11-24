@@ -120,7 +120,9 @@ function StorylineManager:Next()
       end
       hero:RemoveModifierByName("modifier_cinematic_freeze")
       hero:Stop()
-      PlayerResource:SetCameraTarget(playerId, nil)
+      Timers:CreateTimer(1, function()
+        PlayerResource:SetCameraTarget(playerId, nil)
+      end)
     end)
     state.phase:Start(function()
       -- looks nice
@@ -138,6 +140,7 @@ function StorylineManager:Next()
       if not hero then
         return
       end
+      PlayerResource:SetCameraTarget(playerId, hero)
       hero:AddNewModifier(hero, nil, "modifier_cinematic_freeze", {})
       hero:Purge(false, true, false, true, true)
       hero:SetHealth(hero:GetMaxHealth())
@@ -182,6 +185,5 @@ function StorylineManager:SpawnHerosForAct(location)
 
     FindClearSpaceForUnit(hero, location + RandomVector(RandomInt(200, 300)), true)
     hero:SetRespawnPosition(location)
-    PlayerResource:SetCameraTarget(playerId, hero)
   end)
 end
