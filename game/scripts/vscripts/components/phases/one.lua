@@ -161,14 +161,19 @@ function PhaseOne:RepairInterval()
     CreateItemOnPositionSync(partExamplePos, examplePart)
     examplePart:LaunchLoot(false, 300, 0.75, partExamplePos + Vector(0, -700, 0))
     self.examplePartCreated = true
-    Notifications:TopToAll({text="A part popped loose! Return it to the sleigh.", duration=15.0})
-    --Ping:SendPing(partExamplePos)
+    Timers:CreateTimer(function()
+      if self.exampleTurnedIn then
+        return
+      end
+      Notifications:TopToAll({text="A part popped loose! Return it to the sleigh.", duration=15.0})
+      Ping:SendPing(partExamplePos)
+      return 20
+    end)
   end
 
 
   if not self.hasRetrievedItemOne and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_ONE_RETRIEVAL_PERCENT / 100) then
     self.isRetrievingItemOne = true
-    Notifications:TopToAll({text="Repairs Halted: There is another missing part, find and return it", duration=20.0})
 
     local trigName = "trigger_act_1_part_spawn_"..tostring(self.partIndex1)
     print(trigName)
@@ -181,25 +186,25 @@ function PhaseOne:RepairInterval()
     local newItem = CreateItem("item_part_retrieval", nil, nil)
 
     if not newItem then
-    DebugPrint('Failed to find item: ' .. "item_part_retrieval")
-    return
+      DebugPrint('Failed to find item: ' .. "item_part_retrieval")
+      return
     end
     newItem:SetPurchaseTime(0)
     newItem.firstPickedUp = false
 
     CreateItemOnPositionSync(partPos, newItem)
     newItem:LaunchLoot(false, 100, 0.35, partPos + RandomVector(RandomFloat(20, 50)))
-    
+
     self.part1Timer = Timers:CreateTimer(function()
       AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,16,true)
-      --Ping:SendPing(partPos)
+      Ping:SendPing(partPos)
+      Notifications:TopToAll({text="Repairs Halted: There is another missing part, find and return it", duration=10.0})
       return 15.0
     end)
   end
 
   if not self.hasRetrievedItemTwo and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_TWO_RETRIEVAL_PERCENT / 100) then
     self.isRetrievingItemTwo = true
-    Notifications:TopToAll({text="Repairs Halted: Go look for the last missing part", duration=20.0})
     local trigName = "trigger_act_1_part_spawn_"..tostring(self.partIndex2)
     print(trigName)
     local partSpawnPoint = Entities:FindAllByName(trigName)
@@ -216,14 +221,15 @@ function PhaseOne:RepairInterval()
     end
     newItem:SetPurchaseTime(0)
     newItem.firstPickedUp = false
-    
+
     CreateItemOnPositionSync(partPos, newItem)
     self.part2Timer = Timers:CreateTimer(function()
       AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,16,true)
-      --Ping:SendPing(partPos)
+      Notifications:TopToAll({text="Repairs Halted: Go look for the last missing part", duration=10.0})
+      Ping:SendPing(partPos)
       return 15.0
     end)
-    
+
     --newItem:LaunchLoot(false, 300, 0.75, partPos + RandomVector(RandomFloat(100, 150)))
   end
 

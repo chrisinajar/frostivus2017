@@ -121,6 +121,21 @@ function HordeDirector:Init()
   self:EnterNextPhase()
 end
 
+function HordeDirector:ForcePeak ()
+  self.isForcePeak = true
+  if self.currentPhase ~= PHASE_PEAK then
+    self.currentPhase = PHASE_PEAK
+    self:StartPeak()
+  end
+end
+
+function HordeDirector:EndPeak ()
+  if not self.isForcePeak then
+    return
+  end
+  self.isForcePeak = false
+end
+
 function HordeDirector:SpawnSpecialUnit ()
   local unit = HordeSpawner:ChooseSpecialUnit()
   self:ScheduleSpecialUnit(unit)
@@ -191,6 +206,19 @@ function HordeDirector:StartPeak()
   DebugPrint('Entering peak phase')
   DesiredStressEvent.broadcast(1.1) -- force impossible stress at peak
   local inPeak = true
+  local wasForced = self.isForcePeak
+  local endTime = PEAK_TIME
+  if wasForced then
+    endTime = 1
+  end
+  Timers:CreateTimer(endTime, function()
+    -- end peak on a timer
+    if self.isForcePeak then
+      return 1
+    end
+    inPeak = false
+    HordeDirector:EnterNextPhase()
+  end)
   Timers:CreateTimer(function()
     if not inPeak then
       return
@@ -198,11 +226,6 @@ function HordeDirector:StartPeak()
     self:SpawnSpecialUnit()
 
     return RandomInt(4, 7)
-  end)
-  Timers:CreateTimer(PEAK_TIME, function()
-    -- end peak on a timer
-    inPeak = false
-    HordeDirector:EnterNextPhase()
   end)
 end
 

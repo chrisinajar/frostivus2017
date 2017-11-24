@@ -282,7 +282,9 @@ function PhaseThree:IncrementWaypointTriggerIndex()
       self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
       self.Cart.Handle.IsStopped = true
+      HordeDirector:ForcePeak()
       self.tankUnit:OnDeath(function ()
+        HordeDirector:EndPeak()
         self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
         self.Cart.Handle.IsStopped = false
         TankCreepItemDrop:DropItem(self.tankUnit, 3)
@@ -294,10 +296,12 @@ function PhaseThree:IncrementWaypointTriggerIndex()
       self.tankUnit2 = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
       self.Cart.Handle.IsStopped = true
+      HordeDirector:ForcePeak()
 
       self.tankUnit:OnDeath(function ()
         TankCreepItemDrop:DropItem(self.tankUnit, 3)
         if not self.tankUnit2:IsAlive() then
+          HordeDirector:EndPeak()
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil
@@ -308,6 +312,7 @@ function PhaseThree:IncrementWaypointTriggerIndex()
       self.tankUnit2:OnDeath(function ()
         TankCreepItemDrop:DropItem(self.tankUnit2, 3)
         if not self.tankUnit:IsAlive() then
+          HordeDirector:EndPeak()
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil

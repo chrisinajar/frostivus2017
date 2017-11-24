@@ -14,6 +14,15 @@ function Tank:Init(entity)
   self.quake = self.entity:FindAbilityByName("tank_earthquake")
   self.opposingTeam = self.entity:GetOpposingTeamNumber()
   self.phase = 1
+
+  local actName = string.sub(self.entity:GetUnitName(), -4)
+  if actName == "act2" then
+    self.slam:SetLevel(2)
+    self.quake:SetLevel(2)
+  elseif actName == "act3" then
+    self.slam:SetLevel(3)
+    self.quake:SetLevel(3)
+  end
   Timers:CreateTimer(1, function()
     AddFOWViewer(self.opposingTeam,self.entity:GetAbsOrigin(),400.0,1.5,true)
     return self:Think()
@@ -34,7 +43,7 @@ function Tank:Think()
 end
 
 function Tank:Slam()
-  local target = self:NearestEnemyHeroInRange( 1800 )
+  local target = self:NearestEnemyHeroInRange( self.entity:GetBaseDayTimeVisionRange() )
   if target then
     ExecuteOrderFromTable({
     UnitIndex = self.entity:entindex(),
@@ -48,7 +57,7 @@ function Tank:Slam()
 end
 
 function Tank:Quake()
-  local target = self:NearestEnemyHeroInRange( 1800 )
+  local target = self:NearestEnemyHeroInRange( self.entity:GetBaseDayTimeVisionRange() )
   if target then
     ExecuteOrderFromTable({
       UnitIndex = self.entity:entindex(),
