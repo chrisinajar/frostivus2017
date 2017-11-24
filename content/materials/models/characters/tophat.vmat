@@ -4,6 +4,9 @@ Layer0
 {
 	shader "global_lit_simple.vfx"
 
+	//---- 2-Sided Rendering ----
+	F_RENDER_BACKFACES 1
+
 	//---- Specular ----
 	F_SPECULAR 1
 
