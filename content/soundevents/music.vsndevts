@@ -1,0 +1,159 @@
+"music.ambient_1"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Ambient/Icy_Tranquility.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.ambient_2"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Ambient/Summer_is_not_Coming.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.christmas_1"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Christmas/Christmass_Hordes.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.christmas_2"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Christmas/Monster_Presents.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.combat_1"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Combat/Final_Fate.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.horror_1"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Horror/Escape_the_Cold.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.horror_2"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Horror/Win_Just_Survive.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
+
+"music.tank"
+{
+  "operator_stacks"
+  {
+    "update_stack"
+    {
+      "reference_operator"
+      {
+        "operator" "sos_reference_stack"
+        "reference_stack" "src1_2d"
+        "operator_variables"
+        {
+          "vsnd_files"  { "value" { "value0" "sounds/music/Tank/Tank_SFX.vsnd" } }
+          "volume"      { "value"  "2.500000"}
+        }
+      }
+    }
+  }
+}
