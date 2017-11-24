@@ -15,3 +15,4 @@ require('components/xp/index')
 require('components/respawn/index')
 
 require('components/units/index')
+require('components/ping/index')

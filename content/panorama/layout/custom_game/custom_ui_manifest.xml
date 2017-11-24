@@ -82,6 +82,7 @@
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/info.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/quest.xml" />
     <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/comics.xml" />
+    <CustomUIElement type="Hud"                 layoutfile="file://{resources}/layout/custom_game/ping.xml" />
 
 
     <!-- From Overthrow.
