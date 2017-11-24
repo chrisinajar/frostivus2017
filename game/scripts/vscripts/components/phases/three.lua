@@ -72,7 +72,7 @@ function PhaseThree:Start(callback)
     tankCounter = 1,
     tankSpawned = {[5] = false,[14] = false,[18] = false},
     tankDied = {[5] = false,[14] = false,[18] = false},
-    PresentRight = 
+    PresentRight =
     {
       [0] = false,
       [1] = false,
@@ -95,7 +95,7 @@ function PhaseThree:Start(callback)
       [18] = true,
       [19] = false
     },
-    PresentLeft = 
+    PresentLeft =
     {
       [0] = false,
       [1] = false,
@@ -268,52 +268,52 @@ function PhaseThree:IncrementWaypointTriggerIndex()
     self.Waypoints.tankSpawned[self.Waypoints.currentIndex] = true
 
     if self.Waypoints.tankCounter==1 then
-      --self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_first_crossing", self.tankSpawn[self.Waypoints.tankCounter])
+      --self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
       --[[self.Cart.Handle.IsStopped = true
       self.tankUnit:OnDeath(function ()
         self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
         self.Cart.Handle.IsStopped = false
-        TankCreepItemDrop:DropItem(self.tankUnit, 1)
+        TankCreepItemDrop:DropItem(self.tankUnit, 3)
         self.tankUnit = nil
       end)
     ]]
     elseif self.Waypoints.tankCounter==2 then
-      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_second_crossing", self.tankSpawn[self.Waypoints.tankCounter])
+      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
       self.Cart.Handle.IsStopped = true
       self.tankUnit:OnDeath(function ()
         self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
         self.Cart.Handle.IsStopped = false
-        TankCreepItemDrop:DropItem(self.tankUnit, 1)
+        TankCreepItemDrop:DropItem(self.tankUnit, 3)
         self.tankUnit = nil
       end)
-    
+
     elseif self.Waypoints.tankCounter==3 then
-      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_double", self.tankSpawn[self.Waypoints.tankCounter])
-      self.tankUnit2 = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3_double", self.tankSpawn[self.Waypoints.tankCounter])
+      self.tankUnit = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
+      self.tankUnit2 = HordeDirector:ScheduleSpecialUnit("npc_dota_horde_special_4_act3", self.tankSpawn[self.Waypoints.tankCounter])
       self.Waypoints.tankCounter = self.Waypoints.tankCounter + 1
       self.Cart.Handle.IsStopped = true
 
       self.tankUnit:OnDeath(function ()
-        TankCreepItemDrop:DropItem(self.tankUnit, 1)
+        TankCreepItemDrop:DropItem(self.tankUnit, 3)
         if not self.tankUnit2:IsAlive() then
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil
-          self.tankUnit2 = nil          
+          self.tankUnit2 = nil
         end
       end)
 
       self.tankUnit2:OnDeath(function ()
-        TankCreepItemDrop:DropItem(self.tankUnit2, 1)
+        TankCreepItemDrop:DropItem(self.tankUnit2, 3)
         if not self.tankUnit:IsAlive() then
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
           self.tankUnit = nil
           self.tankUnit2 = nil
-        end 
-      end)      
+        end
+      end)
     end
 
   end
