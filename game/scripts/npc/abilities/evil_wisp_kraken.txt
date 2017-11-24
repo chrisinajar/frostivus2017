@@ -1,4 +1,4 @@
-"DOTAAbilities" 
+"DOTAAbilities"
 {
   //=================================================================================================================
   // Ability: Creep Shackles
@@ -9,7 +9,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                 "tidehunter_kraken_shell"
     "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"AbilitySound"				"Hero_Tidehunter.KrakenShell"
+	"AbilitySound"				""
 
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
