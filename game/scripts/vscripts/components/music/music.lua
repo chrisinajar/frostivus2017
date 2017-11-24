@@ -35,7 +35,7 @@ function Music:SetMusic(itemnumber)
   Timers:RemoveTimer(backgroundTimer)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    if CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
+    if not CustomNetTables:GetTableValue('music', 'mute')[playerID] or CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
       StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
       EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
@@ -56,7 +56,7 @@ function Music:PlayBackground(start, stop)
   DebugPrint('Playing' .. itemnumber)
   -- If player is not muted, stop his current song and play new one for him
   PlayerResource:GetAllTeamPlayerIDs():each(function(playerID)
-    if CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
+    if not CustomNetTables:GetTableValue('music', 'mute')[playerID] or CustomNetTables:GetTableValue('music', 'mute')[playerID] == 0 then
       StopSoundOn(Music.currentTrack, PlayerResource:GetPlayer(playerID))
       EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
