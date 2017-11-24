@@ -61,7 +61,9 @@ function Music:PlayBackground(start, stop)
       EmitSoundOnClient(MusicList[itemnumber][2], PlayerResource:GetPlayer(playerID))
     end
   end)
-  Timers:RemoveTimer(backgroundTimer)
+  if backgroundTimer then
+    Timers:RemoveTimer(backgroundTimer)
+  end
   backgroundTimer = Timers:CreateTimer(MusicList[itemnumber][4], function()
     Music:PlayBackground(start, stop)
   end)
