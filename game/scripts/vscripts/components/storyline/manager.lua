@@ -13,22 +13,26 @@ local STORY_STATES = {
   {
     comic = ComicData.act1,
     phase = PhaseOne,
-    name = "repair"
+    name = "repair",
+    music = {1, 2}
   },
   {
-   comic = ComicData.act2,
-   phase = PhaseTwo,
-   name = "forest"
+    comic = ComicData.act2,
+    phase = PhaseTwo,
+    name = "forest",
+    music = {3, 4}
   },
   {
     comic = ComicData.act3,
     phase = PhaseThree,
-    name = "payload"
+    name = "payload",
+    music = {5, 6}
   },
   {
     comic = ComicData.act4,
     phase = BossFight,
-    name = "boss fight"
+    name = "boss fight",
+    music = {7, 7}
   },
   {
     comic = ComicData.victory,
@@ -145,6 +149,9 @@ function StorylineManager:Next()
     end
     if state.phase.Prepare then
       state.phase:Prepare()
+    end
+    if state.music then
+      Music:PlayBackground(unpack(state.music))
     end
   end
   HordeDirector:Pause()

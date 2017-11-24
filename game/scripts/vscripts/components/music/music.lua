@@ -23,7 +23,8 @@ function Music:Init ()
   -- register mute button receiver
   CustomGameEventManager:RegisterListener("music_mute", Dynamic_Wrap(self, "MuteHandler"))
   -- Start first song
-  Music:PlayBackground(1, 7)
+  -- let storyline handle it
+  --Music:PlayBackground(1, 7)
 end
 
 -- Play song command
