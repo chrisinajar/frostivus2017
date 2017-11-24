@@ -1,3 +1,3 @@
 "DOTA_Tooltip_ability_evil_wisp_egg"                       "Frostshift"
-"DOTA_Tooltip_ability_evil_wisp_egg_Description"           "Shifts out of this dimension, deals damage to all enemies in radius. Attacking the remnant brings Evil Wisp back sooner. Failing to destroy the remnant will lead to everyone being stunned, destroying it will lead to Evil Wisp being stunned"
+"DOTA_Tooltip_ability_evil_wisp_egg_Description"           "Shifts out of this dimension, dealing damage to all enemies in radius. Attacking the remnant will bring Evil Wisp back sooner. Failing to destroy the remnant will lead to everyone being stunned, while destroying it will lead to Evil Wisp being stunned"
 "DOTA_Tooltip_ability_evil_wisp_egg_Lore"                  ""
