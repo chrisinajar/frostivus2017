@@ -40,9 +40,11 @@ function evil_wisp_moon_beam:LaunchBeam(position, beamDelay, beamRadius, beamDam
 		ParticleManager:SetParticleControl(impact, 1, Vector(beamRadius,1,1) )
 		ParticleManager:ReleaseParticleIndex(impact)
 
-		local impactTargets = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, beamRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-		for _, impactTarget in ipairs(impactTargets) do
-			ApplyDamage({victim = impactTarget, attacker = caster, ability = self, damage = beamDamage, damage_type = self:GetAbilityDamageType()})
+    if IsServer() then
+  		local impactTargets = FindUnitsInRadius(caster:GetTeamNumber(), position, nil, beamRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+  		for _, impactTarget in ipairs(impactTargets) do
+  			ApplyDamage({victim = impactTarget, attacker = caster, ability = self, damage = beamDamage, damage_type = self:GetAbilityDamageType()})
+      end
 		end
 	end)
 end

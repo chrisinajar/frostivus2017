@@ -1,4 +1,7 @@
-evil_wisp_totems = class({})
+LinkLuaModifier("modifier_evil_wisp_totem_stun", "abilities/evil_wisp/evil_wisp_totems.lua", 0)
+LinkLuaModifier("modifier_evil_wisp_totems_dummy_link", "abilities/evil_wisp/evil_wisp_totems.lua", 0)
+
+evil_wisp_totems = class( AbilityBaseClass )
 
 function evil_wisp_totems:OnSpellStart()
 	local caster = self:GetCaster()
@@ -12,7 +15,7 @@ function evil_wisp_totems:OnSpellStart()
 	local distance = self:GetSpecialValueFor("totem_distance")
 
 	for i = 1, totemCount do
-		self:CreateTotem( caster:GetAbsOrigin() + RandomVector(distance) )	
+		self:CreateTotem( caster:GetAbsOrigin() + RandomVector(distance) )
 	end
 end
 
@@ -20,28 +23,26 @@ function evil_wisp_totems:ClearTotem(totem)
 	if not totem:IsNull() then
 		totem:Destroy()
 	end
-	self.totems[index] = nil
 end
 
 function evil_wisp_totems:CreateTotem(position)
 	local caster = self:GetCaster()
 	local totem = CreateUnitByName("npc_dota_dummy", position, true, nil, nil, caster:GetTeam())
-	
+
 	local hits = self:GetSpecialValueFor("totem_hits")
 	local duration = self:GetSpecialValueFor("duration")
 
 	totem:SetBaseMaxHealth( hits )
 	totem:SetMaxHealth( hits )
 	totem:SetHealth( hits )
-	
+
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, position, self:GetSpecialValueFor("totem_distance"), duration, false)
-	
+
 	local modifier = totem:AddNewModifier(caster, self, "modifier_evil_wisp_totems_dummy_link", {duration = duration})
 	table.insert(self.totems, totem)
 end
 
-modifier_evil_wisp_totems_dummy_link = class({})
-LinkLuaModifier("modifier_evil_wisp_totems_dummy_link", "abilities/evil_wisp/evil_wisp_totems", 0)
+modifier_evil_wisp_totems_dummy_link = class( ModifierBaseClass )
 
 if IsServer() then
 	function modifier_evil_wisp_totems_dummy_link:OnCreated()
@@ -54,7 +55,7 @@ if IsServer() then
 		ParticleManager:SetParticleControlEnt(FX, 1, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
 		self:AddParticle(FX, false, false, 0, false, false)
 	end
-	
+
 	function modifier_evil_wisp_totems_dummy_link:OnIntervalThink()
 		local caster = self:GetCaster()
 		local totem = self:GetParent()
@@ -102,9 +103,7 @@ function modifier_evil_wisp_totems_dummy_link:GetEffectName()
 	return "particles/units/heroes/hero_undying/undying_tombstone_ambient.vpcf"
 end
 
-
 modifier_evil_wisp_totem_stun = class(ModifierBaseClass)
-LinkLuaModifier("modifier_evil_wisp_totem_stun", "abilities/evil_wisp/evil_wisp_totems.lua", 0)
 
 function modifier_evil_wisp_totem_stun:GetEffectName()
 	return "particles/generic_gameplay/generic_stunned.vpcf"
