@@ -1,34 +1,6 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Pull Staff 2
-  //=================================================================================================================
-  "item_recipe_pull_staff_2"
-  {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "ID"                                                  "3748" // unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-    "BaseClass"                                           "item_datadriven"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"                                  "custom/recipe/recipe_3"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                                            "3500"
-    "ItemShopTags"                                        ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_pull_staff_2"
-    "ItemRequirements"
-    {
-      "01"                                                "item_pull_staff;item_upgrade_core_2"
-      "02"                                                "item_pull_staff;item_upgrade_core_3"
-      "03"                                                "item_pull_staff;item_upgrade_core_4"
-    }
-  }
-  //=================================================================================================================
   // Pull Staff 2
   //=================================================================================================================
   // Author: Chronophylos

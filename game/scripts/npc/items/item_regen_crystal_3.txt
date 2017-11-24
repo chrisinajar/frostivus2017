@@ -1,27 +1,6 @@
 "DOTAItems"
 {
   //=================================================================================================================
-  // Recipe: Regeneration Crystal 3
-  //=================================================================================================================
-  "item_recipe_regen_crystal_3"
-  {
-    "ID"                                                  "3839"        // unique ID
-    "BaseClass"                                           "item_datadriven"
-    "AbilityTextureName"                                  "item_recipe"
-    "Model"                                               "models/props_gameplay/recipe.mdl"
-    "FightRecapLevel"                                     "1"
-    "ItemCost"                                            "20000"
-    "ItemShopTags"                                        ""
-    "ItemRecipe"                                          "1"
-    "ItemResult"                                          "item_regen_crystal_3"
-    "ItemRequirements"
-    {
-      "01"                                                "item_postactive_2b;item_upgrade_core_4"
-      "02"                                                "item_postactive_2a;item_upgrade_core_4"
-    }
-  }
-
-  //=================================================================================================================
   // Regeneration Crystal 3
   //=================================================================================================================
   "item_regen_crystal_3"
@@ -45,6 +24,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityManaCost"                                     "100"
     "ItemCost"                                            "25000"
+    "ItemPurchasable"         "0"
     "ItemShopTags"                                        "agi;str;int;attack_speed;move_speed;hard_to_tag"
     "ItemQuality"                                         "epic"
     "ItemAliases"                                         "reflex;postactive_3c"
