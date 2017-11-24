@@ -12,4 +12,5 @@ function ToggleBossBar (data) {
 
 function UpdateBossBar (data) {
   $("#BossProgressBar").value = data.bossHP / data.bossMaxHP;
+  $("#BossHPLabel").text = data.bossHP + "/" + data.bossMaxHP;
 }

@@ -12,6 +12,7 @@
       <Panel id="BossBarContainer" hittest="false">
         <DOTAHeroImage id="BossIcon" heroname="npc_dota_hero_wisp" heroimagestyle="icon" hittest="false"/>
         <ProgressBar hittest="false" id="BossProgressBar" value="1.0"/>
+        <Label id="BossHPLabel" class="BossLabelSmall" hittest="false" text="OVER 9000" />
       </Panel>
     </Panel>
   </Panel>

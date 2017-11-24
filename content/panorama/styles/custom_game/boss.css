@@ -30,6 +30,13 @@
   font-size: 16px;
 }
 
+#BossHPLabel
+{
+  vertical-align: center;
+  horizontal-align: right;
+  margin-right: 4px;
+}
+
 .BossLabelSmall
 {
   color: white;
