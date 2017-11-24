@@ -1,0 +1,33 @@
+"DOTAItems"
+{
+  //=================================================================================================================
+  // Act 2 Present
+  //=================================================================================================================
+  	"item_part_retrieval"
+	{
+		"ID" "2645"
+		"BaseClass" "item_lua"
+		"ScriptFile"                       "items/item_part_retrieval.lua"
+		"ItemCost"			"0"
+		"ItemKillable"		"0"
+		"ItemSellable"		"0"
+		"ItemPurchasable"	"0"
+		"ItemDroppable"		"1"
+		"ItemStackable"		"0"
+		"ItemShareability"	"ITEM_FULLY_SHAREABLE"
+		"AbilityTextureName" "item_mekansm"
+		"ItemInitialCharges" "1"
+		"ItemPermanent" "0"
+		"AllowedInBackpack"		"0"
+
+		"Model"			"models/items/rattletrap/mechanised_pilgrim_cog/mechanised_pilgrim_cog.vmdl"
+		"Effect" 		"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemQuality"	"artifact"
+
+		"AbilityCastRange" "400"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+	}
+}

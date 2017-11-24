@@ -12,7 +12,7 @@ function modifier_not_of_this_world:CheckState()
   return {
     [MODIFIER_STATE_INVISIBLE] = true,
     [MODIFIER_STATE_INVULNERABLE] = true,
-    [MODIFIER_STATE_UNSELECTABLE] = true,
+    --[MODIFIER_STATE_UNSELECTABLE] = true,
     [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
     [MODIFIER_STATE_NO_HEALTH_BAR] = true,
     [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
@@ -25,7 +25,7 @@ function modifier_not_of_this_world:OnCreated()
 end
 
 function modifier_not_of_this_world:IsHidden()
-  return false
+  return true
 end
 
 function modifier_not_of_this_world:IsPurgeable()
