@@ -63,7 +63,7 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "800"   // Range of vision during day light.
+    "VisionDaytimeRange"        "1200"   // Range of vision during day light.
     "VisionNighttimeRange"      "800"   // Range of vision at night time.
 
     // Team
@@ -138,8 +138,8 @@
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "800"   // Range of vision during day light.
-    "VisionNighttimeRange"      "800"   // Range of vision at night time.
+    "VisionDaytimeRange"        "700"   // Range of vision during day light.
+    "VisionNighttimeRange"      "700"   // Range of vision at night time.
 
     // Team
     //----------------------------------------------------------------
@@ -177,8 +177,8 @@
         // Attack
     //----------------------------------------------------------------
     "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"           "600"    // Damage range min.
-    "AttackDamageMax"           "800"    // Damage range max.
+    "AttackDamageMin"           "2000"    // Damage range min.
+    "AttackDamageMax"           "2200"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
     "AttackAnimationPoint"      "0.4"   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "500"   // Range within a target can be acquired.
@@ -204,14 +204,14 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "15000"   // Base health.
+    "StatusHealth"              "70000"   // Base health.
     "StatusHealthRegen"         "25"   // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
 
     // Vision
     //----------------------------------------------------------------
-    "VisionDaytimeRange"        "800"   // Range of vision during day light.
+    "VisionDaytimeRange"        "1000"   // Range of vision during day light.
     "VisionNighttimeRange"      "800"   // Range of vision at night time.
 
     // Team
