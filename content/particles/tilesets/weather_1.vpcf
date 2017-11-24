@@ -20,6 +20,7 @@
 			m_hTexture = resource:"materials/particle/smoke3/smoke3b.vtex"
 			m_flAnimationRate2 = -0.042475
 			m_flAnimationRate = -0.1
+			m_nOrientationType = 2
 		},
 	]
 	m_Operators = 
@@ -76,8 +77,8 @@
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMax = 54
-			m_nAlphaMin = 36
+			m_nAlphaMax = 20
+			m_nAlphaMin = 10
 		},
 		{
 			_class = "C_INIT_CreateWithinSphere"
