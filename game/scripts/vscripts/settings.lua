@@ -24,6 +24,7 @@ MAX_HELPERS = 5
 
 -- act 2
 SLED_MOVE_SPEED = 60
+NUMBER_PRESENTS_REQUIRED = 40
 NUMBER_PRESENTS_SPAWNED = 70 -- presents scattered around
 NUMBER_PRESENTS_PER_GROUP = 6 -- Number of presents to drop per camp
 NUMBER_GROUPS_OF_PRESENTS = 9 -- Number of creep camps to create
