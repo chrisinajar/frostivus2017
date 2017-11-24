@@ -298,26 +298,24 @@ function PhaseThree:IncrementWaypointTriggerIndex()
       self.Cart.Handle.IsStopped = true
       HordeDirector:ForcePeak()
 
-      self.tankUnit:OnDeath(function ()
-        TankCreepItemDrop:DropItem(self.tankUnit, 3)
-        if not self.tankUnit2:IsAlive() then
+      local function endFight ()
+        if not self.tankUnit2 and not self.tankUnit then
           HordeDirector:EndPeak()
           self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
           self.Cart.Handle.IsStopped = false
-          self.tankUnit = nil
-          self.tankUnit2 = nil
         end
+      end
+
+      self.tankUnit:OnDeath(function ()
+        TankCreepItemDrop:DropItem(self.tankUnit, 3)
+        self.tankUnit = nil
+        endFight()
       end)
 
       self.tankUnit2:OnDeath(function ()
         TankCreepItemDrop:DropItem(self.tankUnit2, 3)
-        if not self.tankUnit:IsAlive() then
-          HordeDirector:EndPeak()
-          self.Waypoints.tankDied[self.Waypoints.currentIndex] = true
-          self.Cart.Handle.IsStopped = false
-          self.tankUnit = nil
-          self.tankUnit2 = nil
-        end
+        self.tankUnit2 = nil
+        endFight()
       end)
     end
 

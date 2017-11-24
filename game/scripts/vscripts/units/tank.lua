@@ -86,4 +86,3 @@ function Tank:NearestEnemyHeroInRange( range )
   end
   return target
 end
-
