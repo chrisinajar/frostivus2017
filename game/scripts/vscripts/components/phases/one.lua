@@ -190,11 +190,13 @@ function PhaseOne:RepairInterval()
 
     CreateItemOnPositionSync(partPos, newItem)
     newItem:LaunchLoot(false, 100, 0.35, partPos + RandomVector(RandomFloat(20, 50)))
-    --Ping:SendPing(partPos)
+    
     self.part1Timer = Timers:CreateTimer(function()
-      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,1.5,true)
-      return 1.0
+      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,16,true)
+      --Ping:SendPing(partPos)
+      return 15.0
     end)
+
   end
 
   if not self.hasRetrievedItemTwo and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_TWO_RETRIEVAL_PERCENT / 100) then
@@ -216,12 +218,14 @@ function PhaseOne:RepairInterval()
     end
     newItem:SetPurchaseTime(0)
     newItem.firstPickedUp = false
-    --Ping:SendPing(partPos)
+    
     CreateItemOnPositionSync(partPos, newItem)
     self.part2Timer = Timers:CreateTimer(function()
-      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,1.5,true)
-      return 1.0
+      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,16,true)
+      --Ping:SendPing(partPos)
+      return 15.0
     end)
+    
     --newItem:LaunchLoot(false, 300, 0.75, partPos + RandomVector(RandomFloat(100, 150)))
   end
 
