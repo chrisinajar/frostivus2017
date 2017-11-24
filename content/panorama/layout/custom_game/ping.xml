@@ -1,0 +1,11 @@
+<root>
+  <scripts>
+    <include src="file://{resources}/scripts/custom_game/ping.js" />
+  </scripts>
+  <styles>
+  </styles>
+  <script>
+  </script>
+  <Panel class="EmptyPingHolder" hittest="false">
+  </Panel>
+</root>

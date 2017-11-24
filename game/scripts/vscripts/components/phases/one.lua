@@ -128,7 +128,7 @@ function PhaseOne:PartTurnedIn()
       self.hasRetrievedItemTwo = true
       self.isRetrievingItemTwo = false
       Timers:RemoveTimer(self.part2Timer)
-    end 
+    end
   end
 end
 
@@ -160,7 +160,7 @@ function PhaseOne:RepairInterval()
   if not self.hasRetrievedItemOne and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_ONE_RETRIEVAL_PERCENT / 100) then
     self.isRetrievingItemOne = true
     Notifications:TopToAll({text="Repairs Halted: There is another missing part, go look it", duration=10.0})
-    
+
 
     local trigName = "trigger_act_1_part_spawn_"..tostring(RandomInt(1, 3))
     print(trigName)
@@ -185,7 +185,7 @@ function PhaseOne:RepairInterval()
       AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,1.5,true)
       return 1.0
     end)
-    
+
 
   end
   if not self.hasRetrievedItemTwo and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_TWO_RETRIEVAL_PERCENT / 100) then
