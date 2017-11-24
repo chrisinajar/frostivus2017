@@ -44,6 +44,16 @@ function BossFight:Start(callback)
 
   spawnPoint = spawnPoint[1]:GetAbsOrigin()
 
+  CustomGameEventManager:Send_ServerToAllClients("toggle_boss_bar", {
+    showBossBar = true
+  })
   self.boss = CreateUnitByName("npc_dota_evil_wisp", spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  Timers:CreateTimer(function()
+    CustomGameEventManager:Send_ServerToAllClients("update_boss_bar", {
+      bossHP = self.boss:GetHealth(),
+      bossMaxHP = self.boss:GetMaxHealth()
+    })
+    return .1
+  end)
   self.boss:OnDeath(FinishedEvent.broadcast)
 end
