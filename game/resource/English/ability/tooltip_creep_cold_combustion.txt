@@ -1,5 +1,5 @@
 "DOTA_Tooltip_ability_creep_cold_combustion"                            "Cold Combustion"
 "DOTA_Tooltip_ability_creep_cold_combustion_Description"                "Upon death, all nearby enemies take damage and are afflicted with <font color='#DDEEFF'>Felfrost<font>.\n\n<font color='#DDEEFF'>Felfrost</font> slows, reduces armor, and attracts the horde to the victim."
-"DOTA_Tooltip_ability_creep_cold_combustion_Lore"                       "Volatile inner chymistry can cause a spectacular end more akin to a blizzard than a firework."
+"DOTA_Tooltip_ability_creep_cold_combustion_Lore"                       "Volatile inner chemistry can cause a spectacular end more akin to a blizzard than a firework."
 "DOTA_Tooltip_ability_creep_cold_combustion_damage"                     "DAMAGE:"
 "DOTA_Tooltip_ability_creep_cold_combustion_radius"                     "RADIUS:"
