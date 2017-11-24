@@ -88,9 +88,9 @@ local ItemPowerTable = {
   { "item_stoneskin_2",         2,      2,      1},
   { "item_stoneskin_3",         3,      3,      1},
 
-  { "item_wand_of_brine",       1,      1,      1},
-  { "item_wand_of_brine_2",     2,      2,      1},
-  { "item_wand_of_brine_3",     3,      3,      1},
+  { "item_wand_of_the_brine",       1,      1,      1},
+  { "item_wand_of_the_brine_2",     2,      2,      1},
+  { "item_wand_of_the_brine_3",     3,      3,      1},
 
   { "item_watchers_gaze",       1,      1,      1},
   { "item_watchers_gaze_2",     2,      2,      1},
