@@ -1,0 +1,86 @@
+
+.BossBarRoot
+{
+  width: 100%;
+  height: 100%;
+}
+
+#BossBar
+{
+  width: 500px;
+  height: 80px;
+  vertical-align: middle;
+  horizontal-align: center;
+  margin-bottom: 907px;
+  visibility: collapse;
+  background-image: url("s2r://panorama/images/hud/reborn/bg_scoreboard_psd.vtex");
+}
+
+#BossBar.Visible
+{
+  visibility: visible;
+}
+
+#BossLabel
+{
+  horizontal-align: center;
+  text-align: center;
+  margin-top: 12px;
+  text-shadow: 1px 1px 2px 3.0 #000000;
+  font-size: 16px;
+}
+
+.BossLabelSmall
+{
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px 2.0 #00000011;
+
+  font-family: Radiance,FZKai-Z03,TH Sarabun New,YDYGO 540;
+  font-size: 14px;
+  letter-spacing: 2px;
+  // text-overflow: clip;
+  margin-bottom: -3px;
+}
+
+#BossProgressBar
+{
+  width: 90%;
+  height: 24px;
+  border-radius: 4px;
+  border: 3px solid #444;
+  background-color: black;
+  vertical-align: middle;
+  horizontal-align: right;
+  box-shadow: fill #000 -3px -3px 6px 6px;
+}
+
+#BossProgressBar_Left
+{
+  /*background-color: gradient( linear, 0% 0%, 0% 100%, from( #326114 ), color-stop( 0.3, #54BA07 ), color-stop( .5, #54BA07 ), to( #326114 ) );*/
+  background-color: gradient( linear, 0% 0%, 0% 100%, from( #320000 ), color-stop( 0.3, #ff4A07 ), color-stop( .5, #ff4A07 ), to( #320000 ) );
+  box-shadow: inset #000 1px 1px 3px 3px;
+  border-radius: 2px;
+}
+
+#BossProgressBar_Right
+{
+  background-color: gradient( linear, 0% 0%, 100% 0%, from( #222222FF ), to( black ) );
+}
+
+#BossBarContainer
+{
+  vertical-align: bottom;
+  height: 40px;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-right: 9px;
+  margin-left: 5px;
+}
+
+#BossIcon
+{
+  height: 48px;
+  width: 48px;
+}
