@@ -36,7 +36,7 @@
 
     // Attack
     //----------------------------------------------------------------
-    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
     "AttackDamageMin"           "30"    // Damage range min.
     "AttackDamageMax"           "40"    // Damage range max.
     "AttackRate"                "1.5"   // Speed of attack.
@@ -57,7 +57,7 @@
     // Bounds
     //----------------------------------------------------------------
     "RingRadius"                "35"
-    "HealthBarOffset"           "175"
+    "HealthBarOffset"           "450"
 
     // Bounty
     //----------------------------------------------------------------
