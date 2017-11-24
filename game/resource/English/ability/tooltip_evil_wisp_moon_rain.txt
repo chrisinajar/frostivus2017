@@ -1,3 +1,3 @@
 "DOTA_Tooltip_ability_evil_wisp_moon_rain"                     "Beam Array"
-"DOTA_Tooltip_ability_evil_wisp_moon_rain_Description"         "Shoots multiple beams that damages anyone they touch"
+"DOTA_Tooltip_ability_evil_wisp_moon_rain_Description"         "Shoots multiple beams that damage anyone they touch"
 "DOTA_Tooltip_ability_evil_wisp_moon_rain_Lore"                "If at first you don't succeed, strike, strike again."
