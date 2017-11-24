@@ -74,6 +74,12 @@ function PhaseOne:Start(callback)
   end)
   self.running = true
   self.repairRemaining = REPAIR_UNITS_REQUIRED
+  self.examplePartCreated = false
+  self.exampleTurnedIn = false
+  self.hasRetrievedItemOne = false
+  self.hasRetrievedItemTwo = false
+  self.isRetrievingItemOne = false
+  self.isRetrievingItemTwo = false
   -- phase one uses the director
   HordeDirector:Resume()
 
@@ -110,14 +116,107 @@ function PhaseOne:Start(callback)
 
 end
 
+function PhaseOne:PartTurnedIn()
+  if not self.exampleTurnedIn then
+    self.exampleTurnedIn = true
+  else
+    if self.isRetrievingItemOne and not self.hasRetrievedItemOne then
+      self.hasRetrievedItemOne = true
+      self.isRetrievingItemOne = false
+      Timers:RemoveTimer(self.part1Timer)
+    elseif self.isRetrievingItemTwo and not self.hasRetrievedItemTwo then
+      self.hasRetrievedItemTwo = true
+      self.isRetrievingItemTwo = false
+      Timers:RemoveTimer(self.part2Timer)
+    end 
+  end
+end
+
+
 function PhaseOne:RepairInterval()
   if self.isFightingTank then
+    return
+  end
+  if self.isRetrievingItemOne or self.isRetrievingItemTwo then
     return
   end
   if self.repairRemaining == 1 then
     FinishedEvent.broadcast({})
     return
   end
+  if not self.examplePartCreated and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - (ITEM_ONE_RETRIEVAL_PERCENT-10) / 100) then
+    local sleightrig = Entities:FindAllByName("trigger_act_1_santa")
+    local partExamplePos = sleightrig[1]:GetAbsOrigin()
+    local examplePart = CreateItem("item_part_retrieval", nil, nil)
+    examplePart:SetPurchaseTime(0)
+    examplePart.firstPickedUp = false
+    CreateItemOnPositionSync(partExamplePos, examplePart)
+    examplePart:LaunchLoot(false, 300, 0.75, partExamplePos + RandomVector(RandomFloat(200, 250)))
+    self.examplePartCreated = true
+    Notifications:TopToAll({text="A part popped loose! Return it to the sleigh.", duration=10.0})
+  end
+
+
+  if not self.hasRetrievedItemOne and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_ONE_RETRIEVAL_PERCENT / 100) then
+    self.isRetrievingItemOne = true
+    Notifications:TopToAll({text="Repairs Halted: There is another missing part, go look it", duration=10.0})
+    
+
+    local trigName = "trigger_act_1_part_spawn_"..tostring(RandomInt(1, 3))
+    print(trigName)
+    local partSpawnPoint = Entities:FindAllByName(trigName)
+    if #partSpawnPoint < 1 then
+      error("Failed to find act one part spawn point")
+    end
+    local partPos = partSpawnPoint[1]:GetAbsOrigin()
+
+    local newItem = CreateItem("item_part_retrieval", nil, nil)
+
+    if not newItem then
+    DebugPrint('Failed to find item: ' .. "item_part_retrieval")
+    return
+    end
+    newItem:SetPurchaseTime(0)
+    newItem.firstPickedUp = false
+
+    CreateItemOnPositionSync(partPos, newItem)
+    newItem:LaunchLoot(false, 100, 0.35, partPos + RandomVector(RandomFloat(20, 50)))
+    self.part1Timer = Timers:CreateTimer(function()
+      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,1.5,true)
+      return 1.0
+    end)
+    
+
+  end
+  if not self.hasRetrievedItemTwo and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - ITEM_TWO_RETRIEVAL_PERCENT / 100) then
+    self.isRetrievingItemTwo = true
+    Notifications:TopToAll({text="Repairs Halted: Go look for the last missing part", duration=10.0})
+    local trigName = "trigger_act_1_part_spawn_"..tostring(RandomInt(1, 3))
+    print(trigName)
+    local partSpawnPoint = Entities:FindAllByName(trigName)
+    if #partSpawnPoint < 1 then
+      error("Failed to find act one part spawn point")
+    end
+    local partPos = partSpawnPoint[1]:GetAbsOrigin()
+
+    local newItem = CreateItem("item_part_retrieval", nil, nil)
+
+    if not newItem then
+    DebugPrint('Failed to find item: ' .. "item_part_retrieval")
+    return
+    end
+    newItem:SetPurchaseTime(0)
+    newItem.firstPickedUp = false
+
+    CreateItemOnPositionSync(partPos, newItem)
+    self.part2Timer = Timers:CreateTimer(function()
+      AddFOWViewer(self.santa_sleigh:GetTeamNumber(),partPos,400.0,1.5,true)
+      return 1.0
+    end)
+    --newItem:LaunchLoot(false, 300, 0.75, partPos + RandomVector(RandomFloat(100, 150)))
+  end
+
+
   if not self.hasKilledTank and self.repairRemaining <= REPAIR_UNITS_REQUIRED * (1 - TANK_PERCENT_SPAWN / 100) then
     HordeDirector:Pause()
     self.isFightingTank = true
