@@ -47,7 +47,7 @@ function BossFight:Start(callback)
   CustomGameEventManager:Send_ServerToAllClients("toggle_boss_bar", {
     showBossBar = true
   })
-  self.boss = CreateUnitByName("npc_dota_evil_wisp", spawnPoint, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  self.boss = CreateUnitByName("npc_dota_evil_wisp", spawnPoint, true, nil, nil, DOTA_TEAM_BADGUYS)
   Timers:CreateTimer(function()
     CustomGameEventManager:Send_ServerToAllClients("update_boss_bar", {
       bossHP = self.boss:GetHealth(),
