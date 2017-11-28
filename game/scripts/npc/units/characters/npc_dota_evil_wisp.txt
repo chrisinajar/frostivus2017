@@ -72,8 +72,8 @@
 
     // Status
     //----------------------------------------------------------------
-    "StatusHealth"              "300000"   // Base health.
-    "StatusHealthRegen"         "25"   // Health regeneration rate.
+    "StatusHealth"              "300000"   // Base health.
+    "StatusHealthRegen"         "25"    // Health regeneration rate.
     "StatusMana"                "0"     // Base mana.
     "StatusManaRegen"           "1.0"   // Mana regeneration rate.
 
@@ -84,7 +84,7 @@
 
     // Team
     //----------------------------------------------------------------
-    "TeamName"                  "DOTA_TEAM_NEUTRALS"              // Team name
+    "TeamName"                  "DOTA_TEAM_BADGUYS"              // Team name
     "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_HERO"
     "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_HERO"
     "UnitRelationshipClass"     "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
